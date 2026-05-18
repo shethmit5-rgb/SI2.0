@@ -119,7 +119,7 @@ router.post("/:teamId/apply", auth, async (req, res) => {
     if (!team) return res.status(404).json({ message: "Team not found" });
 
     const alreadyApplied = team.players.some(
-      (p) => p.userId.toString() === req.user.userId
+      (p) => p.userId && p.userId.toString() === req.user.userId
     );
 
     if (alreadyApplied) {
@@ -135,6 +135,7 @@ router.post("/:teamId/apply", auth, async (req, res) => {
 
     // 🔔 GET PLAYER NAME
     const player = await User.findById(req.user.userId);
+    if (!player) return res.status(404).json({ message: "Player not found" });
 
     // 🔔 SAVE NOTIFICATION
     const notification = await Notification.create({
@@ -147,11 +148,11 @@ router.post("/:teamId/apply", auth, async (req, res) => {
 
     // 🔥 SOCKET SEND
     const io = req.app.get("io");
-    const users = req.app.get("users");
+    const users = req.app.get("users") || {};
 
-    const captainSocket = users[team.captainId.toString()];
+    const captainSocket = team.captainId ? users[team.captainId.toString()] : null;
 
-    if (captainSocket) {
+    if (io && captainSocket) {
       io.to(captainSocket).emit("new_notification", {
         _id: notification._id,
         message: notification.message,
@@ -184,13 +185,13 @@ router.put("/:teamId/approve", auth, async (req, res) => {
     }
 
     // ✅ CRITICAL FIX: Only captain can approve/reject
-    if (team.captainId._id.toString() !== req.user.userId) {
+    if (!team.captainId || team.captainId._id.toString() !== req.user.userId) {
       return res.status(403).json({ 
         message: "Access denied. Only team captain can approve players." 
       });
     }
 
-    const player = team.players.find(p => p.userId.toString() === userId);
+    const player = team.players.find(p => p.userId && p.userId.toString() === userId);
     if (!player) {
       return res.status(404).json({ message: "Player not found in team" });
     }
@@ -206,8 +207,8 @@ router.put("/:teamId/approve", auth, async (req, res) => {
     const notification = await Notification.create({
       userId: userId,
       message: action === "approved" 
-        ? `✅ Your request to join "${team.teamName}" has been APPROVED by captain ${team.captainId.name}!`
-        : `❌ Your request to join "${team.teamName}" has been REJECTED by captain ${team.captainId.name}.`,
+        ? `✅ Your request to join "${team.teamName}" has been APPROVED by captain ${team.captainId?.name || "the Captain"}!`
+        : `❌ Your request to join "${team.teamName}" has been REJECTED by captain ${team.captainId?.name || "the Captain"}.`,
       type: action === "approved" ? "player_approved" : "player_rejected",
       relatedId: team._id,
       isRead: false
@@ -215,7 +216,7 @@ router.put("/:teamId/approve", auth, async (req, res) => {
 
     // Socket notification
     const io = req.app.get("io");
-    const users = req.app.get("users");
+    const users = req.app.get("users") || {};
     const playerSocket = users[userId];
     if (playerSocket && io) {
       io.to(playerSocket).emit("new_notification", {

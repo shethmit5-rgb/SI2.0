@@ -90,8 +90,9 @@ export default function MyTeamDashboard() {
     }
   };
 
-  const teamsAsCaptain = myTeams.filter((t) => t.captainId?._id === user?._id);
-  const teamsAsPlayer = myTeams.filter((t) => t.captainId?._id !== user?._id);
+  const currentUserId = user?._id || user?.id;
+  const teamsAsCaptain = myTeams.filter((t) => t.captainId?._id === currentUserId);
+  const teamsAsPlayer = myTeams; // Include all teams in "Teams I'm In" since captain is also a player
 
   if (loading) {
     return (
@@ -147,7 +148,8 @@ export default function MyTeamDashboard() {
               const approvedPlayers = team.players?.filter((p) => p.status === "approved");
               const rejectedPlayers = team.players?.filter((p) => p.status === "rejected");
               const maxPlayers = team.sportId?.playersPerTeam || 11;
-              const progressPercent = ((approvedPlayers?.length || 0) / maxPlayers) * 100;
+              const totalCurrentPlayers = approvedPlayers?.length || 0;
+              const progressPercent = (totalCurrentPlayers / maxPlayers) * 100;
 
               return (
                 <div key={team._id} className="team-card captain-card">
@@ -157,7 +159,7 @@ export default function MyTeamDashboard() {
                       <span className="team-tournament-name">{team.tournamentId?.eventName}</span>
                     </div>
                     <span className="team-status-badge">
-                      {approvedPlayers?.length || 0}/{maxPlayers} Players
+                      {totalCurrentPlayers}/{maxPlayers} Players
                     </span>
                   </div>
 
@@ -259,11 +261,14 @@ export default function MyTeamDashboard() {
         <div className="player-view">
           {teamsAsPlayer.length > 0 ? (
             teamsAsPlayer.map((team) => {
-              const playerData = team.players?.find((p) => p.userId?._id === user?._id);
-              const playerStatus = playerData?.status;
+              const isCaptain = team.captainId?._id === currentUserId;
+              const playerData = team.players?.find((p) => p.userId?._id === currentUserId);
+              const playerStatus = isCaptain ? "captain" : playerData?.status;
               
               const getStatusInfo = () => {
                 switch(playerStatus) {
+                  case "captain":
+                    return { icon: "👑", text: "Captain", color: "#4f46e5", bg: "#e0e7ff" };
                   case "approved": 
                     return { icon: "✅", text: "Approved", color: "#10b981", bg: "#dcfce7" };
                   case "pending": 
@@ -298,6 +303,12 @@ export default function MyTeamDashboard() {
                     </p>
                   </div>
 
+                  {playerStatus === "captain" && (
+                    <div className="approved-warning" style={{ backgroundColor: "#e0e7ff", color: "#4f46e5", border: "1px solid #c7d2fe" }}>
+                      👑 You are the captain of this team!
+                    </div>
+                  )}
+
                   {playerStatus === "pending" && (
                     <div className="pending-warning">
                       ⏳ Your request is pending approval from the team captain
@@ -320,6 +331,11 @@ export default function MyTeamDashboard() {
                     <Link to={`/team/${team._id}`} className="view-btn">
                       View Team Details →
                     </Link>
+                    {playerStatus === "captain" && (
+                      <Link to={`/team/${team._id}`} className="leave-btn" style={{ backgroundColor: "#4f46e5", color: "white", textDecoration: "none", textAlign: "center" }}>
+                        Manage Team
+                      </Link>
+                    )}
                     {playerStatus === "pending" && (
                       <button 
                         onClick={() => handleLeaveTeam(team._id, team.teamName)}

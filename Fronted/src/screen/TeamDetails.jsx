@@ -13,6 +13,7 @@ export default function TeamDetails() {
   const [players, setPlayers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [applied, setApplied] = useState(false);
+  const [playerStatus, setPlayerStatus] = useState(null);
   const [isCaptain, setIsCaptain] = useState(false);
   const [actionLoading, setActionLoading] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -29,8 +30,9 @@ export default function TeamDetails() {
       
       if (user) {
         setIsCaptain(res.data.captainId?._id === user._id);
-        const hasApplied = res.data.players?.some(p => p.userId?._id === user._id);
-        setApplied(hasApplied);
+        const playerRecord = res.data.players?.find(p => p.userId?._id === user._id);
+        setApplied(!!playerRecord);
+        setPlayerStatus(playerRecord ? playerRecord.status : null);
       }
     } catch (err) {
       console.error("Failed to fetch team", err);
@@ -75,6 +77,21 @@ export default function TeamDetails() {
     navigator.clipboard.writeText(link);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleLeaveTeam = async () => {
+    if (!window.confirm(`Are you sure you want to leave this team?`)) return;
+    
+    setActionLoading(true);
+    try {
+      await api.delete(`/teams/${id}/leave`);
+      alert(`✅ You have left the team`);
+      fetchTeamDetails();
+    } catch (err) {
+      alert(err.response?.data?.message || "Failed to leave team");
+    } finally {
+      setActionLoading(false);
+    }
   };
 
   if (loading) return <div className="loading-spinner">Loading team details...</div>;
@@ -134,10 +151,27 @@ export default function TeamDetails() {
               {actionLoading ? "Sending..." : "🎯 Apply to Join Team"}
             </button>
           )}
-          {applied && (
+          {!isCaptain && playerStatus === "pending" && (
             <div className="applied-badge">
               <span className="badge-pending">⏳ Application Pending</span>
               <p>Waiting for captain's approval</p>
+            </div>
+          )}
+          {!isCaptain && playerStatus === "approved" && (
+            <div className="applied-badge" style={{ backgroundColor: '#dcfce7', border: '1px solid #bbf7d0' }}>
+              <span className="badge-approved" style={{ color: '#16a34a', fontWeight: 'bold' }}>✅ You are a member of this team</span>
+              <button 
+                onClick={handleLeaveTeam} 
+                className="leave-team-btn" 
+                disabled={actionLoading} 
+                style={{ display: 'block', marginTop: '10px', background: '#ef4444', color: 'white', border: 'none', padding: '8px 16px', borderRadius: '6px', cursor: 'pointer', fontWeight: '500' }}>
+                Leave Team
+              </button>
+            </div>
+          )}
+          {!isCaptain && playerStatus === "rejected" && (
+            <div className="applied-badge" style={{ backgroundColor: '#fee2e2', border: '1px solid #fecaca' }}>
+              <span className="badge-rejected" style={{ color: '#dc2626', fontWeight: 'bold' }}>❌ Application Rejected</span>
             </div>
           )}
           {isCaptain && (

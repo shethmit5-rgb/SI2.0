@@ -38,7 +38,7 @@
 }
 
 .sport-badge {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .status-badge {
@@ -99,7 +99,7 @@
   padding: 20px;
   border-radius: 12px;
   text-align: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   transition: 0.3s;
 }
 
@@ -206,4 +206,25 @@
 .hero-sub {
   opacity: 0.9;
   margin-bottom: 20px;
+}
+
+/* TOURNAMENT LOGO */
+.tournament-logo {
+  margin: 0 auto 20px auto;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 6px solid #e5e7eb;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tournament-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

@@ -78,7 +78,7 @@ app.use("/api/registrations", require("./routes/registrationRouter"));
 app.use("/api/venues", require("./routes/venueRouter"));
 app.use("/api/sponsors", require("./routes/sponsorRouter"));
 app.use("/api/cog", require("./routes/cogRouter"));
-// app.use("/api/notifications", require("./routes/notificationRouter"));
+app.use("/api/notifications", require("./routes/notificationRouter"));
 
 // Analytics Routes - Real-time dashboard stats
 app.use("/api/analytics", require("./routes/analyticsRouter"));
