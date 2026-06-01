@@ -16,6 +16,14 @@ router.post("/", auth, async (req, res) => {
   try {
     const { teamName, tournamentId, sportId, captainId } = req.body;
 
+    if (req.user.role === "organizer") {
+      return res.status(403).json({ message: "Organizers are not permitted to perform this action." });
+    }
+
+    if (req.user.role !== "coach" && req.user.role !== "admin") {
+      return res.status(403).json({ message: "Only coaches can create teams." });
+    }
+
     if (!teamName || !tournamentId || !sportId) {
       return res.status(400).json({ message: "Missing required fields" });
     }
@@ -51,7 +59,7 @@ router.post("/", auth, async (req, res) => {
 
     if (existingTeam) {
       return res.status(400).json({
-        message: "You already have a team in this tournament",
+        message: "You have already created a team for this tournament.",
       });
     }
 
@@ -114,9 +122,27 @@ router.get("/tournament/:tournamentId", auth, async (req, res) => {
 ========================================================= */
 router.post("/:teamId/apply", auth, async (req, res) => {
   try {
+    if (req.user.role === "organizer") {
+      return res.status(403).json({ message: "Organizers are not permitted to perform this action." });
+    }
+
+    if (req.user.role !== "player" && req.user.role !== "admin") {
+      return res.status(403).json({ message: "Only players can join teams." });
+    }
+
     const team = await Team.findById(req.params.teamId);
 
     if (!team) return res.status(404).json({ message: "Team not found" });
+
+    // Check if player is already in another team in this tournament
+    const existingTournamentTeam = await Team.findOne({
+      tournamentId: team.tournamentId,
+      "players.userId": req.user.userId
+    });
+
+    if (existingTournamentTeam) {
+      return res.status(400).json({ message: "You are already registered with another team in this tournament." });
+    }
 
     const alreadyApplied = team.players.some(
       (p) => p.userId && p.userId.toString() === req.user.userId

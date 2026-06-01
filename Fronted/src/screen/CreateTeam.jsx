@@ -24,8 +24,12 @@ export default function CreateTeam() {
       navigate("/login");
       return;
     }
+    if (user.role !== "coach" && user.role !== "admin" && user.role !== "organizer") {
+      navigate("/");
+      return;
+    }
     fetchData();
-  }, []);
+  }, [user]);
 
   const fetchData = async () => {
     try {

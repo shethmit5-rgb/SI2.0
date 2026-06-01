@@ -17,7 +17,8 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [needsVerification, setNeedsVerification] = useState(false);
-  const [verificationEmail, setVerificationEmail] = useState("");
+  const [verificationPhone, setVerificationPhone] = useState("");
+  const [verificationCode, setVerificationCode] = useState("");
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -67,9 +68,9 @@ export default function Login() {
         navigate("/");
       }
     } catch (err) {
-      if (err.response?.data?.requiresVerification) {
+      if (err.response?.data?.requiresPhoneVerification) {
         setNeedsVerification(true);
-        setVerificationEmail(err.response.data.email);
+        setVerificationPhone(err.response.data.phoneNumber);
         setErrors({ verify: err.response.data.message });
       } else {
         setErrors({ submit: err.response?.data?.message || "Login failed" });
@@ -82,12 +83,37 @@ export default function Login() {
   const handleResendVerification = async () => {
     setLoading(true);
     try {
-      await axios.post("http://localhost:5000/api/resend-verification", {
-        email: verificationEmail
+      await axios.post("http://localhost:5000/api/resend-otp", {
+        phoneNumber: verificationPhone
       });
-      alert("New verification code sent to your email!");
+      alert("New OTP sent to your mobile number!");
     } catch (err) {
       alert(err.response?.data?.message || "Failed to resend code");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleVerifyOTP = async (e) => {
+    e.preventDefault();
+    if (!verificationCode || verificationCode.length !== 6) {
+      setErrors({ verify: "Please enter a valid 6-digit code" });
+      return;
+    }
+    
+    setLoading(true);
+    setErrors({});
+    
+    try {
+      await axios.post("http://localhost:5000/api/verify-phone", {
+        phoneNumber: verificationPhone,
+        code: verificationCode
+      });
+      alert("✅ Mobile number verified successfully! You can now login.");
+      setNeedsVerification(false);
+      setVerificationCode("");
+    } catch (err) {
+      setErrors({ verify: err.response?.data?.message || "Verification failed" });
     } finally {
       setLoading(false);
     }
@@ -97,12 +123,31 @@ export default function Login() {
     return (
       <div className="login-page">
         <div className="login-card">
-          <h2>Email Not Verified</h2>
-          <p>Please verify your email address before logging in.</p>
-          <p className="verification-email">Check your email: <strong>{verificationEmail}</strong></p>
+          <h2>Mobile Not Verified</h2>
+          <p>Please verify your mobile number before logging in.</p>
+          <p className="verification-email">Code sent to: <strong>{verificationPhone}</strong></p>
+          
           {errors.verify && <div className="error-message">{errors.verify}</div>}
-          <button onClick={handleResendVerification} className="resend-btn" disabled={loading}>
-            Resend Verification Code
+          
+          <form onSubmit={handleVerifyOTP}>
+            <div className="input-group">
+              <input
+                type="text"
+                placeholder="Enter 6-digit OTP"
+                value={verificationCode}
+                onChange={(e) => setVerificationCode(e.target.value.replace(/\D/g, "").slice(0, 6))}
+                maxLength="6"
+                required
+              />
+            </div>
+            
+            <button type="submit" className="login-btn" disabled={loading}>
+              {loading ? "Verifying..." : "Verify Mobile Number"}
+            </button>
+          </form>
+
+          <button onClick={handleResendVerification} className="resend-btn" disabled={loading} style={{ marginTop: '10px' }}>
+            Resend OTP
           </button>
           <Link to="/register" className="back-link">← Back to Register</Link>
         </div>

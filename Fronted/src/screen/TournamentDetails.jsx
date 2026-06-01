@@ -6,8 +6,9 @@ import "../static/TournamentDetails.css";
 
 export default function TournamentDetails() {
   const { id } = useParams();
-  const { user } = useAuth();
+  const { user, loading: authLoading } = useAuth();
   const navigate = useNavigate();
+  const isCoachOrAdmin = user?.role === "coach" || user?.role === "admin" || user?.role === "organizer";
 
   const [tournament, setTournament] = useState(null);
   const [teams, setTeams] = useState([]);
@@ -191,39 +192,43 @@ export default function TournamentDetails() {
             <div className="registration-cta">
               {!user ? (
                 <Link to="/login" className="register-btn">
-                  🔐 Login to Register
+                  🔐 Login to Participate
                 </Link>
-              ) : registration ? (
-                <div className="registration-status">
-                  <span 
-                    className={`reg-status-badge ${registration.approvalStatus}`}
-                    style={{
-                      backgroundColor: registration.approvalStatus === "approved" ? "#10b981" : 
-                                     registration.approvalStatus === "pending" ? "#f59e0b" : "#ef4444"
-                    }}
+              ) : isCoachOrAdmin ? (
+                registration ? (
+                  <div className="registration-status">
+                    <span 
+                      className={`reg-status-badge ${registration.approvalStatus}`}
+                      style={{
+                        backgroundColor: registration.approvalStatus === "approved" ? "#10b981" : 
+                                       registration.approvalStatus === "pending" ? "#f59e0b" : "#ef4444"
+                      }}
+                    >
+                      {registration.approvalStatus === "approved" && "✅ Approved"}
+                      {registration.approvalStatus === "pending" && "⏳ Pending Approval"}
+                      {registration.approvalStatus === "rejected" && "❌ Rejected"}
+                    </span>
+                    {registration.approvalStatus === "pending" && (
+                      <p>Your registration is waiting for admin approval</p>
+                    )}
+                    {registration.approvalStatus === "approved" && (
+                      <p>Your team is registered! Check the schedule for match timings.</p>
+                    )}
+                    {registration.approvalStatus === "rejected" && (
+                      <p>Your registration was rejected. Please contact the organizer.</p>
+                    )}
+                  </div>
+                ) : (
+                  <button 
+                    onClick={handleRegister} 
+                    className="register-btn"
+                    disabled={registering}
                   >
-                    {registration.approvalStatus === "approved" && "✅ Approved"}
-                    {registration.approvalStatus === "pending" && "⏳ Pending Approval"}
-                    {registration.approvalStatus === "rejected" && "❌ Rejected"}
-                  </span>
-                  {registration.approvalStatus === "pending" && (
-                    <p>Your registration is waiting for admin approval</p>
-                  )}
-                  {registration.approvalStatus === "approved" && (
-                    <p>Your team is registered! Check the schedule for match timings.</p>
-                  )}
-                  {registration.approvalStatus === "rejected" && (
-                    <p>Your registration was rejected. Please contact the organizer.</p>
-                  )}
-                </div>
+                    {registering ? "⏳ Registering..." : "🚀 Register Your Team"}
+                  </button>
+                )
               ) : (
-                <button 
-                  onClick={handleRegister} 
-                  className="register-btn"
-                  disabled={registering}
-                >
-                  {registering ? "⏳ Registering..." : "🚀 Register Your Team"}
-                </button>
+                <p className="player-notice">Players can join teams from the Teams tab below.</p>
               )}
             </div>
           )}

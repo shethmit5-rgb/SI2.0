@@ -1,15 +1,17 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
+const PendingUser = require("../models/PendingUser");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const { validateEmail, validatePassword, validateName } = require("../utils/validators");
 const { sendVerificationEmail, sendResetPasswordEmail, sendWelcomeEmail } = require("../config/email");
+const { sendOTP } = require("../utils/twilioService");
 
-// ================= REGISTER WITH EMAIL VERIFICATION =================
+// ================= REGISTER WITH MOBILE OTP =================
 router.post("/register", async (req, res) => {
   try {
-    const { name, email, password, role } = req.body;
+    const { name, email, phoneNumber, password, role } = req.body;
     
     // Validations
     const nameError = validateName(name);
@@ -18,59 +20,89 @@ router.post("/register", async (req, res) => {
     const emailError = validateEmail(email);
     if (emailError) return res.status(400).json({ message: emailError });
     
+    if (!phoneNumber || !/^\+[1-9]\d{1,14}$/.test(phoneNumber)) {
+      return res.status(400).json({ message: "Valid phone number with country code is required (e.g. +919876543210)" });
+    }
+
     const passwordError = validatePassword(password);
     if (passwordError) return res.status(400).json({ message: passwordError });
 
-    // Check existing user
-    const existingUser = await User.findOne({ email });
-    if (existingUser) {
+    // Check existing user by email or phone
+    const existingEmailUser = await User.findOne({ email });
+    if (existingEmailUser) {
       return res.status(400).json({ message: "Email already registered. Please use a different email or login." });
     }
+    const existingPhoneUser = await User.findOne({ phoneNumber });
+    if (existingPhoneUser) {
+      return res.status(400).json({ message: "Phone number already registered. Please use a different number or login." });
+    }
 
-    // Generate verification code
-    const verificationCode = Math.floor(100000 + Math.random() * 900000).toString();
-    const verificationCodeExpires = Date.now() + 3600000; // 1 hour
+    // Check if there is an existing pending user for this email
+    let pendingEmailUser = await PendingUser.findOne({ email });
+    if (pendingEmailUser && pendingEmailUser.phoneNumber !== phoneNumber) {
+      return res.status(400).json({ message: "A pending registration exists for this email. Please use a different email or wait 10 minutes." });
+    }
+
+    // Generate 6-digit OTP
+    const otpCode = Math.floor(100000 + Math.random() * 900000).toString();
+    const otpExpiry = Date.now() + 5 * 60 * 1000; // 5 minutes
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const user = new User({
-      name,
-      email,
-      password: hashedPassword,
-      role: role || "player",
-      status: "active",
-      emailVerified: false,
-      verificationCode,
-      verificationCodeExpires
-    });
+    // Check if there is an existing pending user for this phone
+    let pendingUser = await PendingUser.findOne({ phoneNumber });
+    if (pendingUser) {
+      // Update existing pending user
+      pendingUser.name = name;
+      pendingUser.email = email;
+      pendingUser.password = hashedPassword;
+      pendingUser.role = role || "player";
+      pendingUser.otpCode = otpCode;
+      pendingUser.otpExpiry = otpExpiry;
+      pendingUser.otpAttempts = 0;
+      pendingUser.createdAt = Date.now(); // reset TTL
+      await pendingUser.save();
+    } else {
+      // Create new pending user
+      pendingUser = new PendingUser({
+        name,
+        email,
+        phoneNumber,
+        password: hashedPassword,
+        role: role || "player",
+        otpCode,
+        otpExpiry,
+        otpAttempts: 0
+      });
+      await pendingUser.save();
+    }
 
-    await user.save();
-
-    // 📧 Show OTP in console for testing
+    // 📱 Show OTP in console for testing
     console.log("\n" + "=".repeat(60));
-    console.log(`📧 EMAIL VERIFICATION OTP`);
+    console.log(`📱 MOBILE VERIFICATION OTP`);
     console.log("=".repeat(60));
-    console.log(`📧 To: ${email}`);
-    console.log(`📧 Name: ${name}`);
-    console.log(`🔐 Verification Code: ${verificationCode}`);
-    console.log(`⏰ Expires in: 1 hour`);
+    console.log(`📱 To: ${phoneNumber}`);
+    console.log(`👤 Name: ${name}`);
+    console.log(`🔐 OTP Code: ${otpCode}`);
+    console.log(`⏰ Expires in: 5 minutes`);
     console.log("=".repeat(60) + "\n");
 
-    // Send verification email (optional - will also show in console if fails)
-    const emailSent = await sendVerificationEmail(email, verificationCode, name);
+    // Send SMS via Twilio
+    const smsSent = await sendOTP(phoneNumber, otpCode);
     
-    if (!emailSent) {
-      console.log(`⚠️ Email sending failed, but OTP is shown above for testing.`);
+    if (!smsSent) {
+      console.log(`⚠️ SMS sending failed, but OTP is shown above for testing.`);
     } else {
-      console.log(`✅ Verification email sent to ${email}`);
+      console.log(`✅ Verification SMS sent to ${phoneNumber}`);
     }
 
     res.json({ 
       success: true,
-      message: "Registration successful! We've sent a verification code to your email.",
-      requiresVerification: true,
+      message: "Registration successful! We've sent an OTP to your mobile number.",
+      requiresPhoneVerification: true,
+      phoneNumber: phoneNumber,
       email: email,
-      testCode: process.env.NODE_ENV !== "production" ? verificationCode : undefined // Only for development
+      testCode: process.env.NODE_ENV !== "production" ? otpCode : undefined
     });
   } catch (err) {
     console.error("REGISTER ERROR:", err);
@@ -94,38 +126,54 @@ router.post("/check-email", async (req, res) => {
   }
 });
 
-// ================= VERIFY EMAIL OTP =================
-router.post("/verify-email", async (req, res) => {
+// ================= VERIFY PHONE OTP =================
+router.post("/verify-phone", async (req, res) => {
   try {
-    const { email, code } = req.body;
+    const { phoneNumber, code } = req.body;
     
-    if (!email || !code) {
-      return res.status(400).json({ message: "Email and code are required" });
+    if (!phoneNumber || !code) {
+      return res.status(400).json({ message: "Phone number and OTP code are required" });
     }
     
-    const user = await User.findOne({ 
-      email, 
-      verificationCode: code,
-      verificationCodeExpires: { $gt: Date.now() }
+    const pendingUser = await PendingUser.findOne({ phoneNumber });
+
+    if (!pendingUser) {
+      return res.status(404).json({ message: "Registration expired or not found. Please register again." });
+    }
+
+    if (pendingUser.otpCode !== code) {
+      return res.status(400).json({ message: "Invalid OTP. Please try again." });
+    }
+
+    if (pendingUser.otpExpiry < Date.now()) {
+      return res.status(400).json({ message: "OTP has expired. Please register again." });
+    }
+
+    // Move pending user to actual User collection
+    const user = new User({
+      name: pendingUser.name,
+      email: pendingUser.email,
+      phoneNumber: pendingUser.phoneNumber,
+      password: pendingUser.password, // already hashed
+      role: pendingUser.role,
+      status: "active",
+      isPhoneVerified: true,
+      emailVerified: false
     });
-
-    if (!user) {
-      return res.status(400).json({ message: "Invalid or expired verification code" });
-    }
-
-    user.emailVerified = true;
-    user.verificationCode = undefined;
-    user.verificationCodeExpires = undefined;
+    
     await user.save();
+    await PendingUser.deleteOne({ _id: pendingUser._id });
 
-    console.log(`\n✅ Email verified successfully for ${email}\n`);
+    console.log(`\n✅ Phone verified and user created successfully for ${phoneNumber}\n`);
 
-    // Send welcome email after successful verification
-    await sendWelcomeEmail(email, user.name);
+    // Optionally send welcome email here since we still have their email
+    if (user.email) {
+      await sendWelcomeEmail(user.email, user.name);
+    }
 
     res.json({ 
       success: true,
-      message: "Email verified successfully! You can now login." 
+      message: "Phone number verified successfully! You can now login." 
     });
   } catch (err) {
     console.error("Verification error:", err);
@@ -133,47 +181,56 @@ router.post("/verify-email", async (req, res) => {
   }
 });
 
-// ================= RESEND VERIFICATION CODE =================
-router.post("/resend-verification", async (req, res) => {
+// ================= RESEND PHONE OTP =================
+router.post("/resend-otp", async (req, res) => {
   try {
-    const { email } = req.body;
+    const { phoneNumber } = req.body;
     
-    if (!email) {
-      return res.status(400).json({ message: "Email is required" });
+    if (!phoneNumber) {
+      return res.status(400).json({ message: "Phone number is required" });
     }
     
-    const user = await User.findOne({ email });
+    const pendingUser = await PendingUser.findOne({ phoneNumber });
 
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
+    if (!pendingUser) {
+      return res.status(404).json({ message: "Registration expired or not found. Please register again." });
     }
 
-    if (user.emailVerified) {
-      return res.status(400).json({ message: "Email already verified" });
+    if (pendingUser.otpAttempts >= 3) {
+      // Allow 3 attempts, could reset after some time, but let's keep it simple
+      // Check if last attempt was within 10 minutes
+      if (pendingUser.otpExpiry && Date.now() < pendingUser.otpExpiry.getTime() + 10 * 60 * 1000) {
+        return res.status(429).json({ message: "Maximum resend attempts reached. Please register again later." });
+      } else {
+        // Reset attempts if it's been a while
+        pendingUser.otpAttempts = 0;
+      }
     }
 
-    const verificationCode = Math.floor(100000 + Math.random() * 900000).toString();
-    user.verificationCode = verificationCode;
-    user.verificationCodeExpires = Date.now() + 3600000;
-    await user.save();
+    const otpCode = Math.floor(100000 + Math.random() * 900000).toString();
+    pendingUser.otpCode = otpCode;
+    pendingUser.otpExpiry = Date.now() + 5 * 60 * 1000;
+    pendingUser.otpAttempts += 1;
+    pendingUser.createdAt = Date.now(); // Reset TTL timer
+    await pendingUser.save();
 
-    // 📧 Show OTP in console for testing
+    // 📱 Show OTP in console for testing
     console.log("\n" + "=".repeat(60));
-    console.log(`📧 RESEND VERIFICATION OTP`);
+    console.log(`📱 RESEND MOBILE VERIFICATION OTP`);
     console.log("=".repeat(60));
-    console.log(`📧 To: ${email}`);
-    console.log(`🔐 New Verification Code: ${verificationCode}`);
-    console.log(`⏰ Expires in: 1 hour`);
+    console.log(`📱 To: ${phoneNumber}`);
+    console.log(`🔐 New OTP Code: ${otpCode}`);
+    console.log(`⏰ Expires in: 5 minutes`);
     console.log("=".repeat(60) + "\n");
 
-    // Send new verification email
-    const emailSent = await sendVerificationEmail(email, verificationCode, user.name);
+    // Send new SMS
+    const smsSent = await sendOTP(phoneNumber, otpCode);
     
-    if (!emailSent) {
-      console.log(`⚠️ Email sending failed, but OTP is shown above for testing.`);
+    if (!smsSent) {
+      console.log(`⚠️ SMS sending failed, but OTP is shown above for testing.`);
     }
 
-    res.json({ message: "New verification code sent to your email" });
+    res.json({ message: "New OTP sent successfully." });
   } catch (err) {
     console.error("Resend error:", err);
     res.status(500).json({ message: "Failed to resend code" });
@@ -194,15 +251,8 @@ router.post("/login", async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
 
-    // Check if email is verified
-    if (!user.emailVerified) {
-      return res.status(403).json({ 
-        message: "Please verify your email first. Check your email for OTP.",
-        requiresVerification: true,
-        email: user.email
-      });
-    }
-
+    // All users in DB are now verified. No need to check isPhoneVerified.
+    
     // Check if user is blocked
     if (user.status === "blocked") {
       return res.status(403).json({ message: "Your account has been blocked by admin" });

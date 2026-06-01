@@ -40,7 +40,19 @@ const UserSchema = new mongoose.Schema(
 
     phoneNumber: {
       type: String,
-      match: [/^[0-9]{10}$/, "Phone number must be 10 digits"],
+      required: [true, "Phone number is required"],
+      unique: true,
+      match: [/^\+[1-9]\d{1,14}$/, "Phone number must include country code and be valid (e.g. +919876543210)"],
+    },
+    isPhoneVerified: {
+      type: Boolean,
+      default: false
+    },
+    otpCode: String,
+    otpExpiry: Date,
+    otpAttempts: {
+      type: Number,
+      default: 0
     },
     emailVerified: {
       type: Boolean,

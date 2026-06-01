@@ -23,6 +23,7 @@ export default function Header() {
 
   const isAdmin = user?.role === "admin";
   const isOrganizer = user?.role === "organizer";
+  const isCoach = user?.role === "coach";
   const unreadCount = notifications.filter(n => !n.isRead).length;
 
   // ==================== ADMIN NAVIGATION ====================
@@ -92,6 +93,7 @@ export default function Header() {
         label: "My Stuff",
         links: [
           { path: "/my-teams", label: "My Teams", icon: "👥" },
+          ...(isCoach ? [{ path: "/teams/create", label: "Create Team", icon: "➕" }] : []),
           { path: "/my-registrations", label: "My Registrations", icon: "📋" },
           { path: "/profile", label: "My Profile", icon: "👤" },
           ...(isCaptain ? [{ path: "/approve-players", label: "Approve Players", icon: "✅" }] : []),

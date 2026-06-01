@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import "../static/Footer.css";
+import { useAuth } from "../context/AuthContext";
 
 const Footer = () => {
+  const { user } = useAuth();
+  const isCoachOrAdmin = user?.role === "coach" || user?.role === "admin" || user?.role === "organizer";
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -44,7 +47,9 @@ const Footer = () => {
             <ul>
               <li><Link to="/my-teams" onClick={scrollToTop}>My Teams</Link></li>
               <li><Link to="/my-registrations" onClick={scrollToTop}>My Registrations</Link></li>
-              <li><Link to="/teams/create" onClick={scrollToTop}>Create Team</Link></li>
+              {isCoachOrAdmin && (
+                <li><Link to="/teams/create" onClick={scrollToTop}>Create Team</Link></li>
+              )}
               <li><Link to="/teams" onClick={scrollToTop}>Browse Teams</Link></li>
               <li><Link to="/profile" onClick={scrollToTop}>My Profile</Link></li>
             </ul>

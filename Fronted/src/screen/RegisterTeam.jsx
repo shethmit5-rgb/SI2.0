@@ -28,8 +28,12 @@ export default function RegisterTeam() {
       navigate("/login");
       return;
     }
+    if (user.role !== "coach" && user.role !== "admin" && user.role !== "organizer") {
+      navigate("/");
+      return;
+    }
     fetchData();
-  }, [tournamentId]);
+  }, [tournamentId, user]);
 
   const fetchData = async () => {
     try {

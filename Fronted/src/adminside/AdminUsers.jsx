@@ -55,6 +55,21 @@ export default function AdminUsers() {
     }
   };
 
+  /* ================= DELETE ================= */
+  const deleteUser = async (id, name) => {
+    if (!window.confirm(`Are you sure you want to permanently delete user "${name}"?`)) {
+      return;
+    }
+    try {
+      await axios.delete(`http://localhost:5000/api/users/${id}`, authHeader);
+      alert("User deleted successfully!");
+      loadUsers();
+    } catch (err) {
+      console.error("Failed to delete user:", err);
+      alert("Failed to delete user");
+    }
+  };
+
   /* ================= EDIT ================= */
   const openEdit = (u) => {
     if (!u) return;
@@ -199,6 +214,22 @@ export default function AdminUsers() {
                       }}
                     >
                       {u.status === "active" ? "Block" : "Unblock"}
+                    </button>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        deleteUser(u._id, u.name);
+                      }}
+                      style={{
+                        backgroundColor: "#dc2626",
+                        color: "white",
+                        border: "none",
+                        padding: "5px 12px",
+                        borderRadius: "6px",
+                        cursor: "pointer",
+                      }}
+                    >
+                      Delete
                     </button>
                   </td>
                 </tr>

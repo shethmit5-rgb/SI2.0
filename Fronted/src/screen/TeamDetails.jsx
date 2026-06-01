@@ -146,10 +146,13 @@ export default function TeamDetails() {
         </div>
 
         <div className="team-actions">
-          {!isCaptain && !applied && (
+          {!isCaptain && !applied && user?.role === "player" && (
             <button onClick={handleApply} className="apply-btn" disabled={actionLoading}>
               {actionLoading ? "Sending..." : "🎯 Apply to Join Team"}
             </button>
+          )}
+          {!isCaptain && !applied && user?.role !== "player" && (
+            <p className="player-notice">Only players can apply to join teams.</p>
           )}
           {!isCaptain && playerStatus === "pending" && (
             <div className="applied-badge">

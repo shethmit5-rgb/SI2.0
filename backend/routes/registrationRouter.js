@@ -8,8 +8,12 @@ const role = require("../middleware/roleMiddleware");
 const router = express.Router();
 
 /* ================= PLAYER → REGISTER TEAM ================= */
-router.post("/", auth, role("player", "organizer", "coach"), async (req, res) => {
+router.post("/", auth, role("player", "coach"), async (req, res) => {
   try {
+    if (req.user.role === "organizer") {
+      return res.status(403).json({ message: "Organizers are not permitted to perform this action." });
+    }
+
     const { tournamentId, teamId } = req.body;
 
     const exists = await Registration.findOne({

@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
-import Header from "./component/Header";
-import Footer from "./component/Footer";
+import RoleLayout from "./layouts/RoleLayout";
+import NonOrganizerRoute from "./routes/NonOrganizerRoute";
 
 /* ================= PUBLIC ================= */
 import Home from "./screen/Home";
@@ -82,10 +82,7 @@ import "./App.css";
 
 function App() {
   return (
-    <>
-      <Header />
-
-  {/* ================= ADMIN OTHER =================   */}
+    <RoleLayout>
       <Routes>
         {/* ========== PUBLIC ROUTES ========== */}
         <Route path="/" element={<Home />} />
@@ -104,10 +101,10 @@ function App() {
         <Route path="/tournament/:id" element={<TournamentDetailsss />} />
         <Route path="/teams" element={<TeamsList />} />
         <Route path="/team/:id" element={<TeamDetails />} />
-        <Route path="/teams/create" element={<CreateTeam />} />
-        <Route path="/my-teams" element={<MyTeamDashboard />} />
-        <Route path="/my-registrations" element={<MyRegistrations />} />
-        <Route path="/RegisterTeam" element={<RegisterTeam />} />
+        <Route path="/teams/create" element={<NonOrganizerRoute><CreateTeam /></NonOrganizerRoute>} />
+        <Route path="/my-teams" element={<NonOrganizerRoute><MyTeamDashboard /></NonOrganizerRoute>} />
+        <Route path="/my-registrations" element={<NonOrganizerRoute><MyRegistrations /></NonOrganizerRoute>} />
+        <Route path="/RegisterTeam" element={<NonOrganizerRoute><RegisterTeam /></NonOrganizerRoute>} />
         <Route path="/approve-players" element={<ApprovePlayerss />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/notifications" element={<Notifications />} />
@@ -290,10 +287,7 @@ function App() {
           }
         />
       </Routes>
-
-      <Footer />
-
-    </>
+    </RoleLayout>
   );
 }
 
