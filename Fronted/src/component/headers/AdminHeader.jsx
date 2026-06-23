@@ -24,8 +24,10 @@ export default function AdminHeader() {
   const adminNavLinks = {
     main: [
       { path: "/admin/dashboard", label: "Dashboard", icon: "📊" },
-      { path: "/admin/users", label: "Users", icon: "👥" },
+
+      { path: "/admin/sponsor-management", label: "Sponsor Management", icon: "🤝" },
       { path: "/admin/registrations", label: "Registrations", icon: "📝" },
+      { path: "/admin/payments", label: "Payments", icon: "💳" },
     ],
     dropdowns: {
       tournament: {
@@ -140,7 +142,8 @@ export default function AdminHeader() {
       <header className={`navbar admin-navbar ${scrolled ? "scrolled" : ""}`}>
         {/* Logo */}
         <div className="logo" onClick={() => navigate("/admin/dashboard")}>
-          🏆 ArenaSync Admin
+          <span className="logo-icon">🏆</span>
+          <span className="logo-text">ArenaSync </span>
         </div>
 
         {/* Mobile Menu Button */}
@@ -152,13 +155,18 @@ export default function AdminHeader() {
         <nav className={mobileMenuOpen ? "mobile-open" : ""}>
           {adminNavLinks.main.map(link => (
             <Link key={link.path} to={link.path} className={isActive(link.path) ? "active" : ""}>
-              {link.icon} {link.label}
+              <span className="nav-icon">{link.icon}</span>{" "}
+              <span className="nav-label">{link.label}</span>
             </Link>
           ))}
           {/* Admin Dropdowns */}
           {Object.values(adminNavLinks.dropdowns).map((dropdown, idx) => (
             <div key={idx} className="nav-dropdown">
-              <span className="nav-link">{dropdown.icon} {dropdown.label} ▾</span>
+              <span className="nav-link">
+                <span className="nav-icon">{dropdown.icon}</span>{" "}
+                <span className="nav-label">{dropdown.label}</span>
+                <span className="nav-arrow"> ▾</span>
+              </span>
               <div className="dropdown-menu">
                 {dropdown.links.map(link => (
                   <Link key={link.path} to={link.path}>{link.label}</Link>
@@ -201,7 +209,7 @@ export default function AdminHeader() {
             )}
           </div>
         </div>
-        
+
         <div className="admin-breadcrumb">Admin / {breadcrumb}</div>
       </header>
 

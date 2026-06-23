@@ -2,6 +2,9 @@ const Razorpay = require("razorpay");
 const crypto = require("crypto");
 const Transaction = require("../models/Transaction");
 const Registration = require("../models/Registration");
+const Tournament = require("../models/Tournament");
+const Team = require("../models/Team");
+
 
 // Initialize Razorpay with error handling
 let razorpay = null;
@@ -146,3 +149,145 @@ exports.getTransactions = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+exports.getAllPaymentsAdmin = async (req, res) => {
+  try {
+    if (req.user.role !== "admin") {
+      return res.status(403).json({ message: "Access denied. Admin role required." });
+    }
+
+    const transactions = await Transaction.find()
+      .populate("userId", "name email role")
+      .populate("tournamentId", "eventName")
+      .populate("teamId", "teamName")
+      .sort({ createdAt: -1 });
+
+    res.json(transactions);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+exports.adminOverridePayment = async (req, res) => {
+  try {
+    if (req.user.role !== "admin") {
+      return res.status(403).json({ message: "Access denied. Admin role required." });
+    }
+
+    const { transactionId, status } = req.body;
+    if (!transactionId || !status) {
+      return res.status(400).json({ message: "Missing required fields" });
+    }
+
+    const transaction = await Transaction.findById(transactionId);
+    if (!transaction) {
+      return res.status(404).json({ message: "Transaction not found" });
+    }
+
+    const targetStatus = status.toLowerCase(); // paid, failed, refunded, created, attempted
+    const capitalizedStatus = status.charAt(0).toUpperCase() + status.slice(1).toLowerCase(); // Paid, Failed, Refunded, Pending, etc.
+
+    if (targetStatus === "paid") {
+      // Transitioning to Paid
+      if (transaction.paymentType === "tournament_creation") {
+        let tournament = await Tournament.findOne({ razorpayOrderId: transaction.razorpayOrderId });
+        if (!tournament) {
+          const tempData = transaction.tempData;
+          if (!tempData) {
+            return res.status(400).json({ message: "No temporary tournament data found in transaction to create tournament." });
+          }
+          tournament = await Tournament.create({
+            eventName: tempData.eventName,
+            sportId: tempData.sportId,
+            venueId: tempData.venueId,
+            location: tempData.location,
+            startDate: tempData.startDate,
+            endDate: tempData.endDate,
+            maxParticipants: tempData.maxParticipants,
+            description: tempData.description,
+            rules: tempData.rules,
+            organizerId: tempData.organizerId,
+            createdBy: tempData.createdBy,
+            logo: tempData.logo,
+            status: "upcoming",
+            teams: [],
+            prizePool: 0,
+            teamRegistrationFee: tempData.teamRegistrationFee || 0,
+            paymentStatus: "Paid",
+            razorpayOrderId: transaction.razorpayOrderId,
+            amountPaid: transaction.amount,
+            paymentDate: new Date()
+          });
+        } else {
+          tournament.paymentStatus = "Paid";
+          await tournament.save();
+        }
+        transaction.tournamentId = tournament._id;
+      } else if (transaction.paymentType === "team_registration") {
+        let reg = await Registration.findOne({ razorpayOrderId: transaction.razorpayOrderId });
+        if (!reg) {
+          reg = await Registration.create({
+            userId: transaction.userId,
+            tournamentId: transaction.tournamentId,
+            teamId: transaction.teamId,
+            paymentStatus: "Paid",
+            razorpayOrderId: transaction.razorpayOrderId,
+            amount: transaction.amount,
+            paidAt: new Date()
+          });
+        } else {
+          reg.paymentStatus = "Paid";
+          await reg.save();
+        }
+        transaction.registrationId = reg._id;
+      } else if (transaction.paymentType === "player_joining") {
+        const team = await Team.findById(transaction.teamId);
+        if (team) {
+          const player = team.players.find(p => p.userId && p.userId.toString() === transaction.userId.toString());
+          if (player) {
+            player.status = "approved";
+            await team.save();
+          }
+        }
+      }
+      transaction.status = "paid";
+    } else {
+      // Transitioning to failed, refunded, pending, etc.
+      if (transaction.paymentType === "tournament_creation") {
+        if (transaction.tournamentId) {
+          const tournament = await Tournament.findById(transaction.tournamentId);
+          if (tournament) {
+            tournament.paymentStatus = capitalizedStatus === "Created" || capitalizedStatus === "Attempted" ? "Pending" : capitalizedStatus;
+            await tournament.save();
+          }
+        }
+      } else if (transaction.paymentType === "team_registration") {
+        if (transaction.registrationId) {
+          const reg = await Registration.findById(transaction.registrationId);
+          if (reg) {
+            reg.paymentStatus = capitalizedStatus === "Created" || capitalizedStatus === "Attempted" ? "Pending" : capitalizedStatus;
+            await reg.save();
+          }
+        }
+      } else if (transaction.paymentType === "player_joining") {
+        const team = await Team.findById(transaction.teamId);
+        if (team) {
+          const player = team.players.find(p => p.userId && p.userId.toString() === transaction.userId.toString());
+          if (player) {
+            player.status = "approved_pending_payment";
+            await team.save();
+          }
+        }
+      }
+      transaction.status = targetStatus;
+    }
+
+    transaction.updatedAt = Date.now();
+    await transaction.save();
+
+    res.json({ success: true, message: `Payment status overridden to ${status} successfully`, transaction });
+  } catch (error) {
+    console.error("adminOverridePayment error:", error);
+    res.status(500).json({ success: false, message: error.message });
+  }
+};

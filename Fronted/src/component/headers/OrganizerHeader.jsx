@@ -110,6 +110,7 @@ export default function OrganizerHeader() {
             <div className="dropdown-menu">
               <Link to="/my-tournaments">📋 My Tournaments</Link>
               <Link to="/create-tournament">✨ Create Tournament</Link>
+              <Link to="/organizer/registrations">📝 Team Registrations</Link>
             </div>
           </div>
 
@@ -118,13 +119,12 @@ export default function OrganizerHeader() {
             👥 Teams
           </Link>
 
-          {/* Match Schedule Dropdown */}
+          {/* Matches Dropdown */}
           <div className="nav-dropdown">
-            <span className="nav-link">📅 Match Schedule ▾</span>
+            <span className="nav-link">⚽ Matches ▾</span>
             <div className="dropdown-menu">
-              <Link to="/schedule">📅 View Schedule</Link>
-              <Link to="/organizer/matches">⚙️ Manage Matches</Link>
-              <Link to="/match-results">📊 Match Results</Link>
+              <Link to="/organizer/matches/list">📋 Match List</Link>
+              <Link to="/organizer/matches">📅 Create Match / Manage Matches</Link>
             </div>
           </div>
 

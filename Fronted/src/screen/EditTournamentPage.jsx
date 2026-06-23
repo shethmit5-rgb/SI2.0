@@ -9,11 +9,12 @@ export default function EditTournamentPage() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { user } = useAuth();
-  
+
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [sports, setSports] = useState([]);
   const [venues, setVenues] = useState([]);
+  const [organizers, setOrganizers] = useState([]);
   const [formData, setFormData] = useState({
     eventName: "",
     sportId: "",
@@ -24,7 +25,8 @@ export default function EditTournamentPage() {
     maxParticipants: "",
     description: "",
     rules: "",
-    status: "upcoming"
+    status: "upcoming",
+    organizerId: ""
   });
   const [logo, setLogo] = useState(null);
   const [logoPreview, setLogoPreview] = useState("");
@@ -33,32 +35,42 @@ export default function EditTournamentPage() {
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    fetchData();
-  }, [id]);
+    if (user) {
+      fetchData();
+    }
+  }, [id, user]);
 
   const fetchData = async () => {
     try {
       setLoading(true);
-      
+
       // Fetch tournament details
       const tournamentRes = await api.get(`/tournaments/${id}`);
       const tournament = tournamentRes.data;
-      
-      // Fetch sports and venues
-      const [sportsRes, venuesRes] = await Promise.all([
+
+      // Fetch sports, venues and if admin, organizers
+      const promises = [
         api.get("/sports"),
         api.get("/venues")
-      ]);
-      
+      ];
+      if (user && user.role === "admin") {
+        promises.push(api.get("/users/public"));
+      }
+
+      const [sportsRes, venuesRes, usersRes] = await Promise.all(promises);
+
       setSports(sportsRes.data);
       setVenues(venuesRes.data);
-      
+      if (usersRes) {
+        setOrganizers(usersRes.data.filter(u => u.role === "organizer"));
+      }
+
       // Format dates for input
       const formatDate = (date) => {
         if (!date) return "";
         return new Date(date).toISOString().split("T")[0];
       };
-      
+
       setFormData({
         eventName: tournament.eventName || "",
         sportId: tournament.sportId?._id || tournament.sportId || "",
@@ -69,11 +81,12 @@ export default function EditTournamentPage() {
         maxParticipants: tournament.maxParticipants || "",
         description: tournament.description || "",
         rules: tournament.rules || "",
-        status: tournament.status || "upcoming"
+        status: tournament.status || "upcoming",
+        organizerId: tournament.organizerId?._id || tournament.organizerId || ""
       });
-      
+
       setLogoPreview(tournament.logo || "");
-      
+
     } catch (err) {
       console.error("Failed to fetch tournament:", err);
       setErrorMessage("Failed to load tournament data");
@@ -85,7 +98,7 @@ export default function EditTournamentPage() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-    
+
     // Clear error for this field
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: null }));
@@ -102,41 +115,48 @@ export default function EditTournamentPage() {
 
   const validateForm = () => {
     const newErrors = {};
-    
+
     const nameError = validateTournamentName(formData.eventName);
     if (nameError) newErrors.eventName = nameError;
-    
+
     if (!formData.sportId) newErrors.sportId = "Please select a sport";
     if (!formData.venueId) newErrors.venueId = "Please select a venue";
-    
+
     const dateError = validateDates(formData.startDate, formData.endDate);
     if (dateError) newErrors.dates = dateError;
-    
+
     const maxParticipantsError = validateNumber(formData.maxParticipants, "Max participants", 2, 100);
-    if (maxParticipantsError) newErrors.maxParticipants = maxParticipantsError;
-    
+    if (maxParticipantsError) {
+      newErrors.maxParticipants = maxParticipantsError;
+    } else if (formData.maxParticipants) {
+      const num = Number(formData.maxParticipants);
+      if ((num & (num - 1)) !== 0) {
+        newErrors.maxParticipants = "Max participants must be a power of 2 (2, 4, 8, 16, 32, etc.)";
+      }
+    }
+
     const descriptionError = validateDescription(formData.description);
     if (descriptionError) newErrors.description = descriptionError;
-    
+
     const rulesError = validateRules(formData.rules);
     if (rulesError) newErrors.rules = rulesError;
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
-    
+
     setSaving(true);
     setSuccessMessage("");
     setErrorMessage("");
-    
+
     try {
       const data = new FormData();
       data.append("eventName", formData.eventName);
@@ -149,18 +169,21 @@ export default function EditTournamentPage() {
       data.append("description", formData.description);
       data.append("rules", formData.rules);
       data.append("status", formData.status);
-      
+      if (user && user.role === "admin" && formData.organizerId) {
+        data.append("organizerId", formData.organizerId);
+      }
+
       if (logo) {
         data.append("logo", logo);
       }
-      
+
       await api.put(`/tournaments/${id}`, data);
       setSuccessMessage("✅ Tournament updated successfully!");
-      
+
       setTimeout(() => {
         navigate(`/tournament/${id}`);
       }, 1500);
-      
+
     } catch (err) {
       console.error("Update failed:", err);
       setErrorMessage(err.response?.data?.message || "Failed to update tournament");
@@ -170,7 +193,7 @@ export default function EditTournamentPage() {
   };
 
   const getStatusColor = (status) => {
-    switch(status) {
+    switch (status) {
       case "upcoming": return "#f59e0b";
       case "ongoing": return "#10b981";
       case "completed": return "#6b7280";
@@ -198,7 +221,7 @@ export default function EditTournamentPage() {
         {successMessage && (
           <div className="success-message">{successMessage}</div>
         )}
-        
+
         {errorMessage && (
           <div className="error-message">{errorMessage}</div>
         )}
@@ -268,6 +291,25 @@ export default function EditTournamentPage() {
               placeholder="City, State, Country"
             />
           </div>
+
+          {user && user.role === "admin" && (
+            <div className="form-group">
+              <label>Assign Organizer</label>
+              <select
+                name="organizerId"
+                value={formData.organizerId || ""}
+                onChange={handleChange}
+                style={{ width: "100%", padding: "8px", borderRadius: "4px", border: "1px solid #ccc" }}
+              >
+                <option value="">Select Organizer (Default to current user)</option>
+                {organizers.map(org => (
+                  <option key={org._id} value={org._id}>
+                    {org.name} ({org.email})
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
 
           {/* Dates Row */}
           <div className="form-row">
@@ -361,8 +403,8 @@ export default function EditTournamentPage() {
               {logoPreview && (
                 <div className="logo-preview">
                   <img src={logoPreview} alt="Tournament Logo" />
-                  <button 
-                    type="button" 
+                  <button
+                    type="button"
                     className="remove-logo"
                     onClick={() => {
                       setLogo(null);
@@ -384,16 +426,16 @@ export default function EditTournamentPage() {
 
           {/* Form Actions */}
           <div className="form-actions">
-            <button 
-              type="button" 
-              onClick={() => navigate(-1)} 
+            <button
+              type="button"
+              onClick={() => navigate(-1)}
               className="cancel-btn"
             >
               Cancel
             </button>
-            <button 
-              type="submit" 
-              disabled={saving} 
+            <button
+              type="submit"
+              disabled={saving}
               className="save-btn"
             >
               {saving ? "Saving..." : "Save Changes"}

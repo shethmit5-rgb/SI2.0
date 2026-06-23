@@ -1,241 +1,49 @@
 const express = require("express");
-const Match = require("../models/Match");
-const Team = require("../models/Team");
-const Tournament = require("../models/Tournament");
+const {
+  createMatch,
+  getMatches,
+  getMatchesByTournament,
+  getPublicMatchesByTournament,
+  getUpcomingMatches,
+  getCompletedMatches,
+  updateMatchResult,
+  getMatchById,
+  updateMatch,
+  deleteMatch,
+} = require("../controllers/matchController");
 const auth = require("../middleware/authMiddleware");
 const role = require("../middleware/roleMiddleware");
+const validateObjectId = require("../middleware/validateObjectId");
 
 const router = express.Router();
 
 /* ================= CREATE MATCH (ADMIN & ORGANIZER) ================= */
-router.post("/", auth, async (req, res) => {
-  try {
-    const { tournamentId, teams, matchDate, venueId } = req.body;
+router.post("/", auth, role("admin", "organizer"), createMatch);
 
-    /* BASIC VALIDATION */
-    if (!tournamentId || !teams || teams.length !== 2 || !matchDate || !venueId) {
-      return res.status(400).json({ message: "Invalid match data" });
-    }
-
-    if (teams[0] === teams[1]) {
-      return res.status(400).json({ message: "Team A and Team B must be different" });
-    }
-
-    // Check if user is admin or tournament organizer
-    const tournament = await Tournament.findById(tournamentId);
-    if (!tournament) {
-      return res.status(404).json({ message: "Tournament not found" });
-    }
-
-    // Allow if admin OR tournament organizer
-    if (req.user.role !== "admin" && tournament.organizerId.toString() !== req.user.userId) {
-      return res.status(403).json({ message: "Only admin or tournament organizer can create matches" });
-    }
-
-    /* CHECK TEAMS BELONG TO TOURNAMENT */
-    const teamDocs = await Team.find({
-      _id: { $in: teams },
-      tournamentId,
-    });
-
-    if (teamDocs.length !== 2) {
-      return res.status(400).json({
-        message: "Both teams must belong to the selected tournament",
-      });
-    }
-
-    const match = await Match.create({
-      tournamentId,
-      teams,
-      matchDate,
-      venueId,
-      createdBy: req.user.userId,
-      status: "scheduled",
-    });
-
-    res.status(201).json(match);
-  } catch (err) {
-    console.error("CREATE MATCH ERROR:", err);
-    res.status(500).json({ message: "Match creation failed" });
-  }
-});
-
-/* ================= GET ALL MATCHES (PUBLIC - NO AUTH) ================= */
-router.get("/", async (req, res) => {
-  try {
-    const matches = await Match.find()
-      .populate("teams", "teamName")
-      .populate("venueId", "name")
-      .populate("tournamentId", "eventName")
-      .sort({ matchDate: 1 });
-
-    res.json(matches);
-  } catch (err) {
-    console.error("FETCH MATCHES ERROR:", err);
-    res.status(500).json({ message: "Failed to fetch matches" });
-  }
-});
+/* ================= GET ALL MATCHES (ADMIN & ORGANIZER) ================= */
+router.get("/", auth, getMatches);
 
 /* ================= GET MATCHES BY TOURNAMENT (PUBLIC - NO AUTH) ================= */
-router.get("/tournament/:id", async (req, res) => {
-  try {
-    const matches = await Match.find({ tournamentId: req.params.id })
-      .populate("teams", "teamName")
-      .populate("venueId", "name")
-      .sort({ matchDate: 1 });
+router.get("/tournament/:id", validateObjectId, getMatchesByTournament);
 
-    res.json(matches);
-  } catch (err) {
-    console.error("FETCH MATCHES ERROR:", err);
-    res.status(500).json({ message: "Failed to load matches" });
-  }
-});
+router.get("/public/tournament/:id", validateObjectId, getPublicMatchesByTournament);
 
 /* ================= GET UPCOMING MATCHES (PUBLIC - NO AUTH) ================= */
-router.get("/public/upcoming", async (req, res) => {
-  try {
-    const matches = await Match.find({ 
-      status: "scheduled",
-      matchDate: { $gte: new Date() }
-    })
-      .populate("teams", "teamName")
-      .populate("venueId", "name")
-      .populate("tournamentId", "eventName")
-      .sort({ matchDate: 1 })
-      .limit(10);
-
-    res.json(matches);
-  } catch (err) {
-    console.error("UPCOMING MATCHES ERROR:", err);
-    res.status(500).json({ message: "Failed to load upcoming matches" });
-  }
-});
+router.get("/public/upcoming", getUpcomingMatches);
 
 /* ================= GET COMPLETED MATCHES (PUBLIC - NO AUTH) ================= */
-router.get("/public/completed", async (req, res) => {
-  try {
-    const matches = await Match.find({ status: "completed" })
-      .populate("teams", "teamName")
-      .populate("venueId", "name")
-      .populate("tournamentId", "eventName")
-      .sort({ matchDate: -1 })
-      .limit(20);
-
-    res.json(matches);
-  } catch (err) {
-    console.error("COMPLETED MATCHES ERROR:", err);
-    res.status(500).json({ message: "Failed to load completed matches" });
-  }
-});
+router.get("/public/completed", getCompletedMatches);
 
 /* ================= UPDATE MATCH RESULT (ADMIN & ORGANIZER) ================= */
-router.put("/:id/result", auth, async (req, res) => {
-  try {
-    const { winnerTeamId, score, status } = req.body;
-    const match = await Match.findById(req.params.id).populate("tournamentId");
-    
-    if (!match) {
-      return res.status(404).json({ message: "Match not found" });
-    }
-
-    // Check permissions
-    if (req.user.role !== "admin" && match.tournamentId.organizerId.toString() !== req.user.userId) {
-      return res.status(403).json({ message: "Only admin or tournament organizer can update match results" });
-    }
-
-    if (winnerTeamId) {
-      match.result.winnerTeamId = winnerTeamId;
-    }
-    
-    if (score) {
-      match.result.score = score;
-    }
-    
-    if (status) {
-      match.status = status;
-    }
-
-    await match.save();
-
-    res.json({ message: "Match result updated", match });
-  } catch (err) {
-    console.error("UPDATE MATCH RESULT ERROR:", err);
-    res.status(500).json({ message: "Failed to update match result" });
-  }
-});
+router.put("/:id/result", auth, role("admin", "organizer"), validateObjectId, updateMatchResult);
 
 /* ================= GET SINGLE MATCH (PUBLIC) ================= */
-router.get("/:id", async (req, res) => {
-  try {
-    const match = await Match.findById(req.params.id)
-      .populate("teams", "teamName captainId")
-      .populate("venueId", "name address")
-      .populate("tournamentId", "eventName");
-
-    if (!match) {
-      return res.status(404).json({ message: "Match not found" });
-    }
-
-    res.json(match);
-  } catch (err) {
-    console.error("FETCH SINGLE MATCH ERROR:", err);
-    res.status(500).json({ message: "Failed to fetch match" });
-  }
-});
+router.get("/:id", validateObjectId, getMatchById);
 
 /* ================= UPDATE MATCH DETAILS (ADMIN & ORGANIZER) ================= */
-router.put("/:id", auth, async (req, res) => {
-  try {
-    const { matchDate, venueId, teams, status } = req.body;
-    const match = await Match.findById(req.params.id).populate("tournamentId");
-    
-    if (!match) {
-      return res.status(404).json({ message: "Match not found" });
-    }
-
-    // Check permissions
-    if (req.user.role !== "admin" && (!match.tournamentId.organizerId || match.tournamentId.organizerId.toString() !== req.user.userId)) {
-      return res.status(403).json({ message: "Only admin or tournament organizer can update matches" });
-    }
-
-    if (matchDate) match.matchDate = matchDate;
-    if (venueId) match.venueId = venueId;
-    if (teams && teams.length === 2) {
-      if (teams[0] === teams[1]) {
-        return res.status(400).json({ message: "Team A and Team B must be different" });
-      }
-      match.teams = teams;
-    }
-    if (status) match.status = status;
-
-    await match.save();
-    res.json({ message: "Match updated successfully", match });
-  } catch (err) {
-    console.error("UPDATE MATCH ERROR:", err);
-    res.status(500).json({ message: "Failed to update match" });
-  }
-});
+router.put("/:id", auth, role("admin", "organizer"), validateObjectId, updateMatch);
 
 /* ================= DELETE MATCH (ADMIN & ORGANIZER) ================= */
-router.delete("/:id", auth, async (req, res) => {
-  try {
-    const match = await Match.findById(req.params.id).populate("tournamentId");
-    
-    if (!match) {
-      return res.status(404).json({ message: "Match not found" });
-    }
-
-    // Check permissions
-    if (req.user.role !== "admin" && match.tournamentId.organizerId.toString() !== req.user.userId) {
-      return res.status(403).json({ message: "Only admin or tournament organizer can delete matches" });
-    }
-
-    await Match.findByIdAndDelete(req.params.id);
-    res.json({ message: "Match deleted successfully" });
-  } catch (err) {
-    console.error("DELETE MATCH ERROR:", err);
-    res.status(500).json({ message: "Failed to delete match" });
-  }
-});
+router.delete("/:id", auth, role("admin", "organizer"), validateObjectId, deleteMatch);
 
 module.exports = router;

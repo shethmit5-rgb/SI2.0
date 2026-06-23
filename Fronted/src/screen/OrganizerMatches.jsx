@@ -52,12 +52,33 @@ export default function OrganizerMatches() {
     }
   };
 
+  const [roundInfo, setRoundInfo] = useState(null);
+
   const fetchTournamentTeams = async (tournamentId) => {
     try {
       const res = await api.get(`/teams/tournament/${tournamentId}`);
       setTeams(res.data);
     } catch (err) {
       console.error("Failed to fetch teams:", err);
+    }
+  };
+
+  const fetchRoundInfo = async (tournamentId) => {
+    try {
+      const res = await api.get(`/tournaments/${tournamentId}/round-info`);
+      setRoundInfo(res.data);
+      const venue = res.data.tournament?.venueId;
+      const vId = typeof venue === "object" ? venue?._id : venue;
+      setFormData(prev => ({
+        ...prev,
+        venueId: vId || "",
+        teamA: "",
+        teamB: "",
+        matchDate: "",
+        matchTime: ""
+      }));
+    } catch (err) {
+      console.error("Failed to fetch round info:", err);
     }
   };
 
@@ -73,6 +94,7 @@ export default function OrganizerMatches() {
   const handleTournamentSelect = (tournament) => {
     setSelectedTournament(tournament);
     fetchTournamentTeams(tournament._id);
+    fetchRoundInfo(tournament._id);
     fetchMatches(tournament._id);
   };
 
@@ -83,8 +105,13 @@ export default function OrganizerMatches() {
       return;
     }
 
+    if (roundInfo?.isCompleted) {
+      alert("Tournament is already completed. No more matches can be created.");
+      return;
+    }
+
     const matchDate = new Date(`${formData.matchDate}T${formData.matchTime}`);
-    
+
     try {
       await api.post("/matches", {
         tournamentId: selectedTournament._id,
@@ -94,8 +121,8 @@ export default function OrganizerMatches() {
       });
       alert("✅ Match created successfully!");
       setShowCreateForm(false);
-      fetchMatches(selectedTournament._id);
-      setFormData({ teamA: "", teamB: "", matchDate: "", matchTime: "", venueId: "" });
+      await fetchRoundInfo(selectedTournament._id);
+      await fetchMatches(selectedTournament._id);
     } catch (err) {
       alert(err.response?.data?.message || "Failed to create match");
     }
@@ -109,7 +136,8 @@ export default function OrganizerMatches() {
         status: "completed"
       });
       alert("✅ Match result updated!");
-      fetchMatches(selectedTournament._id);
+      await fetchRoundInfo(selectedTournament._id);
+      await fetchMatches(selectedTournament._id);
     } catch (err) {
       alert(err.response?.data?.message || "Failed to update result");
     }
@@ -120,14 +148,15 @@ export default function OrganizerMatches() {
       await api.put(`/matches/${matchId}`, updateFields);
       alert("✅ Match details updated successfully!");
       setEditingMatchId(null);
-      fetchMatches(selectedTournament._id);
+      await fetchRoundInfo(selectedTournament._id);
+      await fetchMatches(selectedTournament._id);
     } catch (err) {
       alert(err.response?.data?.message || "Failed to update match details");
     }
   };
 
   const getStatusBadge = (status) => {
-    switch(status) {
+    switch (status) {
       case "scheduled": return <span className="badge scheduled">📅 Scheduled</span>;
       case "live": return <span className="badge live">🔴 LIVE</span>;
       case "completed": return <span className="badge completed">✅ Completed</span>;
@@ -148,7 +177,7 @@ export default function OrganizerMatches() {
           <h2>Select Tournament</h2>
           {myTournaments.length === 0 ? (
             <div className="no-tournaments">
-              <p>You haven't created any tournaments yet.</p>
+              <p>No tournaments created by or assigned to you.</p>
               <button onClick={() => navigate("/create-tournament")} className="create-tournament-btn">
                 + Create Tournament
               </button>
@@ -183,6 +212,17 @@ export default function OrganizerMatches() {
         </button>
       </div>
 
+      {roundInfo && (
+        <div style={{ margin: "0 20px 20px 20px", padding: "12px", backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }}>
+          <p style={{ margin: 0, fontWeight: "bold", color: "#1e293b" }}>⚡ Current Active Round: {roundInfo.currentRound}</p>
+          {roundInfo.isCompleted && (
+            <p style={{ margin: "5px 0 0 0", color: "#10b981", fontWeight: "bold" }}>
+              🏆 Tournament Completed! Champion: {roundInfo.winner?.teamName || "TBD"}
+            </p>
+          )}
+        </div>
+      )}
+
       {showCreateForm && (
         <div className="create-match-form">
           <h3>Create New Match</h3>
@@ -190,38 +230,73 @@ export default function OrganizerMatches() {
             <div className="form-row">
               <div className="form-group">
                 <label>Team A</label>
-                <select value={formData.teamA} onChange={(e) => setFormData({...formData, teamA: e.target.value})} required>
+                <select
+                  value={formData.teamA}
+                  onChange={(e) => setFormData({ ...formData, teamA: e.target.value })}
+                  required
+                  disabled={roundInfo?.isCompleted}
+                >
                   <option value="">Select Team</option>
-                  {teams.map(t => <option key={t._id} value={t._id}>{t.teamName}</option>)}
+                  {roundInfo && roundInfo.availableTeams && roundInfo.availableTeams.map(t => (
+                    <option key={t._id} value={t._id}>{t.teamName}</option>
+                  ))}
                 </select>
               </div>
               <div className="vs">VS</div>
               <div className="form-group">
                 <label>Team B</label>
-                <select value={formData.teamB} onChange={(e) => setFormData({...formData, teamB: e.target.value})} required>
+                <select
+                  value={formData.teamB}
+                  onChange={(e) => setFormData({ ...formData, teamB: e.target.value })}
+                  required
+                  disabled={roundInfo?.isCompleted || !formData.teamA}
+                >
                   <option value="">Select Team</option>
-                  {teams.filter(t => t._id !== formData.teamA).map(t => <option key={t._id} value={t._id}>{t.teamName}</option>)}
+                  {roundInfo && roundInfo.availableTeams && roundInfo.availableTeams
+                    .filter(t => t._id !== formData.teamA)
+                    .map(t => (
+                      <option key={t._id} value={t._id}>{t.teamName}</option>
+                    ))}
                 </select>
               </div>
             </div>
             <div className="form-row">
               <div className="form-group">
                 <label>Date</label>
-                <input type="date" value={formData.matchDate} onChange={(e) => setFormData({...formData, matchDate: e.target.value})} required />
+                <input
+                  type="date"
+                  value={formData.matchDate}
+                  onChange={(e) => setFormData({ ...formData, matchDate: e.target.value })}
+                  required
+                  disabled={roundInfo?.isCompleted}
+                />
               </div>
               <div className="form-group">
                 <label>Time</label>
-                <input type="time" value={formData.matchTime} onChange={(e) => setFormData({...formData, matchTime: e.target.value})} required />
+                <input
+                  type="time"
+                  value={formData.matchTime}
+                  onChange={(e) => setFormData({ ...formData, matchTime: e.target.value })}
+                  required
+                  disabled={roundInfo?.isCompleted}
+                />
               </div>
               <div className="form-group">
                 <label>Venue</label>
-                <select value={formData.venueId} onChange={(e) => setFormData({...formData, venueId: e.target.value})} required>
+                <select
+                  value={formData.venueId}
+                  onChange={(e) => setFormData({ ...formData, venueId: e.target.value })}
+                  required
+                  disabled={roundInfo?.isCompleted}
+                >
                   <option value="">Select Venue</option>
-                  {venues.map(v => <option key={v._id} value={v._id}>{v.name}</option>)}
+                  {venues.map(v => (
+                    <option key={v._id} value={v._id}>{v.name}</option>
+                  ))}
                 </select>
               </div>
             </div>
-            <button type="submit" className="submit-btn">Create Match</button>
+            <button type="submit" className="submit-btn" disabled={roundInfo?.isCompleted}>Create Match</button>
           </form>
         </div>
       )}

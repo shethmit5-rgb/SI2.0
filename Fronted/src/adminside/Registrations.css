@@ -171,3 +171,26 @@
 .reg-page th {
   background: transparent !important;
 }
+
+/* approved_pending_payment status badge */
+.status.approved_pending_payment {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+/* payment status styles */
+.payment {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.payment.paid {
+  background: #dcfce7;
+  color: #15803d;
+}
+.payment.unpaid {
+  background: #fee2e2;
+  color: #b91c1c;
+}

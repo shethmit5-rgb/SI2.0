@@ -329,6 +329,7 @@ export default function RegisterWithVerification() {
                   <option value="player">Player</option>
                   <option value="coach">Coach</option>
                   <option value="organizer">Organizer</option>
+                  <option value="sponsor">Sponsor</option>
                 </select>
               </div>
 

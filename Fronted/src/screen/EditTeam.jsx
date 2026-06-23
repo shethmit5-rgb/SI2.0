@@ -7,6 +7,7 @@ export default function EditTeam() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [teamName, setTeamName] = useState("");
+  const [playerJoiningFee, setPlayerJoiningFee] = useState("");
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
 
@@ -18,6 +19,7 @@ export default function EditTeam() {
     try {
       const res = await api.get(`/teams/${id}`);
       setTeamName(res.data.teamName);
+      setPlayerJoiningFee(res.data.playerJoiningFee !== undefined ? res.data.playerJoiningFee : "");
     } catch (err) {
       console.error("Failed to fetch team:", err);
       alert("Team not found");
@@ -36,7 +38,7 @@ export default function EditTeam() {
 
     setSaving(true);
     try {
-      await api.put(`/teams/${id}`, { teamName });
+      await api.put(`/teams/${id}`, { teamName, playerJoiningFee: Number(playerJoiningFee) || 0 });
       alert("✅ Team updated successfully!");
       navigate(`/team/${id}`);
     } catch (err) {
@@ -61,6 +63,16 @@ export default function EditTeam() {
               onChange={(e) => setTeamName(e.target.value)}
               placeholder="Enter team name"
               required
+            />
+          </div>
+          <div className="form-group">
+            <label>Player Joining Fee (₹)</label>
+            <input
+              type="number"
+              value={playerJoiningFee}
+              onChange={(e) => setPlayerJoiningFee(e.target.value)}
+              placeholder="e.g. 500 (0 for free)"
+              min="0"
             />
           </div>
           <div className="form-actions">

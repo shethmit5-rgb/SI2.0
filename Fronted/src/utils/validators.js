@@ -158,7 +158,14 @@ export const validateTournamentForm = (formData) => {
   if (dateError) errors.dates = dateError;
   
   const maxParticipantsError = validateNumber(formData.maxParticipants, "Max participants", 2, 100);
-  if (maxParticipantsError) errors.maxParticipants = maxParticipantsError;
+  if (maxParticipantsError) {
+    errors.maxParticipants = maxParticipantsError;
+  } else if (formData.maxParticipants) {
+    const num = Number(formData.maxParticipants);
+    if ((num & (num - 1)) !== 0) {
+      errors.maxParticipants = "Max participants must be a power of 2 (2, 4, 8, 16, 32, etc.)";
+    }
+  }
   
   const descriptionError = validateDescription(formData.description);
   if (descriptionError) errors.description = descriptionError;

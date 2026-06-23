@@ -30,6 +30,7 @@ function AnimatedCounter({ value, duration = 1000 }) {
 
 export default function OrganizerDashboard() {
   const [loading, setLoading] = useState(true);
+  const [notifications, setNotifications] = useState([]);
   const [data, setData] = useState({
     teamsOverview: { total: 0, byTournament: [], bySport: [] },
     tournamentOverview: { total: 0, active: 0, upcoming: 0, completed: 0 },
@@ -39,6 +40,7 @@ export default function OrganizerDashboard() {
 
   useEffect(() => {
     fetchStats();
+    fetchNotifications();
   }, []);
 
   const fetchStats = async () => {
@@ -50,6 +52,15 @@ export default function OrganizerDashboard() {
       console.error("Failed to load organizer dashboard stats:", err);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const fetchNotifications = async () => {
+    try {
+      const res = await api.get("/notifications");
+      setNotifications(res.data);
+    } catch (err) {
+      console.error("Failed to load organizer dashboard notifications:", err);
     }
   };
 
@@ -191,15 +202,30 @@ export default function OrganizerDashboard() {
       <motion.section className="org-panel org-quick-actions-panel" style={{ marginBottom: "32px" }} variants={itemFadeUp}>
         <h2>⚡ Organizer Quick Shortcuts</h2>
         <div className="org-quick-actions-grid">
+          <Link to="/my-tournaments" className="org-action-tile light-sweep-wrapper">
+            <span className="org-tile-icon">📋</span>
+            <strong>My Tournaments</strong>
+            <small>View and edit your tournaments</small>
+          </Link>
           <Link to="/create-tournament" className="org-action-tile light-sweep-wrapper">
             <span className="org-tile-icon">✨</span>
             <strong>Create Tournament</strong>
             <small>Build a new collegiate league</small>
           </Link>
+          <Link to="/organizer/registrations" className="org-action-tile light-sweep-wrapper">
+            <span className="org-tile-icon">📝</span>
+            <strong>Team Registrations</strong>
+            <small>Approve or reject team entries</small>
+          </Link>
+          <Link to="/organizer/matches/list" className="org-action-tile light-sweep-wrapper">
+            <span className="org-tile-icon">📋</span>
+            <strong>Match List</strong>
+            <small>View and filter match fixtures</small>
+          </Link>
           <Link to="/organizer/matches" className="org-action-tile light-sweep-wrapper">
             <span className="org-tile-icon">📅</span>
-            <strong>Manage Matches</strong>
-            <small>Coordinate match schedules</small>
+            <strong>Create Match / Manage Matches</strong>
+            <small>Coordinate and edit match schedules</small>
           </Link>
           <Link to="/teams/create" className="org-action-tile light-sweep-wrapper">
             <span className="org-tile-icon">➕</span>
@@ -211,6 +237,68 @@ export default function OrganizerDashboard() {
             <strong>Manage Sponsors</strong>
             <small>Distribute sponsorship funding</small>
           </Link>
+        </div>
+      </motion.section>
+
+      {/* Recent Notifications Panel */}
+      <motion.section className="org-panel notifications-panel" style={{ marginBottom: "32px" }} variants={itemFadeUp}>
+        <h2>🔔 Recent Notifications</h2>
+        <div className="org-panel-table-wrapper" style={{ maxHeight: "250px" }}>
+          {notifications.length === 0 ? (
+            <p className="org-empty-text">🔔 No recent notifications.</p>
+          ) : (
+            <div className="org-notifications-list" style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+              {notifications.slice(0, 5).map((n) => (
+                <div
+                  key={n._id}
+                  className={`org-notification-item ${!n.isRead ? "unread" : ""}`}
+                  style={{
+                    padding: "12px 16px",
+                    borderRadius: "var(--radius-sm)",
+                    background: n.isRead ? "var(--org-surface-2)" : "rgba(59, 130, 246, 0.08)",
+                    borderLeft: n.isRead ? "3px solid var(--org-border)" : "3px solid var(--primary)",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    border: "1px solid var(--org-border)"
+                  }}
+                >
+                  <div>
+                    <p style={{ margin: 0, fontSize: "14px", fontWeight: n.isRead ? "500" : "700", color: "var(--org-text)" }}>{n.message}</p>
+                    <small style={{ color: "var(--org-text-muted)", fontSize: "11px" }}>
+                      {n.createdAt ? new Date(n.createdAt).toLocaleString() : "Just now"}
+                    </small>
+                  </div>
+                  {!n.isRead && (
+                    <button
+                      onClick={async () => {
+                        try {
+                          await api.put(`/notifications/${n._id}`);
+                          setNotifications(prev => prev.map(item =>
+                            item._id === n._id ? { ...item, isRead: true } : item
+                          ));
+                        } catch (err) {
+                          console.error(err);
+                        }
+                      }}
+                      style={{
+                        padding: "6px 12px",
+                        fontSize: "12px",
+                        fontWeight: "600",
+                        background: "var(--org-surface)",
+                        border: "1px solid var(--org-border)",
+                        borderRadius: "var(--radius-sm)",
+                        cursor: "pointer",
+                        color: "var(--org-text)"
+                      }}
+                    >
+                      Mark read
+                    </button>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </motion.section>
 

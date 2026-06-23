@@ -721,3 +721,50 @@
 :root[data-theme="dark"] .navbar.scrolled {
   background-color: rgba(15, 18, 32, 0.98) !important;
 }
+
+/* ================= RESPONSIVE ADMIN NAVBAR OVERFLOW FIX ================= */
+
+.admin-navbar {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.admin-navbar .logo {
+  min-width: auto !important;
+  max-width: 180px !important;
+  flex: 0 0 auto !important;
+}
+
+.admin-navbar nav {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  overflow: visible !important; /* Keep overflow visible so dropdown menus are not clipped */
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+}
+
+.admin-navbar nav a,
+.admin-navbar .nav-link {
+  white-space: nowrap !important;
+}
+
+.admin-navbar .nav-actions {
+  flex: 0 0 auto !important;
+  margin-left: auto !important;
+}
+
+/* Desktop-only overrides (above 1280px mobile breakpoint) */
+@media (min-width: 1281px) {
+  .admin-navbar nav {
+    gap: 4px !important;
+  }
+  
+  .admin-navbar nav a,
+  .admin-navbar .nav-link {
+    padding: 0 6px !important;
+  }
+}

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import api from "../utils/axiosConfig";
 import { useAuth } from "../context/AuthContext";
+// Removed payment service imports since payment happens after organizer approval
 import "../static/RegisterTeam.css";
 
 export default function RegisterTeam() {
@@ -101,14 +102,16 @@ export default function RegisterTeam() {
         sportId: formData.sportId
       });
       
-      // After creating team, register for tournament
+      const teamId = res.data._id;
+
+      // Register the team as pending
       await api.post("/registrations", {
         tournamentId: formData.tournamentId,
-        teamId: res.data._id
+        teamId: teamId
       });
 
-      alert("✅ Team created and registered successfully!");
-      navigate(`/team/${res.data._id}`);
+      alert("Registration submitted successfully. Waiting for organizer approval.");
+      navigate("/my-registrations");
     } catch (err) {
       console.error("Submit error:", err);
       setError(err.response?.data?.message || "Failed to create team");
@@ -128,12 +131,14 @@ export default function RegisterTeam() {
         return;
       }
 
+      // Register the team as pending
       await api.post("/registrations", {
         tournamentId: formData.tournamentId,
         teamId: teamId
       });
-      alert("✅ Team registered successfully!");
-      navigate(`/team/${teamId}`);
+
+      alert("Registration submitted successfully. Waiting for organizer approval.");
+      navigate("/my-registrations");
     } catch (err) {
       console.error("Registration error:", err);
       alert(err.response?.data?.message || "Failed to register team");
@@ -171,6 +176,7 @@ export default function RegisterTeam() {
           <p>📅 Dates: {new Date(tournament.startDate).toLocaleDateString()} - {new Date(tournament.endDate).toLocaleDateString()}</p>
           <p>📍 Location: {tournament.location || "TBD"}</p>
           {tournament.prizePool > 0 && <p>💰 Prize Pool: ₹{tournament.prizePool}</p>}
+          <p>💳 Registration Fee: {tournament.teamRegistrationFee > 0 ? `₹${tournament.teamRegistrationFee.toLocaleString()}` : "Free"}</p>
         </div>
       )}
 

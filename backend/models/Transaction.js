@@ -14,6 +14,18 @@ const TransactionSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Registration"
   },
+  teamId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Team"
+  },
+  paymentType: {
+    type: String,
+    enum: ["tournament_creation", "team_registration", "player_joining", "sponsorship"],
+    default: "team_registration"
+  },
+  tempData: {
+    type: mongoose.Schema.Types.Mixed
+  },
   razorpayOrderId: {
     type: String,
     required: true

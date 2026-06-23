@@ -84,8 +84,25 @@ export default function Events() {
               </div>
 
               <div className="event-prize">
-                🏆 ₹{t.prizePool}
+                🏆 ₹{t.prizePool?.toLocaleString() || 0}
               </div>
+
+              {t.activeSponsorships && t.activeSponsorships.length > 0 && (
+                <div className="card-sponsors" style={{ display: "flex", gap: "8px", flexWrap: "wrap", margin: "10px 0", alignItems: "center" }}>
+                  <span style={{ fontSize: "11px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px", opacity: 0.7 }}>Sponsors:</span>
+                  {t.activeSponsorships.map((s) => (
+                    s.logo ? (
+                      <img 
+                        key={s._id} 
+                        src={s.logo} 
+                        alt={s.name} 
+                        title={`${s.name} (${s.type === "title" ? "Title Sponsor" : `In-Kind: ${s.equipment}`})`}
+                        style={{ height: "20px", objectFit: "contain", borderRadius: "2px" }} 
+                      />
+                    ) : null
+                  ))}
+                </div>
+              )}
 
               <Link to={`/tournament/${t._id}`} className="event-btn">
                 View Details

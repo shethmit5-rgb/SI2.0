@@ -1,9 +1,10 @@
-import { useAuth } from "../context/AuthContext";
 import GuestLayout from "./GuestLayout";
 import PlayerLayout from "./PlayerLayout";
 import CoachLayout from "./CoachLayout";
 import OrganizerLayout from "./OrganizerLayout";
 import AdminLayout from "./AdminLayout";
+import SponsorLayout from "./SponsorLayout";
+import { useAuth } from "../context/AuthContext";
 import { motion } from "framer-motion";
 import ThreeBgCanvas from "../components/ThreeBgCanvas";
 
@@ -28,6 +29,8 @@ const RoleLayout = ({ children }) => {
         return <OrganizerLayout>{children}</OrganizerLayout>;
       case "admin":
         return <AdminLayout>{children}</AdminLayout>;
+      case "sponsor":
+        return <SponsorLayout>{children}</SponsorLayout>;
       default:
         return <GuestLayout>{children}</GuestLayout>;
     }

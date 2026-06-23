@@ -22,7 +22,11 @@ const sendOTP = async (phoneNumber, otpCode) => {
     console.log(`✅ SMS sent successfully to ${phoneNumber}. Message SID: ${message.sid}`);
     return true;
   } catch (error) {
-    console.error("❌ Failed to send SMS via Twilio:", error);
+    if (error.code === 21608) {
+      console.warn(`⚠️ Twilio Trial Info: The phone number ${phoneNumber} is unverified. Code logged above.`);
+    } else {
+      console.error("❌ Failed to send SMS via Twilio:", error.message || error);
+    }
     return false;
   }
 };

@@ -59,10 +59,13 @@ export default function Registrations() {
           <thead>
             <tr>
               <th>#</th>
-              <th>Team</th>
-              <th>Tournament</th>
-              <th>Status</th>
-              <th>Payment</th>
+              <th>Team Name</th>
+              <th>Coach Name</th>
+              <th>Tournament Name</th>
+              <th>Registration Fee</th>
+              <th>Payment Status</th>
+              <th>Approval Status</th>
+              <th>Payment Deadline</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -70,7 +73,7 @@ export default function Registrations() {
           <tbody>
             {registrations.length === 0 ? (
               <tr>
-                <td colSpan="6" style={{ textAlign: "center" }}>
+                <td colSpan="9" style={{ textAlign: "center" }}>
                   No registrations found
                 </td>
               </tr>
@@ -83,22 +86,40 @@ export default function Registrations() {
                     <strong>{r.teamId?.teamName || "N/A"}</strong>
                   </td>
 
+                  <td>{r.userId?.name || "N/A"}</td>
+
                   <td>{r.tournamentId?.eventName || "N/A"}</td>
 
                   <td>
-                    <span className={`status ${r.approvalStatus}`}>
-                      {r.approvalStatus}
-                    </span>
+                    {r.tournamentId?.teamRegistrationFee > 0
+                      ? `₹${r.tournamentId.teamRegistrationFee}`
+                      : "Free"}
                   </td>
 
                   <td>
                     <span
                       className={`payment ${
-                        r.paymentStatus === "paid" ? "paid" : "unpaid"
+                        r.paymentStatus === "Paid" || r.paymentStatus === "paid" ? "paid" : "unpaid"
                       }`}
                     >
-                      {r.paymentStatus || "unpaid"}
+                      {r.paymentStatus === "Paid" || r.paymentStatus === "paid" ? "Paid" : "Unpaid"}
                     </span>
+                  </td>
+
+                  <td>
+                    <span className={`status ${r.approvalStatus}`}>
+                      {r.approvalStatus === "approved_pending_payment"
+                        ? "Approved (Pending Payment)"
+                        : r.approvalStatus === "approved"
+                        ? "Approved"
+                        : r.approvalStatus.charAt(0).toUpperCase() + r.approvalStatus.slice(1)}
+                    </span>
+                  </td>
+
+                  <td>
+                    {r.approvalStatus === "approved_pending_payment" && r.paymentDeadline
+                      ? new Date(r.paymentDeadline).toLocaleString()
+                      : "N/A"}
                   </td>
 
                   <td className="actions">

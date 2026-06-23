@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import api from "../utils/axiosConfig";
 import { useAuth } from "../context/AuthContext";
 import "../static/TournamentDetails.css";
+import { loadRazorpayScript, getRazorpayKey } from "../services/paymentService";
 
 export default function TournamentDetails() {
   const { id } = useParams();
@@ -19,6 +20,33 @@ export default function TournamentDetails() {
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("overview");
   const [registering, setRegistering] = useState(false);
+
+  const [showSponsorModal, setShowSponsorModal] = useState(false);
+  const [sponsorshipError, setSponsorshipError] = useState("");
+  const [paymentLoading, setPaymentLoading] = useState(false);
+  const [sponsorForm, setSponsorForm] = useState({
+    brandName: "",
+    type: "title",
+    winnerPrize: 100000,
+    runnerUpPrize: 50000,
+    equipment: "",
+    amount: 50000,
+  });
+  const [sponsorLogoFile, setSponsorLogoFile] = useState(null);
+
+  const [showMockRazorpay, setShowMockRazorpay] = useState(false);
+  const [mockRazorpayData, setMockRazorpayData] = useState(null);
+  const [mockPaymentForm, setMockPaymentForm] = useState({
+    cardNo: "",
+    expiry: "",
+    cvv: "",
+    name: "",
+    upiId: "",
+    phone: "",
+    email: "",
+    method: "card",
+  });
+  const [mockSubmitting, setMockSubmitting] = useState(false);
 
   useEffect(() => {
     fetchTournamentData();
@@ -116,6 +144,191 @@ export default function TournamentDetails() {
     }
   };
 
+  const handleSponsorSubmit = async (e) => {
+    e.preventDefault();
+    setSponsorshipError("");
+    setPaymentLoading(true);
+
+    try {
+      // 1. Load Razorpay script
+      const scriptLoaded = await loadRazorpayScript();
+      if (!scriptLoaded) {
+        throw new Error("Razorpay SDK failed to load. Are you online?");
+      }
+
+      // 2. Load Razorpay Key
+      const keyData = await getRazorpayKey();
+      if (!keyData || !keyData.key) {
+        throw new Error("Payment service configuration missing.");
+      }
+
+      // 3. Prepare FormData
+      const formData = new FormData();
+      formData.append("brandName", sponsorForm.brandName);
+      formData.append("tournamentId", id);
+      formData.append("type", sponsorForm.type);
+
+      if (sponsorForm.type === "title") {
+        formData.append("winnerPrize", sponsorForm.winnerPrize);
+        formData.append("runnerUpPrize", sponsorForm.runnerUpPrize);
+      } else {
+        formData.append("equipment", sponsorForm.equipment);
+        formData.append("amount", sponsorForm.amount);
+      }
+
+      if (sponsorLogoFile) {
+        formData.append("logo", sponsorLogoFile);
+      } else {
+        throw new Error("Brand logo image is required.");
+      }
+
+      // 4. Create Order on Backend
+      const orderRes = await api.post("/sponsors/self-sponsor", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
+      if (!orderRes.data.success) {
+        throw new Error(orderRes.data.message || "Failed to initiate sponsorship.");
+      }
+
+      const { order, sponsorId } = orderRes.data;
+
+      // Check if it's a mock order (starts with order_mock_) or if we use local/dummy key
+      const isDummyKey = !keyData.key || keyData.key.includes("xxxx") || order.id.startsWith("order_mock_");
+      if (isDummyKey) {
+        setMockRazorpayData({
+          order,
+          sponsorId,
+          amount: totalAmount,
+          brandName: sponsorForm.brandName,
+          type: sponsorForm.type
+        });
+        setMockPaymentForm({
+          cardNo: "",
+          expiry: "",
+          cvv: "",
+          name: user?.name || "",
+          upiId: "",
+          phone: user?.phoneNumber || "",
+          email: user?.email || "",
+          method: "card"
+        });
+        setPaymentLoading(false);
+        setShowMockRazorpay(true);
+        return;
+      }
+
+      // 5. Open Razorpay Modal
+      const options = {
+        key: keyData.key,
+        amount: order.amount,
+        currency: order.currency,
+        name: sponsorForm.brandName,
+        description: `Tournament ${sponsorForm.type === "title" ? "Title" : "In-Kind"} Sponsorship`,
+        image: tournament.logo || "",
+        order_id: order.id,
+        handler: async function (response) {
+          try {
+            setPaymentLoading(true);
+            const verifyRes = await api.post("/sponsors/verify-self-payment", {
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature,
+              sponsorId,
+            });
+
+            if (verifyRes.data.success) {
+              alert("🎉 Sponsorship active! Thank you for your support.");
+              setShowSponsorModal(false);
+              setSponsorForm({
+                brandName: "",
+                type: "title",
+                winnerPrize: 100000,
+                runnerUpPrize: 50000,
+                equipment: "",
+                amount: 50000,
+              });
+              setSponsorLogoFile(null);
+              fetchTournamentData();
+            } else {
+              setSponsorshipError(verifyRes.data.message || "Verification failed.");
+            }
+          } catch (verifyErr) {
+            console.error("Verification error:", verifyErr);
+            setSponsorshipError(verifyErr.response?.data?.message || "Payment verification failed.");
+          } finally {
+            setPaymentLoading(false);
+          }
+        },
+        prefill: {
+          name: user?.name || "",
+          email: user?.email || "",
+          contact: user?.phone || "",
+        },
+        theme: {
+          color: "#2563EB",
+        },
+        modal: {
+          ondismiss: function () {
+            setPaymentLoading(false);
+            setSponsorshipError("Payment window was closed.");
+          },
+        },
+      };
+
+      const rzp = new window.Razorpay(options);
+      rzp.open();
+
+    } catch (err) {
+      console.error("Sponsorship submit error:", err);
+      setSponsorshipError(err.response?.data?.message || err.message || "Failed to process sponsorship.");
+      setPaymentLoading(false);
+    }
+  };
+
+  const handleMockPaymentSubmit = async (e) => {
+    e.preventDefault();
+    setSponsorshipError("");
+    setMockSubmitting(true);
+
+    try {
+      // Simulate network request delay of 1.5 seconds
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+
+      const verifyRes = await api.post("/sponsors/verify-self-payment", {
+        razorpay_order_id: mockRazorpayData.order.id,
+        razorpay_payment_id: `pay_mock_${Date.now()}`,
+        razorpay_signature: "mock_signature",
+        sponsorId: mockRazorpayData.sponsorId,
+      });
+
+      if (verifyRes.data.success) {
+        alert("🎉 Sponsorship active! Thank you for your support.");
+        setShowMockRazorpay(false);
+        setShowSponsorModal(false);
+        setSponsorForm({
+          brandName: "",
+          type: "title",
+          winnerPrize: 100000,
+          runnerUpPrize: 50000,
+          equipment: "",
+          amount: 50000,
+        });
+        setSponsorLogoFile(null);
+        fetchTournamentData();
+      } else {
+        setSponsorshipError(verifyRes.data.message || "Payment verification failed.");
+      }
+    } catch (err) {
+      console.error("Mock payment error:", err);
+      setSponsorshipError(err.response?.data?.message || err.message || "Payment failed.");
+    } finally {
+      setMockSubmitting(false);
+    }
+  };
+
   const getStatusColor = (status) => {
     switch(status) {
       case "upcoming": return "#f59e0b";
@@ -167,6 +380,12 @@ export default function TournamentDetails() {
 
           {/* TITLE + SUBTITLE */}
           <h1>{tournament.eventName}</h1>
+          {tournament.titleSponsorLogo && (
+            <div className="title-sponsor-brand">
+              <span className="sponsored-by-lbl">Sponsored By:</span>
+              <img src={tournament.titleSponsorLogo} alt="Title Sponsor" className="title-sponsor-logo-hero" />
+            </div>
+          )}
           <p className="hero-sub">
             {tournament.description?.slice(0, 100) || "Compete, win prizes, and become a champion 🏆"}
           </p>
@@ -190,7 +409,23 @@ export default function TournamentDetails() {
           {/* REGISTRATION CTA */}
           {tournament.status === "upcoming" && (
             <div className="registration-cta">
-              {!user ? (
+              {user?.role === "sponsor" ? (
+                new Date() >= new Date(tournament.startDate) ? (
+                  <div className="sponsorship-closed-msg" style={{ color: "#ef4444", fontWeight: 600, padding: "10px", backgroundColor: "rgba(239, 68, 68, 0.1)", borderRadius: "8px", border: "1px solid rgba(239, 68, 68, 0.2)" }}>
+                    🚫 Sponsorship is closed because the tournament has already started.
+                  </div>
+                ) : (
+                  <button 
+                    onClick={() => {
+                      setSponsorshipError("");
+                      setShowSponsorModal(true);
+                    }} 
+                    className="sponsor-btn-cta"
+                  >
+                    🤝 Sponsor This Event
+                  </button>
+                )
+              ) : !user ? (
                 <Link to="/login" className="register-btn">
                   🔐 Login to Participate
                 </Link>
@@ -314,6 +549,20 @@ export default function TournamentDetails() {
                   </div>
                 </div>
               )}
+
+              {tournament.activeSponsorships && tournament.activeSponsorships.length > 0 && (
+                <div className="overview-sponsors-section">
+                  <h3>🤝 Tournament Sponsors</h3>
+                  <div className="overview-sponsors-logos">
+                    {tournament.activeSponsorships.map((s) => (
+                      <div key={s._id} className="overview-sponsor-logo-card">
+                        {s.logo ? <img src={s.logo} alt={s.name} /> : <span>🏢</span>}
+                        <span>{s.name} ({s.type === "title" ? "Title Sponsor" : `In-Kind: ${s.equipment}`})</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           )}
 
@@ -395,12 +644,18 @@ export default function TournamentDetails() {
                   {sponsors.map(sponsor => (
                     <div key={sponsor._id} className="sponsor-card">
                       {sponsor.logo ? (
-                        <img src={sponsor.logo} alt={sponsor.name} />
+                        <img src={sponsor.logo} alt={sponsor.name} style={{ maxHeight: "80px", objectFit: "contain", margin: "0 auto 15px auto", display: "block" }} />
                       ) : (
                         <div className="sponsor-placeholder">🏢</div>
                       )}
                       <h3>{sponsor.name}</h3>
-                      <p className="sponsor-amount">💰 ₹{sponsor.amount?.toLocaleString()}</p>
+                      {sponsor.type === "title" && (
+                        <span className="sponsor-type-tag" style={{ display: "inline-block", padding: "4px 10px", borderRadius: "12px", backgroundColor: "#fef3c7", color: "#d97706", fontSize: "12px", fontWeight: 600, marginBottom: "8px" }}>Title Sponsor</span>
+                      )}
+                      {sponsor.type === "inkind" && (
+                        <span className="sponsor-type-tag" style={{ display: "inline-block", padding: "4px 10px", borderRadius: "12px", backgroundColor: "#dbeafe", color: "#2563eb", fontSize: "12px", fontWeight: 600, marginBottom: "8px" }}>In-Kind: {sponsor.equipment}</span>
+                      )}
+                      <p className="sponsor-amount" style={{ fontWeight: 600, color: "#10b981" }}>💰 ₹{sponsor.amount?.toLocaleString()}</p>
                     </div>
                   ))}
                 </div>
@@ -411,6 +666,343 @@ export default function TournamentDetails() {
           )}
         </div>
       </div>
+
+      {showSponsorModal && (
+        <div className="sponsor-modal-overlay">
+          <div className="sponsor-modal">
+            <div className="sponsor-modal-header">
+              <h2>Sponsor This Event</h2>
+              <button className="close-btn" onClick={() => setShowSponsorModal(false)}>&times;</button>
+            </div>
+            <form onSubmit={handleSponsorSubmit} className="sponsor-form-content">
+              {sponsorshipError && (
+                <div className="error-message-box">
+                  {sponsorshipError}
+                </div>
+              )}
+
+              <div className="form-group">
+                <label>Sponsorship Type</label>
+                <div className="type-options">
+                  <label className="type-option">
+                    <input 
+                      type="radio" 
+                      name="type" 
+                      value="title" 
+                      checked={sponsorForm.type === "title"} 
+                      onChange={(e) => setSponsorForm({ ...sponsorForm, type: e.target.value })} 
+                    />
+                    Title Sponsor
+                  </label>
+                  <label className="type-option">
+                    <input 
+                      type="radio" 
+                      name="type" 
+                      value="inkind" 
+                      checked={sponsorForm.type === "inkind"} 
+                      onChange={(e) => setSponsorForm({ ...sponsorForm, type: e.target.value })} 
+                    />
+                    In-Kind Sponsor
+                  </label>
+                </div>
+              </div>
+
+              <div className="form-group">
+                <label>Brand Name</label>
+                <input 
+                  type="text" 
+                  placeholder="Enter Brand Name" 
+                  value={sponsorForm.brandName} 
+                  onChange={(e) => setSponsorForm({ ...sponsorForm, brandName: e.target.value })} 
+                  required 
+                />
+              </div>
+
+              <div className="form-group">
+                <label>Brand Logo</label>
+                <input 
+                  type="file" 
+                  accept="image/*" 
+                  onChange={(e) => setSponsorLogoFile(e.target.files[0])} 
+                  required 
+                />
+                <span className="help-text">Upload a high-quality brand logo.</span>
+              </div>
+
+              {sponsorForm.type === "title" ? (
+                <>
+                  <div className="form-row">
+                    <div className="form-group">
+                      <label>Winner Prize (INR)</label>
+                      <input 
+                        type="number" 
+                        min="1" 
+                        value={sponsorForm.winnerPrize} 
+                        onChange={(e) => setSponsorForm({ ...sponsorForm, winnerPrize: e.target.value })} 
+                        required 
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label>Runner-Up Prize (INR)</label>
+                      <input 
+                        type="number" 
+                        min="1" 
+                        value={sponsorForm.runnerUpPrize} 
+                        onChange={(e) => setSponsorForm({ ...sponsorForm, runnerUpPrize: e.target.value })} 
+                        required 
+                      />
+                    </div>
+                  </div>
+                  <div className="calculation-details">
+                    <p>Total Title Sponsorship Amount (Winner + Runner-Up):</p>
+                    <h3>₹{(Number(sponsorForm.winnerPrize || 0) + Number(sponsorForm.runnerUpPrize || 0)).toLocaleString()}</h3>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="form-group">
+                    <label>Equipment Category</label>
+                    <input 
+                      type="text" 
+                      placeholder="e.g. Cricket Bats, Jerseys, Drinks" 
+                      value={sponsorForm.equipment} 
+                      onChange={(e) => setSponsorForm({ ...sponsorForm, equipment: e.target.value })} 
+                      required 
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label>Sponsorship Amount (INR)</label>
+                    <input 
+                      type="number" 
+                      min="1" 
+                      value={sponsorForm.amount} 
+                      onChange={(e) => setSponsorForm({ ...sponsorForm, amount: e.target.value })} 
+                      required 
+                    />
+                  </div>
+                  <div className="calculation-details">
+                    <p>Total In-Kind Sponsorship Amount:</p>
+                    <h3>₹{Number(sponsorForm.amount || 0).toLocaleString()}</h3>
+                  </div>
+                </>
+              )}
+
+              <button 
+                type="submit" 
+                className="pay-now-btn" 
+                disabled={paymentLoading}
+              >
+                {paymentLoading ? "Processing Payment..." : "Complete Sponsorship Payment"}
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {showMockRazorpay && mockRazorpayData && (
+        <div className="sponsor-modal-overlay" style={{ zIndex: 1100, display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <div className="sponsor-modal" style={{ maxWidth: "420px", padding: 0, overflow: "hidden", border: "1px solid rgba(255,255,255,0.1)", background: "#1f2937", color: "#f3f4f6" }}>
+            {/* Razorpay Mimicking Header */}
+            <div style={{ backgroundColor: "#111827", padding: "20px", color: "white", position: "relative", borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
+              <button 
+                type="button"
+                onClick={() => {
+                  setShowMockRazorpay(false);
+                  setPaymentLoading(false);
+                }} 
+                style={{ position: "absolute", top: "15px", right: "15px", background: "none", border: "none", color: "#9ca3af", fontSize: "24px", cursor: "pointer", lineHeight: 1 }}
+              >
+                &times;
+              </button>
+              <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                <div style={{ backgroundColor: "#2563eb", width: "40px", height: "40px", borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "20px", fontWeight: "bold" }}>A</div>
+                <div>
+                  <h3 style={{ margin: 0, fontSize: "16px", fontWeight: 600, color: "white" }}>ArenaSync</h3>
+                  <p style={{ margin: 0, fontSize: "12px", color: "#9ca3af" }}>{mockRazorpayData.brandName} - {mockRazorpayData.type === "title" ? "Title Sponsor" : "In-Kind Sponsor"}</p>
+                </div>
+              </div>
+              <div style={{ marginTop: "15px", display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
+                <span style={{ fontSize: "13px", color: "#9ca3af" }}>Sponsorship Amount</span>
+                <span style={{ fontSize: "22px", fontWeight: 700, color: "#10b981" }}>₹{mockRazorpayData.amount.toLocaleString()}</span>
+              </div>
+            </div>
+
+            {/* Razorpay Mimicking Body */}
+            {mockSubmitting ? (
+              <div style={{ padding: "40px 20px", textAlign: "center" }}>
+                <div className="loading-spinner" style={{ margin: "0 auto 20px auto" }}></div>
+                <h4 style={{ margin: "0 0 5px 0", color: "#f3f4f6" }}>Processing Payment...</h4>
+                <p style={{ fontSize: "13px", color: "#9ca3af", margin: 0 }}>Please do not close this window or refresh the page.</p>
+              </div>
+            ) : (
+              <form onSubmit={handleMockPaymentSubmit} style={{ padding: "20px" }}>
+                {sponsorshipError && (
+                  <div className="error-message-box" style={{ marginBottom: "15px" }}>
+                    {sponsorshipError}
+                  </div>
+                )}
+                
+                {/* Prefilled/editable User Details */}
+                <div style={{ display: "flex", gap: "10px", marginBottom: "15px" }}>
+                  <div className="form-group" style={{ flex: 1, margin: 0 }}>
+                    <label style={{ fontSize: "11px", textTransform: "uppercase", fontWeight: 600, color: "#9ca3af", display: "block", marginBottom: "4px" }}>Mobile Number</label>
+                    <input 
+                      type="text" 
+                      value={mockPaymentForm.phone} 
+                      onChange={(e) => setMockPaymentForm({ ...mockPaymentForm, phone: e.target.value })} 
+                      required 
+                      style={{ padding: "8px", fontSize: "13px", width: "100%", borderRadius: "4px", border: "1px solid rgba(255,255,255,0.1)", background: "#374151", color: "white" }}
+                    />
+                  </div>
+                  <div className="form-group" style={{ flex: 1, margin: 0 }}>
+                    <label style={{ fontSize: "11px", textTransform: "uppercase", fontWeight: 600, color: "#9ca3af", display: "block", marginBottom: "4px" }}>Email ID</label>
+                    <input 
+                      type="email" 
+                      value={mockPaymentForm.email} 
+                      onChange={(e) => setMockPaymentForm({ ...mockPaymentForm, email: e.target.value })} 
+                      required 
+                      style={{ padding: "8px", fontSize: "13px", width: "100%", borderRadius: "4px", border: "1px solid rgba(255,255,255,0.1)", background: "#374151", color: "white" }}
+                    />
+                  </div>
+                </div>
+
+                {/* Payment Methods tabs */}
+                <div style={{ display: "flex", borderBottom: "1px solid rgba(255,255,255,0.1)", marginBottom: "15px" }}>
+                  <button 
+                    type="button"
+                    onClick={() => setMockPaymentForm({ ...mockPaymentForm, method: "card" })}
+                    style={{ flex: 1, padding: "10px", background: "none", border: "none", borderBottom: mockPaymentForm.method === "card" ? "2px solid #2563eb" : "none", color: mockPaymentForm.method === "card" ? "#2563eb" : "#9ca3af", fontWeight: 600, fontSize: "13px", cursor: "pointer" }}
+                  >
+                    💳 Card
+                  </button>
+                  <button 
+                    type="button"
+                    onClick={() => setMockPaymentForm({ ...mockPaymentForm, method: "upi" })}
+                    style={{ flex: 1, padding: "10px", background: "none", border: "none", borderBottom: mockPaymentForm.method === "upi" ? "2px solid #2563eb" : "none", color: mockPaymentForm.method === "upi" ? "#2563eb" : "#9ca3af", fontWeight: 600, fontSize: "13px", cursor: "pointer" }}
+                  >
+                    📱 UPI
+                  </button>
+                  <button 
+                    type="button"
+                    onClick={() => setMockPaymentForm({ ...mockPaymentForm, method: "netbanking" })}
+                    style={{ flex: 1, padding: "10px", background: "none", border: "none", borderBottom: mockPaymentForm.method === "netbanking" ? "2px solid #2563eb" : "none", color: mockPaymentForm.method === "netbanking" ? "#2563eb" : "#9ca3af", fontWeight: 600, fontSize: "13px", cursor: "pointer" }}
+                  >
+                    🏦 Netbanking
+                  </button>
+                </div>
+
+                {/* Form fields depending on selected method */}
+                {mockPaymentForm.method === "card" && (
+                  <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "20px" }}>
+                    <div className="form-group" style={{ margin: 0 }}>
+                      <label style={{ fontSize: "11px", textTransform: "uppercase", fontWeight: 600, color: "#9ca3af", display: "block", marginBottom: "4px" }}>Card Number</label>
+                      <input 
+                        type="text" 
+                        placeholder="4111 1111 1111 1111" 
+                        value={mockPaymentForm.cardNo} 
+                        onChange={(e) => setMockPaymentForm({ ...mockPaymentForm, cardNo: e.target.value })} 
+                        required 
+                        style={{ padding: "10px", fontSize: "14px", width: "100%", borderRadius: "4px", border: "1px solid rgba(255,255,255,0.1)", background: "#374151", color: "white" }}
+                      />
+                    </div>
+                    <div style={{ display: "flex", gap: "10px" }}>
+                      <div className="form-group" style={{ flex: 1, margin: 0 }}>
+                        <label style={{ fontSize: "11px", textTransform: "uppercase", fontWeight: 600, color: "#9ca3af", display: "block", marginBottom: "4px" }}>Expiry Date</label>
+                        <input 
+                          type="text" 
+                          placeholder="MM/YY" 
+                          value={mockPaymentForm.expiry} 
+                          onChange={(e) => setMockPaymentForm({ ...mockPaymentForm, expiry: e.target.value })} 
+                          required 
+                          style={{ padding: "10px", fontSize: "14px", width: "100%", borderRadius: "4px", border: "1px solid rgba(255,255,255,0.1)", background: "#374151", color: "white" }}
+                        />
+                      </div>
+                      <div className="form-group" style={{ flex: 1, margin: 0 }}>
+                        <label style={{ fontSize: "11px", textTransform: "uppercase", fontWeight: 600, color: "#9ca3af", display: "block", marginBottom: "4px" }}>CVV</label>
+                        <input 
+                          type="password" 
+                          placeholder="123" 
+                          maxLength="3"
+                          value={mockPaymentForm.cvv} 
+                          onChange={(e) => setMockPaymentForm({ ...mockPaymentForm, cvv: e.target.value })} 
+                          required 
+                          style={{ padding: "10px", fontSize: "14px", width: "100%", borderRadius: "4px", border: "1px solid rgba(255,255,255,0.1)", background: "#374151", color: "white" }}
+                        />
+                      </div>
+                    </div>
+                    <div className="form-group" style={{ margin: 0 }}>
+                      <label style={{ fontSize: "11px", textTransform: "uppercase", fontWeight: 600, color: "#9ca3af", display: "block", marginBottom: "4px" }}>Cardholder Name</label>
+                      <input 
+                        type="text" 
+                        placeholder="Card Owner Name" 
+                        value={mockPaymentForm.name} 
+                        onChange={(e) => setMockPaymentForm({ ...mockPaymentForm, name: e.target.value })} 
+                        required 
+                        style={{ padding: "10px", fontSize: "14px", width: "100%", borderRadius: "4px", border: "1px solid rgba(255,255,255,0.1)", background: "#374151", color: "white" }}
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {mockPaymentForm.method === "upi" && (
+                  <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "20px" }}>
+                    <div className="form-group" style={{ margin: 0 }}>
+                      <label style={{ fontSize: "11px", textTransform: "uppercase", fontWeight: 600, color: "#9ca3af", display: "block", marginBottom: "4px" }}>UPI ID / VPA</label>
+                      <input 
+                        type="text" 
+                        placeholder="e.g. success@upi" 
+                        value={mockPaymentForm.upiId} 
+                        onChange={(e) => setMockPaymentForm({ ...mockPaymentForm, upiId: e.target.value })} 
+                        required 
+                        style={{ padding: "10px", fontSize: "14px", width: "100%", borderRadius: "4px", border: "1px solid rgba(255,255,255,0.1)", background: "#374151", color: "white" }}
+                      />
+                      <span style={{ fontSize: "11px", color: "#9ca3af", marginTop: "4px", display: "block" }}>Enter any test UPI ID to proceed.</span>
+                    </div>
+                  </div>
+                )}
+
+                {mockPaymentForm.method === "netbanking" && (
+                  <div style={{ marginBottom: "20px" }}>
+                    <label style={{ fontSize: "11px", textTransform: "uppercase", fontWeight: 600, color: "#9ca3af", display: "block", marginBottom: "8px" }}>Select Popular Bank</label>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "8px" }}>
+                      {["State Bank of India", "HDFC Bank", "ICICI Bank", "Axis Bank"].map((bank) => (
+                        <label 
+                          key={bank} 
+                          style={{ 
+                            display: "flex", 
+                            alignItems: "center", 
+                            gap: "8px", 
+                            padding: "10px", 
+                            border: "1px solid rgba(255,255,255,0.1)", 
+                            borderRadius: "6px", 
+                            fontSize: "12px", 
+                            cursor: "pointer", 
+                            backgroundColor: "#374151" 
+                          }}
+                        >
+                          <input type="radio" name="bank" defaultChecked={bank === "HDFC Bank"} />
+                          {bank}
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                <button 
+                  type="submit" 
+                  className="pay-now-btn" 
+                  style={{ width: "100%", padding: "14px", fontSize: "16px", backgroundColor: "#2563eb", marginTop: "10px", color: "white" }}
+                >
+                  Pay ₹{mockRazorpayData.amount.toLocaleString()}
+                </button>
+                <p style={{ textAlign: "center", fontSize: "11px", color: "#9ca3af", marginTop: "12px", margin: "12px 0 0 0" }}>
+                  🔒 Secured by ArenaSync Test Checkout
+                </p>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

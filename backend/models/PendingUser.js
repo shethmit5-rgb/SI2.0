@@ -23,7 +23,7 @@ const PendingUserSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      enum: ["player", "coach", "organizer", "admin"],
+      enum: ["player", "coach", "organizer", "admin", "sponsor"],
       default: "player",
     },
     otpCode: {

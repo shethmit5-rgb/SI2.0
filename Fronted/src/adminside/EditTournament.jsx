@@ -7,12 +7,17 @@ export default function EditTournament() {
   const navigate = useNavigate();
   const [form, setForm] = useState({});
   const [loading, setLoading] = useState(true);
+  const [organizers, setOrganizers] = useState([]);
 
   const token = localStorage.getItem("token");
   const auth = { headers: { Authorization: `Bearer ${token}` } };
 
   useEffect(() => {
     fetchTournament();
+    axios.get("http://localhost:5000/api/users/public").then(res => {
+      const orgs = res.data.filter(u => u.role === "organizer");
+      setOrganizers(orgs);
+    });
   }, [id]);
 
   // ✅ FIXED: Use public endpoint to GET tournament data
@@ -29,6 +34,14 @@ export default function EditTournament() {
   };
 
   const update = async () => {
+    if (form.maxParticipants) {
+      const num = Number(form.maxParticipants);
+      if (isNaN(num) || num < 2 || (num & (num - 1)) !== 0) {
+        alert("Max participants must be a power of 2 (2, 4, 8, 16, 32, etc.)");
+        return;
+      }
+    }
+
     try {
       await axios.put(
         `http://localhost:5000/api/tournaments/${id}`,
@@ -41,6 +54,7 @@ export default function EditTournament() {
           description: form.description,
           rules: form.rules,
           status: form.status,
+          organizerId: form.organizerId || null,
         },
         auth
       );
@@ -48,7 +62,7 @@ export default function EditTournament() {
       navigate("/admin/tournaments");
     } catch (err) {
       console.error("Update failed:", err);
-      alert("❌ Update failed");
+      alert(err.response?.data?.message || "Update failed");
     }
   };
 
@@ -84,61 +98,77 @@ export default function EditTournament() {
   return (
     <div style={{ maxWidth: "600px", margin: "0 auto", padding: "40px" }}>
       <h2 style={{ marginBottom: "20px" }}>Edit Tournament</h2>
-      
+
       <div style={{ marginBottom: "15px" }}>
         <label style={{ display: "block", marginBottom: "5px", fontWeight: "bold" }}>Event Name</label>
-        <input 
+        <input
           style={{ width: "100%", padding: "8px", borderRadius: "4px", border: "1px solid #ccc" }}
-          value={form.eventName || ""} 
-          onChange={e => setForm({...form, eventName: e.target.value})} 
+          value={form.eventName || ""}
+          onChange={e => setForm({ ...form, eventName: e.target.value })}
         />
       </div>
 
       <div style={{ marginBottom: "15px" }}>
         <label style={{ display: "block", marginBottom: "5px", fontWeight: "bold" }}>Location</label>
-        <input 
+        <input
           style={{ width: "100%", padding: "8px", borderRadius: "4px", border: "1px solid #ccc" }}
-          value={form.location || ""} 
-          onChange={e => setForm({...form, location: e.target.value})} 
+          value={form.location || ""}
+          onChange={e => setForm({ ...form, location: e.target.value })}
         />
       </div>
 
       <div style={{ marginBottom: "15px" }}>
+        <label style={{ display: "block", marginBottom: "5px", fontWeight: "bold" }}>Assign Organizer</label>
+        <select
+          style={{ width: "100%", padding: "8px", borderRadius: "4px", border: "1px solid #ccc" }}
+          value={form.organizerId || ""}
+          onChange={e => setForm({ ...form, organizerId: e.target.value })}
+        >
+          <option value="">Select Organizer (Default to current user)</option>
+          {organizers.map(org => (
+            <option key={org._id} value={org._id}>
+              {org.name} ({org.email})
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div style={{ marginBottom: "15px" }}>
         <label style={{ display: "block", marginBottom: "5px", fontWeight: "bold" }}>Start Date</label>
-        <input 
+        <input
           type="date"
           style={{ width: "100%", padding: "8px", borderRadius: "4px", border: "1px solid #ccc" }}
-          value={form.startDate ? form.startDate.slice(0,10) : ""} 
-          onChange={e => setForm({...form, startDate: e.target.value})} 
+          value={form.startDate ? form.startDate.slice(0, 10) : ""}
+          onChange={e => setForm({ ...form, startDate: e.target.value })}
         />
       </div>
 
       <div style={{ marginBottom: "15px" }}>
         <label style={{ display: "block", marginBottom: "5px", fontWeight: "bold" }}>End Date</label>
-        <input 
+        <input
           type="date"
           style={{ width: "100%", padding: "8px", borderRadius: "4px", border: "1px solid #ccc" }}
-          value={form.endDate ? form.endDate.slice(0,10) : ""} 
-          onChange={e => setForm({...form, endDate: e.target.value})} 
+          value={form.endDate ? form.endDate.slice(0, 10) : ""}
+          onChange={e => setForm({ ...form, endDate: e.target.value })}
         />
       </div>
 
       <div style={{ marginBottom: "15px" }}>
         <label style={{ display: "block", marginBottom: "5px", fontWeight: "bold" }}>Max Participants</label>
-        <input 
+        <input
           type="number"
           style={{ width: "100%", padding: "8px", borderRadius: "4px", border: "1px solid #ccc" }}
-          value={form.maxParticipants || ""} 
-          onChange={e => setForm({...form, maxParticipants: e.target.value})} 
+          value={form.maxParticipants || ""}
+          onChange={e => setForm({ ...form, maxParticipants: e.target.value })}
         />
       </div>
 
       <div style={{ marginBottom: "15px" }}>
         <label style={{ display: "block", marginBottom: "5px", fontWeight: "bold" }}>Status</label>
-        <select 
+        <select
           style={{ width: "100%", padding: "8px", borderRadius: "4px", border: "1px solid #ccc" }}
-          value={form.status || "upcoming"} 
-          onChange={e => setForm({...form, status: e.target.value})}
+          value={form.status || "upcoming"}
+          onChange={e => setForm({ ...form, status: e.target.value })}
         >
           <option value="upcoming">Upcoming</option>
           <option value="ongoing">Ongoing</option>
@@ -148,24 +178,24 @@ export default function EditTournament() {
 
       <div style={{ marginBottom: "15px" }}>
         <label style={{ display: "block", marginBottom: "5px", fontWeight: "bold" }}>Description</label>
-        <textarea 
+        <textarea
           style={{ width: "100%", padding: "8px", borderRadius: "4px", border: "1px solid #ccc", minHeight: "80px" }}
-          value={form.description || ""} 
-          onChange={e => setForm({...form, description: e.target.value})} 
+          value={form.description || ""}
+          onChange={e => setForm({ ...form, description: e.target.value })}
         />
       </div>
 
       <div style={{ marginBottom: "15px" }}>
         <label style={{ display: "block", marginBottom: "5px", fontWeight: "bold" }}>Rules</label>
-        <textarea 
+        <textarea
           style={{ width: "100%", padding: "8px", borderRadius: "4px", border: "1px solid #ccc", minHeight: "80px" }}
-          value={form.rules || ""} 
-          onChange={e => setForm({...form, rules: e.target.value})} 
+          value={form.rules || ""}
+          onChange={e => setForm({ ...form, rules: e.target.value })}
         />
       </div>
 
       <div style={{ display: "flex", gap: "10px", marginTop: "20px" }}>
-        <button 
+        <button
           style={buttonStyles.update}
           onClick={update}
           onMouseEnter={(e) => e.target.style.backgroundColor = "#059669"}
@@ -173,7 +203,7 @@ export default function EditTournament() {
         >
           Update Tournament
         </button>
-        <button 
+        <button
           style={buttonStyles.cancel}
           onClick={() => navigate("/admin/tournaments")}
           onMouseEnter={(e) => e.target.style.backgroundColor = "#4b5563"}

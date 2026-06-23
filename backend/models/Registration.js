@@ -23,15 +23,22 @@ const RegistrationSchema = new mongoose.Schema({
 
   paymentStatus: {
     type: String,
-    enum: ["paid", "unpaid"],
+    enum: ["unpaid", "paid", "Pending", "Paid", "Failed", "Refunded"],
     default: "unpaid",
   },
 
+  razorpayOrderId: String,
+  razorpayPaymentId: String,
+  razorpaySignature: String,
+  amount: Number,
+  paidAt: Date,
+
   approvalStatus: {
     type: String,
-    enum: ["pending", "approved", "rejected"],
+    enum: ["pending", "approved_pending_payment", "approved", "rejected"],
     default: "pending",
   },
+  paymentDeadline: Date,
 });
 
 module.exports = mongoose.model("Registration", RegistrationSchema);

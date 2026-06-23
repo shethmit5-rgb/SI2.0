@@ -77,8 +77,9 @@ app.use("/api/matches", require("./routes/matchRouter"));
 app.use("/api/registrations", require("./routes/registrationRouter"));
 app.use("/api/venues", require("./routes/venueRouter"));
 app.use("/api/sponsors", require("./routes/sponsorRouter"));
-app.use("/api/cog", require("./routes/cogRouter"));
+
 app.use("/api/notifications", require("./routes/notificationRouter"));
+app.use("/api/payments", require("./routes/paymentRoutes"));
 
 // Analytics Routes - Real-time dashboard stats
 app.use("/api/analytics", require("./routes/analyticsRouter"));
@@ -141,6 +142,11 @@ app.use((err, req, res, next) => {
   // Handle validation errors
   if (err && err.name === "ValidationError") {
     return res.status(400).json({ message: err.message });
+  }
+
+  // Handle Mongoose Cast Error (e.g. invalid ObjectId)
+  if (err && err.name === "CastError") {
+    return res.status(400).json({ message: `Invalid ID format for path: ${err.path}` });
   }
 
   // Handle duplicate key errors

@@ -92,13 +92,13 @@ const UserSchema = new mongoose.Schema(
 
     role: {
       type: String,
-      enum: ["player", "coach", "organizer", "admin"],
+      enum: ["player", "coach", "organizer", "admin", "sponsor"],
       default: "player",
     },
 
     status: {
       type: String,
-      enum: ["active", "blocked"],
+      enum: ["active", "blocked", "Pending Approval", "rejected", "inactive"],
       default: "active",
     },
 

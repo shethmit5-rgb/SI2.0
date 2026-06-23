@@ -1,0 +1,170 @@
+.sponsor-db-container {
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sponsor-db-header {
+  margin-bottom: 30px;
+}
+
+.sponsor-db-header h1 {
+  font-size: 28px;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+
+.sponsor-db-header p {
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.sponsor-db-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
+}
+
+.stat-card h4 {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.stat-card.active {
+  border-left: 4px solid #10b981;
+}
+
+.stat-card.pending {
+  border-left: 4px solid #f59e0b;
+}
+
+.stat-card.failed {
+  border-left: 4px solid #ef4444;
+}
+
+.stat-card.total {
+  border-left: 4px solid #3b82f6;
+}
+
+.stat-card.tournaments {
+  border-left: 4px solid #8b5cf6;
+}
+
+.sponsor-db-table-section {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
+}
+
+.sponsor-db-table-section h2 {
+  font-size: 20px;
+  color: #1f2937;
+  margin-bottom: 20px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.sponsor-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.sponsor-history-table th {
+  padding: 14px 18px;
+  background-color: #f9fafb;
+  color: #4b5563;
+  font-weight: 600;
+  font-size: 13px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.sponsor-history-table td {
+  padding: 16px 18px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #4b5563;
+  font-size: 14px;
+}
+
+.sponsor-history-table tr:last-child td {
+  border-bottom: none;
+}
+
+.tournament-cell {
+  font-weight: 600;
+  color: #111827;
+}
+
+.type-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.type-badge.title {
+  background-color: #eff6ff;
+  color: #1d4ed8;
+}
+
+.type-badge.inkind {
+  background-color: #f5f3ff;
+  color: #6d28d9;
+}
+
+.status-pill, .payment-pill {
+  padding: 4px 8px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+  text-transform: capitalize;
+}
+
+.status-pill.active, .payment-pill.paid {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.status-pill.pending, .payment-pill.pending {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+
+.status-pill.failed, .payment-pill.failed {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.amount-cell {
+  font-weight: 600;
+  color: #111827;
+}
+
+.no-data-message {
+  padding: 40px;
+  text-align: center;
+  color: #6b7280;
+  font-size: 15px;
+}

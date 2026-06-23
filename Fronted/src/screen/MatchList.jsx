@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./MatchList.css";
+import "../static/MatchList.css";
 
 export default function MatchList() {
   const token = localStorage.getItem("token");

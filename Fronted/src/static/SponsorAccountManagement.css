@@ -1,0 +1,178 @@
+.sponsor-mgmt-container {
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sponsor-mgmt-header {
+  margin-bottom: 25px;
+}
+
+.sponsor-mgmt-header h1 {
+  font-size: 28px;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+
+.sponsor-mgmt-header p {
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.sponsor-mgmt-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 15px;
+}
+
+.search-input {
+  flex-grow: 1;
+  max-width: 500px;
+  padding: 10px 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.refresh-btn {
+  background-color: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.refresh-btn:hover {
+  background-color: #e5e7eb;
+}
+
+.sponsors-table-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+}
+
+.sponsor-mgmt-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.sponsor-mgmt-table th {
+  background-color: #f9fafb;
+  padding: 16px 20px;
+  color: #4b5563;
+  font-weight: 600;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+.sponsor-mgmt-table td {
+  padding: 18px 20px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #4b5563;
+  font-size: 14px;
+}
+
+.sponsor-mgmt-table tr:last-child td {
+  border-bottom: none;
+}
+
+.sponsor-name {
+  font-weight: 600;
+  color: #111827;
+}
+
+.status-pill {
+  padding: 6px 12px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+  text-transform: capitalize;
+}
+
+.status-pill.pending-approval {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+
+.status-pill.active {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.status-pill.rejected {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.status-pill.inactive {
+  background-color: #f3f4f6;
+  color: #4b5563;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.action-buttons button {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+.btn-approve {
+  background-color: #10b981;
+  color: white;
+}
+
+.btn-approve:hover {
+  background-color: #059669;
+}
+
+.btn-reject {
+  background-color: #ef4444;
+  color: white;
+}
+
+.btn-reject:hover {
+  background-color: #dc2626;
+}
+
+.btn-deactivate {
+  background-color: #6b7280;
+  color: white;
+}
+
+.btn-deactivate:hover {
+  background-color: #4b5563;
+}
+
+.btn-activate {
+  background-color: #2563eb;
+  color: white;
+}
+
+.btn-activate:hover {
+  background-color: #1d4ed8;
+}
+
+.no-sponsors {
+  padding: 40px;
+  text-align: center;
+  color: #6b7280;
+  font-size: 16px;
+}

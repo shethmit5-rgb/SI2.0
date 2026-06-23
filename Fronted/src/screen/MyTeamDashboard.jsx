@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import api from "../utils/axiosConfig";
 import { useAuth } from "../context/AuthContext";
+import { loadRazorpayScript, initiateJoinPayment, verifyJoinPayment, getRazorpayKey } from "../services/paymentService";
 import "../static/MyTeamDashboard.css";
 import { motion, AnimatePresence } from "framer-motion";
 import TiltCard from "../components/TiltCard";
@@ -92,6 +93,77 @@ export default function MyTeamDashboard() {
     }
   };
 
+  const handlePayJoiningFee = async (team) => {
+    try {
+      setActionLoading(team._id);
+      const payRes = await initiateJoinPayment(team._id);
+
+      if (payRes && payRes.requiresPayment) {
+        const scriptLoaded = await loadRazorpayScript();
+        if (!scriptLoaded) {
+          alert("Razorpay SDK failed to load. Are you online?");
+          setActionLoading(null);
+          return;
+        }
+
+        const keyRes = await getRazorpayKey();
+        const options = {
+          key: keyRes.key,
+          amount: payRes.order.amount,
+          currency: payRes.order.currency || "INR",
+          name: "Player Joining Fee",
+          description: `Joining fee for ${team.teamName}`,
+          order_id: payRes.order.id,
+          handler: async (paymentRes) => {
+            setActionLoading(team._id);
+            try {
+              const verifyRes = await verifyJoinPayment({
+                razorpay_order_id: paymentRes.razorpay_order_id,
+                razorpay_payment_id: paymentRes.razorpay_payment_id,
+                razorpay_signature: paymentRes.razorpay_signature,
+                transactionId: payRes.transactionId,
+              });
+              if (verifyRes.success) {
+                alert("✅ Payment verified! You are now a fully approved member of the team.");
+                fetchMyTeams();
+              } else {
+                alert("❌ Payment verification failed.");
+              }
+            } catch (err) {
+              console.error(err);
+              alert(err.response?.data?.message || "Payment verification failed");
+            } finally {
+              setActionLoading(null);
+            }
+          },
+          prefill: {
+            name: user?.name || "",
+            email: user?.email || "",
+          },
+          theme: {
+            color: "#6366f1",
+          },
+          modal: {
+            ondismiss: () => {
+              alert("Payment cancelled.");
+            }
+          }
+        };
+
+        const rzp = new window.Razorpay(options);
+        rzp.open();
+      } else {
+        alert("✅ Membership activated successfully!");
+        fetchMyTeams();
+      }
+    } catch (err) {
+      console.error("Pay joining fee error:", err);
+      alert(err.response?.data?.message || "Failed to initiate payment");
+    } finally {
+      setActionLoading(null);
+    }
+  };
+
   const currentUserId = user?._id || user?.id;
   const teamsAsCaptain = myTeams.filter((t) => t.captainId?._id === currentUserId);
   const teamsAsPlayer = myTeams; // Include all teams in "Teams I'm In" since captain is also a player
@@ -172,6 +244,7 @@ export default function MyTeamDashboard() {
             {teamsAsCaptain.length > 0 ? (
               teamsAsCaptain.map((team) => {
                 const pendingPlayers = team.players?.filter((p) => p.status === "pending");
+                const approvedPendingPaymentPlayers = team.players?.filter((p) => p.status === "approved_pending_payment");
                 const approvedPlayers = team.players?.filter((p) => p.status === "approved");
                 const rejectedPlayers = team.players?.filter((p) => p.status === "rejected");
                 const maxPlayers = team.sportId?.playersPerTeam || 11;
@@ -224,12 +297,38 @@ export default function MyTeamDashboard() {
                         </div>
                       )}
 
+                      {/* Approved (Pending Payment) Section */}
+                      {approvedPendingPaymentPlayers?.length > 0 && (
+                        <div className="pending-section" style={{ marginTop: "15px", borderTop: "1px solid #E2E8F0", paddingTop: "15px" }}>
+                          <h4>💳 Approved (Pending Payment) ({approvedPendingPaymentPlayers.length})</h4>
+                          <div className="pending-list">
+                            {approvedPendingPaymentPlayers.map((player) => (
+                              <div key={player._id} className="pending-item">
+                                <div className="player-info">
+                                  <strong>{player.userId?.name}</strong>
+                                  <span className="player-email">{player.userId?.email}</span>
+                                </div>
+                                <span className="player-status-badge" style={{ backgroundColor: "#fee2e2", color: "#ef4444", fontSize: "12px", padding: "4px 8px", borderRadius: "4px", fontWeight: "bold" }}>
+                                  Pending Payment
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
                       {/* Team Stats */}
                       <div className="team-stats">
                         <div className="stat-item">
                           <span className="stat-label">👥 Approved Players:</span>
                           <span className="stat-value">{approvedPlayers?.length || 0}</span>
                         </div>
+                        {approvedPendingPaymentPlayers?.length > 0 && (
+                          <div className="stat-item">
+                            <span className="stat-label">💳 Pending Payment:</span>
+                            <span className="stat-value" style={{ color: "#ef4444", fontWeight: "bold" }}>{approvedPendingPaymentPlayers.length}</span>
+                          </div>
+                        )}
                         <div className="stat-item">
                           <span className="stat-label">⏳ Pending Requests:</span>
                           <span className="stat-value pending-count">{pendingPlayers?.length || 0}</span>
@@ -301,6 +400,8 @@ export default function MyTeamDashboard() {
                   switch(playerStatus) {
                     case "captain":
                       return { icon: "👑", text: "Captain", color: "#2563EB", bg: "#EFF6FF" };
+                    case "approved_pending_payment":
+                      return { icon: "💳", text: "Approved (Pending Payment)", color: "#ef4444", bg: "#fee2e2" };
                     case "approved": 
                       return { icon: "✅", text: "Approved", color: "#10b981", bg: "#dcfce7" };
                     case "pending": 
@@ -348,6 +449,12 @@ export default function MyTeamDashboard() {
                         </div>
                       )}
 
+                       {playerStatus === "approved_pending_payment" && (
+                        <div className="pending-payment-warning" style={{ backgroundColor: "#fee2e2", color: "#ef4444", padding: "10px", borderRadius: "6px", marginBottom: "10px", fontSize: "14px", fontWeight: "500", border: "1px solid #fee2e2" }}>
+                          💳 Approved! Please pay the joining fee of ₹{team.playerJoiningFee} to active your membership.
+                        </div>
+                      )}
+
                       {playerStatus === "approved" && (
                         <div className="approved-warning">
                           ✅ You are an approved member of this team!
@@ -369,6 +476,16 @@ export default function MyTeamDashboard() {
                             Manage Team
                           </Link>
                         )}
+                        {playerStatus === "approved_pending_payment" && (
+                          <button
+                            onClick={() => handlePayJoiningFee(team)}
+                            disabled={actionLoading === team._id}
+                            className="pay-btn light-sweep-wrapper"
+                            style={{ backgroundColor: "#10B981", color: "white", border: "none", padding: "8px 16px", borderRadius: "6px", cursor: "pointer", fontWeight: "bold" }}
+                          >
+                            {actionLoading === team._id ? "..." : "💳 Pay Joining Fee"}
+                          </button>
+                        )}
                         {playerStatus === "pending" && (
                           <button 
                             onClick={() => handleLeaveTeam(team._id, team.teamName)}
@@ -377,7 +494,7 @@ export default function MyTeamDashboard() {
                             Cancel Request
                           </button>
                         )}
-                        {playerStatus === "approved" && (
+                        {(playerStatus === "approved" || playerStatus === "approved_pending_payment") && (
                           <button 
                             onClick={() => handleLeaveTeam(team._id, team.teamName)}
                             className="leave-btn light-sweep-wrapper"

@@ -38,6 +38,13 @@ const MatchSchema = new mongoose.Schema(
       default: "scheduled",
     },
 
+    /* ================= ROUND ================= */
+    round: {
+      type: Number,
+      default: 1,
+      required: true,
+    },
+
     /* ================= RESULT (AFTER COMPLETION) ================= */
     result: {
       winnerTeamId: {

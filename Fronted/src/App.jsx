@@ -7,7 +7,7 @@ import NonOrganizerRoute from "./routes/NonOrganizerRoute";
 /* ================= PUBLIC ================= */
 import Home from "./screen/Home";
 import Login from "./screen/Login";
-import Registration from "./screen/Registration";
+// import Registration from "./screen/Registration";
 import Events from "./screen/Events";
 import Schedule from "./screen/Schedule";
 import Speakers from "./screen/Speakers";
@@ -21,7 +21,7 @@ import TeamDetails from "./screen/TeamDetails";
 import CreateTeam from "./screen/CreateTeam";
 import MyTeamDashboard from "./screen/MyTeamDashboard";
 import MyRegistrations from "./screen/MyRegistrations";
-import userTournamentlist from "./screen/TournamentsList";
+// import userTournamentlist from "./screen/TournamentsList";
 import RegisterTeam from "./screen/RegisterTeam";
 import TournamentDetailsss from "./screen/TournamentDetails";
 import ApprovePlayerss from "./screen/ApprovePlayers";
@@ -37,15 +37,19 @@ import MyTournaments from "./screen/MyTournaments";
 import EditTeam from "./screen/EditTeam";
 import RegisterWithVerification from "./screen/RegisterWithVerification";
 import OrganizerMatches from "./screen/OrganizerMatches";
+import OrganizerMatchList from "./screen/MatchList";
 import MatchResults from "./screen/MatchResults";
 import EditTournamentPage from "./screen/EditTournamentPage";
 import SponsorManagement from "./screen/SponsorManagement";
 import OrganizerDashboard from "./screen/OrganizerDashboard";
+import SponsorAccountManagement from "./adminside/SponsorAccountManagement";
+import SponsorDashboard from "./screen/SponsorDashboard";
 
 /* ================= ADMIN CORE ================= */
 import AdminRoute from "./routes/AdminRoute";
 import AdminDashboard from "./adminside/AdminDashboard";
 import AdminUsers from "./adminside/AdminUsers";
+import AdminPayments from "./adminside/AdminPayments";
 
 /* ================= ADMIN TOURNAMENT ================= */
 import TournamentList from "./adminside/TournamentList";
@@ -89,12 +93,20 @@ function AdminOrOrganizerRoute({ children }) {
   return children;
 }
 
+function SponsorDashboardOrHome() {
+  const { user } = useAuth();
+  if (user?.role === "sponsor") {
+    return <SponsorDashboard />;
+  }
+  return <Home />;
+}
+
 function App() {
   return (
     <RoleLayout>
       <Routes>
         {/* ========== PUBLIC ROUTES ========== */}
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<SponsorDashboardOrHome />} />
         <Route path="/login" element={<Login />} />
         {/* <Route path="/register" element={<Registration />} /> */}
         <Route path="/register" element={<RegisterWithVerification />} />
@@ -125,11 +137,34 @@ function App() {
         <Route path="/create-tournament" element={<CreateTournamentUser />} />
         <Route path="/my-tournaments" element={<MyTournaments />} />
         <Route path="/teams/edit/:id" element={<EditTeam />} />
-        <Route path="/organizer/matches" element={<OrganizerMatches />} />
+        <Route
+          path="/organizer/matches"
+          element={
+            <AdminOrOrganizerRoute>
+              <OrganizerMatches />
+            </AdminOrOrganizerRoute>
+          }
+        />
+        <Route
+          path="/organizer/matches/list"
+          element={
+            <AdminOrOrganizerRoute>
+              <OrganizerMatchList />
+            </AdminOrOrganizerRoute>
+          }
+        />
         <Route path="/match-results" element={<MatchResults />} />
         <Route path="/edit-tournament/:id" element={<EditTournamentPage />} />
         <Route path="/my-sponsors" element={<SponsorManagement />} />
         <Route path="/organizer/dashboard" element={<OrganizerDashboard />} />
+        <Route
+          path="/organizer/registrations"
+          element={
+            <AdminOrOrganizerRoute>
+              <Registrations />
+            </AdminOrOrganizerRoute>
+          }
+        />
 
         {/* ========== ADMIN ROUTES ========== */}
         <Route
@@ -146,6 +181,15 @@ function App() {
           element={
             <AdminRoute>
               <AdminUsers />
+            </AdminRoute>
+          }
+        />
+
+        <Route
+          path="/admin/payments"
+          element={
+            <AdminRoute>
+              <AdminPayments />
             </AdminRoute>
           }
         />
@@ -293,6 +337,14 @@ function App() {
           element={
             <AdminRoute>
               <Adminsponser />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/admin/sponsor-management"
+          element={
+            <AdminRoute>
+              <SponsorAccountManagement />
             </AdminRoute>
           }
         />

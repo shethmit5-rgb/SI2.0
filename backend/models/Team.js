@@ -26,6 +26,11 @@ const TeamSchema = new mongoose.Schema(
     },
 
 
+    playerJoiningFee: {
+      type: Number,
+      default: 0,
+    },
+
     players: [
       {
         userId: {
@@ -34,7 +39,7 @@ const TeamSchema = new mongoose.Schema(
         },
         status: {
           type: String,
-          enum: ["pending", "approved", "rejected"],
+          enum: ["pending", "approved_pending_payment", "approved", "rejected"],
           default: "pending",
         },
       },

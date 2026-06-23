@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import api from "../utils/axiosConfig";
 import { useAuth } from "../context/AuthContext";
+import { loadRazorpayScript, initiateRegistrationPayment, verifyRegistrationPayment, getRazorpayKey } from "../services/paymentService";
 import "../static/MyRegistrations.css";
 
 export default function MyRegistrations() {
@@ -42,9 +43,80 @@ export default function MyRegistrations() {
     }
   };
 
+  const handlePayment = async (reg) => {
+    setActionLoading(reg._id);
+    try {
+      const payRes = await initiateRegistrationPayment(reg.tournamentId?._id, reg.teamId?._id);
+
+      if (payRes && payRes.requiresPayment) {
+        const scriptLoaded = await loadRazorpayScript();
+        if (!scriptLoaded) {
+          alert("Razorpay SDK failed to load. Are you online?");
+          return;
+        }
+
+        const keyRes = await getRazorpayKey();
+        const options = {
+          key: keyRes.key,
+          amount: payRes.order.amount,
+          currency: payRes.order.currency || "INR",
+          name: "Team Registration Fee",
+          description: `Registration fee for ${reg.tournamentId?.eventName}`,
+          order_id: payRes.order.id,
+          handler: async (paymentRes) => {
+            setActionLoading(reg._id);
+            try {
+              const verifyRes = await verifyRegistrationPayment({
+                razorpay_order_id: paymentRes.razorpay_order_id,
+                razorpay_payment_id: paymentRes.razorpay_payment_id,
+                razorpay_signature: paymentRes.razorpay_signature,
+                transactionId: payRes.transactionId,
+              });
+              if (verifyRes.success) {
+                alert("✅ Payment completed and team registered successfully!");
+                fetchRegistrations();
+              } else {
+                alert("❌ Payment verification failed.");
+              }
+            } catch (err) {
+              console.error(err);
+              alert(err.response?.data?.message || "Payment verification failed");
+            } finally {
+              setActionLoading(false);
+            }
+          },
+          prefill: {
+            name: user?.name || "",
+            email: user?.email || "",
+          },
+          theme: {
+            color: "#3b82f6",
+          },
+          modal: {
+            ondismiss: () => {
+              alert("Payment cancelled. Registration is not complete.");
+            }
+          }
+        };
+
+        const rzp = new window.Razorpay(options);
+        rzp.open();
+      } else {
+        alert("✅ Payment completed and team registered successfully!");
+        fetchRegistrations();
+      }
+    } catch (err) {
+      console.error("Payment initiation error:", err);
+      alert(err.response?.data?.message || "Failed to initiate payment");
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
   const getStatusColor = (status) => {
     switch(status) {
       case "approved": return "#10b981";
+      case "approved_pending_payment": return "#3b82f6";
       case "pending": return "#f59e0b";
       case "rejected": return "#ef4444";
       default: return "#6b7280";
@@ -54,6 +126,7 @@ export default function MyRegistrations() {
   const getStatusIcon = (status) => {
     switch(status) {
       case "approved": return "✅";
+      case "approved_pending_payment": return "💳";
       case "pending": return "⏳";
       case "rejected": return "❌";
       default: return "❓";
@@ -85,6 +158,7 @@ export default function MyRegistrations() {
       <div className="reg-filters">
         <button onClick={() => setActiveFilter("all")} className={activeFilter === "all" ? "active" : ""}>All</button>
         <button onClick={() => setActiveFilter("pending")} className={activeFilter === "pending" ? "active" : ""}>Pending</button>
+        <button onClick={() => setActiveFilter("approved_pending_payment")} className={activeFilter === "approved_pending_payment" ? "active" : ""}>Pending Payment</button>
         <button onClick={() => setActiveFilter("approved")} className={activeFilter === "approved" ? "active" : ""}>Approved</button>
         <button onClick={() => setActiveFilter("rejected")} className={activeFilter === "rejected" ? "active" : ""}>Rejected</button>
       </div>
@@ -100,10 +174,31 @@ export default function MyRegistrations() {
                     className="status-badge"
                     style={{ backgroundColor: getStatusColor(reg.approvalStatus) }}
                   >
-                    {getStatusIcon(reg.approvalStatus)} {reg.approvalStatus}
+                    {getStatusIcon(reg.approvalStatus)} {reg.approvalStatus === "approved_pending_payment" ? "Approved (Pending Payment)" : reg.approvalStatus === "approved" ? "Registration Completed" : reg.approvalStatus}
                   </span>
                 </div>
               </div>
+
+              {reg.approvalStatus === "approved_pending_payment" && (
+                <div className="payment-alert-box" style={{
+                  backgroundColor: "#eff6ff",
+                  border: "1px solid #bfdbfe",
+                  borderRadius: "8px",
+                  padding: "12px 16px",
+                  marginBottom: "16px",
+                  color: "#1e40af",
+                  fontSize: "0.95rem"
+                }}>
+                  <p style={{ margin: 0, fontWeight: "500" }}>
+                    Your registration has been approved. Complete payment to confirm participation.
+                  </p>
+                  {reg.paymentDeadline && (
+                    <p style={{ margin: "4px 0 0 0", fontSize: "0.85rem", color: "#2563eb" }}>
+                      ⏰ Payment deadline: {new Date(reg.paymentDeadline).toLocaleString()}
+                    </p>
+                  )}
+                </div>
+              )}
 
               <div className="reg-details">
                 <div className="detail-item">
@@ -117,7 +212,7 @@ export default function MyRegistrations() {
                 <div className="detail-item">
                   <span className="detail-label">💰 Payment:</span>
                   <span className={`payment-status ${reg.paymentStatus}`}>
-                    {reg.paymentStatus === "paid" ? "✅ Paid" : "⏳ Pending"}
+                    {reg.paymentStatus === "Paid" || reg.paymentStatus === "paid" ? "✅ Paid" : "⏳ Pending"}
                   </span>
                 </div>
               </div>
@@ -129,6 +224,25 @@ export default function MyRegistrations() {
                 <Link to={`/team/${reg.teamId?._id}`} className="view-team">
                   View Team →
                 </Link>
+                {reg.approvalStatus === "approved_pending_payment" && (
+                  <button 
+                    onClick={() => handlePayment(reg)}
+                    className="complete-payment-btn"
+                    style={{
+                      backgroundColor: "#3b82f6",
+                      color: "white",
+                      border: "none",
+                      borderRadius: "6px",
+                      padding: "8px 16px",
+                      fontWeight: "600",
+                      cursor: "pointer",
+                      transition: "all 0.2s"
+                    }}
+                    disabled={actionLoading === reg._id}
+                  >
+                    💳 Complete Payment
+                  </button>
+                )}
                 {/* Cancel Registration Button */}
                 <button 
                   onClick={() => cancelRegistration(reg._id, reg.tournamentId?.eventName, reg.teamId?.teamName)}
@@ -143,7 +257,7 @@ export default function MyRegistrations() {
         </div>
       ) : (
         <div className="empty-state">
-          <p>📭 No {activeFilter !== "all" ? activeFilter : ""} registrations found</p>
+          <p>📭 No {activeFilter !== "all" ? (activeFilter === "approved_pending_payment" ? "pending payment" : activeFilter) : ""} registrations found</p>
           <Link to="/tournaments" className="browse-btn">Browse Tournaments</Link>
         </div>
       )}

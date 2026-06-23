@@ -45,6 +45,11 @@ const TournamentSchema = new mongoose.Schema({
     ref: "User",
   },
 
+  createdBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
+
   status: {
     type: String,
     enum: ["upcoming", "ongoing", "completed"],
@@ -55,7 +60,35 @@ const TournamentSchema = new mongoose.Schema({
     { type: mongoose.Schema.Types.ObjectId, ref: "Team" }
   ],
 
+  winner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Team",
+    default: null,
+  },
+
   logo: String,
+
+  teamRegistrationFee: {
+    type: Number,
+    default: 0,
+  },
+
+  paymentStatus: {
+    type: String,
+    enum: ["Pending", "Paid", "Failed", "Refunded"],
+    default: "Paid",
+  },
+
+  razorpayOrderId: String,
+  razorpayPaymentId: String,
+  razorpaySignature: String,
+
+  amountPaid: {
+    type: Number,
+    default: 0,
+  },
+
+  paymentDate: Date,
 
   createdAt: {
     type: Date,
