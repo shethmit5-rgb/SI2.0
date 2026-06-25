@@ -5,6 +5,8 @@ const fs = require("fs");
 const path = require("path");
 const Razorpay = require("razorpay");
 const crypto = require("crypto");
+const { triggerDashboardUpdate } = require("../utils/tournamentHelper");
+
 
 let razorpay = null;
 try {
@@ -65,7 +67,9 @@ exports.createSponsor = async (req, res, next) => {
       $inc: { prizePool: Number(amount) },
     });
 
+    triggerDashboardUpdate(req, "sponsor_created");
     res.status(201).json({ message: "Sponsor added successfully", sponsor });
+
   } catch (err) {
     console.error("CREATE SPONSOR ERROR:", err);
     res.status(500).json({ message: err.message });
@@ -195,7 +199,9 @@ exports.updateSponsor = async (req, res, next) => {
       });
     }
 
+    triggerDashboardUpdate(req, "sponsor_updated");
     res.json({ message: "Sponsor updated successfully", sponsor });
+
   } catch (err) {
     console.error("UPDATE SPONSOR ERROR:", err);
     res.status(500).json({ message: err.message });
@@ -218,7 +224,9 @@ exports.deleteSponsor = async (req, res, next) => {
     });
 
     await sponsor.deleteOne();
+    triggerDashboardUpdate(req, "sponsor_deleted");
     res.json({ message: "Sponsor removed successfully" });
+
   } catch (err) {
     console.error("DELETE SPONSOR ERROR:", err);
     res.status(500).json({ message: err.message });
@@ -418,10 +426,12 @@ exports.verifySelfPayment = async (req, res, next) => {
       sponsor.razorpaySignature = razorpay_signature;
       await sponsor.save();
 
+      triggerDashboardUpdate(req, "sponsorship_payment_completed");
       res.json({
         success: true,
         message: "Payment verified successfully. Sponsorship is now active.",
       });
+
     } else {
       sponsor.status = "failed";
       await sponsor.save();

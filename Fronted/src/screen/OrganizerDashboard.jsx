@@ -5,6 +5,9 @@ import "../static/OrganizerDashboard.css";
 import { motion } from "framer-motion";
 import TiltCard from "../components/TiltCard";
 
+import socket from "../utils/socket";
+import { useAuth } from "../context/AuthContext";
+
 function AnimatedCounter({ value, duration = 1000 }) {
   const [count, setCount] = useState(0);
   useEffect(() => {
@@ -29,24 +32,59 @@ function AnimatedCounter({ value, duration = 1000 }) {
 }
 
 export default function OrganizerDashboard() {
+  const { user } = useAuth();
   const [loading, setLoading] = useState(true);
   const [notifications, setNotifications] = useState([]);
   const [data, setData] = useState({
-    teamsOverview: { total: 0, byTournament: [], bySport: [] },
-    tournamentOverview: { total: 0, active: 0, upcoming: 0, completed: 0 },
-    matchOverview: { total: 0, scheduled: 0, ongoing: 0, completed: 0 },
-    registrationOverview: { total: 0, approved: 0, pending: 0 }
+    stats: { totalTournaments: 0, upcoming: 0, ongoing: 0, completed: 0, cancelled: 0 },
+    registrations: { pending: 0, approved: 0, pendingPayment: 0, rejected: 0 },
+    matches: { total: 0, completed: 0, remaining: 0 },
+    financials: { registrationFeesCollected: 0, tournamentCreationFees: 0, sponsorContributions: 0, winnerPrize: 0, runnerUpPrize: 0, netProfit: 0 },
+    activity: { recentRegistrations: [], recentTeamPayments: [], recentOrganizerPayments: [], recentSponsorPayments: [], notifications: [] }
   });
 
   useEffect(() => {
     fetchStats();
     fetchNotifications();
-  }, []);
+  }, [user]);
+
+  // Real-Time and Polling Fallback Hook
+  useEffect(() => {
+    if (!user) return;
+
+    // Join the analytics room
+    socket.emit("register-analytics", { userId: user._id || user.id });
+
+    // Handle real-time updates
+    const handleUpdate = (update) => {
+      console.log("⚡ Real-time organizer dashboard update received:", update);
+      fetchStats();
+      fetchNotifications();
+    };
+
+    socket.on("dashboard_update", handleUpdate);
+    socket.on("new_notification", handleUpdate);
+
+    // Setup 10-second polling fallback if socket is disconnected
+    const interval = setInterval(() => {
+      if (!socket.connected) {
+        console.log("🔌 Socket disconnected, falling back to 10-second polling for Organizer...");
+        fetchStats();
+        fetchNotifications();
+      }
+    }, 10000);
+
+    return () => {
+      socket.off("dashboard_update", handleUpdate);
+      socket.off("new_notification", handleUpdate);
+      clearInterval(interval);
+    };
+  }, [user]);
 
   const fetchStats = async () => {
     try {
       setLoading(true);
-      const res = await api.get("/analytics/organizer-stats");
+      const res = await api.get("/analytics/organizer-dashboard");
       setData(res.data);
     } catch (err) {
       console.error("Failed to load organizer dashboard stats:", err);
@@ -62,6 +100,20 @@ export default function OrganizerDashboard() {
     } catch (err) {
       console.error("Failed to load organizer dashboard notifications:", err);
     }
+  };
+
+  const formatCurrency = (val) => {
+    const num = Number(val) || 0;
+    return `₹${num.toLocaleString("en-IN")}`;
+  };
+
+  const formatDate = (dateStr) => {
+    if (!dateStr) return "N/A";
+    return new Date(dateStr).toLocaleDateString(undefined, {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
   };
 
   if (loading) {
@@ -93,6 +145,18 @@ export default function OrganizerDashboard() {
     },
   };
 
+  const stats = data.stats || {};
+  const registrations = data.registrations || {};
+  const matches = data.matches || {};
+  const financials = data.financials || {};
+  const activity = data.activity || {};
+  const recentRegistrations = activity.recentRegistrations || [];
+  const recentTeamPayments = activity.recentTeamPayments || [];
+  const recentOrganizerPayments = activity.recentOrganizerPayments || [];
+  const recentSponsorPayments = activity.recentSponsorPayments || [];
+
+  const totalRegistrationsCount = (registrations.pending || 0) + (registrations.approved || 0) + (registrations.pendingPayment || 0) + (registrations.rejected || 0);
+
   return (
     <motion.div 
       className="org-dashboard-container perspective-viewport"
@@ -118,62 +182,20 @@ export default function OrganizerDashboard() {
           <div className="org-widget-card-icon">🏆</div>
           <h3>Tournaments Overview</h3>
           <div className="org-widget-number">
-            <AnimatedCounter value={data.tournamentOverview.total} />
+            <AnimatedCounter value={stats.totalTournaments} />
           </div>
           <div className="org-widget-details">
             <div className="org-detail-row">
               <span>🟢 Active</span>
-              <span className="org-detail-value">{data.tournamentOverview.active}</span>
+              <span className="org-detail-value">{stats.ongoing || 0}</span>
             </div>
             <div className="org-detail-row">
               <span>📅 Upcoming</span>
-              <span className="org-detail-value">{data.tournamentOverview.upcoming}</span>
+              <span className="org-detail-value">{stats.upcoming || 0}</span>
             </div>
             <div className="org-detail-row">
               <span>✅ Completed</span>
-              <span className="org-detail-value">{data.tournamentOverview.completed}</span>
-            </div>
-          </div>
-        </TiltCard>
-
-        {/* Teams Widget */}
-        <TiltCard className="org-widget-card teams" style={{ height: "100%" }}>
-          <div className="org-widget-card-icon">👥</div>
-          <h3>Teams Overview</h3>
-          <div className="org-widget-number">
-            <AnimatedCounter value={data.teamsOverview.total} />
-          </div>
-          <div className="org-widget-details">
-            <div className="org-detail-row">
-              <span>Tournaments Participating</span>
-              <span className="org-detail-value">{data.teamsOverview.byTournament.length}</span>
-            </div>
-            <div className="org-detail-row">
-              <span>Active Sports</span>
-              <span className="org-detail-value">{data.teamsOverview.bySport.length}</span>
-            </div>
-          </div>
-        </TiltCard>
-
-        {/* Matches Widget */}
-        <TiltCard className="org-widget-card matches" style={{ height: "100%" }}>
-          <div className="org-widget-card-icon">⚽</div>
-          <h3>Matches Overview</h3>
-          <div className="org-widget-number">
-            <AnimatedCounter value={data.matchOverview.total} />
-          </div>
-          <div className="org-widget-details">
-            <div className="org-detail-row">
-              <span>📅 Scheduled</span>
-              <span className="org-detail-value">{data.matchOverview.scheduled}</span>
-            </div>
-            <div className="org-detail-row">
-              <span>🔴 Ongoing</span>
-              <span className="org-detail-value">{data.matchOverview.ongoing}</span>
-            </div>
-            <div className="org-detail-row">
-              <span>✅ Completed</span>
-              <span className="org-detail-value">{data.matchOverview.completed}</span>
+              <span className="org-detail-value">{stats.completed || 0}</span>
             </div>
           </div>
         </TiltCard>
@@ -183,16 +205,64 @@ export default function OrganizerDashboard() {
           <div className="org-widget-card-icon">📝</div>
           <h3>Registration Overview</h3>
           <div className="org-widget-number">
-            <AnimatedCounter value={data.registrationOverview.total} />
+            <AnimatedCounter value={totalRegistrationsCount} />
           </div>
           <div className="org-widget-details">
             <div className="org-detail-row">
               <span>✅ Approved</span>
-              <span className="org-detail-value" style={{ color: "var(--org-success)" }}>{data.registrationOverview.approved}</span>
+              <span className="org-detail-value" style={{ color: "var(--org-success)" }}>{registrations.approved || 0}</span>
             </div>
             <div className="org-detail-row">
-              <span>⏳ Pending</span>
-              <span className="org-detail-value" style={{ color: "var(--org-warning)" }}>{data.registrationOverview.pending}</span>
+              <span>⏳ Pending Approval</span>
+              <span className="org-detail-value" style={{ color: "var(--org-warning)" }}>{registrations.pending || 0}</span>
+            </div>
+            <div className="org-detail-row">
+              <span>💳 Pending Payment</span>
+              <span className="org-detail-value" style={{ color: "#ef4444" }}>{registrations.pendingPayment || 0}</span>
+            </div>
+          </div>
+        </TiltCard>
+
+        {/* Matches Widget */}
+        <TiltCard className="org-widget-card matches" style={{ height: "100%" }}>
+          <div className="org-widget-card-icon">⚽</div>
+          <h3>Matches Overview</h3>
+          <div className="org-widget-number">
+            <AnimatedCounter value={matches.total} />
+          </div>
+          <div className="org-widget-details">
+            <div className="org-detail-row">
+              <span>✅ Completed</span>
+              <span className="org-detail-value">{matches.completed || 0}</span>
+            </div>
+            <div className="org-detail-row">
+              <span>🔴 Remaining</span>
+              <span className="org-detail-value">{matches.remaining || 0}</span>
+            </div>
+          </div>
+        </TiltCard>
+
+        {/* Financials Widget */}
+        <TiltCard className="org-widget-card financials" style={{ height: "100%" }}>
+          <div className="org-widget-card-icon">💰</div>
+          <h3>Net Profit / Loss</h3>
+          <div className="org-widget-number" style={{ color: financials.netProfit >= 0 ? "var(--org-success)" : "var(--org-danger)" }}>
+            {financials.netProfit >= 0 ? "+" : ""}{formatCurrency(financials.netProfit)}
+          </div>
+          <div className="org-widget-details">
+            <div className="org-detail-row">
+              <span>📥 Registration Income</span>
+              <span className="org-detail-value">{formatCurrency(financials.registrationFeesCollected)}</span>
+            </div>
+            <div className="org-detail-row">
+              <span>🤝 Sponsor Contributions</span>
+              <span className="org-detail-value">{formatCurrency(financials.sponsorContributions)}</span>
+            </div>
+            <div className="org-detail-row">
+              <span>💸 Total Prize Money Paid</span>
+              <span className="org-detail-value" style={{ color: "var(--org-danger)" }}>
+                {formatCurrency((financials.winnerPrize || 0) + (financials.runnerUpPrize || 0))}
+              </span>
             </div>
           </div>
         </TiltCard>
@@ -303,26 +373,34 @@ export default function OrganizerDashboard() {
       </motion.section>
 
       {/* Sub-data Tables Grid */}
-      <div className="org-data-grid">
-        {/* Teams by Tournament */}
+      <div className="org-data-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px", marginBottom: "24px" }}>
+        {/* Recent Registrations */}
         <motion.div className="org-panel" variants={itemFadeUp}>
-          <h2>📊 Teams by Tournament</h2>
+          <h2>📋 Recent Team Registrations</h2>
           <div className="org-panel-table-wrapper">
-            {data.teamsOverview.byTournament.length === 0 ? (
-              <p className="org-empty-text">No teams registered in tournaments yet.</p>
+            {recentRegistrations.length === 0 ? (
+              <p className="org-empty-text">No recent team registrations.</p>
             ) : (
               <table className="org-table">
                 <thead>
                   <tr>
+                    <th>Team</th>
                     <th>Tournament</th>
-                    <th>Registered Teams</th>
+                    <th>Date Registered</th>
+                    <th>Status</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {data.teamsOverview.byTournament.map((t, index) => (
+                  {recentRegistrations.map((item, index) => (
                     <tr key={index}>
-                      <td><strong>{t.name}</strong></td>
-                      <td>{t.count}</td>
+                      <td><strong>{item.teamId?.teamName || "N/A"}</strong></td>
+                      <td>{item.tournamentId?.eventName || "N/A"}</td>
+                      <td>{formatDate(item.registrationDate)}</td>
+                      <td>
+                        <span className={`status-badge ${item.approvalStatus}`}>
+                          {item.approvalStatus || "pending"}
+                        </span>
+                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -331,25 +409,91 @@ export default function OrganizerDashboard() {
           </div>
         </motion.div>
 
-        {/* Teams by Sport */}
+        {/* Recent Team Payments */}
         <motion.div className="org-panel" variants={itemFadeUp}>
-          <h2>🏅 Teams by Sport</h2>
+          <h2>💳 Recent Team Entry Payments</h2>
           <div className="org-panel-table-wrapper">
-            {data.teamsOverview.bySport.length === 0 ? (
-              <p className="org-empty-text">No teams registered under sports yet.</p>
+            {recentTeamPayments.length === 0 ? (
+              <p className="org-empty-text">No recent payment activity.</p>
             ) : (
               <table className="org-table">
                 <thead>
                   <tr>
-                    <th>Sport</th>
-                    <th>Total Teams</th>
+                    <th>Team</th>
+                    <th>Tournament</th>
+                    <th>Date Paid</th>
+                    <th>Amount</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {data.teamsOverview.bySport.map((s, index) => (
+                  {recentTeamPayments.map((item, index) => (
                     <tr key={index}>
-                      <td><strong>{s.name}</strong></td>
-                      <td>{s.count}</td>
+                      <td><strong>{item.teamId?.teamName || "N/A"}</strong></td>
+                      <td>{item.tournamentId?.eventName || "N/A"}</td>
+                      <td>{formatDate(item.paidAt)}</td>
+                      <td style={{ color: "var(--org-success)", fontWeight: "600" }}>{formatCurrency(item.amount)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
+          </div>
+        </motion.div>
+      </div>
+
+      <div className="org-data-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
+        {/* Recent Organizer Payments (Creation Fees) */}
+        <motion.div className="org-panel" variants={itemFadeUp}>
+          <h2>💸 Tournament Creation Expenses</h2>
+          <div className="org-panel-table-wrapper">
+            {recentOrganizerPayments.length === 0 ? (
+              <p className="org-empty-text">No tournament creation fees paid yet.</p>
+            ) : (
+              <table className="org-table">
+                <thead>
+                  <tr>
+                    <th>Tournament</th>
+                    <th>Date Paid</th>
+                    <th>Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {recentOrganizerPayments.map((item, index) => (
+                    <tr key={index}>
+                      <td><strong>{item.tournamentId?.eventName || "N/A"}</strong></td>
+                      <td>{formatDate(item.createdAt)}</td>
+                      <td style={{ color: "var(--org-danger)", fontWeight: "600" }}>{formatCurrency(item.amount)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
+          </div>
+        </motion.div>
+
+        {/* Recent Sponsor Contributions */}
+        <motion.div className="org-panel" variants={itemFadeUp}>
+          <h2>🤝 Sponsor Funding Contributions</h2>
+          <div className="org-panel-table-wrapper">
+            {recentSponsorPayments.length === 0 ? (
+              <p className="org-empty-text">No sponsor funding active.</p>
+            ) : (
+              <table className="org-table">
+                <thead>
+                  <tr>
+                    <th>Sponsor</th>
+                    <th>Tournament</th>
+                    <th>Date Approved</th>
+                    <th>Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {recentSponsorPayments.map((item, index) => (
+                    <tr key={index}>
+                      <td><strong>{item.sponsorId?.name || "N/A"}</strong></td>
+                      <td>{item.tournamentId?.eventName || "N/A"}</td>
+                      <td>{formatDate(item.updatedAt)}</td>
+                      <td style={{ color: "var(--org-success)", fontWeight: "600" }}>{formatCurrency(item.amount)}</td>
                     </tr>
                   ))}
                 </tbody>

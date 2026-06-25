@@ -135,9 +135,22 @@ async function checkAndUpdateTournamentStatuses() {
   );
 }
 
+function triggerDashboardUpdate(req, type) {
+  try {
+    const io = req.app?.get("io");
+    if (io) {
+      io.emit("dashboard_update", { type });
+    }
+  } catch (err) {
+    console.error("Socket.IO dashboard update emit failed:", err);
+  }
+}
+
 module.exports = {
   getTournamentStatus,
   getTournamentRoundInfo,
   checkAndUpdateTournamentStatuses,
+  triggerDashboardUpdate,
 };
+
 

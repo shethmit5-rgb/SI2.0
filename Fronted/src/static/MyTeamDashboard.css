@@ -686,3 +686,253 @@
     width: 100%;
   }
 }
+
+/* ================= GENERIC DASHBOARD WIDGETS & TABLES ================= */
+.db-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.db-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.db-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.db-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  color: #6b7280;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.db-card-icon {
+  font-size: 1.3rem;
+}
+
+.db-card-value {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.db-card-sub {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.db-section {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 30px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.db-section h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1.5px solid #f1f5f9;
+  padding-bottom: 10px;
+}
+
+.fee-config-form {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.fee-config-form select,
+.fee-config-form input {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  font-size: 0.9rem;
+  background: #ffffff;
+  color: #111827;
+}
+
+.fee-config-form select {
+  min-width: 200px;
+}
+
+.fee-config-form input {
+  width: 120px;
+}
+
+.fee-config-form button {
+  padding: 8px 16px;
+  background: #4f46e5;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.fee-config-form button:hover {
+  opacity: 0.9;
+}
+
+.db-table-wrapper {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.db-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.db-table th {
+  background: #f9fafb;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: #4b5563;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.db-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.85rem;
+  color: #374151;
+}
+
+.db-table tr:last-child td {
+  border-bottom: none;
+}
+
+.db-table td.win {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.db-table td.loss {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.badge-winner {
+  background: #dcfce7;
+  color: #15803d;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.badge-runner {
+  background: #fef3c7;
+  color: #b45309;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.badge-participant {
+  background: #f3f4f6;
+  color: #4b5563;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.badge-title {
+  background: #eff6ff;
+  color: #1d4ed8;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.badge-inkind {
+  background: #f5f3ff;
+  color: #6d28d9;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.db-empty-state {
+  padding: 30px;
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.9rem;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+:root[data-theme="dark"] .db-card {
+  background: #111827;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+:root[data-theme="dark"] .db-card-value {
+  color: #f3f4f6;
+}
+:root[data-theme="dark"] .db-section {
+  background: #111827;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+:root[data-theme="dark"] .db-section h2 {
+  color: #f3f4f6;
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+:root[data-theme="dark"] .db-table th {
+  background: #1f2937;
+  color: #9ca3af;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+:root[data-theme="dark"] .db-table td {
+  color: #d1d5db;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+:root[data-theme="dark"] .db-table-wrapper {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+:root[data-theme="dark"] .fee-config-form select,
+:root[data-theme="dark"] .fee-config-form input {
+  background: #1f2937;
+  color: #f3f4f6;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+:root[data-theme="dark"] .db-empty-state {
+  background: rgba(15, 18, 32, 0.3);
+  color: #9ca3af;
+}

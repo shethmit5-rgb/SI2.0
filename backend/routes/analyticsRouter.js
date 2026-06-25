@@ -1,5 +1,13 @@
 const express = require("express");
-const { getStats, getRealtime, getOrganizerStats } = require("../controllers/analyticsController");
+const { 
+  getStats, 
+  getRealtime, 
+  getOrganizerStats,
+  getPlayerDashboard,
+  getCoachDashboard,
+  getOrganizerDashboard,
+  getSponsorDashboard
+} = require("../controllers/analyticsController");
 const auth = require("../middleware/authMiddleware");
 const role = require("../middleware/roleMiddleware");
 
@@ -14,4 +22,10 @@ router.get("/realtime", auth, role("admin", "organizer"), getRealtime);
 // GET organizer-stats
 router.get("/organizer-stats", auth, role("admin", "organizer"), getOrganizerStats);
 
-module.exports = router;
+// Role-specific dashboards
+router.get("/player-dashboard", auth, role("player"), getPlayerDashboard);
+router.get("/coach-dashboard", auth, role("coach"), getCoachDashboard);
+router.get("/organizer-dashboard", auth, role("organizer"), getOrganizerDashboard);
+router.get("/sponsor-dashboard", auth, role("sponsor"), getSponsorDashboard);
+
+module.exports = router;

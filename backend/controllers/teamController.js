@@ -5,6 +5,8 @@ const Notification = require("../models/notification");
 const crypto = require("crypto");
 const Transaction = require("../models/Transaction");
 const Razorpay = require("razorpay");
+const { triggerDashboardUpdate } = require("../utils/tournamentHelper");
+
 
 let razorpay = null;
 try {
@@ -313,6 +315,8 @@ exports.approvePlayer = async (req, res, next) => {
     }
 
     res.json({ message: `Player ${action} successfully`, team });
+    triggerDashboardUpdate(req, "player_approval_updated");
+
   } catch (err) {
     console.error("Approval error:", err);
     res.status(500).json({ message: "Failed to process request" });
@@ -422,6 +426,8 @@ exports.updateTeam = async (req, res, next) => {
 
     await team.save();
     res.json({ message: "Team updated successfully", team });
+    triggerDashboardUpdate(req, "team_updated");
+
   } catch (err) {
     console.error("Edit team error:", err);
     res.status(500).json({ message: "Failed to update team" });
@@ -610,10 +616,11 @@ exports.initiatePlayerJoinPayment = async (req, res) => {
         }
       }
 
+      triggerDashboardUpdate(req, "player_activated");
       return res.status(200).json({
         success: true,
         requiresPayment: false,
-        message: "No joining fee required, membership activated.",
+        message: "Membership activated (Zero Fee)",
         team
       });
     }
@@ -835,11 +842,13 @@ exports.verifyPlayerJoinPayment = async (req, res) => {
       }
     }
 
+    triggerDashboardUpdate(req, "player_activated");
     res.status(200).json({
       success: true,
       message: "Player joining payment verified and membership activated",
       team
     });
+
 
   } catch (error) {
     teamLocks.delete(teamId);

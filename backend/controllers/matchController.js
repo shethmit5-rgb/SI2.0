@@ -1,7 +1,8 @@
 const Match = require("../models/Match");
 const Team = require("../models/Team");
 const Tournament = require("../models/Tournament");
-const { getTournamentRoundInfo } = require("../utils/tournamentHelper");
+const { getTournamentRoundInfo, triggerDashboardUpdate } = require("../utils/tournamentHelper");
+
 
 exports.createMatch = async (req, res, next) => {
   try {
@@ -87,7 +88,9 @@ exports.createMatch = async (req, res, next) => {
       round: roundInfo.currentRound,
     });
 
+    triggerDashboardUpdate(req, "match_created");
     res.status(201).json(match);
+
   } catch (err) {
     console.error("CREATE MATCH ERROR:", err);
     res.status(500).json({ message: "Match creation failed" });
@@ -232,7 +235,9 @@ exports.updateMatchResult = async (req, res, next) => {
       }
     }
 
+    triggerDashboardUpdate(req, "match_result_updated");
     res.json({ message: "Match result updated", match });
+
   } catch (err) {
     console.error("UPDATE MATCH RESULT ERROR:", err);
     res.status(500).json({ message: "Failed to update match result" });
@@ -284,7 +289,9 @@ exports.updateMatch = async (req, res, next) => {
     if (status) match.status = status;
 
     await match.save();
+    triggerDashboardUpdate(req, "match_updated");
     res.json({ message: "Match updated successfully", match });
+
   } catch (err) {
     console.error("UPDATE MATCH ERROR:", err);
     res.status(500).json({ message: "Failed to update match" });
@@ -307,7 +314,9 @@ exports.deleteMatch = async (req, res, next) => {
     }
 
     await Match.findByIdAndDelete(req.params.id);
+    triggerDashboardUpdate(req, "match_deleted");
     res.json({ message: "Match deleted successfully" });
+
   } catch (err) {
     console.error("DELETE MATCH ERROR:", err);
     res.status(500).json({ message: "Failed to delete match" });

@@ -4,6 +4,8 @@ const Transaction = require("../models/Transaction");
 const Registration = require("../models/Registration");
 const Tournament = require("../models/Tournament");
 const Team = require("../models/Team");
+const { triggerDashboardUpdate } = require("../utils/tournamentHelper");
+
 
 
 // Initialize Razorpay with error handling
@@ -122,6 +124,8 @@ exports.verifyPayment = async (req, res) => {
         success: true,
         message: "Payment verified successfully",
       });
+      triggerDashboardUpdate(req, "payment_completed");
+
     } else {
       await Transaction.findByIdAndUpdate(transactionId, {
         status: "failed",
@@ -286,6 +290,8 @@ exports.adminOverridePayment = async (req, res) => {
     await transaction.save();
 
     res.json({ success: true, message: `Payment status overridden to ${status} successfully`, transaction });
+    triggerDashboardUpdate(req, "payment_overridden");
+
   } catch (error) {
     console.error("adminOverridePayment error:", error);
     res.status(500).json({ success: false, message: error.message });

@@ -4,6 +4,10 @@ const Notification = require("../models/notification");
 const crypto = require("crypto");
 const Transaction = require("../models/Transaction");
 const Razorpay = require("razorpay");
+const Team = require("../models/Team");
+const User = require("../models/User");
+const { triggerDashboardUpdate } = require("../utils/tournamentHelper");
+
 
 let razorpay = null;
 try {
@@ -15,9 +19,7 @@ try {
   console.error("Razorpay initialization error in registrationController:", error);
 }
 
-const User = require("../models/User");
 const Match = require("../models/Match");
-const Team = require("../models/Team");
 
 // Mutex lock map for tournament approvals: tournamentId -> Promise
 const tournamentLocks = {};
@@ -164,7 +166,9 @@ exports.registerTeam = async (req, res, next) => {
       await sendNotificationToUsers(recipients, submissionMsg, "registration_submitted", reg._id, req);
     }
 
+    triggerDashboardUpdate(req, "registration_submitted");
     res.status(201).json(reg);
+
   } catch (err) {
     console.error("REGISTER ERROR:", err);
     res.status(500).json({ message: "Registration failed" });
@@ -363,7 +367,9 @@ exports.updateRegistration = async (req, res, next) => {
         }
       }
 
+      triggerDashboardUpdate(req, "registration_updated");
       return res.json(reg);
+
 
     } finally {
       release();
@@ -750,11 +756,13 @@ exports.verifyRegistrationPayment = async (req, res) => {
         await sendNotificationToUsers([transaction.userId], `✅ Your registration for team "${team.teamName}" in "${tournament.eventName}" is complete!`, "registration_payment_completed", reg._id, req);
       }
 
+      triggerDashboardUpdate(req, "registration_payment_completed");
       res.status(201).json({
         success: true,
         message: "Registration payment verified and completed successfully",
         registration: reg
       });
+
 
     } finally {
       release();

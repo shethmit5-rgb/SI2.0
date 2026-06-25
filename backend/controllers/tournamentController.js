@@ -5,7 +5,7 @@ const Registration = require("../models/Registration");
 const cloudinary = require("../config/cloudinary");
 const fs = require("fs");
 const path = require("path");
-const { checkAndUpdateTournamentStatuses, getTournamentRoundInfo } = require("../utils/tournamentHelper");
+const { checkAndUpdateTournamentStatuses, getTournamentRoundInfo, triggerDashboardUpdate } = require("../utils/tournamentHelper");
 const Sponsor = require("../models/Sponsor");
 const jwt = require("jsonwebtoken");
 const Razorpay = require("razorpay");
@@ -532,6 +532,7 @@ exports.verifyTournamentPayment = async (req, res) => {
     transaction.updatedAt = Date.now();
     await transaction.save();
 
+    triggerDashboardUpdate(req, "tournament_created");
     res.status(201).json({
       success: true,
       message: "Tournament payment verified and created successfully",
@@ -663,6 +664,7 @@ exports.updateTournament = async (req, res, next) => {
       return res.status(404).json({ message: "Tournament not found" });
     }
 
+    triggerDashboardUpdate(req, "tournament_updated");
     res.json(updatedTournament);
   } catch (err) {
     console.error("UPDATE TOURNAMENT ERROR:", err);
@@ -690,6 +692,7 @@ exports.deleteTournament = async (req, res, next) => {
       return res.status(404).json({ message: "Tournament not found" });
     }
 
+    triggerDashboardUpdate(req, "tournament_deleted");
     res.json({ message: "Tournament deleted successfully" });
   } catch (err) {
     console.error("DELETE TOURNAMENT ERROR:", err);

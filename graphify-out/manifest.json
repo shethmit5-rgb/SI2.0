@@ -55,9 +55,9 @@
     "semantic_hash": "0a09ee4a936697b8667df44dfead1a0e"
   },
   "Fronted/src/adminside/EditTournament.jsx": {
-    "mtime": 1781437694.3473082,
-    "ast_hash": "26f01bb45a6fb374b41829b292dbb49f",
-    "semantic_hash": "26f01bb45a6fb374b41829b292dbb49f"
+    "mtime": 1782218953.6716623,
+    "ast_hash": "72f41336cc8a89c3cbbc5a935337d166",
+    "semantic_hash": ""
   },
   "Fronted/src/adminside/MatchList.jsx": {
     "mtime": 1780670726.0992856,
@@ -270,9 +270,9 @@
     "semantic_hash": "dcb27edaafe258a13a2b0ac261cdd884"
   },
   "Fronted/src/screen/EditTournamentPage.jsx": {
-    "mtime": 1781437611.7726674,
-    "ast_hash": "8e8ba9de5effe6486633861757a2763a",
-    "semantic_hash": "8e8ba9de5effe6486633861757a2763a"
+    "mtime": 1782218945.370767,
+    "ast_hash": "b37dabe0584d65790cb83ea3c82cd32c",
+    "semantic_hash": ""
   },
   "Fronted/src/screen/Events.jsx": {
     "mtime": 1781532400.079994,
@@ -320,13 +320,13 @@
     "semantic_hash": "f35c79fcd0acdb5bcaec8951cde1418f"
   },
   "Fronted/src/screen/MyRegistrations.jsx": {
-    "mtime": 1781681605.3808594,
-    "ast_hash": "1f5eee7c886391d1c2368316b711d1fe",
-    "semantic_hash": "1f5eee7c886391d1c2368316b711d1fe"
+    "mtime": 1782219037.8488228,
+    "ast_hash": "43ea6f7e23a887cc69d43d68f964c768",
+    "semantic_hash": ""
   },
   "Fronted/src/screen/MyTeamDashboard.jsx": {
-    "mtime": 1782201083.3820355,
-    "ast_hash": "e896ac553a84f9ed22188be1fecfad2c",
+    "mtime": 1782377197.3225152,
+    "ast_hash": "a2cb324692ccac244e36d17459c0363a",
     "semantic_hash": ""
   },
   "Fronted/src/screen/MyTournaments.jsx": {
@@ -340,9 +340,9 @@
     "semantic_hash": "902fb6d9599c536efb089d26766edbd1"
   },
   "Fronted/src/screen/OrganizerDashboard.jsx": {
-    "mtime": 1781680367.5605621,
-    "ast_hash": "a5a65c489f6479c3421a4860a56ddd39",
-    "semantic_hash": "a5a65c489f6479c3421a4860a56ddd39"
+    "mtime": 1782377228.150871,
+    "ast_hash": "fdf871abb043e081d5f992bf66a43b96",
+    "semantic_hash": ""
   },
   "Fronted/src/screen/OrganizerMatches.jsx": {
     "mtime": 1781509043.7674515,
@@ -380,9 +380,9 @@
     "semantic_hash": "1b0ac1bdc6e8773cafc8fccb5033344f"
   },
   "Fronted/src/screen/SponsorDashboard.jsx": {
-    "mtime": 1781532210.2706761,
-    "ast_hash": "17c0033234ff0e987ae7181583f2c662",
-    "semantic_hash": "17c0033234ff0e987ae7181583f2c662"
+    "mtime": 1782377252.4034073,
+    "ast_hash": "290d43f2c43b060dff754ce514ee40aa",
+    "semantic_hash": ""
   },
   "Fronted/src/screen/SponsorManagement.jsx": {
     "mtime": 1779008300.0,
@@ -420,9 +420,9 @@
     "semantic_hash": "b5c9e84d1dcbd91c39476389fb5f93ea"
   },
   "Fronted/src/services/paymentService.js": {
-    "mtime": 1781677467.693443,
-    "ast_hash": "47a57b59d3f0ca96d546b062c10ead9c",
-    "semantic_hash": "47a57b59d3f0ca96d546b062c10ead9c"
+    "mtime": 1782215053.6715734,
+    "ast_hash": "6ab9c8c83e5c161804989fc0c17bb8fc",
+    "semantic_hash": ""
   },
   "Fronted/src/utils/axiosConfig.js": {
     "mtime": 1779008300.0,
@@ -470,9 +470,9 @@
     "semantic_hash": "4a9408a386f35597f42d2fb81b5487f6"
   },
   "backend/controllers/analyticsController.js": {
-    "mtime": 1781681573.2112257,
-    "ast_hash": "000e7a6b85264326e3d56b812faa8a30",
-    "semantic_hash": "000e7a6b85264326e3d56b812faa8a30"
+    "mtime": 1782377526.8842795,
+    "ast_hash": "5a39f662d5ef115bfaabb01b8e4a5d75",
+    "semantic_hash": ""
   },
   "backend/controllers/authController.js": {
     "mtime": 1781610331.2970805,
@@ -480,9 +480,9 @@
     "semantic_hash": "d4dfcccfa830793a1789165951b1a63e"
   },
   "backend/controllers/matchController.js": {
-    "mtime": 1781610266.3846352,
-    "ast_hash": "94b3653f54d6ca5ebfbea64fe0a3d318",
-    "semantic_hash": "94b3653f54d6ca5ebfbea64fe0a3d318"
+    "mtime": 1782377066.146446,
+    "ast_hash": "599b3797159deb4d897a01a650ddee5d",
+    "semantic_hash": ""
   },
   "backend/controllers/notificationController.js": {
     "mtime": 1781609942.1727557,
@@ -490,9 +490,9 @@
     "semantic_hash": "261dcb9163b2792473a2005a8cc866ce"
   },
   "backend/controllers/paymentController.js": {
-    "mtime": 1781677354.2757204,
-    "ast_hash": "4ab9431175dacd1a5f77911d801721c1",
-    "semantic_hash": "4ab9431175dacd1a5f77911d801721c1"
+    "mtime": 1782376918.898994,
+    "ast_hash": "80235706d80c3ca5e941945b0759ce8e",
+    "semantic_hash": ""
   },
   "backend/controllers/profileController.js": {
     "mtime": 1781609967.862155,
@@ -500,14 +500,14 @@
     "semantic_hash": "b03d3e1cda1d73c3edc3a1591f861e98"
   },
   "backend/controllers/registrationController.js": {
-    "mtime": 1781681780.5042229,
-    "ast_hash": "56e17963bda953a54c7f90179d50f588",
-    "semantic_hash": "56e17963bda953a54c7f90179d50f588"
+    "mtime": 1782377511.263047,
+    "ast_hash": "3d1e915e55865bdf65f0e3bb41baed0c",
+    "semantic_hash": ""
   },
   "backend/controllers/sponsorController.js": {
-    "mtime": 1781610181.092802,
-    "ast_hash": "723e71ec46e0b85032d5a5c93ea64065",
-    "semantic_hash": "723e71ec46e0b85032d5a5c93ea64065"
+    "mtime": 1782377082.063806,
+    "ast_hash": "3d6f50d76e5bba5b11df1099720a2a93",
+    "semantic_hash": ""
   },
   "backend/controllers/sportController.js": {
     "mtime": 1781609999.2950156,
@@ -515,14 +515,14 @@
     "semantic_hash": "35f097bfe9a8227fe9a52c575f72a206"
   },
   "backend/controllers/teamController.js": {
-    "mtime": 1782200751.4016528,
-    "ast_hash": "ea303b6819e10a2ed981aeec8f5fc6d6",
+    "mtime": 1782376988.2012844,
+    "ast_hash": "c7b238143bbe9d531470b36c69e0ac18",
     "semantic_hash": ""
   },
   "backend/controllers/tournamentController.js": {
-    "mtime": 1781677558.6219585,
-    "ast_hash": "f7e7173071a9e47aede6a233dd6582b8",
-    "semantic_hash": "f7e7173071a9e47aede6a233dd6582b8"
+    "mtime": 1782377046.9297788,
+    "ast_hash": "113553535132f8ab55e66fdf24c448e5",
+    "semantic_hash": ""
   },
   "backend/controllers/userController.js": {
     "mtime": 1781610144.3732214,
@@ -610,9 +610,9 @@
     "semantic_hash": "b30d3f01617fb39254b736e7851e3397"
   },
   "backend/routes/analyticsRouter.js": {
-    "mtime": 1781610097.3018386,
-    "ast_hash": "7709501774a28673b7c077944b6a42c7",
-    "semantic_hash": "7709501774a28673b7c077944b6a42c7"
+    "mtime": 1782376778.4894743,
+    "ast_hash": "3b5c893a52b9559a9cfeeb429e2dc8e9",
+    "semantic_hash": ""
   },
   "backend/routes/auth.js": {
     "mtime": 1781610341.206576,
@@ -655,8 +655,8 @@
     "semantic_hash": "0936ec4adc8fac1a586eab83a069177c"
   },
   "backend/routes/teamRouter.js": {
-    "mtime": 1782197605.3644176,
-    "ast_hash": "812046fb37a90fc047b3d66e423027cd",
+    "mtime": 1782203127.2116592,
+    "ast_hash": "7301d9e599ef6a9c1a71513205fa9513",
     "semantic_hash": ""
   },
   "backend/routes/tournamentRoutes.js": {
@@ -700,9 +700,9 @@
     "semantic_hash": "62d0a130be0b696eb497013e1da02275"
   },
   "backend/tests/verifyOrganizerRegistrationFlow.js": {
-    "mtime": 1781681816.6353357,
-    "ast_hash": "a14cf6ef0668faa5358f6628d844d706",
-    "semantic_hash": "a14cf6ef0668faa5358f6628d844d706"
+    "mtime": 1782219079.5149405,
+    "ast_hash": "2b4f0d4bc1f10319ed93ccb36d110d6b",
+    "semantic_hash": ""
   },
   "backend/tests/verifyPaymentsFlow.js": {
     "mtime": 1781681895.8199134,
@@ -710,14 +710,14 @@
     "semantic_hash": "448f049a3d5016d3ed4235723579caf4"
   },
   "backend/tests/verifySponsorFlow.js": {
-    "mtime": 1781532588.7468176,
-    "ast_hash": "b8ad813474f838a0de8e99b945fdf3c8",
-    "semantic_hash": "b8ad813474f838a0de8e99b945fdf3c8"
+    "mtime": 1782219107.9920104,
+    "ast_hash": "1f57fddc29a89e3af14d5d0a787508e3",
+    "semantic_hash": ""
   },
   "backend/utils/tournamentHelper.js": {
-    "mtime": 1781461578.5863006,
-    "ast_hash": "eae632e896729017ae7741a6c827a808",
-    "semantic_hash": "eae632e896729017ae7741a6c827a808"
+    "mtime": 1782376755.6563642,
+    "ast_hash": "e58c427f8f5dfe875f66236ab001ce5a",
+    "semantic_hash": ""
   },
   "backend/utils/twilioService.js": {
     "mtime": 1781544652.538129,
@@ -737,6 +737,21 @@
   "backend/tests/verifyPlayerPaymentFlow.js": {
     "mtime": 1782200928.7657568,
     "ast_hash": "feaf87572e51c50c9a2a3fc8fd537f5d",
+    "semantic_hash": ""
+  },
+  "backend/tests/checkPlayerStatus.js": {
+    "mtime": 1782213485.3265936,
+    "ast_hash": "e8288ac42ba76fdde6330e6f31e70be9",
+    "semantic_hash": ""
+  },
+  "backend/tests/createTestUsers.js": {
+    "mtime": 1782215069.4465673,
+    "ast_hash": "d4af33d7d170db4e89863cbebb6f8845",
+    "semantic_hash": ""
+  },
+  "backend/tests/queryRegistrations.js": {
+    "mtime": 1782214975.4342012,
+    "ast_hash": "92771a8489b3746c055d18a7a7b48e0f",
     "semantic_hash": ""
   }
 }
