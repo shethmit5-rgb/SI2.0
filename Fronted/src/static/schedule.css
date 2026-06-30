@@ -66,17 +66,29 @@
 
 /* Match Card */
 .match-card {
-  background: white;
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.18) !important;
+  backdrop-filter: blur(14px) !important;
+  backdrop-filter: Glass(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: Glass(14px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: 24px !important;
   padding: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
   transition: all 0.3s;
-  border: 1px solid #e5e7eb;
 }
 
 .match-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+:root[data-theme="dark"] .match-card {
+  background: rgba(17, 24, 39, 0.35) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25) !important;
+  border-radius: 24px !important;
 }
 
 /* Teams Section */
@@ -157,8 +169,14 @@
 .no-matches {
   text-align: center;
   padding: 60px;
-  background: #f9fafb;
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.18) !important;
+  backdrop-filter: blur(14px) !important;
+  backdrop-filter: Glass(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: Glass(14px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
   color: #6b7280;
 }
 
@@ -205,8 +223,10 @@
   }
 
   .match-card {
-    background: #1f2937;
-    border-color: #374151;
+    background: rgba(17, 24, 39, 0.35) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25) !important;
+    border-radius: 24px !important;
   }
 
   .team-name {
@@ -218,7 +238,10 @@
   }
 
   .no-matches {
-    background: #1f2937;
+    background: rgba(17, 24, 39, 0.35) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25) !important;
     color: #9ca3af;
+    border-radius: 24px !important;
   }
 }

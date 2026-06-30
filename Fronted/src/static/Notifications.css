@@ -54,14 +54,23 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: white;
+  background: rgba(255, 255, 255, 0.18) !important;
+  backdrop-filter: blur(14px) !important;
+  backdrop-filter: Glass(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: Glass(14px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
   padding: 18px 20px;
-  border-radius: 12px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   transition: all 0.2s;
   cursor: pointer;
-  border: 1px solid #e5e7eb;
   position: relative;
+}
+
+.notification-item.unread {
+  background: rgba(37, 99, 235, 0.1) !important;
+  border-left: 4px solid #2563eb !important;
 }
 
 .notification-item:hover {
@@ -70,10 +79,7 @@
 }
 
 /* Unread Notification */
-.notification-item.unread {
-  background: #eff6ff;
-  border-left: 4px solid #2563eb;
-}
+/* Unread Notification handled above */
 
 /* Notification Content */
 .notification-content {
@@ -121,9 +127,14 @@
 .empty-notifications {
   text-align: center;
   padding: 60px 20px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.18) !important;
+  backdrop-filter: blur(14px) !important;
+  backdrop-filter: Glass(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: Glass(14px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
 }
 
 .empty-notifications p {
@@ -209,20 +220,21 @@
   }
 
   .notification-item {
-    background: #1f2937;
-    border-color: #374151;
+    background: rgba(17, 24, 39, 0.35) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25) !important;
+    border-radius: 24px !important;
   }
 
   .notification-item.unread {
-    background: #1e3a5f;
-  }
-
-  .notification-content p {
-    color: #f3f4f6;
+    background: rgba(37, 99, 235, 0.2) !important;
   }
 
   .empty-notifications {
-    background: #1f2937;
+    background: rgba(17, 24, 39, 0.35) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25) !important;
+    border-radius: 24px !important;
   }
 
   .empty-notifications p {

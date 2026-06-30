@@ -1,26 +1,30 @@
 import React, { useEffect, useState } from "react";
 import api from "../utils/axiosConfig";
+import { useAuth } from "../context/AuthContext";
 import "../static/MatchResults.css";
 
 export default function MatchResults() {
   const [completedMatches, setCompletedMatches] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { user } = useAuth();
 
   useEffect(() => {
     fetchMatches();
-  }, []);
+  }, [user]);
 
   const fetchMatches = async () => {
     try {
       setLoading(true);
-      // Try public endpoint first
       let res;
-      try {
-        res = await api.get("/matches");
-      } catch (err) {
-        // Fallback to public endpoint if needed
-        res = await api.get("/matches/public");
+      if (user && (user.role === "admin" || user.role === "organizer")) {
+        try {
+          res = await api.get("/matches");
+        } catch (err) {
+          res = await api.get("/matches/public/completed");
+        }
+      } else {
+        res = await api.get("/matches/public/completed");
       }
       const completed = res.data.filter(m => m.status === "completed");
       setCompletedMatches(completed);

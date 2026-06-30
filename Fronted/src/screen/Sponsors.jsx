@@ -140,9 +140,12 @@ export default function Sponsors() {
 }
 
 const cardStyle = {
-  background: "#fff",
+  background: "var(--glass-bg, rgba(255, 255, 255, 0.18))",
+  backdropFilter: "Glass(14px) blur(14px)",
+  WebkitBackdropFilter: "Glass(14px) blur(14px)",
+  border: "1px solid var(--glass-border, rgba(255, 255, 255, 0.25))",
   padding: "20px",
   margin: "20px 0",
-  borderRadius: "8px",
-  boxShadow: "0 5px 15px rgba(0,0,0,0.1)"
+  borderRadius: "24px",
+  boxShadow: "var(--glass-shadow, 0 8px 32px rgba(0, 0, 0, 0.08))"
 };

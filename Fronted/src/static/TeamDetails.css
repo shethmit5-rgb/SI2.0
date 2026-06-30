@@ -8,12 +8,16 @@
 
 /* Team Header Card */
 .team-header {
-  background: #FFFFFF !important;
-  border: 1px solid rgba(148, 163, 184, 0.15) !important;
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.18) !important;
+  backdrop-filter: blur(14px) !important;
+  backdrop-filter: Glass(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: Glass(14px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: 24px !important;
   padding: 28px;
   margin-bottom: 24px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
 }
 
 .team-title {
@@ -118,11 +122,15 @@
 
 /* Players Section */
 .players-section {
-  background: #FFFFFF !important;
-  border: 1px solid rgba(148, 163, 184, 0.15) !important;
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.18) !important;
+  backdrop-filter: blur(14px) !important;
+  backdrop-filter: Glass(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: Glass(14px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: 24px !important;
   padding: 28px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
 }
 
 .players-section h2 {
@@ -335,9 +343,14 @@
 .no-data {
   text-align: center;
   padding: 36px 20px;
-  background: #f8fafc;
-  border-radius: 12px;
-  border: 1px solid #e2e8f0;
+  background: rgba(255, 255, 255, 0.18) !important;
+  backdrop-filter: blur(14px) !important;
+  backdrop-filter: Glass(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: Glass(14px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
   color: #64748b;
   font-size: 14px;
 }
@@ -407,9 +420,10 @@
 /* Dark Mode Overrides */
 :root[data-theme="dark"] .team-header,
 :root[data-theme="dark"] .players-section {
-  background: #111827 !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3) !important;
+  background: rgba(17, 24, 39, 0.35) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25) !important;
+  border-radius: 24px !important;
 }
 
 :root[data-theme="dark"] .team-title h1 {
@@ -472,7 +486,9 @@
 }
 
 :root[data-theme="dark"] .no-data {
-  background: rgba(15, 18, 32, 0.4) !important;
-  border-color: rgba(255, 255, 255, 0.08) !important;
+  background: rgba(17, 24, 39, 0.35) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25) !important;
+  border-radius: 24px !important;
   color: #9ca3af !important;
 }

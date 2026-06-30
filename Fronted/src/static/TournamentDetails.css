@@ -45,20 +45,24 @@
 
 /* HERO */
 .tournament-hero {
-  background: #FFFFFF !important;
+  background: rgba(255, 255, 255, 0.18) !important;
+  backdrop-filter: blur(14px) !important;
+  backdrop-filter: Glass(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: Glass(14px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: 0 0 40px 40px !important;
   color: #0F172A;
   padding: 80px 40px;
-  border-radius: 0 0 40px 40px;
   position: relative;
   text-align: center;
-  border-bottom: 4px solid #D4AF37 !important;
-  box-shadow: 0 8px 40px rgba(15, 76, 129, 0.12) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
 }
 
 :root[data-theme="dark"] .tournament-hero {
-  background: #111827 !important;
-  color: white !important;
-  box-shadow: none !important;
+  background: rgba(17, 24, 39, 0.35) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25) !important;
 }
 
 .tournament-hero h1 {
@@ -196,18 +200,22 @@
 .description-section,
 .rules-section {
   margin-top: 20px;
-  background: #FFFFFF !important;
-  border: 1px solid rgba(148, 163, 184, 0.15) !important;
+  background: rgba(255, 255, 255, 0.18) !important;
+  backdrop-filter: blur(14px) !important;
+  backdrop-filter: Glass(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: Glass(14px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
   padding: 25px;
   border-radius: 12px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
 }
 
 :root[data-theme="dark"] .description-section,
 :root[data-theme="dark"] .rules-section {
-  background: #111827 !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important;
+  background: rgba(17, 24, 39, 0.35) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25) !important;
 }
 
 /* TEAMS */
@@ -330,18 +338,23 @@
 .team-card,
 .match-card,
 .sponsor-card {
-  background: #FFFFFF !important;
-  border: 1px solid rgba(148, 163, 184, 0.15) !important;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+  background: rgba(255, 255, 255, 0.18) !important;
+  backdrop-filter: blur(14px) !important;
+  backdrop-filter: Glass(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: Glass(14px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
+  border-radius: 12px !important;
 }
 
 :root[data-theme="dark"] .info-card,
 :root[data-theme="dark"] .team-card,
 :root[data-theme="dark"] .match-card,
 :root[data-theme="dark"] .sponsor-card {
-  background: rgba(17, 24, 39, 0.92) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important;
+  background: rgba(17, 24, 39, 0.35) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25) !important;
 }
 
 /* ================= SPONSORSHIP BRANDING & MODAL ================= */
@@ -398,18 +411,24 @@
 }
 
 .sponsor-modal {
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.65) !important;
+  backdrop-filter: blur(14px) !important;
+  backdrop-filter: Glass(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: Glass(14px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
+  border-radius: 24px !important;
   padding: 25px;
-  border-radius: 12px;
   width: 100%;
   max-width: 550px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  border: 1px solid #e5e7eb;
 }
 
 :root[data-theme="dark"] .sponsor-modal {
-  background-color: #1f2937;
-  border-color: #374151;
+  background-color: rgba(17, 24, 39, 0.75) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25) !important;
+  border-radius: 24px !important;
 }
 
 .sponsor-modal-header {

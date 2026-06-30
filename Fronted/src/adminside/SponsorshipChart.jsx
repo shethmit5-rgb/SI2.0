@@ -14,7 +14,7 @@ export default function SponsorshipChart() {
   const fetchSponsorshipData = async () => {
     try {
       setLoading(true);
-      const response = await api.get("/sponsorships/stats");
+      const response = await api.get("/sponsors/stats");
       
       // ✅ Check if response data exists
       if (!response.data) {
@@ -101,7 +101,7 @@ export default function SponsorshipChart() {
               <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
             ))}
           </Pie>
-          <Tooltip formatter={(value) => `$${value.toLocaleString()}`} />
+          <Tooltip formatter={(value) => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(value)} />
           <Legend />
         </PieChart>
       </ResponsiveContainer>

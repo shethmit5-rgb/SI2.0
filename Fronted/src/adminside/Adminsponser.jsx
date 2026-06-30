@@ -170,11 +170,11 @@ export default function AdminSponsor() {
         </div>
         <div className="stat-card">
           <h4>Total Sponsorship Amount</h4>
-          <p>${sponsors.reduce((sum, s) => sum + (s.amount || 0), 0).toLocaleString()}</p>
+          <p>{new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(sponsors.reduce((sum, s) => sum + (s.amount || 0), 0))}</p>
         </div>
         <div className="stat-card">
           <h4>Average Sponsorship</h4>
-          <p>${(sponsors.reduce((sum, s) => sum + (s.amount || 0), 0) / (sponsors.length || 1)).toLocaleString()}</p>
+          <p>{new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(sponsors.reduce((sum, s) => sum + (s.amount || 0), 0) / (sponsors.length || 1))}</p>
         </div>
       </div>
 
@@ -204,7 +204,7 @@ export default function AdminSponsor() {
                   <td>{index + 1}</td>
                   <td>{sponsor.name || "N/A"}</td>
                   <td>{sponsor.tournamentId?.eventName || getTournamentName(sponsor.tournamentId) || "N/A"}</td>
-                  <td>${(sponsor.amount || 0).toLocaleString()}</td>
+                  <td>{new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(sponsor.amount || 0)}</td>
                   <td>{sponsor.createdAt ? new Date(sponsor.createdAt).toLocaleDateString() : "N/A"}</td>
                   <td>
                     <button className="edit-btn" onClick={() => handleEdit(sponsor)}>
@@ -243,7 +243,7 @@ export default function AdminSponsor() {
               </div>
               
               <div className="form-group">
-                <label>Sponsorship Amount ($)</label>
+                <label>Sponsorship Amount (₹)</label>
                 <input
                   type="number"
                   name="amount"
