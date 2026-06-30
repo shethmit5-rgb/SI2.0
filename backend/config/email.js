@@ -204,8 +204,39 @@ const sendWelcomeEmail = async (email, name) => {
   }
 };
 
+// ================= SEND REGISTRATION EMAIL OTP =================
+const sendRegistrationEmailOtp = async (email, otpCode) => {
+  const mailOptions = {
+    from: `"ArenaSync Support" <${process.env.EMAIL_USER}>`,
+    to: email,
+    subject: "ArenaSync Email Verification",
+    text: `Your ArenaSync verification code is:\n\n${otpCode}\n\nThis OTP expires in 5 minutes.\n\nIf you did not request this verification, ignore this email.`,
+    html: `
+      <div style="font-family: sans-serif; max-width: 500px; margin: 20px auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 8px;">
+        <h2 style="color: #4f46e5; margin-bottom: 20px;">ArenaSync Email Verification</h2>
+        <p>Your ArenaSync verification code is:</p>
+        <div style="background-color: #f1f5f9; padding: 15px; text-align: center; font-size: 28px; font-weight: bold; letter-spacing: 4px; border-radius: 6px; color: #4f46e5; margin: 20px 0;">
+          ${otpCode}
+        </div>
+        <p>This OTP expires in 5 minutes.</p>
+        <p style="color: #64748b; font-size: 14px; margin-top: 20px;">If you did not request this verification, ignore this email.</p>
+      </div>
+    `
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    console.log(`✅ Registration OTP email sent to ${email}`);
+    return true;
+  } catch (error) {
+    console.error("❌ Registration OTP email error:", error.message);
+    return false;
+  }
+};
+
 module.exports = { 
   sendVerificationEmail, 
   sendResetPasswordEmail,  // ✅ Fixed: Changed from sendResetEmail to sendResetPasswordEmail
-  sendWelcomeEmail 
+  sendWelcomeEmail,
+  sendRegistrationEmailOtp
 };

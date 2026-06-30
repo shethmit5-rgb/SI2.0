@@ -11,7 +11,6 @@ import "./Register.css";
 
 export default function RegisterWithVerification() {
   const navigate = useNavigate();
-  const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -23,21 +22,26 @@ export default function RegisterWithVerification() {
   const [verificationCode, setVerificationCode] = useState("");
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState("");
-  const [registeredPhone, setRegisteredPhone] = useState("");
-  const [registeredEmail, setRegisteredEmail] = useState(""); // Keeping it just in case
   const [touched, setTouched] = useState({});
   const [passwordStrength, setPasswordStrength] = useState({ score: 0, label: "", color: "" });
   const [isEmailChecking, setIsEmailChecking] = useState(false);
   const [emailAvailable, setEmailAvailable] = useState(true);
   const [timeLeft, setTimeLeft] = useState(300); // 5 minutes in seconds
 
+  // OTP State
+  const [otpSent, setOtpSent] = useState(false);
+  const [isEmailVerified, setIsEmailVerified] = useState(false);
+  const [loadingOtp, setLoadingOtp] = useState(false);
+  const [verifyingOtp, setVerifyingOtp] = useState(false);
+  const [otpMessage, setOtpMessage] = useState("");
+  const [otpError, setOtpError] = useState("");
+
   useEffect(() => {
-    if (step === 2 && timeLeft > 0) {
+    if (otpSent && !isEmailVerified && timeLeft > 0) {
       const timerId = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
       return () => clearTimeout(timerId);
     }
-  }, [step, timeLeft]);
+  }, [otpSent, isEmailVerified, timeLeft]);
 
   const formatTime = (seconds) => {
     const m = Math.floor(seconds / 60);
@@ -54,9 +58,14 @@ export default function RegisterWithVerification() {
       setErrors(prev => ({ ...prev, [name]: null }));
     }
     
-    // Clear email availability when email changes
+    // Reset OTP verification states when email changes
     if (name === "email") {
       setEmailAvailable(true);
+      setIsEmailVerified(false);
+      setOtpSent(false);
+      setVerificationCode("");
+      setOtpError("");
+      setOtpMessage("");
       if (errors.email && errors.email !== "Email already registered") {
         setErrors(prev => ({ ...prev, email: null }));
       }
@@ -66,7 +75,6 @@ export default function RegisterWithVerification() {
   const handleBlur = (field) => {
     setTouched(prev => ({ ...prev, [field]: true }));
     
-    // Validate on blur
     let error = null;
     switch(field) {
       case "name":
@@ -97,9 +105,8 @@ export default function RegisterWithVerification() {
     }
   };
 
-  // ✅ EMAIL AVAILABILITY CHECK FUNCTION
   const checkEmailAvailability = async (email) => {
-    if (!email || !validateEmail(email)) return;
+    if (!email || validateEmail(email)) return;
     
     setIsEmailChecking(true);
     try {
@@ -113,7 +120,6 @@ export default function RegisterWithVerification() {
       }
     } catch (err) {
       console.error("Email check failed:", err);
-      // Don't block registration if email check fails
       setEmailAvailable(true);
     } finally {
       setIsEmailChecking(false);
@@ -125,7 +131,53 @@ export default function RegisterWithVerification() {
     setPasswordStrength(strength);
   };
 
-  const validateStep1 = () => {
+  const handleSendOtp = async () => {
+    if (!formData.email || validateEmail(formData.email) || !emailAvailable) {
+      setOtpError("Please enter a valid, unregistered email address.");
+      return;
+    }
+    
+    setLoadingOtp(true);
+    setOtpError("");
+    setOtpMessage("");
+    try {
+      const res = await axios.post("http://localhost:5000/api/send-email-otp", {
+        email: formData.email
+      });
+      setOtpSent(true);
+      setTimeLeft(300); // 5 minutes
+      setOtpMessage(res.data.message || "OTP sent successfully!");
+    } catch (err) {
+      setOtpError(err.response?.data?.message || "Failed to send OTP");
+    } finally {
+      setLoadingOtp(false);
+    }
+  };
+
+  const handleVerifyOtp = async () => {
+    if (!verificationCode || verificationCode.length !== 6) {
+      setOtpError("Please enter a valid 6-digit code");
+      return;
+    }
+    
+    setVerifyingOtp(true);
+    setOtpError("");
+    setOtpMessage("");
+    try {
+      await axios.post("http://localhost:5000/api/verify-email-otp", {
+        email: formData.email,
+        otp: verificationCode
+      });
+      setIsEmailVerified(true);
+      setOtpMessage("Email verified successfully!");
+    } catch (err) {
+      setOtpError(err.response?.data?.message || "Verification failed");
+    } finally {
+      setVerifyingOtp(false);
+    }
+  };
+
+  const validateForm = () => {
     const newErrors = {};
     const nameError = validateName(formData.name);
     const emailError = validateEmail(formData.email);
@@ -141,9 +193,12 @@ export default function RegisterWithVerification() {
       newErrors.confirmPassword = "Passwords do not match";
     }
     
-    // Check if email is available
     if (!emailAvailable && !emailError) {
       newErrors.email = "Email already registered. Please use a different email.";
+    }
+
+    if (!isEmailVerified) {
+      newErrors.submit = "Please verify your email address before registering.";
     }
     
     setErrors(newErrors);
@@ -152,18 +207,15 @@ export default function RegisterWithVerification() {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    if (!validateStep1()) return;
+    if (!validateForm()) return;
     
     setLoading(true);
     setErrors({});
     
     try {
       const res = await axios.post("http://localhost:5000/api/register", formData);
-      setMessage(res.data.message);
-      setRegisteredEmail(formData.email);
-      setRegisteredPhone(formData.phoneNumber);
-      setStep(2);
-      setTimeLeft(300); // 5 minutes
+      alert("🎉 " + (res.data.message || "Registration successful! You can now login."));
+      navigate("/login");
     } catch (err) {
       if (err.response?.data?.message.includes("Email already registered")) {
         setErrors({ email: err.response.data.message });
@@ -177,214 +229,196 @@ export default function RegisterWithVerification() {
     }
   };
 
-  const handleVerify = async (e) => {
-    e.preventDefault();
-    if (!verificationCode || verificationCode.length !== 6) {
-      setErrors({ verify: "Please enter a valid 6-digit code" });
-      return;
-    }
-    
-    setLoading(true);
-    setErrors({});
-    
-    try {
-      await axios.post("http://localhost:5000/api/verify-phone", {
-        phoneNumber: registeredPhone,
-        code: verificationCode
-      });
-      alert("✅ Phone number verified successfully! Please login.");
-      navigate("/login");
-    } catch (err) {
-      setErrors({ verify: err.response?.data?.message || "Verification failed" });
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleResendCode = async () => {
-    if (timeLeft > 0) return; // Prevent resend if timer is running
-    
-    setLoading(true);
-    setErrors({});
-    
-    try {
-      await axios.post("http://localhost:5000/api/resend-otp", {
-        phoneNumber: registeredPhone
-      });
-      setMessage("New OTP sent successfully!");
-      setTimeLeft(300); // Reset timer
-      setTimeout(() => setMessage(""), 5000);
-    } catch (err) {
-      setErrors({ verify: err.response?.data?.message || "Failed to resend code" });
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
     <div className="register-page">
       <div className="register-card">
-        {step === 1 ? (
-          <>
-            <h2>Create Account</h2>
-            <p>Join tournaments & manage events easily</p>
-            
-            {errors.submit && <div className="error-message">{errors.submit}</div>}
-            
-            <form onSubmit={handleRegister}>
-              <div className="input-group">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Full Name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  onBlur={() => handleBlur("name")}
-                  className={errors.name && touched.name ? "error" : ""}
-                />
-                {errors.name && touched.name && <span className="error-text">{errors.name}</span>}
-              </div>
+        <h2>Create Account</h2>
+        <p>Join tournaments & manage events easily</p>
+        
+        {errors.submit && <div className="error-message">{errors.submit}</div>}
+        
+        <form onSubmit={handleRegister}>
+          <div className="input-group">
+            <input
+              type="text"
+              name="name"
+              placeholder="Full Name"
+              value={formData.name}
+              onChange={handleChange}
+              onBlur={() => handleBlur("name")}
+              className={errors.name && touched.name ? "error" : ""}
+            />
+            {errors.name && touched.name && <span className="error-text">{errors.name}</span>}
+          </div>
 
-              <div className="input-group">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email Address"
-                  value={formData.email}
-                  onChange={handleChange}
-                  onBlur={() => handleBlur("email")}
-                  className={errors.email && (touched.email || !emailAvailable) ? "error" : ""}
-                />
-                {isEmailChecking && <span className="info-text">Checking availability...</span>}
-                {errors.email && (touched.email || !emailAvailable) && (
-                  <span className="error-text">{errors.email}</span>
-                )}
-                {!errors.email && emailAvailable && formData.email && touched.email && (
-                  <span className="success-text">✓ Email available</span>
-                )}
-              </div>
+          <div className="input-group">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              value={formData.email}
+              onChange={handleChange}
+              onBlur={() => handleBlur("email")}
+              className={errors.email && (touched.email || !emailAvailable) ? "error" : ""}
+              disabled={isEmailVerified}
+            />
+            {isEmailChecking && <span className="info-text">Checking availability...</span>}
+            {errors.email && (touched.email || !emailAvailable) && (
+              <span className="error-text">{errors.email}</span>
+            )}
+            {!errors.email && emailAvailable && formData.email && touched.email && !isEmailVerified && !otpSent && (
+              <span className="success-text">✓ Email available</span>
+            )}
+            {isEmailVerified && (
+              <span className="success-text" style={{ fontWeight: 'bold' }}>✓ Email Verified Successfully</span>
+            )}
+          </div>
 
-              <div className="input-group">
-                <input
-                  type="tel"
-                  name="phoneNumber"
-                  placeholder="Mobile Number (e.g. +919876543210)"
-                  value={formData.phoneNumber}
-                  onChange={handleChange}
-                  onBlur={() => handleBlur("phoneNumber")}
-                  className={errors.phoneNumber && touched.phoneNumber ? "error" : ""}
-                />
-                {errors.phoneNumber && touched.phoneNumber && <span className="error-text">{errors.phoneNumber}</span>}
-              </div>
+          {/* Email OTP Verification Section */}
+          {formData.email && !validateEmail(formData.email) && emailAvailable && (
+            <div className="email-otp-section" style={{ marginBottom: '20px', padding: '15px', background: 'rgba(255,255,255,0.05)', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)' }}>
+              {!isEmailVerified ? (
+                <>
+                  {!otpSent ? (
+                    <button
+                      type="button"
+                      className="resend-btn"
+                      style={{ margin: 0, width: '100%', height: '40px' }}
+                      onClick={handleSendOtp}
+                      disabled={loadingOtp || isEmailChecking}
+                    >
+                      {loadingOtp ? "Sending OTP..." : "Send Verification OTP"}
+                    </button>
+                  ) : (
+                    <div>
+                      <div className="input-group" style={{ marginBottom: '10px' }}>
+                        <input
+                          type="text"
+                          placeholder="Enter 6-digit Email OTP"
+                          value={verificationCode}
+                          onChange={(e) => setVerificationCode(e.target.value.replace(/\D/g, "").slice(0, 6))}
+                          maxLength="6"
+                          style={{ marginBottom: '5px' }}
+                        />
+                        {otpError && <div className="error-text" style={{ color: '#ef4444', fontSize: '12px' }}>{otpError}</div>}
+                        {otpMessage && <div className="success-text" style={{ color: '#10b981', fontSize: '12px' }}>{otpMessage}</div>}
+                      </div>
 
-              <div className="input-group">
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Password (min 6 chars, 1 uppercase, 1 number, 1 special)"
-                  value={formData.password}
-                  onChange={(e) => {
-                    handleChange(e);
-                    checkPasswordStrength(e.target.value);
-                  }}
-                  onBlur={() => handleBlur("password")}
-                  className={errors.password && touched.password ? "error" : ""}
-                />
-                {errors.password && touched.password && <span className="error-text">{errors.password}</span>}
-                
-                {/* Password Strength Meter */}
-                {formData.password && (
-                  <div className="password-strength">
-                    <div className="strength-bar">
-                      <div 
-                        className="strength-fill" 
-                        style={{ 
-                          width: `${(passwordStrength.score / 5) * 100}%`, 
-                          backgroundColor: passwordStrength.color 
-                        }}
-                      />
+                      <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                        <button
+                          type="button"
+                          className="register-btn"
+                          style={{ margin: 0, padding: '8px 16px', flex: 1, height: '40px' }}
+                          onClick={handleVerifyOtp}
+                          disabled={verifyingOtp || verificationCode.length !== 6 || timeLeft === 0}
+                        >
+                          {verifyingOtp ? "Verifying..." : "Verify OTP"}
+                        </button>
+
+                        <button
+                          type="button"
+                          className="resend-btn"
+                          style={{ margin: 0, padding: '8px 16px', flex: 1, height: '40px', opacity: timeLeft > 0 ? 0.5 : 1, cursor: timeLeft > 0 ? 'not-allowed' : 'pointer' }}
+                          onClick={handleSendOtp}
+                          disabled={loadingOtp || timeLeft > 0}
+                        >
+                          {timeLeft > 0 ? `Resend (${formatTime(timeLeft)})` : "Resend OTP"}
+                        </button>
+                      </div>
+                      
+                      {timeLeft > 0 ? (
+                        <div style={{ fontSize: '12px', color: '#94a3b8', marginTop: '8px', textAlign: 'center' }}>
+                          OTP expires in: <strong>{formatTime(timeLeft)}</strong>
+                        </div>
+                      ) : (
+                        <div style={{ fontSize: '12px', color: '#ef4444', marginTop: '8px', textAlign: 'center' }}>
+                          OTP has expired. Please click Resend OTP.
+                        </div>
+                      )}
                     </div>
-                    <span className="strength-label" style={{ color: passwordStrength.color }}>
-                      {passwordStrength.label} Password
-                    </span>
-                  </div>
-                )}
-              </div>
-
-              <div className="input-group">
-                <input
-                  type="password"
-                  name="confirmPassword"
-                  placeholder="Confirm Password"
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                  onBlur={() => handleBlur("confirmPassword")}
-                  className={errors.confirmPassword && touched.confirmPassword ? "error" : ""}
-                />
-                {errors.confirmPassword && touched.confirmPassword && <span className="error-text">{errors.confirmPassword}</span>}
-              </div>
-
-              <div className="input-group">
-                <select name="role" value={formData.role} onChange={handleChange}>
-                  <option value="player">Player</option>
-                  <option value="coach">Coach</option>
-                  <option value="organizer">Organizer</option>
-                  <option value="sponsor">Sponsor</option>
-                </select>
-              </div>
-
-              <button 
-                type="submit" 
-                className="register-btn" 
-                disabled={loading || isEmailChecking || !emailAvailable}
-              >
-                {loading ? "Registering..." : "Register"}
-              </button>
-            </form>
-          </>
-        ) : (
-          <>
-            <h2>Verify Your Mobile Number</h2>
-            <p>Enter the 6-digit code sent to <strong>{registeredPhone}</strong></p>
-            
-            {message && <div className="success-message">{message}</div>}
-            {errors.verify && <div className="error-message">{errors.verify}</div>}
-            
-            <div className="countdown-timer">
-              {timeLeft > 0 ? (
-                <p>Code expires in: <strong>{formatTime(timeLeft)}</strong></p>
-              ) : (
-                <p className="expired-text">OTP has expired. Please request a new one.</p>
-              )}
+                  )}
+                </>
+              ) : null}
             </div>
+          )}
 
-            <form onSubmit={handleVerify}>
-              <div className="input-group">
-                <input
-                  type="text"
-                  placeholder="Enter 6-digit OTP"
-                  value={verificationCode}
-                  onChange={(e) => setVerificationCode(e.target.value.replace(/\D/g, "").slice(0, 6))}
-                  maxLength="6"
-                  required
-                />
-              </div>
-              
-              <button type="submit" className="register-btn" disabled={loading || timeLeft === 0}>
-                {loading ? "Verifying..." : "Verify Mobile Number"}
-              </button>
-            </form>
+          <div className="input-group">
+            <input
+              type="tel"
+              name="phoneNumber"
+              placeholder="Mobile Number (e.g. +919876543210)"
+              value={formData.phoneNumber}
+              onChange={handleChange}
+              onBlur={() => handleBlur("phoneNumber")}
+              className={errors.phoneNumber && touched.phoneNumber ? "error" : ""}
+            />
+            {errors.phoneNumber && touched.phoneNumber && <span className="error-text">{errors.phoneNumber}</span>}
+          </div>
+
+          <div className="input-group">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password (min 6 chars, 1 uppercase, 1 number, 1 special)"
+              value={formData.password}
+              onChange={(e) => {
+                handleChange(e);
+                checkPasswordStrength(e.target.value);
+              }}
+              onBlur={() => handleBlur("password")}
+              className={errors.password && touched.password ? "error" : ""}
+            />
+            {errors.password && touched.password && <span className="error-text">{errors.password}</span>}
             
-            <button 
-              onClick={handleResendCode} 
-              className="resend-btn" 
-              disabled={loading || timeLeft > 0}
-              style={{ opacity: timeLeft > 0 ? 0.5 : 1, cursor: timeLeft > 0 ? 'not-allowed' : 'pointer' }}
-            >
-              {timeLeft > 0 ? `Resend Code in ${formatTime(timeLeft)}` : "Resend OTP"}
-            </button>
-          </>
-        )}
+            {/* Password Strength Meter */}
+            {formData.password && (
+              <div className="password-strength">
+                <div className="strength-bar">
+                  <div 
+                    className="strength-fill" 
+                    style={{ 
+                      width: `${(passwordStrength.score / 5) * 100}%`, 
+                      backgroundColor: passwordStrength.color 
+                    }}
+                  />
+                </div>
+                <span className="strength-label" style={{ color: passwordStrength.color }}>
+                  {passwordStrength.label} Password
+                </span>
+              </div>
+            )}
+          </div>
+
+          <div className="input-group">
+            <input
+              type="password"
+              name="confirmPassword"
+              placeholder="Confirm Password"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              onBlur={() => handleBlur("confirmPassword")}
+              className={errors.confirmPassword && touched.confirmPassword ? "error" : ""}
+            />
+            {errors.confirmPassword && touched.confirmPassword && <span className="error-text">{errors.confirmPassword}</span>}
+          </div>
+
+          <div className="input-group">
+            <select name="role" value={formData.role} onChange={handleChange}>
+              <option value="player">Player</option>
+              <option value="coach">Coach</option>
+              <option value="organizer">Organizer</option>
+              <option value="sponsor">Sponsor</option>
+            </select>
+          </div>
+
+          <button 
+            type="submit" 
+            className="register-btn" 
+            disabled={loading || isEmailChecking || !emailAvailable || !isEmailVerified}
+          >
+            {loading ? "Registering..." : "Register"}
+          </button>
+        </form>
         
         <p className="login-text">
           Already have an account? <Link to="/login">Login</Link>

@@ -3,8 +3,8 @@ const PendingUser = require("../models/PendingUser");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const { validateEmail, validatePassword, validateName } = require("../utils/validators");
-const { sendVerificationEmail, sendResetPasswordEmail, sendWelcomeEmail } = require("../config/email");
-const { sendOTP } = require("../utils/twilioService");
+const { sendVerificationEmail, sendResetPasswordEmail, sendWelcomeEmail, sendRegistrationEmailOtp } = require("../config/email");
+const EmailOtp = require("../models/EmailOtp");
 
 exports.register = async (req, res, next) => {
   try {
@@ -34,72 +34,41 @@ exports.register = async (req, res, next) => {
       return res.status(400).json({ message: "Phone number already registered. Please use a different number or login." });
     }
 
-    // Check if there is an existing pending user for this email
-    let pendingEmailUser = await PendingUser.findOne({ email });
-    if (pendingEmailUser && pendingEmailUser.phoneNumber !== phoneNumber) {
-      return res.status(400).json({ message: "A pending registration exists for this email. Please use a different email or wait 10 minutes." });
+    // Check if email has been verified via OTP
+    const otpDoc = await EmailOtp.findOne({ email: email.toLowerCase(), verified: true });
+    if (!otpDoc) {
+      return res.status(400).json({ message: "Email has not been verified. Please verify your email first." });
     }
-
-    // Generate 6-digit OTP
-    const otpCode = Math.floor(100000 + Math.random() * 900000).toString();
-    const otpExpiry = Date.now() + 5 * 60 * 1000; // 5 minutes
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Check if there is an existing pending user for this phone
-    let pendingUser = await PendingUser.findOne({ phoneNumber });
-    if (pendingUser) {
-      // Update existing pending user
-      pendingUser.name = name;
-      pendingUser.email = email;
-      pendingUser.password = hashedPassword;
-      pendingUser.role = role || "player";
-      pendingUser.otpCode = otpCode;
-      pendingUser.otpExpiry = otpExpiry;
-      pendingUser.otpAttempts = 0;
-      pendingUser.createdAt = Date.now(); // reset TTL
-      await pendingUser.save();
-    } else {
-      // Create new pending user
-      pendingUser = new PendingUser({
-        name,
-        email,
-        phoneNumber,
-        password: hashedPassword,
-        role: role || "player",
-        otpCode,
-        otpExpiry,
-        otpAttempts: 0
-      });
-      await pendingUser.save();
-    }
-
-    // 📱 Show OTP in console for testing
-    console.log("\n" + "=".repeat(60));
-    console.log(`📱 MOBILE VERIFICATION OTP`);
-    console.log("=".repeat(60));
-    console.log(`📱 To: ${phoneNumber}`);
-    console.log(`👤 Name: ${name}`);
-    console.log(`🔐 OTP Code: ${otpCode}`);
-    console.log(`⏰ Expires in: 5 minutes`);
-    console.log("=".repeat(60) + "\n");
-
-    // Send SMS via Twilio
-    const smsSent = await sendOTP(phoneNumber, otpCode);
+    // Create new active user
+    const user = new User({
+      name,
+      email,
+      phoneNumber,
+      password: hashedPassword,
+      role: role || "player",
+      status: role === "sponsor" ? "Pending Approval" : "active",
+      emailVerified: true,
+      isPhoneVerified: false // OTP was email-based
+    });
     
-    if (!smsSent) {
-      console.log(`⚠️ SMS sending failed, but OTP is shown above for testing.`);
-    } else {
-      console.log(`✅ Verification SMS sent to ${phoneNumber}`);
+    await user.save();
+
+    // Clean up OTP document
+    await EmailOtp.deleteOne({ email: email.toLowerCase() });
+
+    console.log(`\n✅ Registration successful for ${email}\n`);
+
+    // Send welcome email
+    if (user.email) {
+      await sendWelcomeEmail(user.email, user.name);
     }
 
     res.json({ 
       success: true,
-      message: "Registration successful! We've sent an OTP to your mobile number.",
-      requiresPhoneVerification: true,
-      phoneNumber: phoneNumber,
-      email: email,
-      testCode: process.env.NODE_ENV !== "production" ? otpCode : undefined
+      message: "Registration successful! You can now login."
     });
   } catch (err) {
     console.error("REGISTER ERROR:", err);
@@ -122,112 +91,110 @@ exports.checkEmail = async (req, res, next) => {
   }
 };
 
-exports.verifyPhone = async (req, res, next) => {
+exports.sendEmailOtp = async (req, res, next) => {
   try {
-    const { phoneNumber, code } = req.body;
+    const { email } = req.body;
     
-    if (!phoneNumber || !code) {
-      return res.status(400).json({ message: "Phone number and OTP code are required" });
-    }
-    
-    const pendingUser = await PendingUser.findOne({ phoneNumber });
+    const emailError = validateEmail(email);
+    if (emailError) return res.status(400).json({ message: emailError });
 
-    if (!pendingUser) {
-      return res.status(404).json({ message: "Registration expired or not found. Please register again." });
-    }
-
-    if (pendingUser.otpCode !== code) {
-      return res.status(400).json({ message: "Invalid OTP. Please try again." });
+    // Check if user already exists
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({ message: "Email already registered. Please use a different email or login." });
     }
 
-    if (pendingUser.otpExpiry < Date.now()) {
-      return res.status(400).json({ message: "OTP has expired. Please register again." });
-    }
-
-    // Move pending user to actual User collection
-    const user = new User({
-      name: pendingUser.name,
-      email: pendingUser.email,
-      phoneNumber: pendingUser.phoneNumber,
-      password: pendingUser.password, // already hashed
-      role: pendingUser.role,
-      status: pendingUser.role === "sponsor" ? "Pending Approval" : "active",
-      isPhoneVerified: true,
-      emailVerified: false
-    });
-    
-    await user.save();
-    await PendingUser.deleteOne({ _id: pendingUser._id });
-
-    console.log(`\n✅ Phone verified and user created successfully for ${phoneNumber}\n`);
-
-    // Optionally send welcome email here since we still have their email
-    if (user.email) {
-      await sendWelcomeEmail(user.email, user.name);
-    }
-
-    res.json({ 
-      success: true,
-      message: "Phone number verified successfully! You can now login." 
-    });
-  } catch (err) {
-    console.error("Verification error:", err);
-    res.status(500).json({ message: "Verification failed. Please try again." });
-  }
-};
-
-exports.resendOtp = async (req, res, next) => {
-  try {
-    const { phoneNumber } = req.body;
-    
-    if (!phoneNumber) {
-      return res.status(400).json({ message: "Phone number is required" });
-    }
-    
-    const pendingUser = await PendingUser.findOne({ phoneNumber });
-
-    if (!pendingUser) {
-      return res.status(404).json({ message: "Registration expired or not found. Please register again." });
-    }
-
-    if (pendingUser.otpAttempts >= 3) {
-      // Allow 3 attempts, could reset after some time, but let's keep it simple
-      // Check if last attempt was within 10 minutes
-      if (pendingUser.otpExpiry && Date.now() < pendingUser.otpExpiry.getTime() + 10 * 60 * 1000) {
-        return res.status(429).json({ message: "Maximum resend attempts reached. Please register again later." });
-      } else {
-        // Reset attempts if it's been a while
-        pendingUser.otpAttempts = 0;
-      }
-    }
-
+    // Generate 6-digit OTP
     const otpCode = Math.floor(100000 + Math.random() * 900000).toString();
-    pendingUser.otpCode = otpCode;
-    pendingUser.otpExpiry = Date.now() + 5 * 60 * 1000;
-    pendingUser.otpAttempts += 1;
-    pendingUser.createdAt = Date.now(); // Reset TTL timer
-    await pendingUser.save();
+    const hashedOtp = await bcrypt.hash(otpCode, 10);
+    const otpExpiry = Date.now() + 5 * 60 * 1000; // 5 minutes
 
-    // 📱 Show OTP in console for testing
+    // Store in collection
+    await EmailOtp.findOneAndUpdate(
+      { email: email.toLowerCase() },
+      { 
+        otpCode: hashedOtp, 
+        otpExpiry, 
+        verified: false, 
+        otpAttempts: 0, 
+        createdAt: Date.now() // resets TTL index
+      },
+      { upsert: true, new: true }
+    );
+
+    // ✉️ Show OTP in console for testing
     console.log("\n" + "=".repeat(60));
-    console.log(`📱 RESEND MOBILE VERIFICATION OTP`);
+    console.log(`✉️ EMAIL VERIFICATION OTP`);
     console.log("=".repeat(60));
-    console.log(`📱 To: ${phoneNumber}`);
-    console.log(`🔐 New OTP Code: ${otpCode}`);
+    console.log(`✉️ To: ${email}`);
+    console.log(`🔐 OTP Code: ${otpCode}`);
     console.log(`⏰ Expires in: 5 minutes`);
     console.log("=".repeat(60) + "\n");
 
-    // Send new SMS
-    const smsSent = await sendOTP(phoneNumber, otpCode);
-    
-    if (!smsSent) {
-      console.log(`⚠️ SMS sending failed, but OTP is shown above for testing.`);
+    // Send email
+    const emailSent = await sendRegistrationEmailOtp(email, otpCode);
+    if (!emailSent) {
+      console.log(`⚠️ Email sending failed, but OTP is shown above for testing.`);
     }
 
-    res.json({ message: "New OTP sent successfully." });
+    res.json({
+      success: true,
+      message: "OTP sent successfully",
+      testCode: process.env.NODE_ENV !== "production" ? otpCode : undefined
+    });
   } catch (err) {
-    console.error("Resend error:", err);
-    res.status(500).json({ message: "Failed to resend code" });
+    console.error("SEND EMAIL OTP ERROR:", err);
+    res.status(500).json({ message: "Failed to send OTP. Please try again." });
+  }
+};
+
+exports.verifyEmailOtp = async (req, res, next) => {
+  try {
+    const { email, otp } = req.body;
+
+    if (!email || !otp) {
+      return res.status(400).json({ message: "Email and OTP code are required" });
+    }
+
+    const otpDoc = await EmailOtp.findOne({ email: email.toLowerCase() });
+    if (!otpDoc) {
+      return res.status(400).json({ message: "OTP expired or not found. Please request a new one." });
+    }
+
+    if (otpDoc.otpExpiry < Date.now()) {
+      return res.status(400).json({ message: "OTP has expired. Please request a new one." });
+    }
+
+    if (otpDoc.verified) {
+      return res.status(400).json({ message: "Email already verified." });
+    }
+
+    if (otpDoc.otpAttempts >= 5) {
+      return res.status(429).json({ message: "Too many verification attempts. Please request a new OTP." });
+    }
+
+    // Increment attempts
+    otpDoc.otpAttempts += 1;
+    await otpDoc.save();
+
+    // Verify OTP code
+    const isMatch = await bcrypt.compare(otp, otpDoc.otpCode);
+    if (!isMatch) {
+      return res.status(400).json({ message: "Invalid OTP. Please try again." });
+    }
+
+    // OTP matches: mark verified and delete code to prevent reuse
+    otpDoc.verified = true;
+    otpDoc.otpCode = "verified"; // invalidate code
+    await otpDoc.save();
+
+    res.json({
+      success: true,
+      message: "Email verified successfully"
+    });
+  } catch (err) {
+    console.error("VERIFY EMAIL OTP ERROR:", err);
+    res.status(500).json({ message: "Verification failed. Please try again." });
   }
 };
 

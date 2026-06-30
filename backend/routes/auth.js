@@ -2,8 +2,8 @@ const express = require("express");
 const {
   register,
   checkEmail,
-  verifyPhone,
-  resendOtp,
+  sendEmailOtp,
+  verifyEmailOtp,
   login,
   forgotPassword,
   resendResetOtp,
@@ -12,17 +12,17 @@ const {
 
 const router = express.Router();
 
-// ================= REGISTER WITH MOBILE OTP =================
+// ================= REGISTER =================
 router.post("/register", register);
 
 // ================= CHECK EMAIL AVAILABILITY =================
 router.post("/check-email", checkEmail);
 
-// ================= VERIFY PHONE OTP =================
-router.post("/verify-phone", verifyPhone);
+// ================= SEND EMAIL OTP =================
+router.post("/send-email-otp", sendEmailOtp);
 
-// ================= RESEND PHONE OTP =================
-router.post("/resend-otp", resendOtp);
+// ================= VERIFY EMAIL OTP =================
+router.post("/verify-email-otp", verifyEmailOtp);
 
 // ================= LOGIN =================
 router.post("/login", login);
