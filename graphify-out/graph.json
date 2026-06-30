@@ -27,7 +27,7 @@
       "label": "AdminOrOrganizerRoute()",
       "file_type": "code",
       "source_file": "Fronted/src/App.jsx",
-      "source_location": "L89",
+      "source_location": "L80",
       "_origin": "ast",
       "id": "src_app_adminororganizerroute",
       "community": 8,
@@ -37,7 +37,7 @@
       "label": "SponsorDashboardOrHome()",
       "file_type": "code",
       "source_file": "Fronted/src/App.jsx",
-      "source_location": "L96",
+      "source_location": "L87",
       "_origin": "ast",
       "id": "src_app_sponsordashboardorhome",
       "community": 8,
@@ -47,10 +47,10 @@
       "label": "App()",
       "file_type": "code",
       "source_file": "Fronted/src/App.jsx",
-      "source_location": "L104",
+      "source_location": "L95",
       "_origin": "ast",
       "id": "src_app_app",
-      "community": 4,
+      "community": 1,
       "norm_label": "app()"
     },
     {
@@ -714,26 +714,6 @@
       "norm_label": "sponsorheader()"
     },
     {
-      "label": "PaymentModal.jsx",
-      "file_type": "code",
-      "source_file": "Fronted/src/components/PaymentModal.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "components_paymentmodal",
-      "community": 12,
-      "norm_label": "paymentmodal.jsx"
-    },
-    {
-      "label": "PaymentModal()",
-      "file_type": "code",
-      "source_file": "Fronted/src/components/PaymentModal.jsx",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "components_paymentmodal_paymentmodal",
-      "community": 12,
-      "norm_label": "paymentmodal()"
-    },
-    {
       "label": "ThreeBgCanvas.jsx",
       "file_type": "code",
       "source_file": "Fronted/src/components/ThreeBgCanvas.jsx",
@@ -840,7 +820,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "context_authcontext_authprovider",
-      "community": 4,
+      "community": 1,
       "norm_label": "authprovider()"
     },
     {
@@ -970,7 +950,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "layouts_rolelayout_rolelayout",
-      "community": 6,
+      "community": 8,
       "norm_label": "rolelayout()"
     },
     {
@@ -1000,7 +980,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_main",
-      "community": 4,
+      "community": 1,
       "norm_label": "main.jsx"
     },
     {
@@ -1240,7 +1220,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_forgotpassword",
-      "community": 1,
+      "community": 15,
       "norm_label": "forgotpassword.jsx"
     },
     {
@@ -1250,7 +1230,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "screen_forgotpassword_forgotpassword",
-      "community": 1,
+      "community": 15,
       "norm_label": "forgotpassword()"
     },
     {
@@ -1310,7 +1290,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "screen_home_home",
-      "community": 13,
+      "community": 8,
       "norm_label": "home()"
     },
     {
@@ -1320,7 +1300,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_leaderboard",
-      "community": 1,
+      "community": 4,
       "norm_label": "leaderboard.jsx"
     },
     {
@@ -1330,7 +1310,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "screen_leaderboard_leaderboard",
-      "community": 1,
+      "community": 4,
       "norm_label": "leaderboard()"
     },
     {
@@ -1570,7 +1550,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_profile",
-      "community": 8,
+      "community": 39,
       "norm_label": "profile.jsx"
     },
     {
@@ -1580,7 +1560,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "screen_profile_profile",
-      "community": 8,
+      "community": 39,
       "norm_label": "profile()"
     },
     {
@@ -1590,7 +1570,7 @@
       "source_location": "L339",
       "_origin": "ast",
       "id": "screen_profile_teamslist",
-      "community": 8,
+      "community": 39,
       "norm_label": "teamslist()"
     },
     {
@@ -1600,7 +1580,7 @@
       "source_location": "L395",
       "_origin": "ast",
       "id": "screen_profile_registrationslist",
-      "community": 8,
+      "community": 39,
       "norm_label": "registrationslist()"
     },
     {
@@ -1630,7 +1610,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_registerwithverification",
-      "community": 1,
+      "community": 15,
       "norm_label": "registerwithverification.jsx"
     },
     {
@@ -1640,7 +1620,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "screen_registerwithverification_registerwithverification",
-      "community": 1,
+      "community": 15,
       "norm_label": "registerwithverification()"
     },
     {
@@ -1650,7 +1630,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_schedule",
-      "community": 1,
+      "community": 4,
       "norm_label": "schedule.jsx"
     },
     {
@@ -1660,7 +1640,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "screen_schedule_schedule",
-      "community": 1,
+      "community": 4,
       "norm_label": "schedule()"
     },
     {
@@ -1670,7 +1650,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_speakers",
-      "community": 1,
+      "community": 9,
       "norm_label": "speakers.jsx"
     },
     {
@@ -1680,7 +1660,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "screen_speakers_speakers",
-      "community": 1,
+      "community": 9,
       "norm_label": "speakers"
     },
     {
@@ -1730,7 +1710,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_sponsors",
-      "community": 32,
+      "community": 2,
       "norm_label": "sponsors.jsx"
     },
     {
@@ -1740,7 +1720,7 @@
       "source_location": "L118",
       "_origin": "ast",
       "id": "screen_sponsors_sponsors",
-      "community": 32,
+      "community": 2,
       "norm_label": "sponsors()"
     },
     {
@@ -1750,7 +1730,7 @@
       "source_location": "L142",
       "_origin": "ast",
       "id": "screen_sponsors_cardstyle",
-      "community": 32,
+      "community": 2,
       "norm_label": "cardstyle"
     },
     {
@@ -1830,7 +1810,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "screen_tournamentdetails_tournamentdetails",
-      "community": 12,
+      "community": 8,
       "norm_label": "tournamentdetails()"
     },
     {
@@ -2080,7 +2060,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "utils_validators_validateconfirmpassword",
-      "community": 1,
+      "community": 15,
       "norm_label": "validateconfirmpassword()"
     },
     {
@@ -2170,7 +2150,7 @@
       "source_location": "L116",
       "_origin": "ast",
       "id": "utils_validators_getpasswordstrength",
-      "community": 1,
+      "community": 15,
       "norm_label": "getpasswordstrength()"
     },
     {
@@ -2272,6 +2252,16 @@
       "id": "config_email_sendwelcomeemail",
       "community": 5,
       "norm_label": "sendwelcomeemail()"
+    },
+    {
+      "label": "sendRegistrationEmailOtp()",
+      "file_type": "code",
+      "source_file": "backend/config/email.js",
+      "source_location": "L208",
+      "_origin": "ast",
+      "id": "config_email_sendregistrationemailotp",
+      "community": 5,
+      "norm_label": "sendregistrationemailotp()"
     },
     {
       "label": "analyticsController.js",
@@ -2524,24 +2514,24 @@
       "norm_label": "{ validateemail, validatepassword, validatename }"
     },
     {
-      "label": "{ sendVerificationEmail, sendResetPasswordEmail, sendWelcomeEmail }",
+      "label": "{ sendVerificationEmail, sendResetPasswordEmail, sendWelcomeEmail, sendRegistrationEmailOtp }",
       "file_type": "code",
       "source_file": "backend/controllers/authController.js",
       "source_location": "L6",
       "_origin": "ast",
-      "id": "controllers_authcontroller_sendverificationemail_sendresetpasswordemail_sendwelcomeemail",
+      "id": "controllers_authcontroller_sendverificationemail_sendresetpasswordemail_sendwelcomeemail_sendregistrationemailotp",
       "community": 5,
-      "norm_label": "{ sendverificationemail, sendresetpasswordemail, sendwelcomeemail }"
+      "norm_label": "{ sendverificationemail, sendresetpasswordemail, sendwelcomeemail, sendregistrationemailotp }"
     },
     {
-      "label": "{ sendOTP }",
+      "label": "EmailOtp",
       "file_type": "code",
       "source_file": "backend/controllers/authController.js",
       "source_location": "L7",
       "_origin": "ast",
-      "id": "controllers_authcontroller_sendotp",
+      "id": "controllers_authcontroller_emailotp",
       "community": 5,
-      "norm_label": "{ sendotp }"
+      "norm_label": "emailotp"
     },
     {
       "label": "register()",
@@ -2557,37 +2547,37 @@
       "label": "checkEmail()",
       "file_type": "code",
       "source_file": "backend/controllers/authController.js",
-      "source_location": "L110",
+      "source_location": "L79",
       "_origin": "ast",
       "id": "controllers_authcontroller_checkemail",
       "community": 5,
       "norm_label": "checkemail()"
     },
     {
-      "label": "verifyPhone()",
+      "label": "sendEmailOtp()",
       "file_type": "code",
       "source_file": "backend/controllers/authController.js",
-      "source_location": "L125",
+      "source_location": "L94",
       "_origin": "ast",
-      "id": "controllers_authcontroller_verifyphone",
+      "id": "controllers_authcontroller_sendemailotp",
       "community": 5,
-      "norm_label": "verifyphone()"
+      "norm_label": "sendemailotp()"
     },
     {
-      "label": "resendOtp()",
+      "label": "verifyEmailOtp()",
       "file_type": "code",
       "source_file": "backend/controllers/authController.js",
-      "source_location": "L179",
+      "source_location": "L151",
       "_origin": "ast",
-      "id": "controllers_authcontroller_resendotp",
+      "id": "controllers_authcontroller_verifyemailotp",
       "community": 5,
-      "norm_label": "resendotp()"
+      "norm_label": "verifyemailotp()"
     },
     {
       "label": "login()",
       "file_type": "code",
       "source_file": "backend/controllers/authController.js",
-      "source_location": "L234",
+      "source_location": "L201",
       "_origin": "ast",
       "id": "controllers_authcontroller_login",
       "community": 5,
@@ -2597,7 +2587,7 @@
       "label": "forgotPassword()",
       "file_type": "code",
       "source_file": "backend/controllers/authController.js",
-      "source_location": "L293",
+      "source_location": "L260",
       "_origin": "ast",
       "id": "controllers_authcontroller_forgotpassword",
       "community": 5,
@@ -2607,7 +2597,7 @@
       "label": "resendResetOtp()",
       "file_type": "code",
       "source_file": "backend/controllers/authController.js",
-      "source_location": "L341",
+      "source_location": "L308",
       "_origin": "ast",
       "id": "controllers_authcontroller_resendresetotp",
       "community": 5,
@@ -2617,7 +2607,7 @@
       "label": "resetPassword()",
       "file_type": "code",
       "source_file": "backend/controllers/authController.js",
-      "source_location": "L386",
+      "source_location": "L353",
       "_origin": "ast",
       "id": "controllers_authcontroller_resetpassword",
       "community": 5,
@@ -2630,7 +2620,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "controllers_matchcontroller",
-      "community": 2,
+      "community": 0,
       "norm_label": "matchcontroller.js"
     },
     {
@@ -2640,7 +2630,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "controllers_matchcontroller_match",
-      "community": 2,
+      "community": 0,
       "norm_label": "match"
     },
     {
@@ -2650,7 +2640,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "controllers_matchcontroller_team",
-      "community": 2,
+      "community": 0,
       "norm_label": "team"
     },
     {
@@ -2660,7 +2650,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "controllers_matchcontroller_tournament",
-      "community": 2,
+      "community": 0,
       "norm_label": "tournament"
     },
     {
@@ -2670,7 +2660,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "controllers_matchcontroller_gettournamentroundinfo_triggerdashboardupdate",
-      "community": 2,
+      "community": 0,
       "norm_label": "{ gettournamentroundinfo, triggerdashboardupdate }"
     },
     {
@@ -2680,7 +2670,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "controllers_matchcontroller_creatematch",
-      "community": 2,
+      "community": 0,
       "norm_label": "creatematch()"
     },
     {
@@ -2690,7 +2680,7 @@
       "source_location": "L100",
       "_origin": "ast",
       "id": "controllers_matchcontroller_getmatches",
-      "community": 2,
+      "community": 0,
       "norm_label": "getmatches()"
     },
     {
@@ -2700,7 +2690,7 @@
       "source_location": "L135",
       "_origin": "ast",
       "id": "controllers_matchcontroller_getmatchesbytournament",
-      "community": 2,
+      "community": 0,
       "norm_label": "getmatchesbytournament()"
     },
     {
@@ -2710,7 +2700,7 @@
       "source_location": "L149",
       "_origin": "ast",
       "id": "controllers_matchcontroller_getpublicmatchesbytournament",
-      "community": 2,
+      "community": 0,
       "norm_label": "getpublicmatchesbytournament()"
     },
     {
@@ -2720,7 +2710,7 @@
       "source_location": "L163",
       "_origin": "ast",
       "id": "controllers_matchcontroller_getupcomingmatches",
-      "community": 2,
+      "community": 0,
       "norm_label": "getupcomingmatches()"
     },
     {
@@ -2730,7 +2720,7 @@
       "source_location": "L182",
       "_origin": "ast",
       "id": "controllers_matchcontroller_getcompletedmatches",
-      "community": 2,
+      "community": 0,
       "norm_label": "getcompletedmatches()"
     },
     {
@@ -2740,7 +2730,7 @@
       "source_location": "L198",
       "_origin": "ast",
       "id": "controllers_matchcontroller_updatematchresult",
-      "community": 2,
+      "community": 0,
       "norm_label": "updatematchresult()"
     },
     {
@@ -2750,7 +2740,7 @@
       "source_location": "L247",
       "_origin": "ast",
       "id": "controllers_matchcontroller_getmatchbyid",
-      "community": 2,
+      "community": 0,
       "norm_label": "getmatchbyid()"
     },
     {
@@ -2760,7 +2750,7 @@
       "source_location": "L265",
       "_origin": "ast",
       "id": "controllers_matchcontroller_updatematch",
-      "community": 2,
+      "community": 0,
       "norm_label": "updatematch()"
     },
     {
@@ -2770,7 +2760,7 @@
       "source_location": "L301",
       "_origin": "ast",
       "id": "controllers_matchcontroller_deletematch",
-      "community": 2,
+      "community": 0,
       "norm_label": "deletematch()"
     },
     {
@@ -2780,7 +2770,7 @@
       "source_location": "L326",
       "_origin": "ast",
       "id": "controllers_matchcontroller_getschedule",
-      "community": 2,
+      "community": 3,
       "norm_label": "getschedule()"
     },
     {
@@ -2790,7 +2780,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "controllers_notificationcontroller",
-      "community": 14,
+      "community": 30,
       "norm_label": "notificationcontroller.js"
     },
     {
@@ -2800,7 +2790,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "controllers_notificationcontroller_notification",
-      "community": 14,
+      "community": 30,
       "norm_label": "notification"
     },
     {
@@ -2810,7 +2800,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "controllers_notificationcontroller_getnotifications",
-      "community": 14,
+      "community": 30,
       "norm_label": "getnotifications()"
     },
     {
@@ -2820,7 +2810,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "controllers_notificationcontroller_markasread",
-      "community": 14,
+      "community": 30,
       "norm_label": "markasread()"
     },
     {
@@ -2830,7 +2820,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "controllers_notificationcontroller_deletenotification",
-      "community": 14,
+      "community": 30,
       "norm_label": "deletenotification()"
     },
     {
@@ -2840,7 +2830,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "controllers_paymentcontroller",
-      "community": 11,
+      "community": 21,
       "norm_label": "paymentcontroller.js"
     },
     {
@@ -2850,7 +2840,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "controllers_paymentcontroller_razorpay",
-      "community": 11,
+      "community": 21,
       "norm_label": "razorpay"
     },
     {
@@ -2860,7 +2850,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "controllers_paymentcontroller_crypto",
-      "community": 11,
+      "community": 21,
       "norm_label": "crypto"
     },
     {
@@ -2870,7 +2860,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "controllers_paymentcontroller_transaction",
-      "community": 11,
+      "community": 21,
       "norm_label": "transaction"
     },
     {
@@ -2880,7 +2870,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "controllers_paymentcontroller_registration",
-      "community": 11,
+      "community": 21,
       "norm_label": "registration"
     },
     {
@@ -2890,7 +2880,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "controllers_paymentcontroller_tournament",
-      "community": 11,
+      "community": 21,
       "norm_label": "tournament"
     },
     {
@@ -2900,7 +2890,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "controllers_paymentcontroller_team",
-      "community": 11,
+      "community": 21,
       "norm_label": "team"
     },
     {
@@ -2910,7 +2900,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "controllers_paymentcontroller_triggerdashboardupdate",
-      "community": 11,
+      "community": 21,
       "norm_label": "{ triggerdashboardupdate }"
     },
     {
@@ -2920,7 +2910,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "controllers_paymentcontroller_getrazorpaykey",
-      "community": 11,
+      "community": 21,
       "norm_label": "getrazorpaykey()"
     },
     {
@@ -2930,7 +2920,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "controllers_paymentcontroller_createorder",
-      "community": 11,
+      "community": 21,
       "norm_label": "createorder()"
     },
     {
@@ -2940,7 +2930,7 @@
       "source_location": "L83",
       "_origin": "ast",
       "id": "controllers_paymentcontroller_verifypayment",
-      "community": 11,
+      "community": 21,
       "norm_label": "verifypayment()"
     },
     {
@@ -2950,7 +2940,7 @@
       "source_location": "L145",
       "_origin": "ast",
       "id": "controllers_paymentcontroller_gettransactions",
-      "community": 11,
+      "community": 21,
       "norm_label": "gettransactions()"
     },
     {
@@ -2960,7 +2950,7 @@
       "source_location": "L157",
       "_origin": "ast",
       "id": "controllers_paymentcontroller_getallpaymentsadmin",
-      "community": 11,
+      "community": 21,
       "norm_label": "getallpaymentsadmin()"
     },
     {
@@ -2970,7 +2960,7 @@
       "source_location": "L175",
       "_origin": "ast",
       "id": "controllers_paymentcontroller_adminoverridepayment",
-      "community": 11,
+      "community": 21,
       "norm_label": "adminoverridepayment()"
     },
     {
@@ -3410,7 +3400,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_createsponsor",
-      "community": 23,
+      "community": 0,
       "norm_label": "createsponsor()"
     },
     {
@@ -3450,7 +3440,7 @@
       "source_location": "L161",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_updatesponsor",
-      "community": 23,
+      "community": 0,
       "norm_label": "updatesponsor()"
     },
     {
@@ -3460,7 +3450,7 @@
       "source_location": "L211",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_deletesponsor",
-      "community": 23,
+      "community": 0,
       "norm_label": "deletesponsor()"
     },
     {
@@ -3500,7 +3490,7 @@
       "source_location": "L393",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_verifyselfpayment",
-      "community": 23,
+      "community": 0,
       "norm_label": "verifyselfpayment()"
     },
     {
@@ -3730,7 +3720,7 @@
       "source_location": "L247",
       "_origin": "ast",
       "id": "controllers_teamcontroller_approveplayer",
-      "community": 23,
+      "community": 3,
       "norm_label": "approveplayer()"
     },
     {
@@ -3780,7 +3770,7 @@
       "source_location": "L403",
       "_origin": "ast",
       "id": "controllers_teamcontroller_updateteam",
-      "community": 23,
+      "community": 3,
       "norm_label": "updateteam()"
     },
     {
@@ -3850,7 +3840,7 @@
       "source_location": "L699",
       "_origin": "ast",
       "id": "controllers_teamcontroller_verifyplayerjoinpayment",
-      "community": 23,
+      "community": 3,
       "norm_label": "verifyplayerjoinpayment()"
     },
     {
@@ -3860,7 +3850,7 @@
       "source_location": "L860",
       "_origin": "ast",
       "id": "controllers_teamcontroller_blockorganizerjoin",
-      "community": 2,
+      "community": 3,
       "norm_label": "blockorganizerjoin()"
     },
     {
@@ -4090,7 +4080,7 @@
       "source_location": "L449",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_verifytournamentpayment",
-      "community": 23,
+      "community": 37,
       "norm_label": "verifytournamentpayment()"
     },
     {
@@ -4130,7 +4120,7 @@
       "source_location": "L716",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_getroundinfo",
-      "community": 2,
+      "community": 0,
       "norm_label": "getroundinfo()"
     },
     {
@@ -4280,7 +4270,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "middleware_authmiddleware",
-      "community": 14,
+      "community": 30,
       "norm_label": "authmiddleware.js"
     },
     {
@@ -4290,7 +4280,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "middleware_authmiddleware_jwt",
-      "community": 14,
+      "community": 30,
       "norm_label": "jwt"
     },
     {
@@ -4404,13 +4394,43 @@
       "norm_label": "mongoose"
     },
     {
+      "label": "EmailOtp.js",
+      "file_type": "code",
+      "source_file": "backend/models/EmailOtp.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "models_emailotp",
+      "community": 5,
+      "norm_label": "emailotp.js"
+    },
+    {
+      "label": "mongoose",
+      "file_type": "code",
+      "source_file": "backend/models/EmailOtp.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "models_emailotp_mongoose",
+      "community": 5,
+      "norm_label": "mongoose"
+    },
+    {
+      "label": "EmailOtpSchema",
+      "file_type": "code",
+      "source_file": "backend/models/EmailOtp.js",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "models_emailotp_emailotpschema",
+      "community": 5,
+      "norm_label": "emailotpschema"
+    },
+    {
       "label": "Match.js",
       "file_type": "code",
       "source_file": "backend/models/Match.js",
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_match",
-      "community": 2,
+      "community": 0,
       "norm_label": "match.js"
     },
     {
@@ -4420,7 +4440,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_match_mongoose",
-      "community": 2,
+      "community": 0,
       "norm_label": "mongoose"
     },
     {
@@ -4430,7 +4450,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "models_match_matchschema",
-      "community": 2,
+      "community": 0,
       "norm_label": "matchschema"
     },
     {
@@ -4470,7 +4490,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_registration",
-      "community": 44,
+      "community": 21,
       "norm_label": "registration.js"
     },
     {
@@ -4480,7 +4500,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_registration_mongoose",
-      "community": 44,
+      "community": 21,
       "norm_label": "mongoose"
     },
     {
@@ -4490,7 +4510,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "models_registration_registrationschema",
-      "community": 44,
+      "community": 21,
       "norm_label": "registrationschema"
     },
     {
@@ -4500,7 +4520,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_sponsor",
-      "community": 25,
+      "community": 37,
       "norm_label": "sponsor.js"
     },
     {
@@ -4510,7 +4530,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_sponsor_mongoose",
-      "community": 25,
+      "community": 37,
       "norm_label": "mongoose"
     },
     {
@@ -4520,7 +4540,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "models_sponsor_sponsorschema",
-      "community": 25,
+      "community": 37,
       "norm_label": "sponsorschema"
     },
     {
@@ -4530,7 +4550,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_sport",
-      "community": 30,
+      "community": 18,
       "norm_label": "sport.js"
     },
     {
@@ -4540,7 +4560,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_sport_mongoose",
-      "community": 30,
+      "community": 18,
       "norm_label": "mongoose"
     },
     {
@@ -4550,7 +4570,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "models_sport_sportschema",
-      "community": 30,
+      "community": 18,
       "norm_label": "sportschema"
     },
     {
@@ -4590,7 +4610,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_tournament",
-      "community": 44,
+      "community": 0,
       "norm_label": "tournament.js"
     },
     {
@@ -4600,7 +4620,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_tournament_mongoose",
-      "community": 44,
+      "community": 0,
       "norm_label": "mongoose"
     },
     {
@@ -4610,7 +4630,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "models_tournament_tournamentschema",
-      "community": 44,
+      "community": 0,
       "norm_label": "tournamentschema"
     },
     {
@@ -4620,7 +4640,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_transaction",
-      "community": 28,
+      "community": 21,
       "norm_label": "transaction.js"
     },
     {
@@ -4630,7 +4650,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_transaction_mongoose",
-      "community": 28,
+      "community": 21,
       "norm_label": "mongoose"
     },
     {
@@ -4640,7 +4660,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "models_transaction_transactionschema",
-      "community": 28,
+      "community": 21,
       "norm_label": "transactionschema"
     },
     {
@@ -4650,7 +4670,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_user",
-      "community": 21,
+      "community": 14,
       "norm_label": "user.js"
     },
     {
@@ -4660,7 +4680,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_user_mongoose",
-      "community": 21,
+      "community": 14,
       "norm_label": "mongoose"
     },
     {
@@ -4670,7 +4690,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "models_user_userschema",
-      "community": 21,
+      "community": 14,
       "norm_label": "userschema"
     },
     {
@@ -4680,7 +4700,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_venue",
-      "community": 41,
+      "community": 19,
       "norm_label": "venue.js"
     },
     {
@@ -4690,7 +4710,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_venue_mongoose",
-      "community": 41,
+      "community": 19,
       "norm_label": "mongoose"
     },
     {
@@ -4700,7 +4720,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "models_venue_venueschema",
-      "community": 41,
+      "community": 19,
       "norm_label": "venueschema"
     },
     {
@@ -4710,7 +4730,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_notification",
-      "community": 29,
+      "community": 30,
       "norm_label": "notification.js"
     },
     {
@@ -4720,7 +4740,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_notification_mongoose",
-      "community": 29,
+      "community": 30,
       "norm_label": "mongoose"
     },
     {
@@ -4730,7 +4750,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "models_notification_notificationschema",
-      "community": 29,
+      "community": 30,
       "norm_label": "notificationschema"
     },
     {
@@ -4814,14 +4834,14 @@
       "norm_label": "express"
     },
     {
-      "label": "{\n  register,\n  checkEmail,\n  verifyPhone,\n  resendOtp,\n  login,\n  forgotPassword,\n  resendResetOtp,\n  resetPassword,\n}",
+      "label": "{\n  register,\n  checkEmail,\n  sendEmailOtp,\n  verifyEmailOtp,\n  login,\n  forgotPassword,\n  resendResetOtp,\n  resetPassword,\n}",
       "file_type": "code",
       "source_file": "backend/routes/auth.js",
       "source_location": "L2",
       "_origin": "ast",
-      "id": "routes_auth_register_checkemail_verifyphone_resendotp_login_forgotpassword_resendresetotp_resetpassword",
+      "id": "routes_auth_register_checkemail_sendemailotp_verifyemailotp_login_forgotpassword_resendresetotp_resetpassword",
       "community": 5,
-      "norm_label": "{\n  register,\n  checkemail,\n  verifyphone,\n  resendotp,\n  login,\n  forgotpassword,\n  resendresetotp,\n  resetpassword,\n}"
+      "norm_label": "{\n  register,\n  checkemail,\n  sendemailotp,\n  verifyemailotp,\n  login,\n  forgotpassword,\n  resendresetotp,\n  resetpassword,\n}"
     },
     {
       "label": "router",
@@ -4840,7 +4860,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_matchrouter",
-      "community": 2,
+      "community": 0,
       "norm_label": "matchrouter.js"
     },
     {
@@ -4850,7 +4870,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_matchrouter_express",
-      "community": 2,
+      "community": 0,
       "norm_label": "express"
     },
     {
@@ -4860,7 +4880,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "routes_matchrouter_creatematch_getmatches_getmatchesbytournament_getpublicmatchesbytournament_getupcomingmatches_getcompletedmatches_updatematchresult_getmatchbyid_updatematch_deletematch",
-      "community": 2,
+      "community": 0,
       "norm_label": "{\r\n  creatematch,\r\n  getmatches,\r\n  getmatchesbytournament,\r\n  getpublicmatchesbytournament,\r\n  getupcomingmatches,\r\n  getcompletedmatches,\r\n  updatematchresult,\r\n  getmatchbyid,\r\n  updatematch,\r\n  deletematch,\r\n}"
     },
     {
@@ -4870,7 +4890,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "routes_matchrouter_auth",
-      "community": 2,
+      "community": 0,
       "norm_label": "auth"
     },
     {
@@ -4880,7 +4900,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "routes_matchrouter_role",
-      "community": 2,
+      "community": 0,
       "norm_label": "role"
     },
     {
@@ -4890,7 +4910,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "routes_matchrouter_validateobjectid",
-      "community": 2,
+      "community": 0,
       "norm_label": "validateobjectid"
     },
     {
@@ -4900,7 +4920,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "routes_matchrouter_router",
-      "community": 2,
+      "community": 0,
       "norm_label": "router"
     },
     {
@@ -4910,7 +4930,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_notificationrouter",
-      "community": 14,
+      "community": 30,
       "norm_label": "notificationrouter.js"
     },
     {
@@ -4920,7 +4940,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_notificationrouter_express",
-      "community": 14,
+      "community": 30,
       "norm_label": "express"
     },
     {
@@ -4930,7 +4950,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "routes_notificationrouter_auth",
-      "community": 14,
+      "community": 30,
       "norm_label": "auth"
     },
     {
@@ -4940,7 +4960,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "routes_notificationrouter_getnotifications_markasread_deletenotification",
-      "community": 14,
+      "community": 30,
       "norm_label": "{\r\n  getnotifications,\r\n  markasread,\r\n  deletenotification,\r\n}"
     },
     {
@@ -4950,7 +4970,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "routes_notificationrouter_router",
-      "community": 14,
+      "community": 30,
       "norm_label": "router"
     },
     {
@@ -4960,7 +4980,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_paymentroutes",
-      "community": 11,
+      "community": 21,
       "norm_label": "paymentroutes.js"
     },
     {
@@ -4970,7 +4990,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_paymentroutes_express",
-      "community": 11,
+      "community": 21,
       "norm_label": "express"
     },
     {
@@ -4980,7 +5000,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "routes_paymentroutes_router",
-      "community": 11,
+      "community": 21,
       "norm_label": "router"
     },
     {
@@ -4990,7 +5010,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "routes_paymentroutes_auth",
-      "community": 11,
+      "community": 21,
       "norm_label": "auth"
     },
     {
@@ -5000,7 +5020,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "routes_paymentroutes_getrazorpaykey_createorder_verifypayment_gettransactions_getallpaymentsadmin_adminoverridepayment",
-      "community": 11,
+      "community": 21,
       "norm_label": "{\r\n  getrazorpaykey,\r\n  createorder,\r\n  verifypayment,\r\n  gettransactions,\r\n  getallpaymentsadmin,\r\n  adminoverridepayment,\r\n}"
     },
     {
@@ -5494,53 +5514,13 @@
       "norm_label": "router"
     },
     {
-      "label": "runSeed.js",
-      "file_type": "code",
-      "source_file": "backend/runSeed.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "backend_runseed",
-      "community": 26,
-      "norm_label": "runseed.js"
-    },
-    {
-      "label": "mongoose",
-      "file_type": "code",
-      "source_file": "backend/runSeed.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "backend_runseed_mongoose",
-      "community": 26,
-      "norm_label": "mongoose"
-    },
-    {
-      "label": "path",
-      "file_type": "code",
-      "source_file": "backend/runSeed.js",
-      "source_location": "L2",
-      "_origin": "ast",
-      "id": "backend_runseed_path",
-      "community": 26,
-      "norm_label": "path"
-    },
-    {
-      "label": "{ seedUsers }",
-      "file_type": "code",
-      "source_file": "backend/runSeed.js",
-      "source_location": "L4",
-      "_origin": "ast",
-      "id": "backend_runseed_seedusers",
-      "community": 26,
-      "norm_label": "{ seedusers }"
-    },
-    {
       "label": "server.js",
       "file_type": "code",
       "source_file": "backend/server.js",
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_server",
-      "community": 2,
+      "community": 3,
       "norm_label": "server.js"
     },
     {
@@ -5550,7 +5530,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_server_express",
-      "community": 2,
+      "community": 3,
       "norm_label": "express"
     },
     {
@@ -5560,7 +5540,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "backend_server_mongoose",
-      "community": 2,
+      "community": 3,
       "norm_label": "mongoose"
     },
     {
@@ -5570,7 +5550,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "backend_server_cors",
-      "community": 2,
+      "community": 3,
       "norm_label": "cors"
     },
     {
@@ -5580,7 +5560,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "backend_server_http",
-      "community": 2,
+      "community": 3,
       "norm_label": "http"
     },
     {
@@ -5590,7 +5570,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "backend_server_server",
-      "community": 2,
+      "community": 3,
       "norm_label": "{ server }"
     },
     {
@@ -5600,7 +5580,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "backend_server_app",
-      "community": 2,
+      "community": 3,
       "norm_label": "app"
     },
     {
@@ -5610,7 +5590,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "backend_server_io",
-      "community": 2,
+      "community": 3,
       "norm_label": "io"
     },
     {
@@ -5620,7 +5600,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_server_users",
-      "community": 2,
+      "community": 3,
       "norm_label": "users"
     },
     {
@@ -5630,7 +5610,7 @@
       "source_location": "L87",
       "_origin": "ast",
       "id": "backend_server_getschedule",
-      "community": 2,
+      "community": 3,
       "norm_label": "{ getschedule }"
     },
     {
@@ -5640,1268 +5620,8 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "backend_server_blockorganizerjoin",
-      "community": 2,
+      "community": 3,
       "norm_label": "{ blockorganizerjoin }"
-    },
-    {
-      "label": "checkPlayerStatus.js",
-      "file_type": "code",
-      "source_file": "backend/tests/checkPlayerStatus.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "tests_checkplayerstatus",
-      "community": 21,
-      "norm_label": "checkplayerstatus.js"
-    },
-    {
-      "label": "mongoose",
-      "file_type": "code",
-      "source_file": "backend/tests/checkPlayerStatus.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "tests_checkplayerstatus_mongoose",
-      "community": 21,
-      "norm_label": "mongoose"
-    },
-    {
-      "label": "path",
-      "file_type": "code",
-      "source_file": "backend/tests/checkPlayerStatus.js",
-      "source_location": "L2",
-      "_origin": "ast",
-      "id": "tests_checkplayerstatus_path",
-      "community": 21,
-      "norm_label": "path"
-    },
-    {
-      "label": "Team",
-      "file_type": "code",
-      "source_file": "backend/tests/checkPlayerStatus.js",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "tests_checkplayerstatus_team",
-      "community": 21,
-      "norm_label": "team"
-    },
-    {
-      "label": "User",
-      "file_type": "code",
-      "source_file": "backend/tests/checkPlayerStatus.js",
-      "source_location": "L6",
-      "_origin": "ast",
-      "id": "tests_checkplayerstatus_user",
-      "community": 21,
-      "norm_label": "user"
-    },
-    {
-      "label": "run()",
-      "file_type": "code",
-      "source_file": "backend/tests/checkPlayerStatus.js",
-      "source_location": "L8",
-      "_origin": "ast",
-      "id": "tests_checkplayerstatus_run",
-      "community": 21,
-      "norm_label": "run()"
-    },
-    {
-      "label": "createTestUsers.js",
-      "file_type": "code",
-      "source_file": "backend/tests/createTestUsers.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "tests_createtestusers",
-      "community": 41,
-      "norm_label": "createtestusers.js"
-    },
-    {
-      "label": "mongoose",
-      "file_type": "code",
-      "source_file": "backend/tests/createTestUsers.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "tests_createtestusers_mongoose",
-      "community": 41,
-      "norm_label": "mongoose"
-    },
-    {
-      "label": "bcrypt",
-      "file_type": "code",
-      "source_file": "backend/tests/createTestUsers.js",
-      "source_location": "L2",
-      "_origin": "ast",
-      "id": "tests_createtestusers_bcrypt",
-      "community": 41,
-      "norm_label": "bcrypt"
-    },
-    {
-      "label": "path",
-      "file_type": "code",
-      "source_file": "backend/tests/createTestUsers.js",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "tests_createtestusers_path",
-      "community": 41,
-      "norm_label": "path"
-    },
-    {
-      "label": "User",
-      "file_type": "code",
-      "source_file": "backend/tests/createTestUsers.js",
-      "source_location": "L6",
-      "_origin": "ast",
-      "id": "tests_createtestusers_user",
-      "community": 41,
-      "norm_label": "user"
-    },
-    {
-      "label": "Sport",
-      "file_type": "code",
-      "source_file": "backend/tests/createTestUsers.js",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "tests_createtestusers_sport",
-      "community": 41,
-      "norm_label": "sport"
-    },
-    {
-      "label": "Venue",
-      "file_type": "code",
-      "source_file": "backend/tests/createTestUsers.js",
-      "source_location": "L8",
-      "_origin": "ast",
-      "id": "tests_createtestusers_venue",
-      "community": 41,
-      "norm_label": "venue"
-    },
-    {
-      "label": "Tournament",
-      "file_type": "code",
-      "source_file": "backend/tests/createTestUsers.js",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "tests_createtestusers_tournament",
-      "community": 41,
-      "norm_label": "tournament"
-    },
-    {
-      "label": "Team",
-      "file_type": "code",
-      "source_file": "backend/tests/createTestUsers.js",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "tests_createtestusers_team",
-      "community": 41,
-      "norm_label": "team"
-    },
-    {
-      "label": "Transaction",
-      "file_type": "code",
-      "source_file": "backend/tests/createTestUsers.js",
-      "source_location": "L11",
-      "_origin": "ast",
-      "id": "tests_createtestusers_transaction",
-      "community": 41,
-      "norm_label": "transaction"
-    },
-    {
-      "label": "Notification",
-      "file_type": "code",
-      "source_file": "backend/tests/createTestUsers.js",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "tests_createtestusers_notification",
-      "community": 41,
-      "norm_label": "notification"
-    },
-    {
-      "label": "run()",
-      "file_type": "code",
-      "source_file": "backend/tests/createTestUsers.js",
-      "source_location": "L14",
-      "_origin": "ast",
-      "id": "tests_createtestusers_run",
-      "community": 41,
-      "norm_label": "run()"
-    },
-    {
-      "label": "knockoutIntegration.js",
-      "file_type": "code",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "tests_knockoutintegration",
-      "community": 2,
-      "norm_label": "knockoutintegration.js"
-    },
-    {
-      "label": "mongoose",
-      "file_type": "code",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "tests_knockoutintegration_mongoose",
-      "community": 2,
-      "norm_label": "mongoose"
-    },
-    {
-      "label": "assert",
-      "file_type": "code",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L2",
-      "_origin": "ast",
-      "id": "tests_knockoutintegration_assert",
-      "community": 2,
-      "norm_label": "assert"
-    },
-    {
-      "label": "path",
-      "file_type": "code",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "tests_knockoutintegration_path",
-      "community": 2,
-      "norm_label": "path"
-    },
-    {
-      "label": "Tournament",
-      "file_type": "code",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L6",
-      "_origin": "ast",
-      "id": "tests_knockoutintegration_tournament",
-      "community": 2,
-      "norm_label": "tournament"
-    },
-    {
-      "label": "Team",
-      "file_type": "code",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "tests_knockoutintegration_team",
-      "community": 2,
-      "norm_label": "team"
-    },
-    {
-      "label": "Match",
-      "file_type": "code",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L8",
-      "_origin": "ast",
-      "id": "tests_knockoutintegration_match",
-      "community": 2,
-      "norm_label": "match"
-    },
-    {
-      "label": "{ getTournamentRoundInfo, checkAndUpdateTournamentStatuses }",
-      "file_type": "code",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "tests_knockoutintegration_gettournamentroundinfo_checkandupdatetournamentstatuses",
-      "community": 2,
-      "norm_label": "{ gettournamentroundinfo, checkandupdatetournamentstatuses }"
-    },
-    {
-      "label": "runTests()",
-      "file_type": "code",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L13",
-      "_origin": "ast",
-      "id": "tests_knockoutintegration_runtests",
-      "community": 2,
-      "norm_label": "runtests()"
-    },
-    {
-      "label": "cleanup()",
-      "file_type": "code",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L44",
-      "_origin": "ast",
-      "id": "tests_knockoutintegration_cleanup",
-      "community": 2,
-      "norm_label": "cleanup()"
-    },
-    {
-      "label": "createTestTournament()",
-      "file_type": "code",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L56",
-      "_origin": "ast",
-      "id": "tests_knockoutintegration_createtesttournament",
-      "community": 2,
-      "norm_label": "createtesttournament()"
-    },
-    {
-      "label": "testFourTeamBracket()",
-      "file_type": "code",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L88",
-      "_origin": "ast",
-      "id": "tests_knockoutintegration_testfourteambracket",
-      "community": 2,
-      "norm_label": "testfourteambracket()"
-    },
-    {
-      "label": "testEightTeamBracket()",
-      "file_type": "code",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L187",
-      "_origin": "ast",
-      "id": "tests_knockoutintegration_testeightteambracket",
-      "community": 2,
-      "norm_label": "testeightteambracket()"
-    },
-    {
-      "label": "testDateBasedStatusTransitions()",
-      "file_type": "code",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L283",
-      "_origin": "ast",
-      "id": "tests_knockoutintegration_testdatebasedstatustransitions",
-      "community": 2,
-      "norm_label": "testdatebasedstatustransitions()"
-    },
-    {
-      "label": "testValidationRules()",
-      "file_type": "code",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L347",
-      "_origin": "ast",
-      "id": "tests_knockoutintegration_testvalidationrules",
-      "community": 2,
-      "norm_label": "testvalidationrules()"
-    },
-    {
-      "label": "queryRegistrations.js",
-      "file_type": "code",
-      "source_file": "backend/tests/queryRegistrations.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "tests_queryregistrations",
-      "community": 44,
-      "norm_label": "queryregistrations.js"
-    },
-    {
-      "label": "mongoose",
-      "file_type": "code",
-      "source_file": "backend/tests/queryRegistrations.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "tests_queryregistrations_mongoose",
-      "community": 44,
-      "norm_label": "mongoose"
-    },
-    {
-      "label": "path",
-      "file_type": "code",
-      "source_file": "backend/tests/queryRegistrations.js",
-      "source_location": "L2",
-      "_origin": "ast",
-      "id": "tests_queryregistrations_path",
-      "community": 44,
-      "norm_label": "path"
-    },
-    {
-      "label": "User",
-      "file_type": "code",
-      "source_file": "backend/tests/queryRegistrations.js",
-      "source_location": "L6",
-      "_origin": "ast",
-      "id": "tests_queryregistrations_user",
-      "community": 44,
-      "norm_label": "user"
-    },
-    {
-      "label": "Sport",
-      "file_type": "code",
-      "source_file": "backend/tests/queryRegistrations.js",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "tests_queryregistrations_sport",
-      "community": 44,
-      "norm_label": "sport"
-    },
-    {
-      "label": "Venue",
-      "file_type": "code",
-      "source_file": "backend/tests/queryRegistrations.js",
-      "source_location": "L8",
-      "_origin": "ast",
-      "id": "tests_queryregistrations_venue",
-      "community": 44,
-      "norm_label": "venue"
-    },
-    {
-      "label": "Tournament",
-      "file_type": "code",
-      "source_file": "backend/tests/queryRegistrations.js",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "tests_queryregistrations_tournament",
-      "community": 44,
-      "norm_label": "tournament"
-    },
-    {
-      "label": "Team",
-      "file_type": "code",
-      "source_file": "backend/tests/queryRegistrations.js",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "tests_queryregistrations_team",
-      "community": 44,
-      "norm_label": "team"
-    },
-    {
-      "label": "Registration",
-      "file_type": "code",
-      "source_file": "backend/tests/queryRegistrations.js",
-      "source_location": "L11",
-      "_origin": "ast",
-      "id": "tests_queryregistrations_registration",
-      "community": 44,
-      "norm_label": "registration"
-    },
-    {
-      "label": "run()",
-      "file_type": "code",
-      "source_file": "backend/tests/queryRegistrations.js",
-      "source_location": "L13",
-      "_origin": "ast",
-      "id": "tests_queryregistrations_run",
-      "community": 44,
-      "norm_label": "run()"
-    },
-    {
-      "label": "renameScreenshots.js",
-      "file_type": "code",
-      "source_file": "backend/tests/renameScreenshots.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "tests_renamescreenshots",
-      "community": 27,
-      "norm_label": "renamescreenshots.js"
-    },
-    {
-      "label": "fs",
-      "file_type": "code",
-      "source_file": "backend/tests/renameScreenshots.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "tests_renamescreenshots_fs",
-      "community": 27,
-      "norm_label": "fs"
-    },
-    {
-      "label": "path",
-      "file_type": "code",
-      "source_file": "backend/tests/renameScreenshots.js",
-      "source_location": "L2",
-      "_origin": "ast",
-      "id": "tests_renamescreenshots_path",
-      "community": 27,
-      "norm_label": "path"
-    },
-    {
-      "label": "files",
-      "file_type": "code",
-      "source_file": "backend/tests/renameScreenshots.js",
-      "source_location": "L6",
-      "_origin": "ast",
-      "id": "tests_renamescreenshots_files",
-      "community": 27,
-      "norm_label": "files"
-    },
-    {
-      "label": "mappings",
-      "file_type": "code",
-      "source_file": "backend/tests/renameScreenshots.js",
-      "source_location": "L8",
-      "_origin": "ast",
-      "id": "tests_renamescreenshots_mappings",
-      "community": 27,
-      "norm_label": "mappings"
-    },
-    {
-      "label": "matchingEmpty",
-      "file_type": "code",
-      "source_file": "backend/tests/renameScreenshots.js",
-      "source_location": "L36",
-      "_origin": "ast",
-      "id": "tests_renamescreenshots_matchingempty",
-      "community": 27,
-      "norm_label": "matchingempty"
-    },
-    {
-      "label": "seedE2ETestData.js",
-      "file_type": "code",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "tests_seede2etestdata",
-      "community": 9,
-      "norm_label": "seede2etestdata.js"
-    },
-    {
-      "label": "mongoose",
-      "file_type": "code",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "tests_seede2etestdata_mongoose",
-      "community": 9,
-      "norm_label": "mongoose"
-    },
-    {
-      "label": "bcrypt",
-      "file_type": "code",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L2",
-      "_origin": "ast",
-      "id": "tests_seede2etestdata_bcrypt",
-      "community": 9,
-      "norm_label": "bcrypt"
-    },
-    {
-      "label": "path",
-      "file_type": "code",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "tests_seede2etestdata_path",
-      "community": 9,
-      "norm_label": "path"
-    },
-    {
-      "label": "User",
-      "file_type": "code",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L6",
-      "_origin": "ast",
-      "id": "tests_seede2etestdata_user",
-      "community": 9,
-      "norm_label": "user"
-    },
-    {
-      "label": "Sport",
-      "file_type": "code",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "tests_seede2etestdata_sport",
-      "community": 9,
-      "norm_label": "sport"
-    },
-    {
-      "label": "Venue",
-      "file_type": "code",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L8",
-      "_origin": "ast",
-      "id": "tests_seede2etestdata_venue",
-      "community": 9,
-      "norm_label": "venue"
-    },
-    {
-      "label": "Tournament",
-      "file_type": "code",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "tests_seede2etestdata_tournament",
-      "community": 9,
-      "norm_label": "tournament"
-    },
-    {
-      "label": "Team",
-      "file_type": "code",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "tests_seede2etestdata_team",
-      "community": 9,
-      "norm_label": "team"
-    },
-    {
-      "label": "Sponsor",
-      "file_type": "code",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L11",
-      "_origin": "ast",
-      "id": "tests_seede2etestdata_sponsor",
-      "community": 9,
-      "norm_label": "sponsor"
-    },
-    {
-      "label": "Registration",
-      "file_type": "code",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "tests_seede2etestdata_registration",
-      "community": 9,
-      "norm_label": "registration"
-    },
-    {
-      "label": "Transaction",
-      "file_type": "code",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L13",
-      "_origin": "ast",
-      "id": "tests_seede2etestdata_transaction",
-      "community": 9,
-      "norm_label": "transaction"
-    },
-    {
-      "label": "Notification",
-      "file_type": "code",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L14",
-      "_origin": "ast",
-      "id": "tests_seede2etestdata_notification",
-      "community": 9,
-      "norm_label": "notification"
-    },
-    {
-      "label": "Match",
-      "file_type": "code",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L15",
-      "_origin": "ast",
-      "id": "tests_seede2etestdata_match",
-      "community": 9,
-      "norm_label": "match"
-    },
-    {
-      "label": "run()",
-      "file_type": "code",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L17",
-      "_origin": "ast",
-      "id": "tests_seede2etestdata_run",
-      "community": 9,
-      "norm_label": "run()"
-    },
-    {
-      "label": "verifyOrganizerFlow.js",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyOrganizerFlow.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "tests_verifyorganizerflow",
-      "community": 22,
-      "norm_label": "verifyorganizerflow.js"
-    },
-    {
-      "label": "axios",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyOrganizerFlow.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "tests_verifyorganizerflow_axios",
-      "community": 22,
-      "norm_label": "axios"
-    },
-    {
-      "label": "jwt",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyOrganizerFlow.js",
-      "source_location": "L2",
-      "_origin": "ast",
-      "id": "tests_verifyorganizerflow_jwt",
-      "community": 22,
-      "norm_label": "jwt"
-    },
-    {
-      "label": "mongoose",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyOrganizerFlow.js",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "tests_verifyorganizerflow_mongoose",
-      "community": 22,
-      "norm_label": "mongoose"
-    },
-    {
-      "label": "mitToken",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyOrganizerFlow.js",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "tests_verifyorganizerflow_mittoken",
-      "community": 22,
-      "norm_label": "mittoken"
-    },
-    {
-      "label": "rajToken",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyOrganizerFlow.js",
-      "source_location": "L13",
-      "_origin": "ast",
-      "id": "tests_verifyorganizerflow_rajtoken",
-      "community": 22,
-      "norm_label": "rajtoken"
-    },
-    {
-      "label": "mitHeaders",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyOrganizerFlow.js",
-      "source_location": "L15",
-      "_origin": "ast",
-      "id": "tests_verifyorganizerflow_mitheaders",
-      "community": 22,
-      "norm_label": "mitheaders"
-    },
-    {
-      "label": "rajHeaders",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyOrganizerFlow.js",
-      "source_location": "L16",
-      "_origin": "ast",
-      "id": "tests_verifyorganizerflow_rajheaders",
-      "community": 22,
-      "norm_label": "rajheaders"
-    },
-    {
-      "label": "runTest()",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyOrganizerFlow.js",
-      "source_location": "L18",
-      "_origin": "ast",
-      "id": "tests_verifyorganizerflow_runtest",
-      "community": 22,
-      "norm_label": "runtest()"
-    },
-    {
-      "label": "verifyOrganizerRegistrationFlow.js",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyOrganizerRegistrationFlow.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "tests_verifyorganizerregistrationflow",
-      "community": 16,
-      "norm_label": "verifyorganizerregistrationflow.js"
-    },
-    {
-      "label": "axios",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyOrganizerRegistrationFlow.js",
-      "source_location": "L2",
-      "_origin": "ast",
-      "id": "tests_verifyorganizerregistrationflow_axios",
-      "community": 16,
-      "norm_label": "axios"
-    },
-    {
-      "label": "jwt",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyOrganizerRegistrationFlow.js",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "tests_verifyorganizerregistrationflow_jwt",
-      "community": 16,
-      "norm_label": "jwt"
-    },
-    {
-      "label": "mongoose",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyOrganizerRegistrationFlow.js",
-      "source_location": "L4",
-      "_origin": "ast",
-      "id": "tests_verifyorganizerregistrationflow_mongoose",
-      "community": 16,
-      "norm_label": "mongoose"
-    },
-    {
-      "label": "bcrypt",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyOrganizerRegistrationFlow.js",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "tests_verifyorganizerregistrationflow_bcrypt",
-      "community": 16,
-      "norm_label": "bcrypt"
-    },
-    {
-      "label": "crypto",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyOrganizerRegistrationFlow.js",
-      "source_location": "L6",
-      "_origin": "ast",
-      "id": "tests_verifyorganizerregistrationflow_crypto",
-      "community": 16,
-      "norm_label": "crypto"
-    },
-    {
-      "label": "orgAToken",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyOrganizerRegistrationFlow.js",
-      "source_location": "L17",
-      "_origin": "ast",
-      "id": "tests_verifyorganizerregistrationflow_orgatoken",
-      "community": 16,
-      "norm_label": "orgatoken"
-    },
-    {
-      "label": "orgBToken",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyOrganizerRegistrationFlow.js",
-      "source_location": "L18",
-      "_origin": "ast",
-      "id": "tests_verifyorganizerregistrationflow_orgbtoken",
-      "community": 16,
-      "norm_label": "orgbtoken"
-    },
-    {
-      "label": "coachToken",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyOrganizerRegistrationFlow.js",
-      "source_location": "L19",
-      "_origin": "ast",
-      "id": "tests_verifyorganizerregistrationflow_coachtoken",
-      "community": 16,
-      "norm_label": "coachtoken"
-    },
-    {
-      "label": "adminToken",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyOrganizerRegistrationFlow.js",
-      "source_location": "L20",
-      "_origin": "ast",
-      "id": "tests_verifyorganizerregistrationflow_admintoken",
-      "community": 16,
-      "norm_label": "admintoken"
-    },
-    {
-      "label": "orgAHeaders",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyOrganizerRegistrationFlow.js",
-      "source_location": "L22",
-      "_origin": "ast",
-      "id": "tests_verifyorganizerregistrationflow_orgaheaders",
-      "community": 16,
-      "norm_label": "orgaheaders"
-    },
-    {
-      "label": "orgBHeaders",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyOrganizerRegistrationFlow.js",
-      "source_location": "L23",
-      "_origin": "ast",
-      "id": "tests_verifyorganizerregistrationflow_orgbheaders",
-      "community": 16,
-      "norm_label": "orgbheaders"
-    },
-    {
-      "label": "coachHeaders",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyOrganizerRegistrationFlow.js",
-      "source_location": "L24",
-      "_origin": "ast",
-      "id": "tests_verifyorganizerregistrationflow_coachheaders",
-      "community": 16,
-      "norm_label": "coachheaders"
-    },
-    {
-      "label": "adminHeaders",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyOrganizerRegistrationFlow.js",
-      "source_location": "L25",
-      "_origin": "ast",
-      "id": "tests_verifyorganizerregistrationflow_adminheaders",
-      "community": 16,
-      "norm_label": "adminheaders"
-    },
-    {
-      "label": "runTest()",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyOrganizerRegistrationFlow.js",
-      "source_location": "L27",
-      "_origin": "ast",
-      "id": "tests_verifyorganizerregistrationflow_runtest",
-      "community": 16,
-      "norm_label": "runtest()"
-    },
-    {
-      "label": "verifyPaymentsFlow.js",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPaymentsFlow.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "tests_verifypaymentsflow",
-      "community": 17,
-      "norm_label": "verifypaymentsflow.js"
-    },
-    {
-      "label": "axios",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPaymentsFlow.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "tests_verifypaymentsflow_axios",
-      "community": 17,
-      "norm_label": "axios"
-    },
-    {
-      "label": "jwt",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPaymentsFlow.js",
-      "source_location": "L2",
-      "_origin": "ast",
-      "id": "tests_verifypaymentsflow_jwt",
-      "community": 17,
-      "norm_label": "jwt"
-    },
-    {
-      "label": "mongoose",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPaymentsFlow.js",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "tests_verifypaymentsflow_mongoose",
-      "community": 17,
-      "norm_label": "mongoose"
-    },
-    {
-      "label": "bcrypt",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPaymentsFlow.js",
-      "source_location": "L4",
-      "_origin": "ast",
-      "id": "tests_verifypaymentsflow_bcrypt",
-      "community": 17,
-      "norm_label": "bcrypt"
-    },
-    {
-      "label": "crypto",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPaymentsFlow.js",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "tests_verifypaymentsflow_crypto",
-      "community": 17,
-      "norm_label": "crypto"
-    },
-    {
-      "label": "orgToken",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPaymentsFlow.js",
-      "source_location": "L16",
-      "_origin": "ast",
-      "id": "tests_verifypaymentsflow_orgtoken",
-      "community": 17,
-      "norm_label": "orgtoken"
-    },
-    {
-      "label": "coachToken",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPaymentsFlow.js",
-      "source_location": "L17",
-      "_origin": "ast",
-      "id": "tests_verifypaymentsflow_coachtoken",
-      "community": 17,
-      "norm_label": "coachtoken"
-    },
-    {
-      "label": "playerToken",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPaymentsFlow.js",
-      "source_location": "L18",
-      "_origin": "ast",
-      "id": "tests_verifypaymentsflow_playertoken",
-      "community": 17,
-      "norm_label": "playertoken"
-    },
-    {
-      "label": "adminToken",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPaymentsFlow.js",
-      "source_location": "L19",
-      "_origin": "ast",
-      "id": "tests_verifypaymentsflow_admintoken",
-      "community": 17,
-      "norm_label": "admintoken"
-    },
-    {
-      "label": "orgHeaders",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPaymentsFlow.js",
-      "source_location": "L21",
-      "_origin": "ast",
-      "id": "tests_verifypaymentsflow_orgheaders",
-      "community": 17,
-      "norm_label": "orgheaders"
-    },
-    {
-      "label": "coachHeaders",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPaymentsFlow.js",
-      "source_location": "L22",
-      "_origin": "ast",
-      "id": "tests_verifypaymentsflow_coachheaders",
-      "community": 17,
-      "norm_label": "coachheaders"
-    },
-    {
-      "label": "playerHeaders",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPaymentsFlow.js",
-      "source_location": "L23",
-      "_origin": "ast",
-      "id": "tests_verifypaymentsflow_playerheaders",
-      "community": 17,
-      "norm_label": "playerheaders"
-    },
-    {
-      "label": "adminHeaders",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPaymentsFlow.js",
-      "source_location": "L24",
-      "_origin": "ast",
-      "id": "tests_verifypaymentsflow_adminheaders",
-      "community": 17,
-      "norm_label": "adminheaders"
-    },
-    {
-      "label": "runTest()",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPaymentsFlow.js",
-      "source_location": "L26",
-      "_origin": "ast",
-      "id": "tests_verifypaymentsflow_runtest",
-      "community": 17,
-      "norm_label": "runtest()"
-    },
-    {
-      "label": "verifyPlayerPaymentFlow.js",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "tests_verifyplayerpaymentflow",
-      "community": 38,
-      "norm_label": "verifyplayerpaymentflow.js"
-    },
-    {
-      "label": "mongoose",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "tests_verifyplayerpaymentflow_mongoose",
-      "community": 38,
-      "norm_label": "mongoose"
-    },
-    {
-      "label": "crypto",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L2",
-      "_origin": "ast",
-      "id": "tests_verifyplayerpaymentflow_crypto",
-      "community": 38,
-      "norm_label": "crypto"
-    },
-    {
-      "label": "path",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "tests_verifyplayerpaymentflow_path",
-      "community": 38,
-      "norm_label": "path"
-    },
-    {
-      "label": "Team",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "tests_verifyplayerpaymentflow_team",
-      "community": 38,
-      "norm_label": "team"
-    },
-    {
-      "label": "User",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L8",
-      "_origin": "ast",
-      "id": "tests_verifyplayerpaymentflow_user",
-      "community": 38,
-      "norm_label": "user"
-    },
-    {
-      "label": "Transaction",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "tests_verifyplayerpaymentflow_transaction",
-      "community": 38,
-      "norm_label": "transaction"
-    },
-    {
-      "label": "Notification",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "tests_verifyplayerpaymentflow_notification",
-      "community": 38,
-      "norm_label": "notification"
-    },
-    {
-      "label": "teamController",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L13",
-      "_origin": "ast",
-      "id": "tests_verifyplayerpaymentflow_teamcontroller",
-      "community": 38,
-      "norm_label": "teamcontroller"
-    },
-    {
-      "label": "uniqueSuffix",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L15",
-      "_origin": "ast",
-      "id": "tests_verifyplayerpaymentflow_uniquesuffix",
-      "community": 38,
-      "norm_label": "uniquesuffix"
-    },
-    {
-      "label": "assertions",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L16",
-      "_origin": "ast",
-      "id": "tests_verifyplayerpaymentflow_assertions",
-      "community": 38,
-      "norm_label": "assertions"
-    },
-    {
-      "label": "assert()",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L18",
-      "_origin": "ast",
-      "id": "tests_verifyplayerpaymentflow_assert",
-      "community": 38,
-      "norm_label": "assert()"
-    },
-    {
-      "label": "mockRequest()",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L26",
-      "_origin": "ast",
-      "id": "tests_verifyplayerpaymentflow_mockrequest",
-      "community": 38,
-      "norm_label": "mockrequest()"
-    },
-    {
-      "label": "mockResponse()",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L39",
-      "_origin": "ast",
-      "id": "tests_verifyplayerpaymentflow_mockresponse",
-      "community": 38,
-      "norm_label": "mockresponse()"
-    },
-    {
-      "label": "createMockUser()",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L52",
-      "_origin": "ast",
-      "id": "tests_verifyplayerpaymentflow_createmockuser",
-      "community": 38,
-      "norm_label": "createmockuser()"
-    },
-    {
-      "label": "createMockTeam()",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L63",
-      "_origin": "ast",
-      "id": "tests_verifyplayerpaymentflow_createmockteam",
-      "community": 38,
-      "norm_label": "createmockteam()"
-    },
-    {
-      "label": "run()",
-      "file_type": "code",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L74",
-      "_origin": "ast",
-      "id": "tests_verifyplayerpaymentflow_run",
-      "community": 38,
-      "norm_label": "run()"
-    },
-    {
-      "label": "verifySponsorFlow.js",
-      "file_type": "code",
-      "source_file": "backend/tests/verifySponsorFlow.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "tests_verifysponsorflow",
-      "community": 24,
-      "norm_label": "verifysponsorflow.js"
-    },
-    {
-      "label": "axios",
-      "file_type": "code",
-      "source_file": "backend/tests/verifySponsorFlow.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "tests_verifysponsorflow_axios",
-      "community": 24,
-      "norm_label": "axios"
-    },
-    {
-      "label": "jwt",
-      "file_type": "code",
-      "source_file": "backend/tests/verifySponsorFlow.js",
-      "source_location": "L2",
-      "_origin": "ast",
-      "id": "tests_verifysponsorflow_jwt",
-      "community": 24,
-      "norm_label": "jwt"
-    },
-    {
-      "label": "mongoose",
-      "file_type": "code",
-      "source_file": "backend/tests/verifySponsorFlow.js",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "tests_verifysponsorflow_mongoose",
-      "community": 24,
-      "norm_label": "mongoose"
-    },
-    {
-      "label": "bcrypt",
-      "file_type": "code",
-      "source_file": "backend/tests/verifySponsorFlow.js",
-      "source_location": "L4",
-      "_origin": "ast",
-      "id": "tests_verifysponsorflow_bcrypt",
-      "community": 24,
-      "norm_label": "bcrypt"
-    },
-    {
-      "label": "runTest()",
-      "file_type": "code",
-      "source_file": "backend/tests/verifySponsorFlow.js",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "tests_verifysponsorflow_runtest",
-      "community": 24,
-      "norm_label": "runtest()"
     },
     {
       "label": "tournamentHelper.js",
@@ -6910,7 +5630,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "utils_tournamenthelper",
-      "community": 2,
+      "community": 0,
       "norm_label": "tournamenthelper.js"
     },
     {
@@ -6920,7 +5640,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "utils_tournamenthelper_tournament",
-      "community": 2,
+      "community": 0,
       "norm_label": "tournament"
     },
     {
@@ -6930,7 +5650,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "utils_tournamenthelper_match",
-      "community": 2,
+      "community": 0,
       "norm_label": "match"
     },
     {
@@ -6940,7 +5660,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "utils_tournamenthelper_gettournamentstatus",
-      "community": 2,
+      "community": 0,
       "norm_label": "gettournamentstatus()"
     },
     {
@@ -6950,7 +5670,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "utils_tournamenthelper_gettournamentroundinfo",
-      "community": 2,
+      "community": 0,
       "norm_label": "gettournamentroundinfo()"
     },
     {
@@ -6970,38 +5690,8 @@
       "source_location": "L138",
       "_origin": "ast",
       "id": "utils_tournamenthelper_triggerdashboardupdate",
-      "community": 23,
+      "community": 0,
       "norm_label": "triggerdashboardupdate()"
-    },
-    {
-      "label": "twilioService.js",
-      "file_type": "code",
-      "source_file": "backend/utils/twilioService.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "utils_twilioservice",
-      "community": 5,
-      "norm_label": "twilioservice.js"
-    },
-    {
-      "label": "twilio",
-      "file_type": "code",
-      "source_file": "backend/utils/twilioService.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "utils_twilioservice_twilio",
-      "community": 5,
-      "norm_label": "twilio"
-    },
-    {
-      "label": "sendOTP()",
-      "file_type": "code",
-      "source_file": "backend/utils/twilioService.js",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "utils_twilioservice_sendotp",
-      "community": 5,
-      "norm_label": "sendotp()"
     },
     {
       "label": "validators.js",
@@ -9680,71 +8370,6 @@
       "confidence_score": 1.0,
       "source": "layouts_sponsorlayout",
       "target": "headers_sponsorheader_sponsorheader"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "Fronted/src/components/PaymentModal.jsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_paymentmodal",
-      "target": "components_paymentmodal_paymentmodal"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "Fronted/src/components/PaymentModal.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_paymentmodal",
-      "target": "services_paymentservice"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "Fronted/src/components/PaymentModal.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_paymentmodal",
-      "target": "services_paymentservice_createorder"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "Fronted/src/components/PaymentModal.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_paymentmodal",
-      "target": "services_paymentservice_getrazorpaykey"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "Fronted/src/components/PaymentModal.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_paymentmodal",
-      "target": "services_paymentservice_loadrazorpayscript"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "Fronted/src/components/PaymentModal.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_paymentmodal",
-      "target": "services_paymentservice_verifypayment"
     },
     {
       "relation": "contains",
@@ -12692,6 +11317,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/config/email.js",
+      "source_location": "L208",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "config_email",
+      "target": "config_email_sendregistrationemailotp"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/config/email.js",
       "source_location": "L86",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -12800,10 +11435,32 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/controllers/authController.js",
-      "source_location": "L166",
+      "source_location": "L66",
       "weight": 1.0,
-      "source": "controllers_authcontroller_verifyphone",
+      "source": "controllers_authcontroller_register",
       "target": "config_email_sendwelcomeemail"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/controllers/authController.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "controllers_authcontroller",
+      "target": "config_email_sendregistrationemailotp"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/controllers/authController.js",
+      "source_location": "L135",
+      "weight": 1.0,
+      "source": "controllers_authcontroller_sendemailotp",
+      "target": "config_email_sendregistrationemailotp"
     },
     {
       "relation": "contains",
@@ -13361,6 +12018,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/controllers/authController.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "controllers_authcontroller",
+      "target": "controllers_authcontroller_emailotp"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/controllers/authController.js",
       "source_location": "L293",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -13411,16 +12078,6 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/controllers/authController.js",
-      "source_location": "L179",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "controllers_authcontroller",
-      "target": "controllers_authcontroller_resendotp"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/controllers/authController.js",
       "source_location": "L341",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -13441,11 +12098,11 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/controllers/authController.js",
-      "source_location": "L7",
+      "source_location": "L94",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "controllers_authcontroller",
-      "target": "controllers_authcontroller_sendotp"
+      "target": "controllers_authcontroller_sendemailotp"
     },
     {
       "relation": "contains",
@@ -13455,7 +12112,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "controllers_authcontroller",
-      "target": "controllers_authcontroller_sendverificationemail_sendresetpasswordemail_sendwelcomeemail"
+      "target": "controllers_authcontroller_sendverificationemail_sendresetpasswordemail_sendwelcomeemail_sendregistrationemailotp"
     },
     {
       "relation": "contains",
@@ -13481,11 +12138,22 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/controllers/authController.js",
-      "source_location": "L125",
+      "source_location": "L151",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "controllers_authcontroller",
-      "target": "controllers_authcontroller_verifyphone"
+      "target": "controllers_authcontroller_verifyemailotp"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/controllers/authController.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "controllers_authcontroller",
+      "target": "models_emailotp"
     },
     {
       "relation": "imports_from",
@@ -13513,45 +12181,12 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "backend/controllers/authController.js",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "controllers_authcontroller",
-      "target": "utils_twilioservice"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/controllers/authController.js",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "controllers_authcontroller",
-      "target": "utils_twilioservice_sendotp"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "backend/routes/auth.js",
       "source_location": "L2",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "routes_auth",
       "target": "controllers_authcontroller"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "backend/controllers/authController.js",
-      "source_location": "L88",
-      "weight": 1.0,
-      "source": "controllers_authcontroller_register",
-      "target": "utils_twilioservice_sendotp"
     },
     {
       "relation": "imports",
@@ -13584,18 +12219,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "routes_auth",
-      "target": "controllers_authcontroller_verifyphone"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "backend/controllers/authController.js",
-      "source_location": "L221",
-      "weight": 1.0,
-      "source": "controllers_authcontroller_resendotp",
-      "target": "utils_twilioservice_sendotp"
+      "target": "controllers_authcontroller_sendemailotp"
     },
     {
       "relation": "imports",
@@ -13606,7 +12230,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "routes_auth",
-      "target": "controllers_authcontroller_resendotp"
+      "target": "controllers_authcontroller_verifyemailotp"
     },
     {
       "relation": "imports",
@@ -13659,9 +12283,9 @@
       "source_file": "backend/server.js",
       "source_location": "L87",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_server",
-      "target": "controllers_matchcontroller",
-      "confidence_score": 1.0
+      "target": "controllers_matchcontroller"
     },
     {
       "relation": "contains",
@@ -13739,9 +12363,9 @@
       "source_file": "backend/controllers/matchController.js",
       "source_location": "L326",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controllers_matchcontroller",
-      "target": "controllers_matchcontroller_getschedule",
-      "confidence_score": 1.0
+      "target": "controllers_matchcontroller_getschedule"
     },
     {
       "relation": "contains",
@@ -14073,9 +12697,9 @@
       "source_file": "backend/server.js",
       "source_location": "L87",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_server",
-      "target": "controllers_matchcontroller_getschedule",
-      "confidence_score": 1.0
+      "target": "controllers_matchcontroller_getschedule"
     },
     {
       "relation": "contains",
@@ -15814,9 +14438,9 @@
       "source_file": "backend/server.js",
       "source_location": "L88",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_server",
-      "target": "controllers_teamcontroller",
-      "confidence_score": 1.0
+      "target": "controllers_teamcontroller"
     },
     {
       "relation": "contains",
@@ -15854,9 +14478,9 @@
       "source_file": "backend/controllers/teamController.js",
       "source_location": "L860",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controllers_teamcontroller",
-      "target": "controllers_teamcontroller_blockorganizerjoin",
-      "confidence_score": 1.0
+      "target": "controllers_teamcontroller_blockorganizerjoin"
     },
     {
       "relation": "contains",
@@ -16177,17 +14801,6 @@
       "target": "controllers_teamcontroller"
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L13",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyplayerpaymentflow",
-      "target": "controllers_teamcontroller"
-    },
-    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -16458,9 +15071,9 @@
       "source_file": "backend/server.js",
       "source_location": "L88",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_server",
-      "target": "controllers_teamcontroller_blockorganizerjoin",
-      "confidence_score": 1.0
+      "target": "controllers_teamcontroller_blockorganizerjoin"
     },
     {
       "relation": "contains",
@@ -17714,6 +16327,26 @@
       "target": "middleware_validateobjectid"
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/models/EmailOtp.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "models_emailotp",
+      "target": "models_emailotp_emailotpschema"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/models/EmailOtp.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "models_emailotp",
+      "target": "models_emailotp_mongoose"
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -17743,28 +16376,6 @@
       "confidence_score": 1.0,
       "source": "models_match",
       "target": "models_match_mongoose"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_knockoutintegration",
-      "target": "models_match"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L15",
-      "weight": 1.0,
-      "source": "tests_seede2etestdata",
-      "target": "models_match",
-      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -17818,28 +16429,6 @@
       "target": "models_registration_registrationschema"
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/queryRegistrations.js",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_queryregistrations",
-      "target": "models_registration"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L12",
-      "weight": 1.0,
-      "source": "tests_seede2etestdata",
-      "target": "models_registration",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/models/Sponsor.js",
@@ -17858,17 +16447,6 @@
       "confidence_score": 1.0,
       "source": "models_sponsor",
       "target": "models_sponsor_sponsorschema"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L11",
-      "weight": 1.0,
-      "source": "tests_seede2etestdata",
-      "target": "models_sponsor",
-      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -17891,39 +16469,6 @@
       "target": "models_sport_sportschema"
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/createTestUsers.js",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_createtestusers",
-      "target": "models_sport"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/queryRegistrations.js",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_queryregistrations",
-      "target": "models_sport"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "tests_seede2etestdata",
-      "target": "models_sport",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/models/Team.js",
@@ -17944,72 +16489,6 @@
       "target": "models_team_teamschema"
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/checkPlayerStatus.js",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_checkplayerstatus",
-      "target": "models_team"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/createTestUsers.js",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_createtestusers",
-      "target": "models_team"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_knockoutintegration",
-      "target": "models_team"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/queryRegistrations.js",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_queryregistrations",
-      "target": "models_team"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L10",
-      "weight": 1.0,
-      "source": "tests_seede2etestdata",
-      "target": "models_team",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyplayerpaymentflow",
-      "target": "models_team"
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/models/Tournament.js",
@@ -18028,50 +16507,6 @@
       "confidence_score": 1.0,
       "source": "models_tournament",
       "target": "models_tournament_tournamentschema"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/createTestUsers.js",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_createtestusers",
-      "target": "models_tournament"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_knockoutintegration",
-      "target": "models_tournament"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/queryRegistrations.js",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_queryregistrations",
-      "target": "models_tournament"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L9",
-      "weight": 1.0,
-      "source": "tests_seede2etestdata",
-      "target": "models_tournament",
-      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -18105,39 +16540,6 @@
       "target": "models_transaction_transactionschema"
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/createTestUsers.js",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_createtestusers",
-      "target": "models_transaction"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L13",
-      "weight": 1.0,
-      "source": "tests_seede2etestdata",
-      "target": "models_transaction",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyplayerpaymentflow",
-      "target": "models_transaction"
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/models/User.js",
@@ -18156,61 +16558,6 @@
       "confidence_score": 1.0,
       "source": "models_user",
       "target": "models_user_userschema"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/checkPlayerStatus.js",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_checkplayerstatus",
-      "target": "models_user"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/createTestUsers.js",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_createtestusers",
-      "target": "models_user"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/queryRegistrations.js",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_queryregistrations",
-      "target": "models_user"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L6",
-      "weight": 1.0,
-      "source": "tests_seede2etestdata",
-      "target": "models_user",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyplayerpaymentflow",
-      "target": "models_user"
     },
     {
       "relation": "contains",
@@ -18233,39 +16580,6 @@
       "target": "models_venue_venueschema"
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/createTestUsers.js",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_createtestusers",
-      "target": "models_venue"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/queryRegistrations.js",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_queryregistrations",
-      "target": "models_venue"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L8",
-      "weight": 1.0,
-      "source": "tests_seede2etestdata",
-      "target": "models_venue",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/models/notification.js",
@@ -18284,39 +16598,6 @@
       "confidence_score": 1.0,
       "source": "models_notification",
       "target": "models_notification_notificationschema"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/createTestUsers.js",
-      "source_location": "L12",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_createtestusers",
-      "target": "models_notification"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L14",
-      "weight": 1.0,
-      "source": "tests_seede2etestdata",
-      "target": "models_notification",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyplayerpaymentflow",
-      "target": "models_notification"
     },
     {
       "relation": "contains",
@@ -18386,7 +16667,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "routes_auth",
-      "target": "routes_auth_register_checkemail_verifyphone_resendotp_login_forgotpassword_resendresetotp_resetpassword"
+      "target": "routes_auth_register_checkemail_sendemailotp_verifyemailotp_login_forgotpassword_resendresetotp_resetpassword"
     },
     {
       "relation": "contains",
@@ -18951,36 +17232,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "backend/runSeed.js",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_runseed",
-      "target": "backend_runseed_mongoose"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/runSeed.js",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_runseed",
-      "target": "backend_runseed_path"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/runSeed.js",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_runseed",
-      "target": "backend_runseed_seedusers"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "backend/server.js",
       "source_location": "L9",
       "weight": 1.0,
@@ -18994,9 +17245,9 @@
       "source_file": "backend/server.js",
       "source_location": "L88",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_server",
-      "target": "backend_server_blockorganizerjoin",
-      "confidence_score": 1.0
+      "target": "backend_server_blockorganizerjoin"
     },
     {
       "relation": "contains",
@@ -19024,9 +17275,9 @@
       "source_file": "backend/server.js",
       "source_location": "L87",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_server",
-      "target": "backend_server_getschedule",
-      "confidence_score": 1.0
+      "target": "backend_server_getschedule"
     },
     {
       "relation": "contains",
@@ -19077,1365 +17328,6 @@
       "confidence_score": 1.0,
       "source": "backend_server",
       "target": "backend_server_users"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/checkPlayerStatus.js",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_checkplayerstatus",
-      "target": "tests_checkplayerstatus_mongoose"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/checkPlayerStatus.js",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_checkplayerstatus",
-      "target": "tests_checkplayerstatus_path"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/checkPlayerStatus.js",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_checkplayerstatus",
-      "target": "tests_checkplayerstatus_run"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/checkPlayerStatus.js",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_checkplayerstatus",
-      "target": "tests_checkplayerstatus_team"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/checkPlayerStatus.js",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_checkplayerstatus",
-      "target": "tests_checkplayerstatus_user"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/createTestUsers.js",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_createtestusers",
-      "target": "tests_createtestusers_bcrypt"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/createTestUsers.js",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_createtestusers",
-      "target": "tests_createtestusers_mongoose"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/createTestUsers.js",
-      "source_location": "L12",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_createtestusers",
-      "target": "tests_createtestusers_notification"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/createTestUsers.js",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_createtestusers",
-      "target": "tests_createtestusers_path"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/createTestUsers.js",
-      "source_location": "L14",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_createtestusers",
-      "target": "tests_createtestusers_run"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/createTestUsers.js",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_createtestusers",
-      "target": "tests_createtestusers_sport"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/createTestUsers.js",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_createtestusers",
-      "target": "tests_createtestusers_team"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/createTestUsers.js",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_createtestusers",
-      "target": "tests_createtestusers_tournament"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/createTestUsers.js",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_createtestusers",
-      "target": "tests_createtestusers_transaction"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/createTestUsers.js",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_createtestusers",
-      "target": "tests_createtestusers_user"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/createTestUsers.js",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_createtestusers",
-      "target": "tests_createtestusers_venue"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_knockoutintegration",
-      "target": "tests_knockoutintegration_assert"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L44",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_knockoutintegration",
-      "target": "tests_knockoutintegration_cleanup"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L56",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_knockoutintegration",
-      "target": "tests_knockoutintegration_createtesttournament"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_knockoutintegration",
-      "target": "tests_knockoutintegration_gettournamentroundinfo_checkandupdatetournamentstatuses"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_knockoutintegration",
-      "target": "tests_knockoutintegration_match"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_knockoutintegration",
-      "target": "tests_knockoutintegration_mongoose"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_knockoutintegration",
-      "target": "tests_knockoutintegration_path"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L13",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_knockoutintegration",
-      "target": "tests_knockoutintegration_runtests"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_knockoutintegration",
-      "target": "tests_knockoutintegration_team"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L283",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_knockoutintegration",
-      "target": "tests_knockoutintegration_testdatebasedstatustransitions"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L187",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_knockoutintegration",
-      "target": "tests_knockoutintegration_testeightteambracket"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L88",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_knockoutintegration",
-      "target": "tests_knockoutintegration_testfourteambracket"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L347",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_knockoutintegration",
-      "target": "tests_knockoutintegration_testvalidationrules"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_knockoutintegration",
-      "target": "tests_knockoutintegration_tournament"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_knockoutintegration",
-      "target": "utils_tournamenthelper"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_knockoutintegration",
-      "target": "utils_tournamenthelper_checkandupdatetournamentstatuses"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_knockoutintegration",
-      "target": "utils_tournamenthelper_gettournamentroundinfo"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L24",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_knockoutintegration_runtests",
-      "target": "tests_knockoutintegration_cleanup"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L28",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_knockoutintegration_runtests",
-      "target": "tests_knockoutintegration_testdatebasedstatustransitions"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L27",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_knockoutintegration_runtests",
-      "target": "tests_knockoutintegration_testeightteambracket"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L26",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_knockoutintegration_runtests",
-      "target": "tests_knockoutintegration_testfourteambracket"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L29",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_knockoutintegration_runtests",
-      "target": "tests_knockoutintegration_testvalidationrules"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L192",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_knockoutintegration_testeightteambracket",
-      "target": "tests_knockoutintegration_createtesttournament"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L93",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_knockoutintegration_testfourteambracket",
-      "target": "tests_knockoutintegration_createtesttournament"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L352",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_knockoutintegration_testvalidationrules",
-      "target": "tests_knockoutintegration_createtesttournament"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L96",
-      "weight": 1.0,
-      "source": "tests_knockoutintegration_testfourteambracket",
-      "target": "utils_tournamenthelper_gettournamentroundinfo"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L194",
-      "weight": 1.0,
-      "source": "tests_knockoutintegration_testeightteambracket",
-      "target": "utils_tournamenthelper_gettournamentroundinfo"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "backend/tests/knockoutIntegration.js",
-      "source_location": "L325",
-      "weight": 1.0,
-      "source": "tests_knockoutintegration_testdatebasedstatustransitions",
-      "target": "utils_tournamenthelper_checkandupdatetournamentstatuses"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/queryRegistrations.js",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_queryregistrations",
-      "target": "tests_queryregistrations_mongoose"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/queryRegistrations.js",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_queryregistrations",
-      "target": "tests_queryregistrations_path"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/queryRegistrations.js",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_queryregistrations",
-      "target": "tests_queryregistrations_registration"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/queryRegistrations.js",
-      "source_location": "L13",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_queryregistrations",
-      "target": "tests_queryregistrations_run"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/queryRegistrations.js",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_queryregistrations",
-      "target": "tests_queryregistrations_sport"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/queryRegistrations.js",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_queryregistrations",
-      "target": "tests_queryregistrations_team"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/queryRegistrations.js",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_queryregistrations",
-      "target": "tests_queryregistrations_tournament"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/queryRegistrations.js",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_queryregistrations",
-      "target": "tests_queryregistrations_user"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/queryRegistrations.js",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_queryregistrations",
-      "target": "tests_queryregistrations_venue"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/renameScreenshots.js",
-      "source_location": "L6",
-      "weight": 1.0,
-      "source": "tests_renamescreenshots",
-      "target": "tests_renamescreenshots_files",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/renameScreenshots.js",
-      "source_location": "L1",
-      "weight": 1.0,
-      "source": "tests_renamescreenshots",
-      "target": "tests_renamescreenshots_fs",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/renameScreenshots.js",
-      "source_location": "L8",
-      "weight": 1.0,
-      "source": "tests_renamescreenshots",
-      "target": "tests_renamescreenshots_mappings",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/renameScreenshots.js",
-      "source_location": "L36",
-      "weight": 1.0,
-      "source": "tests_renamescreenshots",
-      "target": "tests_renamescreenshots_matchingempty",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/renameScreenshots.js",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "tests_renamescreenshots",
-      "target": "tests_renamescreenshots_path",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "tests_seede2etestdata",
-      "target": "tests_seede2etestdata_bcrypt",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L15",
-      "weight": 1.0,
-      "source": "tests_seede2etestdata",
-      "target": "tests_seede2etestdata_match",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L1",
-      "weight": 1.0,
-      "source": "tests_seede2etestdata",
-      "target": "tests_seede2etestdata_mongoose",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L14",
-      "weight": 1.0,
-      "source": "tests_seede2etestdata",
-      "target": "tests_seede2etestdata_notification",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "tests_seede2etestdata",
-      "target": "tests_seede2etestdata_path",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L12",
-      "weight": 1.0,
-      "source": "tests_seede2etestdata",
-      "target": "tests_seede2etestdata_registration",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L17",
-      "weight": 1.0,
-      "source": "tests_seede2etestdata",
-      "target": "tests_seede2etestdata_run",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L11",
-      "weight": 1.0,
-      "source": "tests_seede2etestdata",
-      "target": "tests_seede2etestdata_sponsor",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "tests_seede2etestdata",
-      "target": "tests_seede2etestdata_sport",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L10",
-      "weight": 1.0,
-      "source": "tests_seede2etestdata",
-      "target": "tests_seede2etestdata_team",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L9",
-      "weight": 1.0,
-      "source": "tests_seede2etestdata",
-      "target": "tests_seede2etestdata_tournament",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L13",
-      "weight": 1.0,
-      "source": "tests_seede2etestdata",
-      "target": "tests_seede2etestdata_transaction",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L6",
-      "weight": 1.0,
-      "source": "tests_seede2etestdata",
-      "target": "tests_seede2etestdata_user",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/seedE2ETestData.js",
-      "source_location": "L8",
-      "weight": 1.0,
-      "source": "tests_seede2etestdata",
-      "target": "tests_seede2etestdata_venue",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyOrganizerFlow.js",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyorganizerflow",
-      "target": "tests_verifyorganizerflow_axios"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyOrganizerFlow.js",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyorganizerflow",
-      "target": "tests_verifyorganizerflow_jwt"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyOrganizerFlow.js",
-      "source_location": "L15",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyorganizerflow",
-      "target": "tests_verifyorganizerflow_mitheaders"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyOrganizerFlow.js",
-      "source_location": "L12",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyorganizerflow",
-      "target": "tests_verifyorganizerflow_mittoken"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyOrganizerFlow.js",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyorganizerflow",
-      "target": "tests_verifyorganizerflow_mongoose"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyOrganizerFlow.js",
-      "source_location": "L16",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyorganizerflow",
-      "target": "tests_verifyorganizerflow_rajheaders"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyOrganizerFlow.js",
-      "source_location": "L13",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyorganizerflow",
-      "target": "tests_verifyorganizerflow_rajtoken"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyOrganizerFlow.js",
-      "source_location": "L18",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyorganizerflow",
-      "target": "tests_verifyorganizerflow_runtest"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyOrganizerRegistrationFlow.js",
-      "source_location": "L25",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyorganizerregistrationflow",
-      "target": "tests_verifyorganizerregistrationflow_adminheaders"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyOrganizerRegistrationFlow.js",
-      "source_location": "L20",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyorganizerregistrationflow",
-      "target": "tests_verifyorganizerregistrationflow_admintoken"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyOrganizerRegistrationFlow.js",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyorganizerregistrationflow",
-      "target": "tests_verifyorganizerregistrationflow_axios"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyOrganizerRegistrationFlow.js",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyorganizerregistrationflow",
-      "target": "tests_verifyorganizerregistrationflow_bcrypt"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyOrganizerRegistrationFlow.js",
-      "source_location": "L24",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyorganizerregistrationflow",
-      "target": "tests_verifyorganizerregistrationflow_coachheaders"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyOrganizerRegistrationFlow.js",
-      "source_location": "L19",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyorganizerregistrationflow",
-      "target": "tests_verifyorganizerregistrationflow_coachtoken"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyOrganizerRegistrationFlow.js",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyorganizerregistrationflow",
-      "target": "tests_verifyorganizerregistrationflow_crypto"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyOrganizerRegistrationFlow.js",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyorganizerregistrationflow",
-      "target": "tests_verifyorganizerregistrationflow_jwt"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyOrganizerRegistrationFlow.js",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyorganizerregistrationflow",
-      "target": "tests_verifyorganizerregistrationflow_mongoose"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyOrganizerRegistrationFlow.js",
-      "source_location": "L22",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyorganizerregistrationflow",
-      "target": "tests_verifyorganizerregistrationflow_orgaheaders"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyOrganizerRegistrationFlow.js",
-      "source_location": "L17",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyorganizerregistrationflow",
-      "target": "tests_verifyorganizerregistrationflow_orgatoken"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyOrganizerRegistrationFlow.js",
-      "source_location": "L23",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyorganizerregistrationflow",
-      "target": "tests_verifyorganizerregistrationflow_orgbheaders"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyOrganizerRegistrationFlow.js",
-      "source_location": "L18",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyorganizerregistrationflow",
-      "target": "tests_verifyorganizerregistrationflow_orgbtoken"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyOrganizerRegistrationFlow.js",
-      "source_location": "L27",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyorganizerregistrationflow",
-      "target": "tests_verifyorganizerregistrationflow_runtest"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPaymentsFlow.js",
-      "source_location": "L24",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifypaymentsflow",
-      "target": "tests_verifypaymentsflow_adminheaders"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPaymentsFlow.js",
-      "source_location": "L19",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifypaymentsflow",
-      "target": "tests_verifypaymentsflow_admintoken"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPaymentsFlow.js",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifypaymentsflow",
-      "target": "tests_verifypaymentsflow_axios"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPaymentsFlow.js",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifypaymentsflow",
-      "target": "tests_verifypaymentsflow_bcrypt"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPaymentsFlow.js",
-      "source_location": "L22",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifypaymentsflow",
-      "target": "tests_verifypaymentsflow_coachheaders"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPaymentsFlow.js",
-      "source_location": "L17",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifypaymentsflow",
-      "target": "tests_verifypaymentsflow_coachtoken"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPaymentsFlow.js",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifypaymentsflow",
-      "target": "tests_verifypaymentsflow_crypto"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPaymentsFlow.js",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifypaymentsflow",
-      "target": "tests_verifypaymentsflow_jwt"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPaymentsFlow.js",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifypaymentsflow",
-      "target": "tests_verifypaymentsflow_mongoose"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPaymentsFlow.js",
-      "source_location": "L21",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifypaymentsflow",
-      "target": "tests_verifypaymentsflow_orgheaders"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPaymentsFlow.js",
-      "source_location": "L16",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifypaymentsflow",
-      "target": "tests_verifypaymentsflow_orgtoken"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPaymentsFlow.js",
-      "source_location": "L23",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifypaymentsflow",
-      "target": "tests_verifypaymentsflow_playerheaders"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPaymentsFlow.js",
-      "source_location": "L18",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifypaymentsflow",
-      "target": "tests_verifypaymentsflow_playertoken"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPaymentsFlow.js",
-      "source_location": "L26",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifypaymentsflow",
-      "target": "tests_verifypaymentsflow_runtest"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L18",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyplayerpaymentflow",
-      "target": "tests_verifyplayerpaymentflow_assert"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L16",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyplayerpaymentflow",
-      "target": "tests_verifyplayerpaymentflow_assertions"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L63",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyplayerpaymentflow",
-      "target": "tests_verifyplayerpaymentflow_createmockteam"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L52",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyplayerpaymentflow",
-      "target": "tests_verifyplayerpaymentflow_createmockuser"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyplayerpaymentflow",
-      "target": "tests_verifyplayerpaymentflow_crypto"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L26",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyplayerpaymentflow",
-      "target": "tests_verifyplayerpaymentflow_mockrequest"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L39",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyplayerpaymentflow",
-      "target": "tests_verifyplayerpaymentflow_mockresponse"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyplayerpaymentflow",
-      "target": "tests_verifyplayerpaymentflow_mongoose"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyplayerpaymentflow",
-      "target": "tests_verifyplayerpaymentflow_notification"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyplayerpaymentflow",
-      "target": "tests_verifyplayerpaymentflow_path"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L74",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyplayerpaymentflow",
-      "target": "tests_verifyplayerpaymentflow_run"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyplayerpaymentflow",
-      "target": "tests_verifyplayerpaymentflow_team"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L13",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyplayerpaymentflow",
-      "target": "tests_verifyplayerpaymentflow_teamcontroller"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyplayerpaymentflow",
-      "target": "tests_verifyplayerpaymentflow_transaction"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L15",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyplayerpaymentflow",
-      "target": "tests_verifyplayerpaymentflow_uniquesuffix"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyplayerpaymentflow",
-      "target": "tests_verifyplayerpaymentflow_user"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L90",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyplayerpaymentflow_run",
-      "target": "tests_verifyplayerpaymentflow_assert"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L84",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyplayerpaymentflow_run",
-      "target": "tests_verifyplayerpaymentflow_mockrequest"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L85",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyplayerpaymentflow_run",
-      "target": "tests_verifyplayerpaymentflow_mockresponse"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L78",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyplayerpaymentflow_run",
-      "target": "tests_verifyplayerpaymentflow_createmockuser"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifyPlayerPaymentFlow.js",
-      "source_location": "L81",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifyplayerpaymentflow_run",
-      "target": "tests_verifyplayerpaymentflow_createmockteam"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifySponsorFlow.js",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifysponsorflow",
-      "target": "tests_verifysponsorflow_axios"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifySponsorFlow.js",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifysponsorflow",
-      "target": "tests_verifysponsorflow_bcrypt"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifySponsorFlow.js",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifysponsorflow",
-      "target": "tests_verifysponsorflow_jwt"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifySponsorFlow.js",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifysponsorflow",
-      "target": "tests_verifysponsorflow_mongoose"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/tests/verifySponsorFlow.js",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_verifysponsorflow",
-      "target": "tests_verifysponsorflow_runtest"
     },
     {
       "relation": "contains",
@@ -20496,37 +17388,6 @@
       "confidence_score": 1.0,
       "source": "utils_tournamenthelper",
       "target": "utils_tournamenthelper_triggerdashboardupdate"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/utils/twilioService.js",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "utils_twilioservice",
-      "target": "utils_twilioservice_sendotp"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/utils/twilioService.js",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "utils_twilioservice",
-      "target": "utils_twilioservice_twilio"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/utils/twilioService.js",
-      "source_location": "L14",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "utils_twilioservice_sendotp",
-      "target": "utils_twilioservice_twilio"
     },
     {
       "relation": "contains",
@@ -20715,5 +17576,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "77c797f7885f7375fc2629309702ffb55b1d3234"
+  "built_at_commit": "b1bcbddf548b384b45d7376a5d87c10953dfcd88"
 }

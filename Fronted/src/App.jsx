@@ -7,7 +7,6 @@ import NonOrganizerRoute from "./routes/NonOrganizerRoute";
 /* ================= PUBLIC ================= */
 import Home from "./screen/Home";
 import Login from "./screen/Login";
-// import Registration from "./screen/Registration";
 import Events from "./screen/Events";
 import Schedule from "./screen/Schedule";
 import Speakers from "./screen/Speakers";
@@ -21,7 +20,6 @@ import TeamDetails from "./screen/TeamDetails";
 import CreateTeam from "./screen/CreateTeam";
 import MyTeamDashboard from "./screen/MyTeamDashboard";
 import MyRegistrations from "./screen/MyRegistrations";
-// import userTournamentlist from "./screen/TournamentsList";
 import RegisterTeam from "./screen/RegisterTeam";
 import TournamentDetailsss from "./screen/TournamentDetails";
 import ApprovePlayerss from "./screen/ApprovePlayers";
@@ -75,13 +73,6 @@ import AdminProfile from "./adminside/AdminProfile";
 import AnalyticsDashboard from "./adminside/AnalyticsDashboard";
 import Reports from "./adminside/Reports";
 
-// /* ================= cognisun ================= */
-// // import Logind from "./cognisun/Logincog";
-// // import Enroll from "./cognisun/enroll";
-// // import EditUser from "./cognisun/EditUser";
-// // import Userlist from "./cognisun/Userlist";
-
-
 
 import "./index.css";
 import "./App.css";
@@ -108,7 +99,6 @@ function App() {
         {/* ========== PUBLIC ROUTES ========== */}
         <Route path="/" element={<SponsorDashboardOrHome />} />
         <Route path="/login" element={<Login />} />
-        {/* <Route path="/register" element={<Registration />} /> */}
         <Route path="/register" element={<RegisterWithVerification />} />
         <Route path="/events" element={<Events />} />
         <Route path="/tournaments" element={<Events />} />

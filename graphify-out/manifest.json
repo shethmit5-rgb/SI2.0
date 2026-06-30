@@ -5,9 +5,9 @@
     "semantic_hash": "49c8473bcfcec3aef596a5fb04a6df06"
   },
   "Fronted/src/App.jsx": {
-    "mtime": 1781680315.1065567,
-    "ast_hash": "24f96a0057e9ba49ca6ee3e60065510c",
-    "semantic_hash": "24f96a0057e9ba49ca6ee3e60065510c"
+    "mtime": 1782829203.2906952,
+    "ast_hash": "306548b3eb0396179c72653bdd8fedf6",
+    "semantic_hash": ""
   },
   "Fronted/src/adminside/AddTeam.jsx": {
     "mtime": 1779008300.0,
@@ -168,11 +168,6 @@
     "mtime": 1781532113.8396468,
     "ast_hash": "19f4df7d996cf27bd901ee237226931d",
     "semantic_hash": "19f4df7d996cf27bd901ee237226931d"
-  },
-  "Fronted/src/components/PaymentModal.jsx": {
-    "mtime": 1780670749.3936596,
-    "ast_hash": "adfa286a3a43dc6b53c7abcaf5c5ec50",
-    "semantic_hash": "adfa286a3a43dc6b53c7abcaf5c5ec50"
   },
   "Fronted/src/components/ThreeBgCanvas.jsx": {
     "mtime": 1780823831.1720088,
@@ -365,9 +360,9 @@
     "semantic_hash": "593ba10216b4be9109e6d22bb1477b98"
   },
   "Fronted/src/screen/RegisterWithVerification.jsx": {
-    "mtime": 1781532099.8168104,
-    "ast_hash": "aa5618d4ecce31560f6e250ee79c1240",
-    "semantic_hash": "aa5618d4ecce31560f6e250ee79c1240"
+    "mtime": 1782810333.7292976,
+    "ast_hash": "6d6eb3ed8530f03be2d51a7cea96cd1f",
+    "semantic_hash": ""
   },
   "Fronted/src/screen/Schedule.jsx": {
     "mtime": 1779008300.0,
@@ -450,9 +445,9 @@
     "semantic_hash": "a246e99d6caa12b711ee88f025f84b3e"
   },
   "backend/config/email.js": {
-    "mtime": 1779007908.576101,
-    "ast_hash": "1916bafb89c521108cd47b529cdfed6c",
-    "semantic_hash": "1916bafb89c521108cd47b529cdfed6c"
+    "mtime": 1782810233.4605644,
+    "ast_hash": "082105c93b8f2c7b2bf2996c76baf6dd",
+    "semantic_hash": ""
   },
   "backend/controllers/analyticsController.js": {
     "mtime": 1782377526.8842795,
@@ -460,9 +455,9 @@
     "semantic_hash": ""
   },
   "backend/controllers/authController.js": {
-    "mtime": 1781610331.2970805,
-    "ast_hash": "d4dfcccfa830793a1789165951b1a63e",
-    "semantic_hash": "d4dfcccfa830793a1789165951b1a63e"
+    "mtime": 1782810296.5494378,
+    "ast_hash": "872b0576f0bc00d625fa928fc89e849a",
+    "semantic_hash": ""
   },
   "backend/controllers/matchController.js": {
     "mtime": 1782409793.2739382,
@@ -600,9 +595,9 @@
     "semantic_hash": ""
   },
   "backend/routes/auth.js": {
-    "mtime": 1781610341.206576,
-    "ast_hash": "7d443f33814c53d933fba4cdfe94d9df",
-    "semantic_hash": "7d443f33814c53d933fba4cdfe94d9df"
+    "mtime": 1782810304.4199214,
+    "ast_hash": "a66cf49bf3c5bbf070dd681dcbfe06a2",
+    "semantic_hash": ""
   },
   "backend/routes/matchRouter.js": {
     "mtime": 1781610274.8694468,
@@ -659,50 +654,15 @@
     "ast_hash": "77d82f875664e2c05a1175fd94fc3591",
     "semantic_hash": "77d82f875664e2c05a1175fd94fc3591"
   },
-  "backend/runSeed.js": {
-    "mtime": 1781005130.2568662,
-    "ast_hash": "632f01ef8702f0fcfca3cee24f8d707c",
-    "semantic_hash": "632f01ef8702f0fcfca3cee24f8d707c"
-  },
   "backend/server.js": {
     "mtime": 1782409811.0238562,
     "ast_hash": "264a512c618ff9e8e342a3cca944de12",
-    "semantic_hash": ""
-  },
-  "backend/tests/knockoutIntegration.js": {
-    "mtime": 1781462387.113446,
-    "ast_hash": "60eba54d25bd2aa3dbacfc6a8b6c01a4",
-    "semantic_hash": "60eba54d25bd2aa3dbacfc6a8b6c01a4"
-  },
-  "backend/tests/verifyOrganizerFlow.js": {
-    "mtime": 1781526089.3237956,
-    "ast_hash": "62d0a130be0b696eb497013e1da02275",
-    "semantic_hash": "62d0a130be0b696eb497013e1da02275"
-  },
-  "backend/tests/verifyOrganizerRegistrationFlow.js": {
-    "mtime": 1782219079.5149405,
-    "ast_hash": "2b4f0d4bc1f10319ed93ccb36d110d6b",
-    "semantic_hash": ""
-  },
-  "backend/tests/verifyPaymentsFlow.js": {
-    "mtime": 1781681895.8199134,
-    "ast_hash": "448f049a3d5016d3ed4235723579caf4",
-    "semantic_hash": "448f049a3d5016d3ed4235723579caf4"
-  },
-  "backend/tests/verifySponsorFlow.js": {
-    "mtime": 1782219107.9920104,
-    "ast_hash": "1f57fddc29a89e3af14d5d0a787508e3",
     "semantic_hash": ""
   },
   "backend/utils/tournamentHelper.js": {
     "mtime": 1782376755.6563642,
     "ast_hash": "e58c427f8f5dfe875f66236ab001ce5a",
     "semantic_hash": ""
-  },
-  "backend/utils/twilioService.js": {
-    "mtime": 1781544652.538129,
-    "ast_hash": "834d09a065fa6f84bae3078701f2e24d",
-    "semantic_hash": "834d09a065fa6f84bae3078701f2e24d"
   },
   "backend/utils/validators.js": {
     "mtime": 1779008114.9616337,
@@ -714,34 +674,9 @@
     "ast_hash": "01259c9941e4810dbe449796d72ca726",
     "semantic_hash": "01259c9941e4810dbe449796d72ca726"
   },
-  "backend/tests/verifyPlayerPaymentFlow.js": {
-    "mtime": 1782200928.7657568,
-    "ast_hash": "feaf87572e51c50c9a2a3fc8fd537f5d",
-    "semantic_hash": ""
-  },
-  "backend/tests/checkPlayerStatus.js": {
-    "mtime": 1782213485.3265936,
-    "ast_hash": "e8288ac42ba76fdde6330e6f31e70be9",
-    "semantic_hash": ""
-  },
-  "backend/tests/createTestUsers.js": {
-    "mtime": 1782215069.4465673,
-    "ast_hash": "d4af33d7d170db4e89863cbebb6f8845",
-    "semantic_hash": ""
-  },
-  "backend/tests/queryRegistrations.js": {
-    "mtime": 1782214975.4342012,
-    "ast_hash": "92771a8489b3746c055d18a7a7b48e0f",
-    "semantic_hash": ""
-  },
-  "backend/tests/renameScreenshots.js": {
-    "mtime": 1782380616.493352,
-    "ast_hash": "e22b8336a2ce48772156b551e4adbc64",
-    "semantic_hash": ""
-  },
-  "backend/tests/seedE2ETestData.js": {
-    "mtime": 1782379853.670661,
-    "ast_hash": "0c62e8b9e36bdf0b31266a1ee3be265e",
+  "backend/models/EmailOtp.js": {
+    "mtime": 1782810219.6302521,
+    "ast_hash": "f57e33e5fd2582860114b5b43cb22710",
     "semantic_hash": ""
   }
 }

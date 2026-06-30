@@ -1,119 +1,211 @@
-# 🏆 React College Tournament Platform
+# 🏆 SportSync Arena
+🏆 MERN Stack College Sports Tournament Management Platform
 
-A full-stack college sports tournament management platform built with React, Express, and MongoDB.
+[![React](https://img.shields.io/badge/React-18-blue.svg)](https://reactjs.org/) 
+[![Vite](https://img.shields.io/badge/Vite-7-purple.svg)](https://vitejs.dev/) 
+[![Node](https://img.shields.io/badge/Node-18+-green.svg)](https://nodejs.org/) 
+[![Express](https://img.shields.io/badge/Express-5-lightgrey.svg)](https://expressjs.com/) 
+[![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-green.svg)](https://www.mongodb.com/)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
+SportSync Arena is a comprehensive MERN-stack college sports tournament management platform designed to streamline event registration, bracket scheduling, team collaboration, payment settlement, and real-time match results notification. 
 
 ---
 
-## 🚀 Quick Start
+## 📖 Overview
 
-### Prerequisites
-- **Node.js** 18+ installed
-- **MongoDB Atlas** account (or local MongoDB)
-- **Cloudinary** account (for media uploads)
+Organizing and tracking multi-sport collegiate tournaments involves coordination between admins, event organizers, coaches, sponsors, and players. SportSync Arena solves this coordination problem by providing a role-based, real-time dashboard. From payment checkouts via Razorpay to real-time status updates through WebSockets, the platform connects all stakeholders into a unified tournament hub.
 
-### Backend Setup
+---
+
+## 🌟 Features
+
+* **User Authentication**: Secure JWT-based registration and login, including verification OTP flows.
+* **Role-Based Access**: Specialized layouts and dashboards for **Admins**, **Organizers**, **Players**, **Coaches**, and **Guests**.
+* **Tournament Management**: Dynamic tournament creation, editing, registration fee setup, and status transitions.
+* **Team Registration**: Easy captain-based team creation, player invites, and payment clearance checks.
+* **Match Scheduling**: Automatic scheduling and tracking of matches.
+* **Tournament Formats**: Support for single-elimination (Knockout) bracket progression and league setups.
+* **Live Match Results**: Real-time score recording and match winner resolution.
+* **Leaderboards & Analytics**: Live leaderboard updates and interactive admin charts.
+* **Sponsor Portal**: Sponsor dashboard, sponsorship stats, and campaign tracking.
+* **Payment Integration**: Razorpay SDK integration for team registrations and player joining fees.
+* **Real-time Updates**: Socket.IO support for instant notifications and analytics syncing.
+* **Email Alerts**: Automated mailers for verification codes and registration confirmations.
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **React** (v18.2.0)
+- **Vite** (v7.2.4)
+- **React Router DOM** (v6.22.3)
+- **Chart.js** & **Recharts** (Visual analytics)
+- **Framer Motion** (Smooth transitions and animations)
+- **Three.js** (Interactive 3D background elements)
+- **Axios** & **Socket.IO Client**
+
+### Backend
+- **Node.js** & **Express.js** (v5.2.1)
+- **MongoDB** & **Mongoose** (v9.1.2)
+- **JWT** (jsonwebtoken) & **bcryptjs** (Secure encryption)
+- **Socket.IO** (v4.8.3)
+- **Nodemailer** (Email dispatch)
+- **Multer** & **Cloudinary** (Image hosting)
+- **Razorpay SDK** (v2.9.6)
+
+---
+
+## 📁 Folder Structure
+
+```
+react-clg-tournament-main/
+├── Fronted/                # React Frontend (Vite)
+│   ├── src/
+│   │   ├── adminside/      # Admin management panels (33 components)
+│   │   ├── screen/         # Public screens (42 components)
+│   │   ├── component/      # Shared header and footer layouts
+│   │   ├── components/     # Canvas graphics, payment modules
+│   │   ├── context/        # Global AuthContext
+│   │   ├── layouts/        # Role-based container layouts
+│   │   ├── routes/         # Guarded admin and player routes
+│   │   ├── services/       # Razorpay order services
+│   │   ├── static/         # Style configurations
+│   │   └── utils/          # Axios setup, socket client, validators
+│   ├── public/             # Static favicons
+│   ├── vite.config.js
+│   └── package.json
+└── backend/                # Express Server
+    ├── config/             # Cloudinary, mail, and database connections
+    ├── controllers/        # Express controllers (auth, tournament, match, team)
+    ├── middleware/         # Auth verify, role restrictions, upload
+    ├── models/             # Mongoose schemas (User, Team, Tournament, Transaction)
+    ├── routes/             # Express API routers
+    ├── utils/              # Match helper algorithms, validations
+    ├── uploads/            # Temporary upload destination
+    ├── server.js           # Main entry point
+    └── package.json
+```
+
+---
+
+## 🚀 Installation & Setup
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/shethmit5-rgb/SI2.0.git
+cd SI2.0
+```
+
+### 2. Configure Environment Variables
+Create a `.env` file in the `backend/` directory by copying `.env.example`:
+```bash
+cp backend/.env.example backend/.env
+```
+Fill in the configuration details inside `backend/.env`.
+
+### 3. Install & Start Backend
 ```bash
 cd backend
 npm install
-# Create .env file (see .gsd/PROJECT_CONTEXT.md for required variables)
-npm start                    # or: npx nodemon server.js
-# → http://localhost:5000
+npm start
 ```
+*The server will start listening at `http://localhost:5000`.*
 
-### Frontend Setup
+### 4. Install & Start Frontend
 ```bash
-cd Fronted
+cd ../Fronted
 npm install
 npm run dev
-# → http://localhost:5173
 ```
+*Open `http://localhost:5173` in your browser to view the application.*
 
 ---
 
-## 📐 Tech Stack
+## 🔑 Environment Variables
 
-| Layer | Technology |
-|-------|-----------|
-| Frontend | React 18 + Vite 7 |
-| Backend | Express 5 + Node.js |
-| Database | MongoDB + Mongoose 9 |
-| Real-time | Socket.IO |
-| Auth | JWT + bcryptjs |
-| Payments | Razorpay |
-| Media | Cloudinary |
-| Email | Nodemailer |
-| SMS | Twilio |
+The backend relies on the following configurations:
 
----
-
-## 📋 GSD Workflow
-
-This project uses the **GSD (Get Shit Done)** workflow for structured development. All project documentation lives in `.gsd/`:
-
-| File | Purpose |
-|------|---------|
-| [PROJECT_CONTEXT.md](.gsd/PROJECT_CONTEXT.md) | Full codebase understanding |
-| [GSD_CONFIG.md](.gsd/GSD_CONFIG.md) | Master configuration |
-| [ROADMAP.md](.gsd/ROADMAP.md) | Phased milestone tracking |
-| [TASKS.md](.gsd/TASKS.md) | Active task backlog |
-| [CHANGELOG.md](.gsd/CHANGELOG.md) | Version history |
-| [specs/PRD.md](.gsd/specs/PRD.md) | Product requirements |
-| [specs/ARCHITECTURE.md](.gsd/specs/ARCHITECTURE.md) | Architecture decisions |
-| [workflows/PLAN.md](.gsd/workflows/PLAN.md) | Planning process |
-| [workflows/EXECUTE.md](.gsd/workflows/EXECUTE.md) | Execution process |
-| [workflows/VERIFY.md](.gsd/workflows/VERIFY.md) | Verification process |
-
-### Daily Workflow
-```
-1. Start  → Read .gsd/PROJECT_CONTEXT.md → Check .gsd/TASKS.md
-2. Plan   → Follow .gsd/workflows/PLAN.md
-3. Execute→ Follow .gsd/workflows/EXECUTE.md
-4. Verify → Follow .gsd/workflows/VERIFY.md
-5. End    → Update session log in .gsd/sessions/
-```
+| Key | Description | Example |
+|---|---|---|
+| `MONGO_URI` | MongoDB Connection URL | `mongodb://localhost:27017/ArenaSync` |
+| `JWT_SECRET` | Secret key for JWT signatures | `your_secret_key` |
+| `PORT` | Backend listening port | `5000` |
+| `CLOUDINARY_CLOUD_NAME` | Cloudinary Account Name | `your_cloud_name` |
+| `CLOUDINARY_API_KEY` | Cloudinary API Key | `your_api_key` |
+| `CLOUDINARY_API_SECRET` | Cloudinary API Secret | `your_api_secret` |
+| `EMAIL_USER` | Email address for SMTP transport | `system@gmail.com` |
+| `EMAIL_PASS` | App password for SMTP transport | `email_app_password` |
+| `RAZORPAY_KEY_ID` | Razorpay Key ID | `rzp_test_key` |
+| `RAZORPAY_KEY_SECRET` | Razorpay Secret Key | `rzp_test_secret` |
 
 ---
 
-## 👥 User Roles
+## 📸 Screenshots
 
-| Role | Access |
-|------|--------|
-| **Admin** | Full system access — users, tournaments, analytics, reports |
-| **Organizer** | Create/manage tournaments, schedule matches, manage sponsors |
-| **Player** | Join teams, register for events, view matches |
-| **Coach** | Team management and player oversight |
-| **Guest** | Browse public pages |
+*Note: Visual capture walkthroughs will be placed in these slots upon deployment.*
+
+### Home Page
+*Placeholder for Home Page UI*
+
+### Login
+*Placeholder for Login Page*
+
+### Dashboard
+*Placeholder for User Dashboard*
+
+### Tournament Details
+*Placeholder for Tournament Info Page*
+
+### Bracket View
+*Placeholder for Elimination Match Bracket*
+
+### Analytics Dashboard
+*Placeholder for Visual Admin Analytics*
+
+### Sponsor Portal
+*Placeholder for Sponsor Portal Dashboard*
+
+### Payment Page
+*Placeholder for Razorpay Payment Window*
 
 ---
 
-## 📁 Project Structure
+## 🔌 API Overview
 
-```
-├── Fronted/              # React frontend (Vite)
-│   └── src/
-│       ├── adminside/    # Admin panel (33 components)
-│       ├── screen/       # Public screens (42 components)
-│       ├── component/    # Shared UI (Header, Footer)
-│       ├── components/   # Specialized (Three.js, Payment)
-│       ├── context/      # AuthContext
-│       ├── layouts/      # Role-based layouts
-│       ├── routes/       # Route guards
-│       ├── services/     # API services
-│       ├── utils/        # Axios config, socket, validators
-│       └── static/       # CSS files
-├── backend/              # Express backend
-│   ├── config/           # Service configs
-│   ├── controllers/      # Business logic
-│   ├── middleware/        # Auth, roles, upload
-│   ├── models/           # Mongoose schemas (13)
-│   ├── routes/           # API routes (14)
-│   ├── services/         # External services
-│   └── utils/            # Validators, Twilio
-└── .gsd/                 # GSD workflow docs
-```
+* `POST /api/register` - Create user with OTP verification
+* `POST /api/login` - Secure login returning JWT
+* `GET /api/tournaments` - List all active tournaments
+* `POST /api/tournaments` - Create new tournament (Admin/Organizer)
+* `POST /api/teams` - Create team (Captain/Coach)
+* `POST /api/payments/order` - Initialize Razorpay registration order
+* `POST /api/payments/verify` - Securely verify Razorpay callback signature
+* `GET /api/analytics/stats` - Fetch real-time dashboard data
+
+---
+
+## 🚀 Future Improvements
+
+- [ ] Add automated SMS alerts via Twilio/Fast2SMS.
+- [ ] Expand bracket generation to support Double-Elimination and Round-Robin leagues.
+- [ ] Integrate real-time chat between teammates and tournament captains.
+- [ ] Deploy mobile-friendly companion applications.
 
 ---
 
 ## 📜 License
 
-ISC
+This project is licensed under the MIT License - see the LICENSE details.
+
+---
+
+## 👥 Author
+
+* **Mit Sheth**
+* GitHub: [shethmit5-rgb](https://github.com/shethmit5-rgb)
+
+---
+
+### Topics
+`mern` · `react` · `nodejs` · `express` · `mongodb` · `socketio` · `tournament-management` · `sports` · `razorpay` · `jwt` · `vite` · `full-stack`
