@@ -313,8 +313,11 @@ export default function MyTeamDashboard() {
     const tournamentHistory = dashboardData.tournamentHistory || [];
 
     const formatCurrency = (val) => {
-      const num = Number(val) || 0;
-      return `₹${num.toLocaleString("en-IN")}`;
+      return new Intl.NumberFormat('en-IN', {
+        style: 'currency',
+        currency: 'INR',
+        maximumFractionDigits: 0
+      }).format(val || 0);
     };
 
     const formatDate = (dateStr) => {
@@ -406,38 +409,66 @@ export default function MyTeamDashboard() {
           </div>
         </div>
 
-        {/* Prize History */}
+        {/* Tournament Rewards */}
         <div className="db-section">
-          <h2>🏆 Prize Distribution History</h2>
-          {prizeHistory.length > 0 ? (
+          <h2>🏆 Tournament Rewards</h2>
+          {dashboardData.tournamentRewards && dashboardData.tournamentRewards.length > 0 ? (
             <div className="db-table-wrapper">
               <table className="db-table">
                 <thead>
                   <tr>
+                    <th>Distribution ID</th>
                     <th>Tournament</th>
-                    <th>Role</th>
-                    <th>Date Received</th>
-                    <th>Prize Share</th>
+                    <th>Team</th>
+                    <th>Position</th>
+                    <th>Title Sponsor</th>
+                    <th>Winner Team Prize</th>
+                    <th>Runner-up Team Prize</th>
+                    <th>My Reward</th>
+                    <th>Distribution Date</th>
+                    <th>Status</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {prizeHistory.map((item, idx) => (
+                  {dashboardData.tournamentRewards.map((reward, idx) => (
                     <tr key={idx}>
-                      <td>{item.tournamentName}</td>
+                      <td style={{ fontFamily: "monospace", fontWeight: "600" }}>{reward.distributionId}</td>
                       <td>
-                        <span className={item.role === "Winner" ? "badge-winner" : "badge-runner"}>
-                          {item.role}
+                        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                          <span>{reward.tournamentName}</span>
+                          <span className="sponsored-badge" style={{ background: "rgba(109, 40, 217, 0.1)", color: "#a78bfa", fontSize: "10px", padding: "2px 6px", borderRadius: "999px", fontWeight: "700" }}>SPONSORED</span>
+                        </div>
+                      </td>
+                      <td>{reward.teamName}</td>
+                      <td>
+                        <span className={reward.position === "Winner" ? "badge-winner" : "badge-runner"}>
+                          {reward.position}
                         </span>
                       </td>
-                      <td>{formatDate(item.receivedDate)}</td>
-                      <td style={{ color: "#10b981", fontWeight: "600" }}>{formatCurrency(item.prizeAmount)}</td>
+                      <td>
+                        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                          {reward.brandLogo && (
+                            <img src={reward.brandLogo} alt={reward.brandName} style={{ width: "24px", height: "24px", borderRadius: "50%", objectFit: "cover", border: "1px solid var(--border)" }} />
+                          )}
+                          <span>{reward.brandName}</span>
+                        </div>
+                      </td>
+                      <td>{formatCurrency(reward.winnerPrizeTotal)}</td>
+                      <td>{formatCurrency(reward.runnerUpPrizeTotal)}</td>
+                      <td style={{ color: "#10b981", fontWeight: "700" }}>{formatCurrency(reward.individualPrize)}</td>
+                      <td>{formatDate(reward.distributedAt)}</td>
+                      <td>
+                        <span className="badge-winner" style={{ background: "rgba(16, 185, 129, 0.1)", color: "#10b981", border: "1px solid rgba(16, 185, 129, 0.2)" }}>Completed</span>
+                      </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
           ) : (
-            <div className="db-empty-state">No Prize Shares Recorded</div>
+            <div className="db-empty-state" style={{ padding: "30px", textAlign: "center", color: "var(--text-secondary)" }}>
+              No prize money was available because this tournament had no active Title Sponsor.
+            </div>
           )}
         </div>
 

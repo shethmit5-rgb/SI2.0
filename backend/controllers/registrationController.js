@@ -143,10 +143,13 @@ exports.registerTeam = async (req, res, next) => {
     const exists = await Registration.findOne({
       tournamentId,
       teamId,
-      approvalStatus: { $in: ["pending", "approved"] }
+      approvalStatus: { $in: ["pending", "approved_pending_payment", "approved"] }
     });
 
     if (exists) {
+      if (exists.approvalStatus === "pending") {
+        return res.status(200).json(exists);
+      }
       return res.status(400).json({ message: "Team is already registered for this tournament." });
     }
 

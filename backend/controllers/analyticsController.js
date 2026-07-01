@@ -108,6 +108,11 @@ exports.getStats = async (req, res, next) => {
       count: item.count
     }));
 
+    const PrizeDistribution = require("../models/PrizeDistribution");
+    const distRecords = await PrizeDistribution.find();
+    const totalPrizeDistributed = distRecords.reduce((sum, d) => sum + (d.totalAmountDistributed || 0), 0);
+    const totalDistributionsCompleted = distRecords.length;
+
     const data = {
       stats: {
         users,
@@ -120,6 +125,8 @@ exports.getStats = async (req, res, next) => {
         upcomingTournaments,
         ongoingTournaments,
         completedTournaments,
+        totalPrizeDistributed,
+        totalDistributionsCompleted,
       },
       monthlyData: formattedMonthlyData,
       sportDistribution: formattedSportDistribution,
@@ -387,26 +394,65 @@ exports.getPlayerDashboard = async (req, res, next) => {
     }
     const tournamentsParticipated = tournamentsMap.size;
 
-    // Tournament Wins
-    const tournamentsWonList = await Tournament.find({
-      winner: { $in: teamIds }
+    // Fetch all prize distributions for this player
+    const PrizeDistribution = require("../models/PrizeDistribution");
+    const distributions = await PrizeDistribution.find({
+      "playerRewards.userId": userId
     });
-    const tournamentsWon = tournamentsWonList.length;
 
-    // Runner-up Finishes & Prize Distribution
-    let runnerUpFinishes = 0;
-    const prizeHistory = [];
     let totalPrizeMoneyEarned = 0;
+    let tournamentsWon = 0;
+    let runnerUpFinishes = 0;
+    const tournamentRewards = [];
+    const prizeHistory = [];
     const tournamentHistory = [];
 
-    for (const [tId, tournament] of tournamentsMap.entries()) {
-      const runnerUpTeam = await getTournamentRunnerUp(tId);
-      const isWinner = tournament.winner && teamIds.some(id => id.toString() === tournament.winner.toString());
-      const isRunnerUp = runnerUpTeam && teamIds.some(id => id.toString() === runnerUpTeam._id.toString());
+    const distributedMap = new Map();
+    for (const dist of distributions) {
+      const reward = dist.playerRewards.find(r => r.userId.toString() === userId.toString());
+      if (reward) {
+        distributedMap.set(dist.tournamentId.toString(), reward);
+        totalPrizeMoneyEarned += reward.individualPrize;
+        if (reward.position === "Winner") {
+          tournamentsWon++;
+        } else if (reward.position === "Runner-up") {
+          runnerUpFinishes++;
+        }
+        tournamentRewards.push({
+          distributionId: dist.distributionId,
+          tournamentName: dist.snapshots.tournamentName,
+          teamName: reward.position === "Winner" ? dist.snapshots.winnerTeamName : dist.snapshots.runnerUpTeamName,
+          position: reward.position,
+          sponsorName: dist.snapshots.sponsorName,
+          brandName: dist.snapshots.brandName,
+          brandLogo: dist.snapshots.brandLogo,
+          winnerPrizeTotal: dist.snapshots.winnerPrizeTotal,
+          runnerUpPrizeTotal: dist.snapshots.runnerUpPrizeTotal,
+          individualPrize: reward.individualPrize,
+          distributedAt: dist.distributedAt
+        });
+        
+        prizeHistory.push({
+          tournamentName: dist.snapshots.tournamentName,
+          prizeAmount: reward.individualPrize,
+          receivedDate: dist.distributedAt,
+          role: reward.position
+        });
+      }
+    }
 
+    for (const [tId, tournament] of tournamentsMap.entries()) {
+      const reward = distributedMap.get(tId);
       let resultStr = "Participant";
-      if (isWinner) resultStr = "Winner";
-      else if (isRunnerUp) resultStr = "Runner-up";
+      if (reward) {
+        resultStr = reward.position;
+      } else {
+        const isWinner = tournament.winner && teamIds.some(id => id.toString() === tournament.winner.toString());
+        const runnerUpTeam = await getTournamentRunnerUp(tId);
+        const isRunnerUp = runnerUpTeam && teamIds.some(id => id.toString() === runnerUpTeam._id.toString());
+        if (isWinner) resultStr = "Winner";
+        else if (isRunnerUp) resultStr = "Runner-up";
+      }
 
       tournamentHistory.push({
         tournamentName: tournament.eventName,
@@ -415,33 +461,6 @@ exports.getPlayerDashboard = async (req, res, next) => {
         startDate: tournament.startDate,
         endDate: tournament.endDate
       });
-
-      if (tournament.status === "completed" && (isWinner || isRunnerUp)) {
-        const prizes = await getTournamentPrizes(tId, tournament.startDate);
-        const teamPrize = isWinner ? prizes.winnerPrize : prizes.runnerUpPrize;
-
-        const winningTeamId = isWinner ? tournament.winner : runnerUpTeam._id;
-        const teamObj = playerTeams.find(t => t._id.toString() === winningTeamId.toString());
-
-        if (teamObj) {
-          const eligibleCount = teamObj.players.filter(p => p.status === "approved" && p.paymentStatus === "Paid").length;
-          const playerShare = eligibleCount > 0 ? (teamPrize / eligibleCount) : 0;
-
-          if (playerShare > 0) {
-            totalPrizeMoneyEarned += playerShare;
-            prizeHistory.push({
-              tournamentName: tournament.eventName,
-              prizeAmount: playerShare,
-              receivedDate: tournament.endDate || tournament.createdAt,
-              role: isWinner ? "Winner" : "Runner-up"
-            });
-          }
-        }
-
-        if (isRunnerUp) {
-          runnerUpFinishes++;
-        }
-      }
     }
 
     prizeHistory.sort((a, b) => new Date(b.receivedDate) - new Date(a.receivedDate));
@@ -523,6 +542,7 @@ exports.getPlayerDashboard = async (req, res, next) => {
       },
       latestPrizeReceived: prizeHistory[0]?.prizeAmount || 0,
       prizeHistory,
+      tournamentRewards,
       paymentHistory,
       matchHistory,
       tournamentHistory,
@@ -1002,6 +1022,39 @@ exports.getSponsorDashboard = async (req, res, next) => {
       else if (sp.type === "inkind") inKindSponsorshipAmount += sp.amount || 0;
     }
 
+    const sponsorIds = sponsorships.map(sp => sp._id);
+    const PrizeDistribution = require("../models/PrizeDistribution");
+    const distributions = await PrizeDistribution.find({
+      sponsorId: { $in: sponsorIds }
+    }).populate("tournamentId");
+
+    let totalSponsoredPrizeAmount = 0;
+    let totalPlayersRewarded = 0;
+    let totalWinnerTeamsSponsored = 0;
+    let totalRunnerUpTeamsSponsored = 0;
+    let totalCompletedDistributions = distributions.length;
+
+    const prizeDistributions = distributions.map(d => {
+      totalSponsoredPrizeAmount += (d.snapshots.winnerPrizeTotal || 0) + (d.snapshots.runnerUpPrizeTotal || 0);
+      totalPlayersRewarded += d.playerRewards.length;
+      if (d.snapshots.winnerTeamName) totalWinnerTeamsSponsored++;
+      if (d.snapshots.runnerUpTeamName) totalRunnerUpTeamsSponsored++;
+
+      return {
+        _id: d._id,
+        distributionId: d.distributionId,
+        tournamentName: d.snapshots.tournamentName,
+        winnerTeam: d.snapshots.winnerTeamName,
+        runnerUpTeam: d.snapshots.runnerUpTeamName,
+        winnerPrize: d.snapshots.winnerPrizeTotal,
+        runnerUpPrize: d.snapshots.runnerUpPrizeTotal,
+        playersRewardedCount: d.playerRewards.length,
+        distributionDate: d.distributedAt,
+        status: "Completed",
+        playerRewards: d.playerRewards
+      };
+    });
+
     const notifications = await require("../models/notification").find({
       userId: userId
     }).sort({ createdAt: -1 }).limit(5);
@@ -1010,7 +1063,12 @@ exports.getSponsorDashboard = async (req, res, next) => {
       stats: {
         sponsoredTournaments: uniqueTourneys.size,
         activeSponsorships,
-        completedSponsorships
+        completedSponsorships,
+        totalSponsoredPrizeAmount,
+        totalPlayersRewarded,
+        totalWinnerTeamsSponsored,
+        totalRunnerUpTeamsSponsored,
+        totalCompletedDistributions
       },
       financials: {
         totalSponsoredAmount,
@@ -1020,7 +1078,8 @@ exports.getSponsorDashboard = async (req, res, next) => {
       history,
       upcomingSponsoredEvents: upcomingEvents.slice(0, 5),
       completedSponsoredEvents: completedEvents.slice(0, 5),
-      notifications
+      notifications,
+      prizeDistributions
     });
 
   } catch (err) {

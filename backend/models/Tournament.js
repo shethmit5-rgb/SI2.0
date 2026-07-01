@@ -66,6 +66,12 @@ const TournamentSchema = new mongoose.Schema({
     default: null,
   },
 
+  runnerUp: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Team",
+    default: null,
+  },
+
   logo: String,
 
   teamRegistrationFee: {

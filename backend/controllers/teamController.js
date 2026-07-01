@@ -2,6 +2,7 @@ const Team = require("../models/Team");
 const Tournament = require("../models/Tournament");
 const User = require("../models/User");
 const Notification = require("../models/notification");
+const Registration = require("../models/Registration");
 const crypto = require("crypto");
 const Transaction = require("../models/Transaction");
 const Razorpay = require("razorpay");
@@ -134,8 +135,13 @@ exports.createTeam = async (req, res, next) => {
       players: [],
     });
 
-    await Tournament.findByIdAndUpdate(tournamentId, {
-      $addToSet: { teams: team._id },
+    // Automatically create a pending registration record for this team
+    await Registration.create({
+      userId: finalCaptainId,
+      tournamentId,
+      teamId: team._id,
+      approvalStatus: "pending",
+      paymentStatus: "unpaid",
     });
 
     res.status(201).json(team);
@@ -162,12 +168,18 @@ exports.getTeams = async (req, res, next) => {
 
 exports.getTeamsByTournament = async (req, res, next) => {
   try {
+    const tournament = await Tournament.findById(req.params.tournamentId);
+    if (!tournament) {
+      return res.status(404).json({ message: "Tournament not found" });
+    }
+
     const teams = await Team.find({
-      tournamentId: req.params.tournamentId,
+      _id: { $in: tournament.teams || [] }
     }).populate("captainId", "name");
 
     res.json(teams);
   } catch (err) {
+    console.error("GET TEAMS BY TOURNAMENT ERROR:", err);
     res.status(500).json({ message: "Failed to load teams" });
   }
 };

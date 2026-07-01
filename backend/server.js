@@ -80,6 +80,7 @@ app.use("/api/sponsors", require("./routes/sponsorRouter"));
 
 app.use("/api/notifications", require("./routes/notificationRouter"));
 app.use("/api/payments", require("./routes/paymentRoutes"));
+app.use("/api/prize-distributions", require("./routes/prizeDistributionRouter"));
 
 // Analytics Routes - Real-time dashboard stats
 app.use("/api/analytics", require("./routes/analyticsRouter"));

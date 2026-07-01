@@ -23,12 +23,14 @@ export default function Profile() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [activeTab, setActiveTab] = useState("profile");
+  const [profileData, setProfileData] = useState(null);
 
   // ================= FETCH PROFILE =================
   useEffect(() => {
     const fetchProfile = async () => {
       try {
         const res = await api.get("/profile/me");
+        setProfileData(res.data);
 
         setForm({
           name: res.data.name || "",
@@ -288,6 +290,35 @@ export default function Profile() {
 
       </div>
 
+      {/* LIFETIME EARNINGS STATS (PLAYERS ONLY) */}
+      {profileData?.lifetimeEarnings && (
+        <div className="profile-container lifetime-earnings-container" style={{ marginTop: "20px", padding: "24px", background: "rgba(255, 255, 255, 0.03)", border: "1px solid var(--border)", borderRadius: "var(--radius-lg)" }}>
+          <h2 style={{ fontSize: "1.2rem", fontWeight: "800", color: "var(--text)", marginBottom: "16px", display: "flex", alignItems: "center", gap: "8px" }}>
+            🏆 Lifetime Earnings Achievements
+          </h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "16px" }}>
+            <div style={{ background: "rgba(255, 255, 255, 0.05)", border: "1px solid var(--border)", borderRadius: "12px", padding: "16px", display: "flex", flexDirection: "column", gap: "6px" }}>
+              <span style={{ fontSize: "12px", color: "var(--text-secondary)", fontWeight: "600" }}>Total Prize Money Earned</span>
+              <span style={{ fontSize: "24px", fontWeight: "800", color: "var(--success)" }}>
+                {new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(profileData.lifetimeEarnings.totalPrizeMoneyEarned)}
+              </span>
+            </div>
+            <div style={{ background: "rgba(255, 255, 255, 0.05)", border: "1px solid var(--border)", borderRadius: "12px", padding: "16px", display: "flex", flexDirection: "column", gap: "6px" }}>
+              <span style={{ fontSize: "12px", color: "var(--text-secondary)", fontWeight: "600" }}>Tournament Wins</span>
+              <span style={{ fontSize: "24px", fontWeight: "800", color: "var(--primary)" }}>{profileData.lifetimeEarnings.tournamentsWon}</span>
+            </div>
+            <div style={{ background: "rgba(255, 255, 255, 0.05)", border: "1px solid var(--border)", borderRadius: "12px", padding: "16px", display: "flex", flexDirection: "column", gap: "6px" }}>
+              <span style={{ fontSize: "12px", color: "var(--text-secondary)", fontWeight: "600" }}>Runner-up Finishes</span>
+              <span style={{ fontSize: "24px", fontWeight: "800", color: "var(--highlight)" }}>{profileData.lifetimeEarnings.runnerUpFinishes}</span>
+            </div>
+            <div style={{ background: "rgba(255, 255, 255, 0.05)", border: "1px solid var(--border)", borderRadius: "12px", padding: "16px", display: "flex", flexDirection: "column", gap: "6px" }}>
+              <span style={{ fontSize: "12px", color: "var(--text-secondary)", fontWeight: "600" }}>Sponsored Rewards</span>
+              <span style={{ fontSize: "24px", fontWeight: "800", color: "var(--teal)" }}>{profileData.lifetimeEarnings.sponsoredRewardsCount}</span>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* TABS */}
       <div className="profile-tabs">
         <button
@@ -310,6 +341,15 @@ export default function Profile() {
         >
           Registrations
         </button>
+
+        {user?.role === "player" && (
+          <button
+            className={`tab-btn ${activeTab === "rewards" ? "active" : ""}`}
+            onClick={() => setActiveTab("rewards")}
+          >
+            🏆 Rewards History
+          </button>
+        )}
       </div>
 
       {/* TABS CONTENT */}
@@ -321,6 +361,7 @@ export default function Profile() {
         )}
         {activeTab === "teams" && <TeamsList navigate={navigate} />}
         {activeTab === "registrations" && <RegistrationsList navigate={navigate} />}
+        {activeTab === "rewards" && <RewardsList rewards={profileData?.tournamentRewards || []} />}
       </div>
 
       {/* DANGER ZONE CARD */}
@@ -467,6 +508,87 @@ function RegistrationsList({ navigate }) {
           >
             View Tournament →
           </button>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/* ================= REWARDS COMPONENT ================= */
+function RewardsList({ rewards }) {
+  const formatCurrency = (val) => {
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      maximumFractionDigits: 0
+    }).format(val || 0);
+  };
+
+  const formatDate = (dateStr) => {
+    if (!dateStr) return "N/A";
+    return new Date(dateStr).toLocaleDateString(undefined, {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+  };
+
+  if (rewards.length === 0) {
+    return (
+      <div className="empty-state">
+        <p>No tournament rewards earned yet.</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="registrations-list">
+      {rewards.map((reward) => (
+        <div key={reward.distributionId} className="registration-card" style={{ borderLeft: "4px solid var(--success)", padding: "20px", display: "flex", flexDirection: "column", gap: "10px" }}>
+          <div className="reg-header" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <h3 style={{ margin: 0, color: "var(--text)" }}>{reward.tournamentName}</h3>
+            <span 
+              className="status-badge"
+              style={{ 
+                backgroundColor: "rgba(16, 185, 129, 0.1)", 
+                color: "#10b981", 
+                border: "1px solid rgba(16, 185, 129, 0.2)",
+                padding: "4px 8px",
+                borderRadius: "4px",
+                fontSize: "11px",
+                fontWeight: "700",
+                textTransform: "uppercase"
+              }}
+            >
+              {reward.position}
+            </span>
+          </div>
+
+          <p style={{ margin: 0, fontSize: "14px", color: "var(--text-secondary)" }}>
+            🏷️ Team: <strong>{reward.teamName}</strong>
+          </p>
+          <p style={{ margin: 0, fontSize: "14px", color: "var(--text-secondary)", fontFamily: "monospace" }}>
+            🆔 Distribution ID: {reward.distributionId}
+          </p>
+          <p style={{ margin: 0, fontSize: "13px", color: "var(--text-muted)" }}>
+            📅 Date: {formatDate(reward.distributedAt)}
+          </p>
+
+          {/* Sponsor snap branding */}
+          <div style={{ display: "flex", alignItems: "center", gap: "10px", margin: "8px 0", padding: "10px", background: "rgba(255, 255, 255, 0.03)", borderRadius: "8px", border: "1px solid var(--border)" }}>
+            {reward.brandLogo && (
+              <img src={reward.brandLogo} alt={reward.brandName} style={{ width: "32px", height: "32px", borderRadius: "50%", objectFit: "cover", border: "1px solid var(--border)" }} />
+            )}
+            <div>
+              <p style={{ margin: 0, fontSize: "11px", color: "var(--text-muted)", fontWeight: "600", textTransform: "uppercase" }}>Title Sponsor</p>
+              <p style={{ margin: 0, fontSize: "14px", color: "var(--text)", fontWeight: "700" }}>{reward.brandName}</p>
+            </div>
+          </div>
+
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "10px", borderTop: "1px solid var(--border)", paddingTop: "10px" }}>
+            <span style={{ fontSize: "13px", color: "var(--text-secondary)" }}>My Share Earnings:</span>
+            <span style={{ fontSize: "20px", fontWeight: "800", color: "var(--success)" }}>{formatCurrency(reward.individualPrize)}</span>
+          </div>
         </div>
       ))}
     </div>

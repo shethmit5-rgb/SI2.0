@@ -213,8 +213,8 @@ export default function OrganizerMatches() {
       </div>
 
       {roundInfo && (
-        <div style={{ margin: "0 20px 20px 20px", padding: "12px", backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }}>
-          <p style={{ margin: 0, fontWeight: "bold", color: "#1e293b" }}>⚡ Current Active Round: {roundInfo.currentRound}</p>
+        <div className="active-round-banner">
+          <p style={{ margin: 0, fontWeight: "bold" }}>⚡ Current Active Round: {roundInfo.currentRound}</p>
           {roundInfo.isCompleted && (
             <p style={{ margin: "5px 0 0 0", color: "#10b981", fontWeight: "bold" }}>
               🏆 Tournament Completed! Champion: {roundInfo.winner?.teamName || "TBD"}
@@ -433,19 +433,19 @@ function MatchEditor({ match, venues, teams, onUpdate, onCancel }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="editor-form" style={{ marginTop: "15px", display: "grid", gap: "10px", padding: "15px", border: "1px solid #ddd", borderRadius: "8px", width: "100%" }}>
+    <form onSubmit={handleSubmit} className="editor-form match-edit-form">
       <h4>Edit Match Details</h4>
       <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
         <div style={{ flex: 1, minWidth: "150px" }}>
           <label style={{ display: "block", marginBottom: "4px", fontSize: "0.85rem", fontWeight: "bold" }}>Team A</label>
-          <select value={teamA} onChange={(e) => setTeamA(e.target.value)} required style={{ width: "100%", padding: "8px", borderRadius: "4px", border: "1px solid #ccc" }}>
+          <select value={teamA} onChange={(e) => setTeamA(e.target.value)} required>
             <option value="">Select Team</option>
             {teams.map(t => <option key={t._id} value={t._id}>{t.teamName}</option>)}
           </select>
         </div>
         <div style={{ flex: 1, minWidth: "150px" }}>
           <label style={{ display: "block", marginBottom: "4px", fontSize: "0.85rem", fontWeight: "bold" }}>Team B</label>
-          <select value={teamB} onChange={(e) => setTeamB(e.target.value)} required style={{ width: "100%", padding: "8px", borderRadius: "4px", border: "1px solid #ccc" }}>
+          <select value={teamB} onChange={(e) => setTeamB(e.target.value)} required>
             <option value="">Select Team</option>
             {teams.map(t => <option key={t._id} value={t._id}>{t.teamName}</option>)}
           </select>
@@ -454,22 +454,22 @@ function MatchEditor({ match, venues, teams, onUpdate, onCancel }) {
       <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
         <div style={{ flex: 1, minWidth: "120px" }}>
           <label style={{ display: "block", marginBottom: "4px", fontSize: "0.85rem", fontWeight: "bold" }}>Date</label>
-          <input type="date" value={matchDate} onChange={(e) => setMatchDate(e.target.value)} required style={{ width: "100%", padding: "8px", borderRadius: "4px", border: "1px solid #ccc" }} />
+          <input type="date" value={matchDate} onChange={(e) => setMatchDate(e.target.value)} required />
         </div>
         <div style={{ flex: 1, minWidth: "100px" }}>
           <label style={{ display: "block", marginBottom: "4px", fontSize: "0.85rem", fontWeight: "bold" }}>Time</label>
-          <input type="time" value={matchTime} onChange={(e) => setMatchTime(e.target.value)} required style={{ width: "100%", padding: "8px", borderRadius: "4px", border: "1px solid #ccc" }} />
+          <input type="time" value={matchTime} onChange={(e) => setMatchTime(e.target.value)} required />
         </div>
         <div style={{ flex: 1, minWidth: "150px" }}>
           <label style={{ display: "block", marginBottom: "4px", fontSize: "0.85rem", fontWeight: "bold" }}>Venue</label>
-          <select value={venueId} onChange={(e) => setVenueId(e.target.value)} required style={{ width: "100%", padding: "8px", borderRadius: "4px", border: "1px solid #ccc" }}>
+          <select value={venueId} onChange={(e) => setVenueId(e.target.value)} required>
             <option value="">Select Venue</option>
             {venues.map(v => <option key={v._id} value={v._id}>{v.name}</option>)}
           </select>
         </div>
         <div style={{ flex: 1, minWidth: "120px" }}>
           <label style={{ display: "block", marginBottom: "4px", fontSize: "0.85rem", fontWeight: "bold" }}>Status</label>
-          <select value={status} onChange={(e) => setStatus(e.target.value)} required style={{ width: "100%", padding: "8px", borderRadius: "4px", border: "1px solid #ccc" }}>
+          <select value={status} onChange={(e) => setStatus(e.target.value)} required>
             <option value="scheduled">Scheduled</option>
             <option value="live">Live</option>
             <option value="completed">Completed</option>
@@ -477,8 +477,8 @@ function MatchEditor({ match, venues, teams, onUpdate, onCancel }) {
         </div>
       </div>
       <div style={{ display: "flex", gap: "10px", justifyContent: "flex-end", marginTop: "10px" }}>
-        <button type="submit" className="save-result" style={{ background: "#2563EB", color: "white", padding: "8px 16px", border: "none", borderRadius: "4px", cursor: "pointer" }}>Save Changes</button>
-        <button type="button" className="cancel-result" onClick={onCancel} style={{ background: "#ccc", color: "black", padding: "8px 16px", border: "none", borderRadius: "4px", cursor: "pointer" }}>Cancel</button>
+        <button type="submit" className="save-result">Save Changes</button>
+        <button type="button" className="cancel-result" onClick={onCancel}>Cancel</button>
       </div>
     </form>
   );

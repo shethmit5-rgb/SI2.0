@@ -17,7 +17,54 @@ exports.getProfile = async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
 
-    res.json(user);
+    const userObj = user.toObject();
+
+    if (user.role === "player") {
+      const PrizeDistribution = require("../models/PrizeDistribution");
+      const distributions = await PrizeDistribution.find({
+        "playerRewards.userId": req.user.userId
+      });
+
+      let totalPrizeMoneyEarned = 0;
+      let tournamentsWon = 0;
+      let runnerUpFinishes = 0;
+      const tournamentRewards = [];
+
+      for (const dist of distributions) {
+        const reward = dist.playerRewards.find(r => r.userId.toString() === req.user.userId.toString());
+        if (reward) {
+          totalPrizeMoneyEarned += reward.individualPrize;
+          if (reward.position === "Winner") {
+            tournamentsWon++;
+          } else if (reward.position === "Runner-up") {
+            runnerUpFinishes++;
+          }
+          tournamentRewards.push({
+            distributionId: dist.distributionId,
+            tournamentName: dist.snapshots.tournamentName,
+            teamName: reward.position === "Winner" ? dist.snapshots.winnerTeamName : dist.snapshots.runnerUpTeamName,
+            position: reward.position,
+            sponsorName: dist.snapshots.sponsorName,
+            brandName: dist.snapshots.brandName,
+            brandLogo: dist.snapshots.brandLogo,
+            winnerPrizeTotal: dist.snapshots.winnerPrizeTotal,
+            runnerUpPrizeTotal: dist.snapshots.runnerUpPrizeTotal,
+            individualPrize: reward.individualPrize,
+            distributedAt: dist.distributedAt
+          });
+        }
+      }
+
+      userObj.lifetimeEarnings = {
+        totalPrizeMoneyEarned,
+        tournamentsWon,
+        runnerUpFinishes,
+        sponsoredRewardsCount: tournamentRewards.length
+      };
+      userObj.tournamentRewards = tournamentRewards;
+    }
+
+    res.json(userObj);
   } catch (error) {
     console.error("PROFILE ME ERROR:", error);
     res.status(500).json({ message: "Failed to fetch profile" });

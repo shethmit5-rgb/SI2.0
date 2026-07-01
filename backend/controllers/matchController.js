@@ -204,6 +204,13 @@ exports.updateMatchResult = async (req, res, next) => {
       return res.status(404).json({ message: "Match not found" });
     }
 
+    // Check if standings are locked due to completed prize distribution
+    const PrizeDistribution = require("../models/PrizeDistribution");
+    const existingDist = await PrizeDistribution.findOne({ tournamentId: match.tournamentId._id || match.tournamentId });
+    if (existingDist) {
+      return res.status(400).json({ message: "Standings are locked. Prize distribution has already been completed for this tournament." });
+    }
+
     // Only Admin, the tournament creator, or the assigned Organizer can update match results
     const isCreator = match.tournamentId.createdBy && match.tournamentId.createdBy.toString() === req.user.userId;
     const isAssigned = match.tournamentId.organizerId && match.tournamentId.organizerId.toString() === req.user.userId;
@@ -229,9 +236,22 @@ exports.updateMatchResult = async (req, res, next) => {
     if (match.status === "completed" && match.result?.winnerTeamId) {
       const roundInfo = await getTournamentRoundInfo(match.tournamentId._id || match.tournamentId);
       if (roundInfo.isCompleted && roundInfo.winner) {
+        const winnerId = roundInfo.winner._id.toString();
+        const runnerUpId = match.teams.find(t => t.toString() !== winnerId);
+
         await Tournament.findByIdAndUpdate(match.tournamentId._id || match.tournamentId, {
-          winner: roundInfo.winner._id
+          status: "completed",
+          winner: winnerId,
+          runnerUp: runnerUpId || null
         });
+
+        // Trigger automatic prize distribution
+        const { distributeTournamentPrizes } = require("../utils/prizeDistributionHelper");
+        try {
+          await distributeTournamentPrizes(match.tournamentId._id || match.tournamentId, "System", null, req);
+        } catch (distErr) {
+          console.error("[AUTO PRIZE DISTRIBUTION FAILED]:", distErr);
+        }
       }
     }
 

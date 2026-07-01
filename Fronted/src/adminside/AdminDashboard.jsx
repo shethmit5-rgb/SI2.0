@@ -36,16 +36,34 @@ export default function AdminDashboard() {
   const [users, setUsers] = useState([]);
   const [tournaments, setTournaments] = useState([]);
   const [registrations, setRegistrations] = useState([]);
+  const [prizeDistributions, setPrizeDistributions] = useState([]);
+  const [actionLoadingId, setActionLoadingId] = useState(null);
 
   const [stats, setStats] = useState({
     users: 0,
     tournaments: 0,
     teams: 0,
     prizePool: 0,
+    totalPrizeDistributed: 0,
+    totalDistributionsCompleted: 0,
   });
 
   const authHeader = {
     headers: { Authorization: `Bearer ${token}` },
+  };
+
+  const handleManualDistribute = async (tournamentId) => {
+    try {
+      setActionLoadingId(tournamentId);
+      const res = await axios.post(`http://localhost:5000/api/prize-distributions/distribute/${tournamentId}`, {}, authHeader);
+      alert(`✅ Prize distributed successfully! Distribution ID: ${res.data.distributionId}`);
+      loadDashboardData();
+    } catch (err) {
+      console.error(err);
+      alert(`❌ Error: ${err.response?.data?.message || err.message || "Failed to distribute prizes"}`);
+    } finally {
+      setActionLoadingId(null);
+    }
   };
 
   /* ================= LOAD DASHBOARD ================= */
@@ -72,6 +90,14 @@ export default function AdminDashboard() {
       const registrationsRes = await axios.get("http://localhost:5000/api/registrations", authHeader);
       console.log("REGISTRATIONS OK");
 
+      const analyticsRes = await axios.get("http://localhost:5000/api/analytics/stats", authHeader);
+      const analyticsStats = analyticsRes.data.stats || {};
+      console.log("ANALYTICS OK");
+
+      const distsRes = await axios.get("http://localhost:5000/api/prize-distributions", authHeader);
+      setPrizeDistributions(distsRes.data || []);
+      console.log("DISTRIBUTIONS OK");
+
       const prizePool = sponsorsRes.data.reduce(
         (sum, s) => sum + Number(s.amount || 0),
         0
@@ -86,6 +112,8 @@ export default function AdminDashboard() {
         tournaments: tournamentsRes.data.length,
         teams: teamsRes.data.length,
         prizePool,
+        totalPrizeDistributed: analyticsStats.totalPrizeDistributed || 0,
+        totalDistributionsCompleted: analyticsStats.totalDistributionsCompleted || 0,
       });
     } catch (err) {
       console.error("ADMIN DASHBOARD ERROR:", err.response?.data || err.message);
@@ -169,6 +197,20 @@ export default function AdminDashboard() {
             <span style={{ fontSize: "14px", color: "var(--text-secondary)" }}>Prize Pool</span>
             <span style={{ fontSize: "32px", fontWeight: "800", color: "var(--premium)" }}>
               ₹<AnimatedCounter value={stats.prizePool} />
+            </span>
+          </TiltCard>
+
+          <TiltCard className="card" style={{ padding: "20px", display: "flex", flexDirection: "column", gap: "10px" }}>
+            <span style={{ fontSize: "14px", color: "var(--text-secondary)" }}>Total Distributed</span>
+            <span style={{ fontSize: "32px", fontWeight: "800", color: "var(--success)" }}>
+              ₹<AnimatedCounter value={stats.totalPrizeDistributed} />
+            </span>
+          </TiltCard>
+
+          <TiltCard className="card" style={{ padding: "20px", display: "flex", flexDirection: "column", gap: "10px" }}>
+            <span style={{ fontSize: "14px", color: "var(--text-secondary)" }}>Distributions Count</span>
+            <span style={{ fontSize: "32px", fontWeight: "800", color: "var(--primary)" }}>
+              <AnimatedCounter value={stats.totalDistributionsCompleted} />
             </span>
           </TiltCard>
         </motion.div>
@@ -270,6 +312,83 @@ export default function AdminDashboard() {
             </div>
           </motion.section>
         </div>
+
+        {/* ================= PRIZE DISTRIBUTION LOGS ================= */}
+        <motion.section className="panel" variants={dashboardItem} style={{ marginTop: "30px" }}>
+          <h2>🏆 Prize Distribution Logs & Recovery</h2>
+          <div className="table-container-fixed" style={{ maxHeight: "400px", overflowY: "auto" }}>
+            <table>
+              <thead>
+                <tr>
+                  <th>Distribution ID</th>
+                  <th>Tournament</th>
+                  <th>Title Sponsor</th>
+                  <th>Winner Team</th>
+                  <th>Runner-Up Team</th>
+                  <th>Winner Prize</th>
+                  <th>Runner-Up Prize</th>
+                  <th>Players Rewarded</th>
+                  <th>Distribution Date</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {tournaments.filter(t => t.status === "completed").map((t) => {
+                  const dist = prizeDistributions.find(d => d.tournamentId?._id === t._id || d.tournamentId === t._id);
+                  const formatCurrency = (val) => {
+                    return new Intl.NumberFormat('en-IN', {
+                      style: 'currency',
+                      currency: 'INR',
+                      maximumFractionDigits: 0
+                    }).format(val || 0);
+                  };
+                  
+                  return (
+                    <tr key={t._id}>
+                      <td style={{ fontFamily: "monospace", fontWeight: "600" }}>{dist ? dist.distributionId : "-"}</td>
+                      <td><strong>{t.eventName}</strong></td>
+                      <td>{dist ? dist.snapshots?.brandName : "Title Sponsor"}</td>
+                      <td>{dist ? dist.snapshots?.winnerTeamName : (t.winner?.teamName || "TBD")}</td>
+                      <td>{dist ? dist.snapshots?.runnerUpTeamName : (t.runnerUp?.teamName || "TBD")}</td>
+                      <td>{dist ? formatCurrency(dist.snapshots?.winnerPrizeTotal) : "-"}</td>
+                      <td>{dist ? formatCurrency(dist.snapshots?.runnerUpPrizeTotal) : "-"}</td>
+                      <td>{dist ? `${dist.playerRewards?.length || 0} Players` : "-"}</td>
+                      <td>{dist ? new Date(dist.distributedAt).toLocaleDateString() : "-"}</td>
+                      <td>
+                        <span className={`status ${dist ? "approved" : "pending"}`} style={{ textTransform: "capitalize" }}>
+                          {dist ? "Distributed" : "Pending"}
+                        </span>
+                      </td>
+                      <td>
+                        <button
+                          onClick={() => handleManualDistribute(t._id)}
+                          disabled={!!dist || actionLoadingId === t._id}
+                          className="refresh-btn-premium"
+                          style={{
+                            padding: "6px 12px",
+                            fontSize: "12px",
+                            opacity: dist ? 0.5 : 1,
+                            cursor: dist ? "not-allowed" : "pointer"
+                          }}
+                        >
+                          {actionLoadingId === t._id ? "Processing..." : (dist ? "Distributed" : "Distribute Prize")}
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+                {tournaments.filter(t => t.status === "completed").length === 0 && (
+                  <tr>
+                    <td colSpan="11" style={{ textAlign: "center", color: "var(--text-secondary)", padding: "20px" }}>
+                      No completed tournaments recorded.
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+        </motion.section>
       </main>
     </motion.div>
   );

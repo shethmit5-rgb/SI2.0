@@ -20,6 +20,7 @@ export default function TournamentDetails() {
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("overview");
   const [registering, setRegistering] = useState(false);
+  const [distribution, setDistribution] = useState(null);
 
   const [showSponsorModal, setShowSponsorModal] = useState(false);
   const [sponsorshipError, setSponsorshipError] = useState("");
@@ -80,6 +81,14 @@ export default function TournamentDetails() {
       // Fetch sponsors
       const sponsorsRes = await api.get(`/sponsors/public/tournament/${id}`);
       setSponsors(sponsorsRes.data || []);
+
+      // Fetch Prize Distribution Details
+      try {
+        const distRes = await api.get(`/prize-distributions/${id}`);
+        setDistribution(distRes.data);
+      } catch (distErr) {
+        console.log("No prize distribution found for this tournament yet.");
+      }
 
       // If user is logged in, check their team and registration
       if (user) {
@@ -531,6 +540,70 @@ export default function TournamentDetails() {
                   <p className="prize-amount">₹{tournament.prizePool?.toLocaleString() || 0}</p>
                 </div>
               </div>
+
+              {/* Sponsorship & Prize Distribution Details (Read-only) */}
+              {distribution && (
+                <div className="description-section" style={{ marginTop: "24px", background: "rgba(255, 255, 255, 0.02)", border: "1px solid var(--border)", borderRadius: "var(--radius-md)", padding: "20px" }}>
+                  <h3 style={{ display: "flex", alignItems: "center", gap: "8px", margin: "0 0 16px 0", color: "var(--text)" }}>🏆 Sponsored Prize Details</h3>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "16px" }}>
+                    <div>
+                      <p style={{ margin: "0 0 4px 0", fontSize: "11px", color: "var(--text-secondary)", fontWeight: "600", textTransform: "uppercase" }}>Sponsored By</p>
+                      {distribution.brandName ? (
+                        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                          {distribution.brandLogo && (
+                            <img src={distribution.brandLogo} alt={distribution.brandName} style={{ width: "24px", height: "24px", borderRadius: "50%", objectFit: "cover", border: "1px solid var(--border)" }} />
+                          )}
+                          <strong style={{ fontSize: "14px", color: "var(--text)" }}>{distribution.brandName}</strong>
+                        </div>
+                      ) : (
+                        <strong style={{ fontSize: "14px", color: "var(--text-secondary)" }}>No Active Title Sponsor</strong>
+                      )}
+                    </div>
+                    <div>
+                      <p style={{ margin: "0 0 4px 0", fontSize: "11px", color: "var(--text-secondary)", fontWeight: "600", textTransform: "uppercase" }}>Winner Team Prize</p>
+                      <strong style={{ fontSize: "14px", color: "var(--success)" }}>
+                        {new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(distribution.winnerPrizeTotal || 0)}
+                      </strong>
+                    </div>
+                    <div>
+                      <p style={{ margin: "0 0 4px 0", fontSize: "11px", color: "var(--text-secondary)", fontWeight: "600", textTransform: "uppercase" }}>Runner-Up Team Prize</p>
+                      <strong style={{ fontSize: "14px", color: "var(--success)" }}>
+                        {new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(distribution.runnerUpPrizeTotal || 0)}
+                      </strong>
+                    </div>
+                    {distribution.distributed && (
+                      <>
+                        <div>
+                          <p style={{ margin: "0 0 4px 0", fontSize: "11px", color: "var(--text-secondary)", fontWeight: "600", textTransform: "uppercase" }}>Winner Team</p>
+                          <strong style={{ fontSize: "14px", color: "var(--text)" }}>{distribution.winnerTeam}</strong>
+                        </div>
+                        <div>
+                          <p style={{ margin: "0 0 4px 0", fontSize: "11px", color: "var(--text-secondary)", fontWeight: "600", textTransform: "uppercase" }}>Runner-Up Team</p>
+                          <strong style={{ fontSize: "14px", color: "var(--text)" }}>{distribution.runnerUpTeam}</strong>
+                        </div>
+                        <div>
+                          <p style={{ margin: "0 0 4px 0", fontSize: "11px", color: "var(--text-secondary)", fontWeight: "600", textTransform: "uppercase" }}>Players Rewarded</p>
+                          <strong style={{ fontSize: "14px", color: "var(--text)" }}>{distribution.playersRewardedCount} Players</strong>
+                        </div>
+                        <div>
+                          <p style={{ margin: "0 0 4px 0", fontSize: "11px", color: "var(--text-secondary)", fontWeight: "600", textTransform: "uppercase" }}>Distribution Date</p>
+                          <strong style={{ fontSize: "14px", color: "var(--text)" }}>{new Date(distribution.distributedAt).toLocaleDateString()}</strong>
+                        </div>
+                        <div>
+                          <p style={{ margin: "0 0 4px 0", fontSize: "11px", color: "var(--text-secondary)", fontWeight: "600", textTransform: "uppercase" }}>Distribution ID</p>
+                          <strong style={{ fontSize: "14px", color: "var(--text)", fontFamily: "monospace" }}>{distribution.distributionId}</strong>
+                        </div>
+                      </>
+                    )}
+                    <div>
+                      <p style={{ margin: "0 0 4px 0", fontSize: "11px", color: "var(--text-secondary)", fontWeight: "600", textTransform: "uppercase" }}>Prize Distribution Status</p>
+                      <strong style={{ fontSize: "14px", color: distribution.distributed ? "var(--success)" : "var(--primary)" }}>
+                        {distribution.distributed ? "Completed" : "Pending completion"}
+                      </strong>
+                    </div>
+                  </div>
+                </div>
+              )}
 
               {tournament.description && tournament.description !== "No description available." && (
                 <div className="description-section">

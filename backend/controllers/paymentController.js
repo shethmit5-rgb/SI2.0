@@ -235,15 +235,23 @@ exports.adminOverridePayment = async (req, res) => {
             tournamentId: transaction.tournamentId,
             teamId: transaction.teamId,
             paymentStatus: "Paid",
+            approvalStatus: "approved",
             razorpayOrderId: transaction.razorpayOrderId,
             amount: transaction.amount,
             paidAt: new Date()
           });
         } else {
           reg.paymentStatus = "Paid";
+          reg.approvalStatus = "approved";
           await reg.save();
         }
         transaction.registrationId = reg._id;
+
+        // Add team to tournament
+        await Tournament.findByIdAndUpdate(
+          transaction.tournamentId,
+          { $addToSet: { teams: transaction.teamId } }
+        );
       } else if (transaction.paymentType === "player_joining") {
         const team = await Team.findById(transaction.teamId);
         if (team) {
