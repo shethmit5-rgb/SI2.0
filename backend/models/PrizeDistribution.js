@@ -13,6 +13,14 @@ const PrizeDistributionSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
+    winnerTeamId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Team",
+    },
+    runnerUpTeamId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Team",
+    },
     sponsorId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Sponsor",

@@ -133,6 +133,34 @@ async function checkAndUpdateTournamentStatuses() {
     },
     { status: "ongoing" }
   );
+
+  // 4. Automatic recovery / self-healing trigger
+  try {
+    const PrizeDistribution = require("../models/PrizeDistribution");
+    const { distributeTournamentPrizes } = require("./prizeDistributionHelper");
+
+    // Find completed tournaments with winner and runner-up declared
+    const completedTournaments = await Tournament.find({
+      status: "completed",
+      winner: { $ne: null },
+      runnerUp: { $ne: null }
+    });
+
+    for (const t of completedTournaments) {
+      const existingDist = await PrizeDistribution.findOne({ tournamentId: t._id });
+      if (!existingDist) {
+        console.log(`[AutoRecovery] Tournament "${t.eventName}" (${t._id}) has winner/runner-up declared but no prize distribution found. Triggering distribution...`);
+        try {
+          const distResult = await distributeTournamentPrizes(t._id, "System");
+          console.log(`[AutoRecovery] Automatic prize distribution result for "${t.eventName}":`, distResult);
+        } catch (distErr) {
+          console.error(`[AutoRecovery] Automatic prize distribution failed for "${t.eventName}":`, distErr.message);
+        }
+      }
+    }
+  } catch (recoveryErr) {
+    console.error("[AutoRecovery] Error during auto prize distribution recovery check:", recoveryErr);
+  }
 }
 
 function triggerDashboardUpdate(req, type) {

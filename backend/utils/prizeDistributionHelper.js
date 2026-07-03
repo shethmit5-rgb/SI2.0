@@ -8,38 +8,91 @@ const Notification = require("../models/notification");
 
 /**
  * Automates the prize distribution for a completed tournament.
- * Uses a Mongoose transaction session to ensure all operations succeed or fail together.
+ * Dispatches to a retrying runner that falls back to session-less execution on standalone MongoDB.
  */
 async function distributeTournamentPrizes(tournamentId, triggeredBy = "System", adminUserId = null, req = null) {
-  const session = await mongoose.startSession();
-  session.startTransaction();
+  return await distributeWithRetry(tournamentId, triggeredBy, adminUserId, req, true);
+}
+
+async function distributeWithRetry(tournamentId, triggeredBy, adminUserId, req, attemptTransaction) {
+  console.log(`\n=== [PrizeDistribution] distributeTournamentPrizes() entered ===`);
+  console.log(`- Tournament ID: ${tournamentId}`);
+  console.log(`- Triggered By: ${triggeredBy}`);
+  console.log(`- Admin User ID: ${adminUserId}`);
+  console.log(`- Attempt Transaction: ${attemptTransaction}`);
+
+  let session = null;
+  let useTransaction = attemptTransaction;
+
+  if (useTransaction) {
+    try {
+      session = await mongoose.startSession();
+      session.startTransaction();
+      console.log(`- Transaction Started`);
+    } catch (txErr) {
+      console.log(`- Failed to start session/transaction: ${txErr.message}`);
+      useTransaction = false;
+      session = null;
+    }
+  }
 
   try {
     // 1. Check if PrizeDistribution already exists
     const existingDistribution = await PrizeDistribution.findOne({ tournamentId }).session(session);
+    console.log(`- Existing PrizeDistribution: ${existingDistribution ? existingDistribution.distributionId : "None"}`);
     if (existingDistribution) {
-      console.log(`[PrizeDistribution] Prizes already distributed for tournament ${tournamentId}`);
-      await session.abortTransaction();
-      session.endSession();
+      const msg = `Prizes already distributed for tournament ${tournamentId}`;
+      console.log(`[PrizeDistribution Exit] ${msg}`);
+      if (useTransaction && session) {
+        await session.abortTransaction();
+        session.endSession();
+      }
       return { success: false, message: "Prize has already been distributed for this tournament.", code: "ALREADY_DISTRIBUTED" };
     }
 
     // 2. Fetch Tournament
     const tournament = await Tournament.findById(tournamentId).session(session);
     if (!tournament) {
-      throw new Error("Tournament not found");
+      const msg = "Tournament not found";
+      console.log(`[PrizeDistribution Exit] ${msg}`);
+      if (useTransaction && session) {
+        await session.abortTransaction();
+        session.endSession();
+      }
+      throw new Error(msg);
     }
+    console.log(`- Tournament Status: ${tournament.status}`);
+    console.log(`- Winner ID: ${tournament.winner}`);
+    console.log(`- Runner-up ID: ${tournament.runnerUp}`);
 
     // 3. Verify Tournament Status (MUST be Completed, and winner/runnerUp must exist)
     if (tournament.status !== "completed") {
-      throw new Error(`Tournament status is ${tournament.status}. Prizes can only be distributed for completed tournaments.`);
+      const msg = `Tournament status is ${tournament.status}. Prizes can only be distributed for completed tournaments.`;
+      console.log(`[PrizeDistribution Exit] ${msg}`);
+      if (useTransaction && session) {
+        await session.abortTransaction();
+        session.endSession();
+      }
+      throw new Error(msg);
     }
 
     if (!tournament.winner) {
-      throw new Error("Tournament winner team has not been declared");
+      const msg = "Tournament winner team has not been declared";
+      console.log(`[PrizeDistribution Exit] ${msg}`);
+      if (useTransaction && session) {
+        await session.abortTransaction();
+        session.endSession();
+      }
+      throw new Error(msg);
     }
     if (!tournament.runnerUp) {
-      throw new Error("Tournament runner-up team has not been declared");
+      const msg = "Tournament runner-up team has not been declared";
+      console.log(`[PrizeDistribution Exit] ${msg}`);
+      if (useTransaction && session) {
+        await session.abortTransaction();
+        session.endSession();
+      }
+      throw new Error(msg);
     }
 
     // 4. Verify Active Title Sponsor & Payment
@@ -49,20 +102,32 @@ async function distributeTournamentPrizes(tournamentId, triggeredBy = "System", 
       status: "active"
     }).session(session);
 
+    console.log(`- Sponsor Found: ${titleSponsor ? titleSponsor.name : "None"}`);
+    console.log(`- Sponsor Payment Status: ${titleSponsor ? titleSponsor.status : "N/A"}`);
+
     if (!titleSponsor) {
-      console.log(`[PrizeDistribution] No active Title Sponsor found for tournament ${tournamentId}. Skipping prize distribution.`);
-      await session.abortTransaction();
-      session.endSession();
+      const msg = `No active Title Sponsor found for tournament ${tournamentId}. Skipping prize distribution.`;
+      console.log(`[PrizeDistribution Exit] ${msg}`);
+      if (useTransaction && session) {
+        await session.abortTransaction();
+        session.endSession();
+      }
       return { success: false, message: "No active Title Sponsor found. No prize distribution performed.", code: "NO_SPONSOR" };
     }
 
     const winnerPrizeTotal = titleSponsor.winnerPrize || 0;
     const runnerUpPrizeTotal = titleSponsor.runnerUpPrize || 0;
 
+    console.log(`- Winner Prize: ${winnerPrizeTotal}`);
+    console.log(`- Runner-up Prize: ${runnerUpPrizeTotal}`);
+
     if (winnerPrizeTotal <= 0 && runnerUpPrizeTotal <= 0) {
-      console.log(`[PrizeDistribution] Sponsor prize amounts are zero. Skipping distribution.`);
-      await session.abortTransaction();
-      session.endSession();
+      const msg = `Sponsor prize amounts are zero. Skipping distribution.`;
+      console.log(`[PrizeDistribution Exit] ${msg}`);
+      if (useTransaction && session) {
+        await session.abortTransaction();
+        session.endSession();
+      }
       return { success: false, message: "Sponsor prize pool amounts are ₹0. Skipping distribution.", code: "ZERO_PRIZE" };
     }
 
@@ -71,18 +136,39 @@ async function distributeTournamentPrizes(tournamentId, triggeredBy = "System", 
     const runnerUpTeam = await Team.findById(tournament.runnerUp).session(session);
 
     if (!winnerTeam || !runnerUpTeam) {
-      throw new Error("Winner or Runner-up team record not found");
+      const msg = "Winner or Runner-up team record not found";
+      console.log(`[PrizeDistribution Exit] ${msg}`);
+      if (useTransaction && session) {
+        await session.abortTransaction();
+        session.endSession();
+      }
+      throw new Error(msg);
     }
 
     // Filter approved players
     const approvedWinnerPlayers = winnerTeam.players.filter(p => p.status === "approved");
     const approvedRunnerUpPlayers = runnerUpTeam.players.filter(p => p.status === "approved");
 
+    console.log(`- Winner Player Count: ${approvedWinnerPlayers.length}`);
+    console.log(`- Runner-up Player Count: ${approvedRunnerUpPlayers.length}`);
+
     if (approvedWinnerPlayers.length === 0) {
-      throw new Error("Winner team does not have any approved players to receive rewards");
+      const msg = "Winner team does not have any approved players to receive rewards";
+      console.log(`[PrizeDistribution Exit] ${msg}`);
+      if (useTransaction && session) {
+        await session.abortTransaction();
+        session.endSession();
+      }
+      throw new Error(msg);
     }
     if (approvedRunnerUpPlayers.length === 0) {
-      throw new Error("Runner-up team does not have any approved players to receive rewards");
+      const msg = "Runner-up team does not have any approved players to receive rewards";
+      console.log(`[PrizeDistribution Exit] ${msg}`);
+      if (useTransaction && session) {
+        await session.abortTransaction();
+        session.endSession();
+      }
+      throw new Error(msg);
     }
 
     // 6. Calculate Individual Shares (rounded to two decimal places)
@@ -144,6 +230,8 @@ async function distributeTournamentPrizes(tournamentId, triggeredBy = "System", 
     const prizeDistribution = new PrizeDistribution({
       distributionId,
       tournamentId,
+      winnerTeamId: tournament.winner,
+      runnerUpTeamId: tournament.runnerUp,
       sponsorId: titleSponsor._id,
       triggeredBy,
       totalAmountDistributed,
@@ -163,6 +251,7 @@ async function distributeTournamentPrizes(tournamentId, triggeredBy = "System", 
     });
 
     await prizeDistribution.save({ session });
+    console.log(`- PrizeDistribution Saved: ${distributionId}`);
 
     // 11. Send Notifications and trigger Dashboard Updates
     const io = req?.app?.get("io");
@@ -241,21 +330,49 @@ async function distributeTournamentPrizes(tournamentId, triggeredBy = "System", 
       }
     }
 
-    // Commit transaction
-    await session.commitTransaction();
-    session.endSession();
+    console.log(`- Notifications Created`);
 
-    // Trigger dashboard update socket event
-    if (req && io) {
-      io.emit("dashboard_update", { type: "prize_distributed" });
+    // Commit transaction if active
+    if (useTransaction && session) {
+      await session.commitTransaction();
+      session.endSession();
+      console.log(`- Transaction Committed`);
     }
 
+    // Trigger dashboard update socket event
+    if (io) {
+      io.emit("dashboard_update", { type: "prize_distributed" });
+      console.log(`- Dashboard Updated`);
+    }
+
+    console.log(`=== [PrizeDistribution] distributeTournamentPrizes() completed successfully ===\n`);
     return { success: true, distributionId, totalAmountDistributed };
 
   } catch (err) {
     console.error("PRIZE DISTRIBUTION ERROR:", err);
-    await session.abortTransaction();
-    session.endSession();
+    if (useTransaction && session) {
+      try {
+        await session.abortTransaction();
+      } catch (abortErr) {
+        console.error("Failed to abort transaction:", abortErr.message);
+      }
+      try {
+        session.endSession();
+      } catch (e) {}
+    }
+
+    // Check if error is due to transaction support on standalone instance
+    const isTxError = err.message && (
+      err.message.includes("Transaction numbers are only allowed") ||
+      err.message.includes("replica set") ||
+      err.code === 20
+    );
+
+    if (isTxError && attemptTransaction) {
+      console.warn("[PrizeDistribution] Standalone MongoDB detected. Retrying session-less...");
+      return await distributeWithRetry(tournamentId, triggeredBy, adminUserId, req, false);
+    }
+
     throw err;
   }
 }
