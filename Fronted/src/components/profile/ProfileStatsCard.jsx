@@ -73,7 +73,7 @@ export default function ProfileStatsCard({ role, statsData = {} }) {
     chartSection = (
       <div className="stats-chart-wrapper glass-card">
         <h3>📈 Tournament Growth & Registration Rates</h3>
-        <div style={{ width: "100%", height: 260 }}>
+        <div style={{ width: "100%", height: 260, minWidth: 0 }}>
           <ResponsiveContainer>
             <AreaChart data={organizerChartData}>
               <defs>
@@ -142,7 +142,7 @@ export default function ProfileStatsCard({ role, statsData = {} }) {
     chartSection = (
       <div className="stats-chart-wrapper glass-card">
         <h3>📈 Team Performance & Win Rate Trend</h3>
-        <div style={{ width: "100%", height: 260 }}>
+        <div style={{ width: "100%", height: 260, minWidth: 0 }}>
           <ResponsiveContainer>
             <AreaChart data={coachChartData}>
               <defs>
@@ -206,7 +206,7 @@ export default function ProfileStatsCard({ role, statsData = {} }) {
     chartSection = (
       <div className="stats-chart-wrapper glass-card">
         <h3>📈 Earnings & Rewards Growth Trend</h3>
-        <div style={{ width: "100%", height: 260 }}>
+        <div style={{ width: "100%", height: 260, minWidth: 0 }}>
           <ResponsiveContainer>
             <AreaChart data={playerChartData}>
               <defs>
@@ -269,7 +269,7 @@ export default function ProfileStatsCard({ role, statsData = {} }) {
     chartSection = (
       <div className="stats-chart-wrapper glass-card">
         <h3>📈 Sponsorship Growth & Funding Velocity</h3>
-        <div style={{ width: "100%", height: 260 }}>
+        <div style={{ width: "100%", height: 260, minWidth: 0 }}>
           <ResponsiveContainer>
             <AreaChart data={sponsorChartData}>
               <defs>

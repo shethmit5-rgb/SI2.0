@@ -30,7 +30,7 @@
       "source_location": "L80",
       "_origin": "ast",
       "id": "src_app_adminororganizerroute",
-      "community": 8,
+      "community": 1,
       "norm_label": "adminororganizerroute()"
     },
     {
@@ -40,7 +40,7 @@
       "source_location": "L87",
       "_origin": "ast",
       "id": "src_app_sponsordashboardorhome",
-      "community": 8,
+      "community": 1,
       "norm_label": "sponsordashboardorhome()"
     },
     {
@@ -130,7 +130,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "adminside_adminprofile",
-      "community": 8,
+      "community": 1,
       "norm_label": "adminprofile.jsx"
     },
     {
@@ -140,7 +140,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "adminside_adminprofile_adminprofile",
-      "community": 8,
+      "community": 1,
       "norm_label": "adminprofile()"
     },
     {
@@ -170,7 +170,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "adminside_adminsponser",
-      "community": 4,
+      "community": 23,
       "norm_label": "adminsponser.jsx"
     },
     {
@@ -180,7 +180,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "adminside_adminsponser_adminsponsor",
-      "community": 4,
+      "community": 23,
       "norm_label": "adminsponsor()"
     },
     {
@@ -190,7 +190,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "adminside_analyticsdashboard",
-      "community": 6,
+      "community": 13,
       "norm_label": "analyticsdashboard.jsx"
     },
     {
@@ -200,7 +200,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "adminside_analyticsdashboard_animatedcounter",
-      "community": 6,
+      "community": 13,
       "norm_label": "animatedcounter()"
     },
     {
@@ -210,7 +210,7 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "adminside_analyticsdashboard_analyticsdashboard",
-      "community": 6,
+      "community": 13,
       "norm_label": "analyticsdashboard()"
     },
     {
@@ -380,7 +380,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "adminside_sponsorshipchart",
-      "community": 4,
+      "community": 23,
       "norm_label": "sponsorshipchart.jsx"
     },
     {
@@ -390,7 +390,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "adminside_sponsorshipchart_sponsorshipchart",
-      "community": 4,
+      "community": 23,
       "norm_label": "sponsorshipchart()"
     },
     {
@@ -600,7 +600,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "headers_adminheader",
-      "community": 8,
+      "community": 4,
       "norm_label": "adminheader.jsx"
     },
     {
@@ -610,7 +610,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "headers_adminheader_adminheader",
-      "community": 8,
+      "community": 6,
       "norm_label": "adminheader()"
     },
     {
@@ -620,7 +620,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "headers_coachheader",
-      "community": 8,
+      "community": 4,
       "norm_label": "coachheader.jsx"
     },
     {
@@ -630,7 +630,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "headers_coachheader_coachheader",
-      "community": 8,
+      "community": 6,
       "norm_label": "coachheader()"
     },
     {
@@ -660,7 +660,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "headers_organizerheader",
-      "community": 8,
+      "community": 4,
       "norm_label": "organizerheader.jsx"
     },
     {
@@ -670,7 +670,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "headers_organizerheader_organizerheader",
-      "community": 8,
+      "community": 6,
       "norm_label": "organizerheader()"
     },
     {
@@ -680,7 +680,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "headers_playerheader",
-      "community": 8,
+      "community": 4,
       "norm_label": "playerheader.jsx"
     },
     {
@@ -690,7 +690,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "headers_playerheader_playerheader",
-      "community": 8,
+      "community": 6,
       "norm_label": "playerheader()"
     },
     {
@@ -700,7 +700,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "headers_sponsorheader",
-      "community": 8,
+      "community": 6,
       "norm_label": "sponsorheader.jsx"
     },
     {
@@ -710,7 +710,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "headers_sponsorheader_sponsorheader",
-      "community": 8,
+      "community": 6,
       "norm_label": "sponsorheader()"
     },
     {
@@ -720,7 +720,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_threebgcanvas",
-      "community": 6,
+      "community": 13,
       "norm_label": "threebgcanvas.jsx"
     },
     {
@@ -730,7 +730,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "components_threebgcanvas_theme_configs",
-      "community": 6,
+      "community": 13,
       "norm_label": "theme_configs"
     },
     {
@@ -740,7 +740,7 @@
       "source_location": "L90",
       "_origin": "ast",
       "id": "components_threebgcanvas_getthemefrompathname",
-      "community": 6,
+      "community": 13,
       "norm_label": "getthemefrompathname()"
     },
     {
@@ -750,7 +750,7 @@
       "source_location": "L127",
       "_origin": "ast",
       "id": "components_threebgcanvas_drawtrophyshape",
-      "community": 6,
+      "community": 13,
       "norm_label": "drawtrophyshape()"
     },
     {
@@ -760,7 +760,7 @@
       "source_location": "L183",
       "_origin": "ast",
       "id": "components_threebgcanvas_drawmedalshape",
-      "community": 6,
+      "community": 13,
       "norm_label": "drawmedalshape()"
     },
     {
@@ -770,7 +770,7 @@
       "source_location": "L222",
       "_origin": "ast",
       "id": "components_threebgcanvas_threebgcanvas",
-      "community": 6,
+      "community": 13,
       "norm_label": "threebgcanvas()"
     },
     {
@@ -794,13 +794,233 @@
       "norm_label": "tiltcard()"
     },
     {
+      "label": "CoachProfileContent.jsx",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/profile/CoachProfileContent.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "profile_coachprofilecontent",
+      "community": 39,
+      "norm_label": "coachprofilecontent.jsx"
+    },
+    {
+      "label": "CoachProfileContent()",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/profile/CoachProfileContent.jsx",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "profile_coachprofilecontent_coachprofilecontent",
+      "community": 39,
+      "norm_label": "coachprofilecontent()"
+    },
+    {
+      "label": "OrganizerProfileContent.jsx",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/profile/OrganizerProfileContent.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "profile_organizerprofilecontent",
+      "community": 39,
+      "norm_label": "organizerprofilecontent.jsx"
+    },
+    {
+      "label": "OrganizerProfileContent()",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/profile/OrganizerProfileContent.jsx",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "profile_organizerprofilecontent_organizerprofilecontent",
+      "community": 39,
+      "norm_label": "organizerprofilecontent()"
+    },
+    {
+      "label": "PlayerProfileContent.jsx",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/profile/PlayerProfileContent.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "profile_playerprofilecontent",
+      "community": 39,
+      "norm_label": "playerprofilecontent.jsx"
+    },
+    {
+      "label": "PlayerProfileContent()",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/profile/PlayerProfileContent.jsx",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "profile_playerprofilecontent_playerprofilecontent",
+      "community": 39,
+      "norm_label": "playerprofilecontent()"
+    },
+    {
+      "label": "ProfileActivityTimeline.jsx",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/profile/ProfileActivityTimeline.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "profile_profileactivitytimeline",
+      "community": 39,
+      "norm_label": "profileactivitytimeline.jsx"
+    },
+    {
+      "label": "ProfileActivityTimeline()",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/profile/ProfileActivityTimeline.jsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "profile_profileactivitytimeline_profileactivitytimeline",
+      "community": 39,
+      "norm_label": "profileactivitytimeline()"
+    },
+    {
+      "label": "ProfileHero.jsx",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/profile/ProfileHero.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "profile_profilehero",
+      "community": 39,
+      "norm_label": "profilehero.jsx"
+    },
+    {
+      "label": "ProfileHero()",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/profile/ProfileHero.jsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "profile_profilehero_profilehero",
+      "community": 39,
+      "norm_label": "profilehero()"
+    },
+    {
+      "label": "ProfileInfoCard.jsx",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/profile/ProfileInfoCard.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "profile_profileinfocard",
+      "community": 39,
+      "norm_label": "profileinfocard.jsx"
+    },
+    {
+      "label": "ProfileInfoCard()",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/profile/ProfileInfoCard.jsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "profile_profileinfocard_profileinfocard",
+      "community": 39,
+      "norm_label": "profileinfocard()"
+    },
+    {
+      "label": "ProfileLayout.jsx",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/profile/ProfileLayout.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "profile_profilelayout",
+      "community": 39,
+      "norm_label": "profilelayout.jsx"
+    },
+    {
+      "label": "ProfileLayout()",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/profile/ProfileLayout.jsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "profile_profilelayout_profilelayout",
+      "community": 39,
+      "norm_label": "profilelayout()"
+    },
+    {
+      "label": "ProfileQuickActions.jsx",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/profile/ProfileQuickActions.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "profile_profilequickactions",
+      "community": 39,
+      "norm_label": "profilequickactions.jsx"
+    },
+    {
+      "label": "ProfileQuickActions()",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/profile/ProfileQuickActions.jsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "profile_profilequickactions_profilequickactions",
+      "community": 39,
+      "norm_label": "profilequickactions()"
+    },
+    {
+      "label": "ProfileStatsCard.jsx",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/profile/ProfileStatsCard.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "profile_profilestatscard",
+      "community": 39,
+      "norm_label": "profilestatscard.jsx"
+    },
+    {
+      "label": "ProfileStatsCard()",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/profile/ProfileStatsCard.jsx",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "profile_profilestatscard_profilestatscard",
+      "community": 39,
+      "norm_label": "profilestatscard()"
+    },
+    {
+      "label": "ProfileTabs.jsx",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/profile/ProfileTabs.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "profile_profiletabs",
+      "community": 39,
+      "norm_label": "profiletabs.jsx"
+    },
+    {
+      "label": "ProfileTabs()",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/profile/ProfileTabs.jsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "profile_profiletabs_profiletabs",
+      "community": 39,
+      "norm_label": "profiletabs()"
+    },
+    {
+      "label": "SponsorProfileContent.jsx",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/profile/SponsorProfileContent.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "profile_sponsorprofilecontent",
+      "community": 39,
+      "norm_label": "sponsorprofilecontent.jsx"
+    },
+    {
+      "label": "SponsorProfileContent()",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/profile/SponsorProfileContent.jsx",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "profile_sponsorprofilecontent_sponsorprofilecontent",
+      "community": 39,
+      "norm_label": "sponsorprofilecontent()"
+    },
+    {
       "label": "AuthContext.jsx",
       "file_type": "code",
       "source_file": "Fronted/src/context/AuthContext.jsx",
       "source_location": "L1",
       "_origin": "ast",
       "id": "context_authcontext",
-      "community": 8,
+      "community": 4,
       "norm_label": "authcontext.jsx"
     },
     {
@@ -810,7 +1030,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "context_authcontext_authcontext",
-      "community": 8,
+      "community": 4,
       "norm_label": "authcontext"
     },
     {
@@ -830,7 +1050,7 @@
       "source_location": "L93",
       "_origin": "ast",
       "id": "context_authcontext_useauth",
-      "community": 8,
+      "community": 1,
       "norm_label": "useauth()"
     },
     {
@@ -950,7 +1170,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "layouts_rolelayout_rolelayout",
-      "community": 8,
+      "community": 1,
       "norm_label": "rolelayout()"
     },
     {
@@ -990,7 +1210,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_adminroute",
-      "community": 8,
+      "community": 1,
       "norm_label": "adminroute.jsx"
     },
     {
@@ -1000,7 +1220,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "routes_adminroute_adminroute",
-      "community": 8,
+      "community": 1,
       "norm_label": "adminroute()"
     },
     {
@@ -1010,7 +1230,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_nonorganizerroute",
-      "community": 8,
+      "community": 1,
       "norm_label": "nonorganizerroute.jsx"
     },
     {
@@ -1020,7 +1240,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "routes_nonorganizerroute_nonorganizerroute",
-      "community": 8,
+      "community": 1,
       "norm_label": "nonorganizerroute()"
     },
     {
@@ -1060,7 +1280,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "screen_approveplayers_approveplayers",
-      "community": 4,
+      "community": 1,
       "norm_label": "approveplayers()"
     },
     {
@@ -1100,7 +1320,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_createteam",
-      "community": 8,
+      "community": 4,
       "norm_label": "createteam.jsx"
     },
     {
@@ -1110,7 +1330,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "screen_createteam_createteam",
-      "community": 8,
+      "community": 1,
       "norm_label": "createteam()"
     },
     {
@@ -1130,7 +1350,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "screen_createtournamentuser_createtournamentuser",
-      "community": 12,
+      "community": 1,
       "norm_label": "createtournamentuser()"
     },
     {
@@ -1150,7 +1370,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "screen_editteam_editteam",
-      "community": 1,
+      "community": 4,
       "norm_label": "editteam()"
     },
     {
@@ -1160,7 +1380,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_edittournamentpage",
-      "community": 8,
+      "community": 4,
       "norm_label": "edittournamentpage.jsx"
     },
     {
@@ -1170,7 +1390,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "screen_edittournamentpage_edittournamentpage",
-      "community": 8,
+      "community": 1,
       "norm_label": "edittournamentpage()"
     },
     {
@@ -1190,7 +1410,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "screen_events_events",
-      "community": 1,
+      "community": 4,
       "norm_label": "events()"
     },
     {
@@ -1240,7 +1460,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_gallery",
-      "community": 1,
+      "community": 26,
       "norm_label": "gallery.jsx"
     },
     {
@@ -1250,7 +1470,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "screen_gallery_images",
-      "community": 1,
+      "community": 26,
       "norm_label": "images"
     },
     {
@@ -1260,7 +1480,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "screen_gallery_gallery",
-      "community": 1,
+      "community": 26,
       "norm_label": "gallery()"
     },
     {
@@ -1290,7 +1510,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "screen_home_home",
-      "community": 13,
+      "community": 1,
       "norm_label": "home()"
     },
     {
@@ -1310,7 +1530,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "screen_leaderboard_leaderboard",
-      "community": 1,
+      "community": 4,
       "norm_label": "leaderboard()"
     },
     {
@@ -1320,7 +1540,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_login",
-      "community": 8,
+      "community": 1,
       "norm_label": "login.jsx"
     },
     {
@@ -1330,7 +1550,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "screen_login_login",
-      "community": 8,
+      "community": 1,
       "norm_label": "login()"
     },
     {
@@ -1370,7 +1590,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "screen_matchresults_matchresults",
-      "community": 8,
+      "community": 1,
       "norm_label": "matchresults()"
     },
     {
@@ -1390,7 +1610,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "screen_myregistrations_myregistrations",
-      "community": 12,
+      "community": 1,
       "norm_label": "myregistrations()"
     },
     {
@@ -1410,7 +1630,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "screen_myteamdashboard_myteamdashboard",
-      "community": 12,
+      "community": 1,
       "norm_label": "myteamdashboard()"
     },
     {
@@ -1440,7 +1660,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_notifications",
-      "community": 8,
+      "community": 4,
       "norm_label": "notifications.jsx"
     },
     {
@@ -1450,7 +1670,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "screen_notifications_notifications",
-      "community": 8,
+      "community": 1,
       "norm_label": "notifications()"
     },
     {
@@ -1460,7 +1680,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_organizerdashboard",
-      "community": 13,
+      "community": 4,
       "norm_label": "organizerdashboard.jsx"
     },
     {
@@ -1470,7 +1690,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "screen_organizerdashboard_animatedcounter",
-      "community": 13,
+      "community": 4,
       "norm_label": "animatedcounter()"
     },
     {
@@ -1480,7 +1700,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "screen_organizerdashboard_organizerdashboard",
-      "community": 13,
+      "community": 1,
       "norm_label": "organizerdashboard()"
     },
     {
@@ -1500,7 +1720,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "screen_organizermatches_organizermatches",
-      "community": 9,
+      "community": 1,
       "norm_label": "organizermatches()"
     },
     {
@@ -1554,44 +1774,64 @@
       "norm_label": "profile.jsx"
     },
     {
+      "label": "OrganizerProfileContent",
+      "file_type": "code",
+      "source_file": "Fronted/src/screen/Profile.jsx",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "screen_profile_organizerprofilecontent",
+      "community": 39,
+      "norm_label": "organizerprofilecontent"
+    },
+    {
+      "label": "CoachProfileContent",
+      "file_type": "code",
+      "source_file": "Fronted/src/screen/Profile.jsx",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "screen_profile_coachprofilecontent",
+      "community": 39,
+      "norm_label": "coachprofilecontent"
+    },
+    {
+      "label": "PlayerProfileContent",
+      "file_type": "code",
+      "source_file": "Fronted/src/screen/Profile.jsx",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "screen_profile_playerprofilecontent",
+      "community": 39,
+      "norm_label": "playerprofilecontent"
+    },
+    {
+      "label": "SponsorProfileContent",
+      "file_type": "code",
+      "source_file": "Fronted/src/screen/Profile.jsx",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "screen_profile_sponsorprofilecontent",
+      "community": 39,
+      "norm_label": "sponsorprofilecontent"
+    },
+    {
       "label": "Profile()",
       "file_type": "code",
       "source_file": "Fronted/src/screen/Profile.jsx",
-      "source_location": "L7",
+      "source_location": "L19",
       "_origin": "ast",
       "id": "screen_profile_profile",
-      "community": 39,
+      "community": 1,
       "norm_label": "profile()"
     },
     {
-      "label": "TeamsList()",
+      "label": "ProfileSkeletonLoader()",
       "file_type": "code",
       "source_file": "Fronted/src/screen/Profile.jsx",
-      "source_location": "L380",
+      "source_location": "L414",
       "_origin": "ast",
-      "id": "screen_profile_teamslist",
+      "id": "screen_profile_profileskeletonloader",
       "community": 39,
-      "norm_label": "teamslist()"
-    },
-    {
-      "label": "RegistrationsList()",
-      "file_type": "code",
-      "source_file": "Fronted/src/screen/Profile.jsx",
-      "source_location": "L436",
-      "_origin": "ast",
-      "id": "screen_profile_registrationslist",
-      "community": 39,
-      "norm_label": "registrationslist()"
-    },
-    {
-      "label": "RewardsList()",
-      "file_type": "code",
-      "source_file": "Fronted/src/screen/Profile.jsx",
-      "source_location": "L518",
-      "_origin": "ast",
-      "id": "screen_profile_rewardslist",
-      "community": 39,
-      "norm_label": "rewardslist()"
+      "norm_label": "profileskeletonloader()"
     },
     {
       "label": "RegisterTeam.jsx",
@@ -1610,7 +1850,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "screen_registerteam_registerteam",
-      "community": 8,
+      "community": 1,
       "norm_label": "registerteam()"
     },
     {
@@ -1650,7 +1890,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "screen_schedule_schedule",
-      "community": 1,
+      "community": 4,
       "norm_label": "schedule()"
     },
     {
@@ -1660,7 +1900,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_speakers",
-      "community": 1,
+      "community": 28,
       "norm_label": "speakers.jsx"
     },
     {
@@ -1670,7 +1910,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "screen_speakers_speakers",
-      "community": 1,
+      "community": 28,
       "norm_label": "speakers"
     },
     {
@@ -1680,7 +1920,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_sponsordashboard",
-      "community": 8,
+      "community": 4,
       "norm_label": "sponsordashboard.jsx"
     },
     {
@@ -1690,7 +1930,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "screen_sponsordashboard_sponsordashboard",
-      "community": 8,
+      "community": 1,
       "norm_label": "sponsordashboard()"
     },
     {
@@ -1700,7 +1940,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_sponsormanagement",
-      "community": 8,
+      "community": 4,
       "norm_label": "sponsormanagement.jsx"
     },
     {
@@ -1710,7 +1950,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "screen_sponsormanagement_sponsormanagement",
-      "community": 8,
+      "community": 1,
       "norm_label": "sponsormanagement()"
     },
     {
@@ -1720,7 +1960,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_sponsors",
-      "community": 4,
+      "community": 27,
       "norm_label": "sponsors.jsx"
     },
     {
@@ -1730,7 +1970,7 @@
       "source_location": "L118",
       "_origin": "ast",
       "id": "screen_sponsors_sponsors",
-      "community": 4,
+      "community": 27,
       "norm_label": "sponsors()"
     },
     {
@@ -1740,7 +1980,7 @@
       "source_location": "L142",
       "_origin": "ast",
       "id": "screen_sponsors_cardstyle",
-      "community": 4,
+      "community": 27,
       "norm_label": "cardstyle"
     },
     {
@@ -1760,7 +2000,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "screen_teamdetails_teamdetails",
-      "community": 8,
+      "community": 1,
       "norm_label": "teamdetails()"
     },
     {
@@ -1780,7 +2020,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "screen_teamslist_teamslist",
-      "community": 8,
+      "community": 1,
       "norm_label": "teamslist()"
     },
     {
@@ -1820,7 +2060,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "screen_tournamentdetails_tournamentdetails",
-      "community": 12,
+      "community": 1,
       "norm_label": "tournamentdetails()"
     },
     {
@@ -2020,7 +2260,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "utils_socket",
-      "community": 8,
+      "community": 4,
       "norm_label": "socket.js"
     },
     {
@@ -2030,7 +2270,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "utils_socket_socket",
-      "community": 8,
+      "community": 4,
       "norm_label": "socket"
     },
     {
@@ -2940,7 +3180,7 @@
       "source_location": "L83",
       "_origin": "ast",
       "id": "controllers_paymentcontroller_verifypayment",
-      "community": 21,
+      "community": 22,
       "norm_label": "verifypayment()"
     },
     {
@@ -2970,7 +3210,7 @@
       "source_location": "L175",
       "_origin": "ast",
       "id": "controllers_paymentcontroller_adminoverridepayment",
-      "community": 21,
+      "community": 22,
       "norm_label": "adminoverridepayment()"
     },
     {
@@ -3410,7 +3650,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller",
-      "community": 3,
+      "community": 8,
       "norm_label": "sponsorcontroller.js"
     },
     {
@@ -3420,7 +3660,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_sponsor",
-      "community": 3,
+      "community": 8,
       "norm_label": "sponsor"
     },
     {
@@ -3430,7 +3670,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_tournament",
-      "community": 3,
+      "community": 8,
       "norm_label": "tournament"
     },
     {
@@ -3440,7 +3680,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_cloudinary",
-      "community": 3,
+      "community": 8,
       "norm_label": "cloudinary"
     },
     {
@@ -3450,7 +3690,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_fs",
-      "community": 3,
+      "community": 8,
       "norm_label": "fs"
     },
     {
@@ -3460,7 +3700,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_path",
-      "community": 3,
+      "community": 8,
       "norm_label": "path"
     },
     {
@@ -3470,7 +3710,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_razorpay",
-      "community": 3,
+      "community": 8,
       "norm_label": "razorpay"
     },
     {
@@ -3480,7 +3720,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_crypto",
-      "community": 3,
+      "community": 8,
       "norm_label": "crypto"
     },
     {
@@ -3490,7 +3730,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_triggerdashboardupdate",
-      "community": 3,
+      "community": 8,
       "norm_label": "{ triggerdashboardupdate }"
     },
     {
@@ -3500,7 +3740,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_createsponsor",
-      "community": 3,
+      "community": 8,
       "norm_label": "createsponsor()"
     },
     {
@@ -3510,7 +3750,7 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_getsponsors",
-      "community": 3,
+      "community": 8,
       "norm_label": "getsponsors()"
     },
     {
@@ -3520,7 +3760,7 @@
       "source_location": "L100",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_getsponsorshipstats",
-      "community": 3,
+      "community": 8,
       "norm_label": "getsponsorshipstats()"
     },
     {
@@ -3530,7 +3770,7 @@
       "source_location": "L152",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_getpublicsponsors",
-      "community": 3,
+      "community": 8,
       "norm_label": "getpublicsponsors()"
     },
     {
@@ -3540,7 +3780,7 @@
       "source_location": "L161",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_updatesponsor",
-      "community": 3,
+      "community": 8,
       "norm_label": "updatesponsor()"
     },
     {
@@ -3550,7 +3790,7 @@
       "source_location": "L211",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_deletesponsor",
-      "community": 3,
+      "community": 8,
       "norm_label": "deletesponsor()"
     },
     {
@@ -3560,7 +3800,7 @@
       "source_location": "L236",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_getsponsorsbytournament",
-      "community": 3,
+      "community": 8,
       "norm_label": "getsponsorsbytournament()"
     },
     {
@@ -3570,7 +3810,7 @@
       "source_location": "L245",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_getpublicsponsorsbytournament",
-      "community": 3,
+      "community": 8,
       "norm_label": "getpublicsponsorsbytournament()"
     },
     {
@@ -3580,7 +3820,7 @@
       "source_location": "L254",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_selfsponsor",
-      "community": 3,
+      "community": 8,
       "norm_label": "selfsponsor()"
     },
     {
@@ -3590,7 +3830,7 @@
       "source_location": "L393",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_verifyselfpayment",
-      "community": 3,
+      "community": 8,
       "norm_label": "verifyselfpayment()"
     },
     {
@@ -3600,7 +3840,7 @@
       "source_location": "L450",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_getmysponsorships",
-      "community": 3,
+      "community": 8,
       "norm_label": "getmysponsorships()"
     },
     {
@@ -3610,7 +3850,7 @@
       "source_location": "L462",
       "_origin": "ast",
       "id": "controllers_sponsorcontroller_getsponsorbyid",
-      "community": 3,
+      "community": 8,
       "norm_label": "getsponsorbyid()"
     },
     {
@@ -3830,7 +4070,7 @@
       "source_location": "L259",
       "_origin": "ast",
       "id": "controllers_teamcontroller_approveplayer",
-      "community": 3,
+      "community": 22,
       "norm_label": "approveplayer()"
     },
     {
@@ -3880,7 +4120,7 @@
       "source_location": "L415",
       "_origin": "ast",
       "id": "controllers_teamcontroller_updateteam",
-      "community": 3,
+      "community": 22,
       "norm_label": "updateteam()"
     },
     {
@@ -3950,7 +4190,7 @@
       "source_location": "L711",
       "_origin": "ast",
       "id": "controllers_teamcontroller_verifyplayerjoinpayment",
-      "community": 3,
+      "community": 22,
       "norm_label": "verifyplayerjoinpayment()"
     },
     {
@@ -4210,7 +4450,7 @@
       "source_location": "L675",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_deletetournament",
-      "community": 3,
+      "community": 37,
       "norm_label": "deletetournament()"
     },
     {
@@ -4490,7 +4730,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "middleware_validateobjectid",
-      "community": 0,
+      "community": 37,
       "norm_label": "validateobjectid.js"
     },
     {
@@ -4500,8 +4740,68 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "middleware_validateobjectid_mongoose",
-      "community": 0,
+      "community": 37,
       "norm_label": "mongoose"
+    },
+    {
+      "label": "migrate.js",
+      "file_type": "code",
+      "source_file": "backend/migrate.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_migrate",
+      "community": 17,
+      "norm_label": "migrate.js"
+    },
+    {
+      "label": "mongoose",
+      "file_type": "code",
+      "source_file": "backend/migrate.js",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "backend_migrate_mongoose",
+      "community": 17,
+      "norm_label": "mongoose"
+    },
+    {
+      "label": "dns",
+      "file_type": "code",
+      "source_file": "backend/migrate.js",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "backend_migrate_dns",
+      "community": 17,
+      "norm_label": "dns"
+    },
+    {
+      "label": "maskUri()",
+      "file_type": "code",
+      "source_file": "backend/migrate.js",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "backend_migrate_maskuri",
+      "community": 17,
+      "norm_label": "maskuri()"
+    },
+    {
+      "label": "getDbNameFromUri()",
+      "file_type": "code",
+      "source_file": "backend/migrate.js",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "backend_migrate_getdbnamefromuri",
+      "community": 17,
+      "norm_label": "getdbnamefromuri()"
+    },
+    {
+      "label": "runMigration()",
+      "file_type": "code",
+      "source_file": "backend/migrate.js",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "backend_migrate_runmigration",
+      "community": 17,
+      "norm_label": "runmigration()"
     },
     {
       "label": "EmailOtp.js",
@@ -4630,7 +4930,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_registration",
-      "community": 37,
+      "community": 24,
       "norm_label": "registration.js"
     },
     {
@@ -4640,7 +4940,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_registration_mongoose",
-      "community": 37,
+      "community": 24,
       "norm_label": "mongoose"
     },
     {
@@ -4650,7 +4950,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "models_registration_registrationschema",
-      "community": 37,
+      "community": 24,
       "norm_label": "registrationschema"
     },
     {
@@ -4750,7 +5050,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_tournament",
-      "community": 2,
+      "community": 16,
       "norm_label": "tournament.js"
     },
     {
@@ -4760,7 +5060,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_tournament_mongoose",
-      "community": 2,
+      "community": 16,
       "norm_label": "mongoose"
     },
     {
@@ -4770,7 +5070,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "models_tournament_tournamentschema",
-      "community": 2,
+      "community": 16,
       "norm_label": "tournamentschema"
     },
     {
@@ -4780,7 +5080,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_transaction",
-      "community": 37,
+      "community": 25,
       "norm_label": "transaction.js"
     },
     {
@@ -4790,7 +5090,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_transaction_mongoose",
-      "community": 37,
+      "community": 25,
       "norm_label": "mongoose"
     },
     {
@@ -4800,7 +5100,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "models_transaction_transactionschema",
-      "community": 37,
+      "community": 25,
       "norm_label": "transactionschema"
     },
     {
@@ -5350,7 +5650,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_sponsorrouter",
-      "community": 3,
+      "community": 8,
       "norm_label": "sponsorrouter.js"
     },
     {
@@ -5360,7 +5660,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_sponsorrouter_express",
-      "community": 3,
+      "community": 8,
       "norm_label": "express"
     },
     {
@@ -5370,7 +5670,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "routes_sponsorrouter_createsponsor_getsponsors_getsponsorshipstats_getpublicsponsors_updatesponsor_deletesponsor_getsponsorsbytournament_getpublicsponsorsbytournament_selfsponsor_verifyselfpayment_getmysponsorships_getsponsorbyid",
-      "community": 3,
+      "community": 8,
       "norm_label": "{\r\n  createsponsor,\r\n  getsponsors,\r\n  getsponsorshipstats,\r\n  getpublicsponsors,\r\n  updatesponsor,\r\n  deletesponsor,\r\n  getsponsorsbytournament,\r\n  getpublicsponsorsbytournament,\r\n  selfsponsor,\r\n  verifyselfpayment,\r\n  getmysponsorships,\r\n  getsponsorbyid,\r\n}"
     },
     {
@@ -5380,7 +5680,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "routes_sponsorrouter_auth",
-      "community": 3,
+      "community": 8,
       "norm_label": "auth"
     },
     {
@@ -5390,7 +5690,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "routes_sponsorrouter_role",
-      "community": 3,
+      "community": 8,
       "norm_label": "role"
     },
     {
@@ -5400,7 +5700,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "routes_sponsorrouter_upload",
-      "community": 3,
+      "community": 8,
       "norm_label": "upload"
     },
     {
@@ -5410,7 +5710,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "routes_sponsorrouter_router",
-      "community": 3,
+      "community": 8,
       "norm_label": "router"
     },
     {
@@ -5914,13 +6214,23 @@
       "norm_label": "distributetournamentprizes()"
     },
     {
+      "label": "distributeWithRetry()",
+      "file_type": "code",
+      "source_file": "backend/utils/prizeDistributionHelper.js",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "utils_prizedistributionhelper_distributewithretry",
+      "community": 2,
+      "norm_label": "distributewithretry()"
+    },
+    {
       "label": "tournamentHelper.js",
       "file_type": "code",
       "source_file": "backend/utils/tournamentHelper.js",
       "source_location": "L1",
       "_origin": "ast",
       "id": "utils_tournamenthelper",
-      "community": 0,
+      "community": 16,
       "norm_label": "tournamenthelper.js"
     },
     {
@@ -5930,7 +6240,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "utils_tournamenthelper_tournament",
-      "community": 0,
+      "community": 16,
       "norm_label": "tournament"
     },
     {
@@ -5940,7 +6250,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "utils_tournamenthelper_match",
-      "community": 0,
+      "community": 16,
       "norm_label": "match"
     },
     {
@@ -5950,7 +6260,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "utils_tournamenthelper_gettournamentstatus",
-      "community": 0,
+      "community": 16,
       "norm_label": "gettournamentstatus()"
     },
     {
@@ -5977,10 +6287,10 @@
       "label": "triggerDashboardUpdate()",
       "file_type": "code",
       "source_file": "backend/utils/tournamentHelper.js",
-      "source_location": "L138",
+      "source_location": "L166",
       "_origin": "ast",
       "id": "utils_tournamenthelper_triggerdashboardupdate",
-      "community": 3,
+      "community": 22,
       "norm_label": "triggerdashboardupdate()"
     },
     {
@@ -8845,6 +9155,534 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/CoachProfileContent.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "profile_coachprofilecontent",
+      "target": "profile_coachprofilecontent_coachprofilecontent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/CoachProfileContent.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "profile_coachprofilecontent",
+      "target": "profile_profileactivitytimeline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/CoachProfileContent.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "profile_coachprofilecontent",
+      "target": "profile_profileactivitytimeline_profileactivitytimeline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/CoachProfileContent.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "profile_coachprofilecontent",
+      "target": "profile_profileinfocard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/CoachProfileContent.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "profile_coachprofilecontent",
+      "target": "profile_profileinfocard_profileinfocard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/CoachProfileContent.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "profile_coachprofilecontent",
+      "target": "profile_profilestatscard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/CoachProfileContent.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "profile_coachprofilecontent",
+      "target": "profile_profilestatscard_profilestatscard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/OrganizerProfileContent.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "profile_organizerprofilecontent",
+      "target": "profile_organizerprofilecontent_organizerprofilecontent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/OrganizerProfileContent.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "profile_organizerprofilecontent",
+      "target": "profile_profileactivitytimeline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/OrganizerProfileContent.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "profile_organizerprofilecontent",
+      "target": "profile_profileactivitytimeline_profileactivitytimeline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/OrganizerProfileContent.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "profile_organizerprofilecontent",
+      "target": "profile_profileinfocard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/OrganizerProfileContent.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "profile_organizerprofilecontent",
+      "target": "profile_profileinfocard_profileinfocard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/OrganizerProfileContent.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "profile_organizerprofilecontent",
+      "target": "profile_profilestatscard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/OrganizerProfileContent.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "profile_organizerprofilecontent",
+      "target": "profile_profilestatscard_profilestatscard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/PlayerProfileContent.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "profile_playerprofilecontent",
+      "target": "profile_playerprofilecontent_playerprofilecontent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/PlayerProfileContent.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "profile_playerprofilecontent",
+      "target": "profile_profileactivitytimeline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/PlayerProfileContent.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "profile_playerprofilecontent",
+      "target": "profile_profileactivitytimeline_profileactivitytimeline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/PlayerProfileContent.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "profile_playerprofilecontent",
+      "target": "profile_profileinfocard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/PlayerProfileContent.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "profile_playerprofilecontent",
+      "target": "profile_profileinfocard_profileinfocard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/PlayerProfileContent.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "profile_playerprofilecontent",
+      "target": "profile_profilestatscard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/PlayerProfileContent.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "profile_playerprofilecontent",
+      "target": "profile_profilestatscard_profilestatscard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/ProfileActivityTimeline.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "profile_profileactivitytimeline",
+      "target": "profile_profileactivitytimeline_profileactivitytimeline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/SponsorProfileContent.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "profile_sponsorprofilecontent",
+      "target": "profile_profileactivitytimeline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/Profile.jsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "screen_profile",
+      "target": "profile_profileactivitytimeline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/SponsorProfileContent.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "profile_sponsorprofilecontent",
+      "target": "profile_profileactivitytimeline_profileactivitytimeline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/Profile.jsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "screen_profile",
+      "target": "profile_profileactivitytimeline_profileactivitytimeline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/ProfileHero.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "profile_profilehero",
+      "target": "profile_profilehero_profilehero",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/Profile.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "screen_profile",
+      "target": "profile_profilehero",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/Profile.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "screen_profile",
+      "target": "profile_profilehero_profilehero",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/ProfileInfoCard.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "profile_profileinfocard",
+      "target": "profile_profileinfocard_profileinfocard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/ProfileInfoCard.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "profile_profileinfocard",
+      "target": "utils_axiosconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/ProfileInfoCard.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "profile_profileinfocard",
+      "target": "utils_axiosconfig_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/SponsorProfileContent.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "profile_sponsorprofilecontent",
+      "target": "profile_profileinfocard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/SponsorProfileContent.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "profile_sponsorprofilecontent",
+      "target": "profile_profileinfocard_profileinfocard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/ProfileLayout.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "profile_profilelayout",
+      "target": "profile_profilelayout_profilelayout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/Profile.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "screen_profile",
+      "target": "profile_profilelayout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/Profile.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "screen_profile",
+      "target": "profile_profilelayout_profilelayout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/ProfileQuickActions.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "profile_profilequickactions",
+      "target": "profile_profilequickactions_profilequickactions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/Profile.jsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "screen_profile",
+      "target": "profile_profilequickactions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/Profile.jsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "screen_profile",
+      "target": "profile_profilequickactions_profilequickactions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/ProfileStatsCard.jsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "profile_profilestatscard",
+      "target": "profile_profilestatscard_profilestatscard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/SponsorProfileContent.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "profile_sponsorprofilecontent",
+      "target": "profile_profilestatscard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/Profile.jsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "screen_profile",
+      "target": "profile_profilestatscard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/SponsorProfileContent.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "profile_sponsorprofilecontent",
+      "target": "profile_profilestatscard_profilestatscard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/Profile.jsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "screen_profile",
+      "target": "profile_profilestatscard_profilestatscard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/ProfileTabs.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "profile_profiletabs",
+      "target": "profile_profiletabs_profiletabs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/Profile.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "screen_profile",
+      "target": "profile_profiletabs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/Profile.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "screen_profile",
+      "target": "profile_profiletabs_profiletabs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/profile/SponsorProfileContent.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "profile_sponsorprofilecontent",
+      "target": "profile_sponsorprofilecontent_sponsorprofilecontent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "Fronted/src/context/AuthContext.jsx",
       "source_location": "L5",
       "weight": 1.0,
@@ -10763,6 +11601,36 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Fronted/src/screen/Profile.jsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "screen_profile",
+      "target": "screen_profile_coachprofilecontent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/Profile.jsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "screen_profile",
+      "target": "screen_profile_organizerprofilecontent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/Profile.jsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "screen_profile",
+      "target": "screen_profile_playerprofilecontent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/Profile.jsx",
       "source_location": "L7",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -10773,31 +11641,21 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Fronted/src/screen/Profile.jsx",
-      "source_location": "L395",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "screen_profile",
-      "target": "screen_profile_registrationslist"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "Fronted/src/screen/Profile.jsx",
-      "source_location": "L518",
+      "source_location": "L414",
       "weight": 1.0,
       "source": "screen_profile",
-      "target": "screen_profile_rewardslist",
+      "target": "screen_profile_profileskeletonloader",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Fronted/src/screen/Profile.jsx",
-      "source_location": "L339",
+      "source_location": "L17",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "screen_profile",
-      "target": "screen_profile_teamslist"
+      "target": "screen_profile_sponsorprofilecontent",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -13441,9 +14299,9 @@
       "source_file": "backend/controllers/prizeDistributionController.js",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controllers_prizedistributioncontroller",
-      "target": "controllers_prizedistributioncontroller_distributetournamentprizes",
-      "confidence_score": 1.0
+      "target": "controllers_prizedistributioncontroller_distributetournamentprizes"
     },
     {
       "relation": "contains",
@@ -13451,9 +14309,9 @@
       "source_file": "backend/controllers/prizeDistributionController.js",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controllers_prizedistributioncontroller",
-      "target": "controllers_prizedistributioncontroller_getprizedistributionbytournament",
-      "confidence_score": 1.0
+      "target": "controllers_prizedistributioncontroller_getprizedistributionbytournament"
     },
     {
       "relation": "contains",
@@ -13461,9 +14319,9 @@
       "source_file": "backend/controllers/prizeDistributionController.js",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controllers_prizedistributioncontroller",
-      "target": "controllers_prizedistributioncontroller_getprizedistributions",
-      "confidence_score": 1.0
+      "target": "controllers_prizedistributioncontroller_getprizedistributions"
     },
     {
       "relation": "contains",
@@ -13471,9 +14329,9 @@
       "source_file": "backend/controllers/prizeDistributionController.js",
       "source_location": "L89",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controllers_prizedistributioncontroller",
-      "target": "controllers_prizedistributioncontroller_manuallydistributeprizes",
-      "confidence_score": 1.0
+      "target": "controllers_prizedistributioncontroller_manuallydistributeprizes"
     },
     {
       "relation": "contains",
@@ -13481,9 +14339,9 @@
       "source_file": "backend/controllers/prizeDistributionController.js",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controllers_prizedistributioncontroller",
-      "target": "controllers_prizedistributioncontroller_prizedistribution",
-      "confidence_score": 1.0
+      "target": "controllers_prizedistributioncontroller_prizedistribution"
     },
     {
       "relation": "contains",
@@ -13491,9 +14349,9 @@
       "source_file": "backend/controllers/prizeDistributionController.js",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controllers_prizedistributioncontroller",
-      "target": "controllers_prizedistributioncontroller_sponsor",
-      "confidence_score": 1.0
+      "target": "controllers_prizedistributioncontroller_sponsor"
     },
     {
       "relation": "contains",
@@ -13501,9 +14359,9 @@
       "source_file": "backend/controllers/prizeDistributionController.js",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controllers_prizedistributioncontroller",
-      "target": "controllers_prizedistributioncontroller_team",
-      "confidence_score": 1.0
+      "target": "controllers_prizedistributioncontroller_team"
     },
     {
       "relation": "contains",
@@ -13511,9 +14369,9 @@
       "source_file": "backend/controllers/prizeDistributionController.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controllers_prizedistributioncontroller",
-      "target": "controllers_prizedistributioncontroller_tournament",
-      "confidence_score": 1.0
+      "target": "controllers_prizedistributioncontroller_tournament"
     },
     {
       "relation": "imports_from",
@@ -13522,9 +14380,9 @@
       "source_file": "backend/controllers/prizeDistributionController.js",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controllers_prizedistributioncontroller",
-      "target": "models_prizedistribution",
-      "confidence_score": 1.0
+      "target": "models_prizedistribution"
     },
     {
       "relation": "imports_from",
@@ -13533,9 +14391,9 @@
       "source_file": "backend/controllers/prizeDistributionController.js",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controllers_prizedistributioncontroller",
-      "target": "models_sponsor",
-      "confidence_score": 1.0
+      "target": "models_sponsor"
     },
     {
       "relation": "imports_from",
@@ -13544,9 +14402,9 @@
       "source_file": "backend/controllers/prizeDistributionController.js",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controllers_prizedistributioncontroller",
-      "target": "models_team",
-      "confidence_score": 1.0
+      "target": "models_team"
     },
     {
       "relation": "imports_from",
@@ -13555,9 +14413,9 @@
       "source_file": "backend/controllers/prizeDistributionController.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controllers_prizedistributioncontroller",
-      "target": "models_tournament",
-      "confidence_score": 1.0
+      "target": "models_tournament"
     },
     {
       "relation": "imports_from",
@@ -13566,9 +14424,9 @@
       "source_file": "backend/controllers/prizeDistributionController.js",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controllers_prizedistributioncontroller",
-      "target": "utils_prizedistributionhelper",
-      "confidence_score": 1.0
+      "target": "utils_prizedistributionhelper"
     },
     {
       "relation": "imports",
@@ -13577,9 +14435,9 @@
       "source_file": "backend/controllers/prizeDistributionController.js",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controllers_prizedistributioncontroller",
-      "target": "utils_prizedistributionhelper_distributetournamentprizes",
-      "confidence_score": 1.0
+      "target": "utils_prizedistributionhelper_distributetournamentprizes"
     },
     {
       "relation": "imports_from",
@@ -13588,9 +14446,9 @@
       "source_file": "backend/routes/prizeDistributionRouter.js",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_prizedistributionrouter",
-      "target": "controllers_prizedistributioncontroller",
-      "confidence_score": 1.0
+      "target": "controllers_prizedistributioncontroller"
     },
     {
       "relation": "imports",
@@ -13599,9 +14457,9 @@
       "source_file": "backend/routes/prizeDistributionRouter.js",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_prizedistributionrouter",
-      "target": "controllers_prizedistributioncontroller_getprizedistributions",
-      "confidence_score": 1.0
+      "target": "controllers_prizedistributioncontroller_getprizedistributions"
     },
     {
       "relation": "imports",
@@ -13610,9 +14468,9 @@
       "source_file": "backend/routes/prizeDistributionRouter.js",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_prizedistributionrouter",
-      "target": "controllers_prizedistributioncontroller_getprizedistributionbytournament",
-      "confidence_score": 1.0
+      "target": "controllers_prizedistributioncontroller_getprizedistributionbytournament"
     },
     {
       "relation": "calls",
@@ -13632,9 +14490,9 @@
       "source_file": "backend/routes/prizeDistributionRouter.js",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_prizedistributionrouter",
-      "target": "controllers_prizedistributioncontroller_manuallydistributeprizes",
-      "confidence_score": 1.0
+      "target": "controllers_prizedistributioncontroller_manuallydistributeprizes"
     },
     {
       "relation": "contains",
@@ -16621,9 +17479,9 @@
       "source_file": "backend/routes/prizeDistributionRouter.js",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_prizedistributionrouter",
-      "target": "middleware_authmiddleware",
-      "confidence_score": 1.0
+      "target": "middleware_authmiddleware"
     },
     {
       "relation": "imports_from",
@@ -16720,9 +17578,9 @@
       "source_file": "backend/routes/prizeDistributionRouter.js",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_prizedistributionrouter",
-      "target": "middleware_rolemiddleware",
-      "confidence_score": 1.0
+      "target": "middleware_rolemiddleware"
     },
     {
       "relation": "imports_from",
@@ -16917,6 +17775,78 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "backend/migrate.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "backend_migrate",
+      "target": "backend_migrate_dns",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/migrate.js",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "backend_migrate",
+      "target": "backend_migrate_getdbnamefromuri",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/migrate.js",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "backend_migrate",
+      "target": "backend_migrate_maskuri",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/migrate.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "backend_migrate",
+      "target": "backend_migrate_mongoose",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/migrate.js",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "backend_migrate",
+      "target": "backend_migrate_runmigration",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/migrate.js",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "backend_migrate_runmigration",
+      "target": "backend_migrate_maskuri",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/migrate.js",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "backend_migrate_runmigration",
+      "target": "backend_migrate_getdbnamefromuri",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "backend/models/EmailOtp.js",
       "source_location": "L3",
       "weight": 1.0,
@@ -17002,9 +17932,9 @@
       "source_file": "backend/models/PrizeDistribution.js",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "models_prizedistribution",
-      "target": "models_prizedistribution_mongoose",
-      "confidence_score": 1.0
+      "target": "models_prizedistribution_mongoose"
     },
     {
       "relation": "contains",
@@ -17012,9 +17942,9 @@
       "source_file": "backend/models/PrizeDistribution.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "models_prizedistribution",
-      "target": "models_prizedistribution_prizedistributionschema",
-      "confidence_score": 1.0
+      "target": "models_prizedistribution_prizedistributionschema"
     },
     {
       "relation": "imports_from",
@@ -17023,9 +17953,9 @@
       "source_file": "backend/utils/prizeDistributionHelper.js",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_prizedistributionhelper",
-      "target": "models_prizedistribution",
-      "confidence_score": 1.0
+      "target": "models_prizedistribution"
     },
     {
       "relation": "contains",
@@ -17074,9 +18004,9 @@
       "source_file": "backend/utils/prizeDistributionHelper.js",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_prizedistributionhelper",
-      "target": "models_sponsor",
-      "confidence_score": 1.0
+      "target": "models_sponsor"
     },
     {
       "relation": "contains",
@@ -17125,9 +18055,9 @@
       "source_file": "backend/utils/prizeDistributionHelper.js",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_prizedistributionhelper",
-      "target": "models_team",
-      "confidence_score": 1.0
+      "target": "models_team"
     },
     {
       "relation": "contains",
@@ -17156,9 +18086,9 @@
       "source_file": "backend/utils/prizeDistributionHelper.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_prizedistributionhelper",
-      "target": "models_tournament",
-      "confidence_score": 1.0
+      "target": "models_tournament"
     },
     {
       "relation": "imports_from",
@@ -17218,9 +18148,9 @@
       "source_file": "backend/utils/prizeDistributionHelper.js",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_prizedistributionhelper",
-      "target": "models_user",
-      "confidence_score": 1.0
+      "target": "models_user"
     },
     {
       "relation": "contains",
@@ -17269,9 +18199,9 @@
       "source_file": "backend/utils/prizeDistributionHelper.js",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_prizedistributionhelper",
-      "target": "models_notification",
-      "confidence_score": 1.0
+      "target": "models_notification"
     },
     {
       "relation": "contains",
@@ -17499,9 +18429,9 @@
       "source_file": "backend/routes/prizeDistributionRouter.js",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_prizedistributionrouter",
-      "target": "routes_prizedistributionrouter_auth",
-      "confidence_score": 1.0
+      "target": "routes_prizedistributionrouter_auth"
     },
     {
       "relation": "contains",
@@ -17509,9 +18439,9 @@
       "source_file": "backend/routes/prizeDistributionRouter.js",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_prizedistributionrouter",
-      "target": "routes_prizedistributionrouter_express",
-      "confidence_score": 1.0
+      "target": "routes_prizedistributionrouter_express"
     },
     {
       "relation": "contains",
@@ -17519,9 +18449,9 @@
       "source_file": "backend/routes/prizeDistributionRouter.js",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_prizedistributionrouter",
-      "target": "routes_prizedistributionrouter_getprizedistributions_getprizedistributionbytournament_manuallydistributeprizes",
-      "confidence_score": 1.0
+      "target": "routes_prizedistributionrouter_getprizedistributions_getprizedistributionbytournament_manuallydistributeprizes"
     },
     {
       "relation": "contains",
@@ -17529,9 +18459,9 @@
       "source_file": "backend/routes/prizeDistributionRouter.js",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_prizedistributionrouter",
-      "target": "routes_prizedistributionrouter_role",
-      "confidence_score": 1.0
+      "target": "routes_prizedistributionrouter_role"
     },
     {
       "relation": "contains",
@@ -17539,9 +18469,9 @@
       "source_file": "backend/routes/prizeDistributionRouter.js",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_prizedistributionrouter",
-      "target": "routes_prizedistributionrouter_router",
-      "confidence_score": 1.0
+      "target": "routes_prizedistributionrouter_router"
     },
     {
       "relation": "contains",
@@ -18059,8 +18989,18 @@
       "source_file": "backend/utils/prizeDistributionHelper.js",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_prizedistributionhelper",
-      "target": "utils_prizedistributionhelper_distributetournamentprizes",
+      "target": "utils_prizedistributionhelper_distributetournamentprizes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/utils/prizeDistributionHelper.js",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "utils_prizedistributionhelper",
+      "target": "utils_prizedistributionhelper_distributewithretry",
       "confidence_score": 1.0
     },
     {
@@ -18069,9 +19009,9 @@
       "source_file": "backend/utils/prizeDistributionHelper.js",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_prizedistributionhelper",
-      "target": "utils_prizedistributionhelper_mongoose",
-      "confidence_score": 1.0
+      "target": "utils_prizedistributionhelper_mongoose"
     },
     {
       "relation": "contains",
@@ -18079,9 +19019,9 @@
       "source_file": "backend/utils/prizeDistributionHelper.js",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_prizedistributionhelper",
-      "target": "utils_prizedistributionhelper_notification",
-      "confidence_score": 1.0
+      "target": "utils_prizedistributionhelper_notification"
     },
     {
       "relation": "contains",
@@ -18089,9 +19029,9 @@
       "source_file": "backend/utils/prizeDistributionHelper.js",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_prizedistributionhelper",
-      "target": "utils_prizedistributionhelper_prizedistribution",
-      "confidence_score": 1.0
+      "target": "utils_prizedistributionhelper_prizedistribution"
     },
     {
       "relation": "contains",
@@ -18099,9 +19039,9 @@
       "source_file": "backend/utils/prizeDistributionHelper.js",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_prizedistributionhelper",
-      "target": "utils_prizedistributionhelper_sponsor",
-      "confidence_score": 1.0
+      "target": "utils_prizedistributionhelper_sponsor"
     },
     {
       "relation": "contains",
@@ -18109,9 +19049,9 @@
       "source_file": "backend/utils/prizeDistributionHelper.js",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_prizedistributionhelper",
-      "target": "utils_prizedistributionhelper_team",
-      "confidence_score": 1.0
+      "target": "utils_prizedistributionhelper_team"
     },
     {
       "relation": "contains",
@@ -18119,9 +19059,9 @@
       "source_file": "backend/utils/prizeDistributionHelper.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_prizedistributionhelper",
-      "target": "utils_prizedistributionhelper_tournament",
-      "confidence_score": 1.0
+      "target": "utils_prizedistributionhelper_tournament"
     },
     {
       "relation": "contains",
@@ -18129,9 +19069,31 @@
       "source_file": "backend/utils/prizeDistributionHelper.js",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_prizedistributionhelper",
-      "target": "utils_prizedistributionhelper_user",
+      "target": "utils_prizedistributionhelper_user"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/utils/prizeDistributionHelper.js",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "utils_prizedistributionhelper_distributetournamentprizes",
+      "target": "utils_prizedistributionhelper_distributewithretry",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend/utils/tournamentHelper.js",
+      "source_location": "L154",
+      "weight": 1.0,
+      "source": "utils_tournamenthelper_checkandupdatetournamentstatuses",
+      "target": "utils_prizedistributionhelper_distributetournamentprizes"
     },
     {
       "relation": "contains",
@@ -18380,5 +19342,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "8c19feeebae9b08bbe6f2b946cd47d60a888a40f"
+  "built_at_commit": "88eeea8b47177dd6a71b7c17c4dd7c65f5e1e5d7"
 }

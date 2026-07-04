@@ -1,7 +1,32 @@
 import React from "react";
 import "../../static/Profile.css";
 
-export default function ProfileLayout({ hero, tabs, sidebar, content }) {
+export default function ProfileLayout({ hero, tabs, sidebar, content, role }) {
+  if (role === "organizer" || role === "coach") {
+    return (
+      <div className="profile-page-wrapper-3col">
+        <div className="profile-grid-container-3col">
+          {/* Column 1: Left Sidebar */}
+          <div className="profile-sidebar-left">
+            {sidebar?.left}
+          </div>
+
+          {/* Column 2: Center Content */}
+          <div className="profile-main-center">
+            <div className="profile-hero-wrapper">{hero}</div>
+            <div className="profile-tabs-wrapper">{tabs}</div>
+            <div className="profile-center-body">{content?.center}</div>
+          </div>
+
+          {/* Column 3: Right Sidebar */}
+          <div className="profile-sidebar-right">
+            {sidebar?.right}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="profile-page-wrapper">
       {/* Dynamic Header Hero Section */}

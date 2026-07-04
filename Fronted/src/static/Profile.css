@@ -821,18 +821,46 @@
   max-width: 1200px;
   width: 95%;
   margin: 0 auto 40px;
+  align-items: start;
 }
 
 .profile-sidebar-column {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  min-width: 0;
 }
 
 .profile-main-column {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  min-width: 0;
+}
+
+/* Force all inner elements inside the grid layout to stretch naturally and omit outer margins */
+.profile-sidebar-column > *,
+.profile-main-column > * {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-top: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-bottom: 30px !important;
+  box-sizing: border-box !important;
+}
+
+.profile-sidebar-column > *:last-child,
+.profile-main-column > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Responsive Grid Adapters */
+@media (max-width: 992px) {
+  .profile-grid-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
 
 /* Glass Panels and Cards */
@@ -1024,6 +1052,8 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
+  width: 100%;
+  min-width: 0;
 }
 
 .profile-stats-grid {
@@ -1076,8 +1106,17 @@
   letter-spacing: 0.05em;
 }
 
+.profile-sidebar-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
 .stats-chart-wrapper {
   padding: 24px;
+  width: 100%;
+  min-width: 0;
 }
 
 .stats-chart-wrapper h3 {
@@ -1338,5 +1377,94 @@
   .deactivate-btn {
     width: 100%;
     text-align: center;
+  }
+}
+
+/* ================= 3-COLUMN DASHBOARD LAYOUT ================= */
+.profile-page-wrapper-3col {
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.profile-grid-container-3col {
+  display: grid;
+  grid-template-columns: 320px 1fr 340px;
+  gap: 30px;
+  max-width: 1440px;
+  width: 95%;
+  margin: 40px auto;
+  align-items: start;
+}
+
+.profile-sidebar-left {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  min-width: 0;
+}
+
+.profile-main-center {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  min-width: 0;
+}
+
+.profile-sidebar-right {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  min-width: 0;
+}
+
+.profile-center-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Force children to fit their respective columns */
+.profile-sidebar-left > *,
+.profile-main-center > *,
+.profile-sidebar-right > *,
+.profile-center-flow > * {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  margin-top: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Specificity override to prevent AdminDashboard.css from turning quick-actions-grid into 4 columns */
+.profile-page-wrapper-3col .quick-actions-grid,
+.profile-page-wrapper .quick-actions-grid {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 15px !important;
+}
+
+/* Responsive Rules for 3-Column Layout */
+@media (max-width: 1200px) {
+  .profile-grid-container-3col {
+    grid-template-columns: 300px 1fr;
+  }
+  .profile-sidebar-right {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-grid-container-3col {
+    grid-template-columns: 1fr;
+  }
+  .profile-sidebar-left,
+  .profile-main-center,
+  .profile-sidebar-right {
+    grid-column: span 1;
   }
 }

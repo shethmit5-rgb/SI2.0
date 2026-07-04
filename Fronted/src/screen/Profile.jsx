@@ -6,6 +6,8 @@ import ProfileLayout from "../components/profile/ProfileLayout";
 import ProfileHero from "../components/profile/ProfileHero";
 import ProfileTabs from "../components/profile/ProfileTabs";
 import ProfileQuickActions from "../components/profile/ProfileQuickActions";
+import ProfileStatsCard from "../components/profile/ProfileStatsCard";
+import ProfileActivityTimeline from "../components/profile/ProfileActivityTimeline";
 import "../static/Profile.css";
 
 // Lazy-loaded role-specific contents
@@ -210,6 +212,52 @@ export default function Profile() {
     ];
   }
 
+  // ================= PROCESS LIVE ACTIVITY EVENTS =================
+  const activity = dashboardData.activity || {};
+  let activitiesList = [];
+
+  if (role === "organizer") {
+    if (activity.recentRegistrations) {
+      activity.recentRegistrations.forEach((r) => {
+        activitiesList.push({
+          title: "Registration Received",
+          date: r.registrationDate,
+          description: `Team "${r.teamId?.teamName || "N/A"}" registered for "${r.tournamentId?.eventName || "N/A"}"`,
+        });
+      });
+    }
+    if (activity.recentOrganizerPayments) {
+      activity.recentOrganizerPayments.forEach((p) => {
+        activitiesList.push({
+          title: "Tournament Fee Paid",
+          date: p.createdAt,
+          description: `Paid creation fee for "${p.tournamentId?.eventName || "N/A"}"`,
+        });
+      });
+    }
+  } else if (role === "coach") {
+    if (activity.recentPlayerPayments) {
+      activity.recentPlayerPayments.forEach((p) => {
+        activitiesList.push({
+          title: "Player Payment Received",
+          date: p.createdAt,
+          description: `Player "${p.userId?.name || "N/A"}" paid joining fee for team "${p.teamId?.teamName || "N/A"}"`,
+        });
+      });
+    }
+    if (activity.recentRegistrations) {
+      activity.recentRegistrations.forEach((r) => {
+        activitiesList.push({
+          title: "Team Registration",
+          date: r.registrationDate,
+          description: `Registered team "${r.teamId?.teamName || "N/A"}" for tournament "${r.tournamentId?.eventName || "N/A"}"`,
+        });
+      });
+    }
+  }
+
+  const finalTimeline = activitiesList.length > 0 ? activitiesList : (activity.notifications || []);
+
   // ================= RENDER DYNAMIC COMPONENTS =================
   const heroComponent = (
     <ProfileHero
@@ -259,34 +307,6 @@ export default function Profile() {
 
   const contentComponent = (
     <Suspense fallback={<div className="glass-card skeleton-loader" style={{ height: "400px" }}></div>}>
-      {role === "organizer" && (
-        <OrganizerProfileContent
-          activeTab={activeTab}
-          dashboardData={dashboardData}
-          user={user}
-          form={form}
-          isEditing={isEditing}
-          setIsEditing={setIsEditing}
-          handleChange={handleChange}
-          handleSubmit={handleSubmit}
-          saving={saving}
-          handleDelete={handleDelete}
-        />
-      )}
-      {role === "coach" && (
-        <CoachProfileContent
-          activeTab={activeTab}
-          dashboardData={dashboardData}
-          user={user}
-          form={form}
-          isEditing={isEditing}
-          setIsEditing={setIsEditing}
-          handleChange={handleChange}
-          handleSubmit={handleSubmit}
-          saving={saving}
-          handleDelete={handleDelete}
-        />
-      )}
       {role === "player" && (
         <PlayerProfileContent
           activeTab={activeTab}
@@ -318,12 +338,74 @@ export default function Profile() {
     </Suspense>
   );
 
+  if (role === "organizer" || role === "coach") {
+    const sidebar3Col = {
+      left: sidebarComponent,
+      right: (
+        <ProfileActivityTimeline
+          activities={finalTimeline}
+          emptyMessage={`No ${role} activities yet.`}
+        />
+      )
+    };
+
+    const content3Col = {
+      center: (
+        <div className="profile-center-flow">
+          <ProfileStatsCard role={role} statsData={dashboardData} />
+          
+          <Suspense fallback={<div className="glass-card skeleton-loader" style={{ height: "300px" }}></div>}>
+            {role === "organizer" && (
+              <OrganizerProfileContent
+                activeTab={activeTab}
+                dashboardData={dashboardData}
+                user={user}
+                form={form}
+                isEditing={isEditing}
+                setIsEditing={setIsEditing}
+                handleChange={handleChange}
+                handleSubmit={handleSubmit}
+                saving={saving}
+                handleDelete={handleDelete}
+              />
+            )}
+            {role === "coach" && (
+              <CoachProfileContent
+                activeTab={activeTab}
+                dashboardData={dashboardData}
+                user={user}
+                form={form}
+                isEditing={isEditing}
+                setIsEditing={setIsEditing}
+                handleChange={handleChange}
+                handleSubmit={handleSubmit}
+                saving={saving}
+                handleDelete={handleDelete}
+              />
+            )}
+          </Suspense>
+        </div>
+      )
+    };
+
+    return (
+      <ProfileLayout
+        hero={heroComponent}
+        tabs={tabsComponent}
+        sidebar={sidebar3Col}
+        content={content3Col}
+        role={role}
+      />
+    );
+  }
+
   return (
     <ProfileLayout
       hero={heroComponent}
       tabs={tabsComponent}
       sidebar={sidebarComponent}
       content={contentComponent}
+      role={role}
     />
   );
 }

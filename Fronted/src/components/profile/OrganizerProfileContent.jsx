@@ -49,8 +49,6 @@ export default function OrganizerProfileContent({
     case "overview":
       return (
         <div className="tab-pane-content">
-          <ProfileStatsCard role="organizer" statsData={dashboardData} />
-          
           {/* Calendar placeholder */}
           <div className="calendar-panel glass-card">
             <h3>📅 Tournament Schedule Calendar</h3>
@@ -68,8 +66,6 @@ export default function OrganizerProfileContent({
               </div>
             </div>
           </div>
-
-          <ProfileActivityTimeline activities={finalTimeline} emptyMessage="No tournaments created yet. Create your first tournament." />
         </div>
       );
 

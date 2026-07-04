@@ -44,12 +44,7 @@ export default function CoachProfileContent({
 
   switch (activeTab) {
     case "overview":
-      return (
-        <div className="tab-pane-content">
-          <ProfileStatsCard role="coach" statsData={dashboardData} />
-          <ProfileActivityTimeline activities={finalTimeline} emptyMessage="No teams managed yet. Create your first team." />
-        </div>
-      );
+      return null;
 
     case "teams":
       return (

@@ -639,7 +639,7 @@ export default function AdminPayments() {
                               title="View Details"
                               aria-label="View Details"
                             >
-                              <Eye size={16} />
+                              <Eye size={18} />
                               <span className="action-hover-tooltip">View Details</span>
                             </button>
                             <button
@@ -649,7 +649,7 @@ export default function AdminPayments() {
                               title="Override Status"
                               aria-label="Override Status"
                             >
-                              <Edit size={16} />
+                              <Edit size={18} />
                               <span className="action-hover-tooltip">Override Status</span>
                             </button>
                           </div>
