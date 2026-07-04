@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./AdminDashboard.css";
+import SkeletonTable from "../components/loading/SkeletonTable";
 
 export default function Reports() {
   const token = localStorage.getItem("token");
@@ -186,7 +187,7 @@ export default function Reports() {
     return (
       <div className="admin-layout">
         <main className="content">
-          <h2 style={{ textAlign: "center" }}>Loading reports...</h2>
+          <SkeletonTable rows={8} cols={7} />
         </main>
       </div>
     );

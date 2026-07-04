@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Registrations.css";
+import SkeletonTable from "../components/loading/SkeletonTable";
 
 export default function Registrations() {
   const [registrations, setRegistrations] = useState([]);
@@ -47,7 +48,11 @@ export default function Registrations() {
   };
 
   if (loading) {
-    return <h2 style={{ textAlign: "center" }}>Loading registrations...</h2>;
+    return (
+      <div className="reg-page">
+        <SkeletonTable rows={8} cols={6} />
+      </div>
+    );
   }
 
   return (

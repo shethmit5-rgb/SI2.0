@@ -4,6 +4,7 @@ import api from "../utils/axiosConfig";
 import { useAuth } from "../context/AuthContext";
 // Removed payment service imports since payment happens after organizer approval
 import "../static/RegisterTeam.css";
+import SkeletonForm from "../components/loading/SkeletonForm";
 
 export default function RegisterTeam() {
   const { user } = useAuth();
@@ -147,7 +148,13 @@ export default function RegisterTeam() {
     }
   };
 
-  if (loading) return <div className="loading-spinner">Loading...</div>;
+  if (loading) {
+    return (
+      <div className="register-team-page">
+        <SkeletonForm fields={4} />
+      </div>
+    );
+  }
 
   // Show if already registered
   if (existingRegistration) {

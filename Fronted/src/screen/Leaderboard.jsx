@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import api from "../utils/axiosConfig";
 import "../static/Leaderboard.css";
+import SkeletonTable from "../components/loading/SkeletonTable";
 
 export default function Leaderboard() {
   const [teams, setTeams] = useState([]);
@@ -33,7 +34,15 @@ export default function Leaderboard() {
   };
 
   if (loading) {
-    return <div className="loading-spinner">Loading leaderboard...</div>;
+    return (
+      <div className="leaderboard-page">
+        <div className="leaderboard-header">
+          <h1>🏆 Leaderboard</h1>
+          <p>Top teams in ArenaSync</p>
+        </div>
+        <SkeletonTable rows={10} cols={5} />
+      </div>
+    );
   }
 
   return (

@@ -3,6 +3,7 @@ import api from "../utils/axiosConfig";
 import "../static/SponsorDashboard.css";
 import socket from "../utils/socket";
 import { useAuth } from "../context/AuthContext";
+import SkeletonDashboard from "../components/loading/SkeletonDashboard";
 
 export default function SponsorDashboard() {
   const { user } = useAuth();
@@ -97,7 +98,7 @@ export default function SponsorDashboard() {
   if (loading) {
     return (
       <div className="sponsor-db-container">
-        <div className="loading-spinner">Loading Sponsor Dashboard...</div>
+        <SkeletonDashboard />
       </div>
     );
   }

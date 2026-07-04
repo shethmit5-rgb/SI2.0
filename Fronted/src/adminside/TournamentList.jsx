@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./TournamentList.css";
+import SkeletonTable from "../components/loading/SkeletonTable";
 
 export default function TournamentList() {
   const [tournaments, setTournaments] = useState([]);
@@ -94,7 +95,7 @@ export default function TournamentList() {
     }
   };
 
-  if (loading) return <div style={{ textAlign: "center", padding: "50px" }}>Loading tournaments...</div>;
+  if (loading) return <div style={{ padding: "20px" }}><SkeletonTable rows={8} cols={7} /></div>;
 
   return (
     <div style={{ padding: "20px" }}>

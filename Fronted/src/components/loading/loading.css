@@ -1,0 +1,60 @@
+/* =========================================
+   PREMIUM SHIMMER LOADING STYLES
+   ========================================= */
+
+@keyframes premium-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.08) 25%,
+    rgba(255, 255, 255, 0.20) 37%,
+    rgba(255, 255, 255, 0.08) 63%
+  );
+  background-size: 200% 100%;
+  animation: premium-shimmer 1.4s infinite linear;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Light Theme Overrides */
+:root:not([data-theme="dark"]) .skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(15, 76, 129, 0.04) 25%,
+    rgba(15, 76, 129, 0.12) 37%,
+    rgba(15, 76, 129, 0.04) 63%
+  );
+  background-size: 200% 100%;
+}
+
+.skeleton-glass-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  position: relative;
+}
+
+:root:not([data-theme="dark"]) .skeleton-glass-card {
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(15, 76, 129, 0.08);
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-shimmer {
+    animation: none;
+    opacity: 0.75;
+  }
+}

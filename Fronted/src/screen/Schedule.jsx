@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import api from "../utils/axiosConfig";
 import { Link } from "react-router-dom";
 import "../static/schedule.css";
+import SkeletonMatch from "../components/loading/SkeletonMatch";
 
 export default function Schedule() {
   const [matches, setMatches] = useState([]);
@@ -38,7 +39,15 @@ export default function Schedule() {
   };
 
   if (loading) {
-    return <div className="loading-spinner">Loading schedule...</div>;
+    return (
+      <div className="schedule-page">
+        <div className="schedule-header">
+          <h1>📅 Match Schedule</h1>
+          <p>Upcoming and live matches</p>
+        </div>
+        <SkeletonMatch items={6} />
+      </div>
+    );
   }
 
   return (

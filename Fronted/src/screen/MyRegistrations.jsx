@@ -4,6 +4,7 @@ import api from "../utils/axiosConfig";
 import { useAuth } from "../context/AuthContext";
 import { loadRazorpayScript, initiateRegistrationPayment, verifyRegistrationPayment, getRazorpayKey } from "../services/paymentService";
 import "../static/MyRegistrations.css";
+import SkeletonTable from "../components/loading/SkeletonTable";
 
 export default function MyRegistrations() {
   const { user } = useAuth();
@@ -266,7 +267,15 @@ export default function MyRegistrations() {
     );
   };
 
-  if (loading) return <div className="loading-spinner">Loading registrations...</div>;
+  if (loading) {
+    return (
+      <div className="my-registrations-page">
+        <h1>📋 My Tournament Registrations</h1>
+        <p className="subtitle">Track your team registration status</p>
+        <SkeletonTable rows={8} cols={4} />
+      </div>
+    );
+  }
 
   return (
     <div className="my-registrations-page">

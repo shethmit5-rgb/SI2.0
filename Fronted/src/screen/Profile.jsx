@@ -9,6 +9,7 @@ import ProfileQuickActions from "../components/profile/ProfileQuickActions";
 import ProfileStatsCard from "../components/profile/ProfileStatsCard";
 import ProfileActivityTimeline from "../components/profile/ProfileActivityTimeline";
 import "../static/Profile.css";
+import SkeletonProfile from "../components/loading/SkeletonProfile";
 
 // Lazy-loaded role-specific contents
 const OrganizerProfileContent = React.lazy(() => import("../components/profile/OrganizerProfileContent"));
@@ -146,7 +147,7 @@ export default function Profile() {
 
   // ================= SKELETON LOADER =================
   if (profileLoading || dashboardLoading) {
-    return <ProfileSkeletonLoader />;
+    return <SkeletonProfile />;
   }
 
   // ================= ROLE PARAMETERS CONFIGURATION =================

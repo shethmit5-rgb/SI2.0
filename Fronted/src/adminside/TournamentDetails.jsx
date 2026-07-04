@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import "./TournamentDetails.css";
+import SkeletonTournament from "../components/loading/SkeletonTournament";
 
 export default function TournamentDetails() {
   const { id } = useParams();
@@ -92,12 +93,7 @@ export default function TournamentDetails() {
   };
 
   if (loading) {
-    return (
-      <div className="loading-container">
-        <div className="loading-spinner"></div>
-        <p>Loading tournament details...</p>
-      </div>
-    );
+    return <SkeletonTournament />;
   }
 
   if (!tournament) {

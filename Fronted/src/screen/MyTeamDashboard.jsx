@@ -4,6 +4,8 @@ import api from "../utils/axiosConfig";
 import { useAuth } from "../context/AuthContext";
 import { loadRazorpayScript, initiateJoinPayment, verifyJoinPayment, getRazorpayKey } from "../services/paymentService";
 import "../static/MyTeamDashboard.css";
+import SkeletonDashboard from "../components/loading/SkeletonDashboard";
+import SkeletonChart from "../components/loading/SkeletonChart";
 import { motion, AnimatePresence } from "framer-motion";
 import TiltCard from "../components/TiltCard";
 import socket from "../utils/socket";
@@ -278,12 +280,7 @@ export default function MyTeamDashboard() {
   }, [activeTab, myTeams, user]);
 
   if (loading) {
-    return (
-      <div className="loading-container">
-        <div className="spinner"></div>
-        <p>Loading dashboard...</p>
-      </div>
-    );
+    return <SkeletonDashboard />;
   }
 
   // Motion variants
@@ -833,12 +830,7 @@ export default function MyTeamDashboard() {
 
   const renderDashboardAnalytics = () => {
     if (dashboardLoading) {
-      return (
-        <div className="loading-spinner">
-          <div className="spinner"></div>
-          <p>Loading analytics data...</p>
-        </div>
-      );
+      return <SkeletonChart type="bar" height="350px" style={{ marginTop: "20px" }} />;
     }
 
     if (dashboardError) {

@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import api from "../utils/axiosConfig";
 import { useAuth } from "../context/AuthContext";
 import "../static/TeamDetails.css";
+import SkeletonTeam from "../components/loading/SkeletonTeam";
 
 export default function TeamDetails() {
   const { id } = useParams();
@@ -111,7 +112,7 @@ export default function TeamDetails() {
     }
   };
 
-  if (loading) return <div className="loading-spinner">Loading team details...</div>;
+  if (loading) return <SkeletonTeam />;
   if (!team) return <div className="error-message">Team not found</div>;
 
   const approvedCount = players.filter(p => p.status === "approved").length;

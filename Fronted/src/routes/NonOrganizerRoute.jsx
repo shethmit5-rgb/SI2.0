@@ -1,11 +1,16 @@
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import SkeletonDashboard from "../components/loading/SkeletonDashboard";
 
 const NonOrganizerRoute = ({ children }) => {
   const { user, loading } = useAuth();
 
   if (loading) {
-    return <div className="loading-spinner">Loading...</div>;
+    return (
+      <div style={{ padding: "40px" }}>
+        <SkeletonDashboard />
+      </div>
+    );
   }
 
   // If user is not logged in, they can't access these protected routes anyway,

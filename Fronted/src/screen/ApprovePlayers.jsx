@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import api from "../utils/axiosConfig";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import SkeletonTable from "../components/loading/SkeletonTable";
 
 export default function ApprovePlayers() {
   const [teams, setTeams] = useState([]);
@@ -71,9 +72,8 @@ export default function ApprovePlayers() {
   // ================= LOADING STATE =================
   if (loading) {
     return (
-      <div style={styles.center}>
-        <div className="spinner"></div>
-        <p>Loading player requests...</p>
+      <div style={{ padding: "40px 20px", maxWidth: "1200px", margin: "0 auto" }}>
+        <SkeletonTable rows={8} cols={5} />
       </div>
     );
   }

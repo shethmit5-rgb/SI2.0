@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import api from "../utils/axiosConfig";
 import { useAuth } from "../context/AuthContext";
 import "../static/TeamsList.css";
+import SkeletonCard from "../components/loading/SkeletonCard";
 
 export default function TeamsList() {
   const { user } = useAuth();
@@ -116,7 +117,11 @@ export default function TeamsList() {
 
       {/* Teams Grid */}
       {loading ? (
-        <div className="loading-spinner">Loading teams...</div>
+        <div className="teams-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "20px", width: "100%" }}>
+          {Array.from({ length: 6 }).map((_, i) => (
+            <SkeletonCard key={i} height="240px" />
+          ))}
+        </div>
       ) : (
         <div className="teams-grid">
           {filteredTeams.length > 0 ? (

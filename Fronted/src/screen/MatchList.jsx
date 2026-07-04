@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../static/MatchList.css";
+import SkeletonMatch from "../components/loading/SkeletonMatch";
 
 export default function MatchList() {
   const token = localStorage.getItem("token");
@@ -102,10 +103,11 @@ export default function MatchList() {
   if (loading) {
     return (
       <div className="matchlist-container">
-        <div className="loading-spinner">
-          <div className="spinner"></div>
-          <p>Loading matches...</p>
+        <div className="matchlist-header">
+          <h1>🏆 Tournament Matches</h1>
+          <p>Real-time brackets and fixture schedules</p>
         </div>
+        <SkeletonMatch items={6} />
       </div>
     );
   }

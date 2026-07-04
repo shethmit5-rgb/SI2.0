@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "../static/OrganizerDashboard.css";
 import { motion } from "framer-motion";
 import TiltCard from "../components/TiltCard";
+import SkeletonDashboard from "../components/loading/SkeletonDashboard";
 
 import socket from "../utils/socket";
 import { useAuth } from "../context/AuthContext";
@@ -118,11 +119,8 @@ export default function OrganizerDashboard() {
 
   if (loading) {
     return (
-      <div className="org-dashboard-container" style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "60vh" }}>
-        <div style={{ textAlign: "center" }}>
-          <div className="loading-spinner" style={{ margin: "0 auto 20px" }}></div>
-          <h2 style={{ color: "var(--org-text-main)" }}>Loading organizer stats...</h2>
-        </div>
+      <div className="org-dashboard-container">
+        <SkeletonDashboard />
       </div>
     );
   }

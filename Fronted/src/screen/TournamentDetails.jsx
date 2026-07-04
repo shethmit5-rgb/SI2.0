@@ -4,6 +4,7 @@ import api from "../utils/axiosConfig";
 import { useAuth } from "../context/AuthContext";
 import "../static/TournamentDetails.css";
 import { loadRazorpayScript, getRazorpayKey } from "../services/paymentService";
+import SkeletonTournament from "../components/loading/SkeletonTournament";
 
 export default function TournamentDetails() {
   const { id } = useParams();
@@ -357,12 +358,7 @@ export default function TournamentDetails() {
   };
 
   if (loading) {
-    return (
-      <div className="loading-container">
-        <div className="loading-spinner"></div>
-        <p>Loading tournament details...</p>
-      </div>
-    );
+    return <SkeletonTournament />;
   }
 
   if (!tournament) {

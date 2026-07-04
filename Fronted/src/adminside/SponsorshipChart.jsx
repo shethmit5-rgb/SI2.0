@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import api from "../utils/axiosConfig";
+import SkeletonChart from "../components/loading/SkeletonChart";
 
 export default function SponsorshipChart() {
   const [chartData, setChartData] = useState([]);
@@ -58,7 +59,7 @@ export default function SponsorshipChart() {
   if (loading) {
     return (
       <div className="sponsorship-chart-container">
-        <div className="loading-spinner">Loading sponsorship data...</div>
+        <SkeletonChart type="pie" height="350px" />
       </div>
     );
   }

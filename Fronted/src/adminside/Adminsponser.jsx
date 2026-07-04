@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import SponsorshipChart from "./SponsorshipChart";
 import api from "../utils/axiosConfig";
 import "./AdminSponsor.css";
+import SkeletonTable from "../components/loading/SkeletonTable";
 
 export default function AdminSponsor() {
   const [sponsors, setSponsors] = useState([]);
@@ -142,7 +143,7 @@ export default function AdminSponsor() {
   if (loading) {
     return (
       <div className="admin-sponsor-container">
-        <div className="loading-spinner">Loading sponsors...</div>
+        <SkeletonTable rows={8} cols={6} />
       </div>
     );
   }

@@ -841,8 +841,24 @@
   width: 40px;
   height: 40px;
   border-radius: 12px;
-  background: rgba(0, 0, 0, 0.06);
-  animation: pulseBg 1.5s infinite ease-in-out;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.08) 25%,
+    rgba(255, 255, 255, 0.20) 37%,
+    rgba(255, 255, 255, 0.08) 63%
+  ) !important;
+  background-size: 200% 100% !important;
+  animation: premium-shimmer 1.4s infinite linear !important;
+}
+
+:root:not([data-theme="dark"]) .skeleton-circle-avatar {
+  background: linear-gradient(
+    90deg,
+    rgba(15, 76, 129, 0.04) 25%,
+    rgba(15, 76, 129, 0.12) 37%,
+    rgba(15, 76, 129, 0.04) 63%
+  ) !important;
+  background-size: 200% 100% !important;
 }
 
 .skeleton-avatar-text {
@@ -854,10 +870,26 @@
 
 .skeleton-line-tiny {
   height: 10px;
-  background: rgba(0, 0, 0, 0.06);
   border-radius: 4px;
   width: 100px;
-  animation: pulseBg 1.5s infinite ease-in-out;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.08) 25%,
+    rgba(255, 255, 255, 0.20) 37%,
+    rgba(255, 255, 255, 0.08) 63%
+  ) !important;
+  background-size: 200% 100% !important;
+  animation: premium-shimmer 1.4s infinite linear !important;
+}
+
+:root:not([data-theme="dark"]) .skeleton-line-tiny {
+  background: linear-gradient(
+    90deg,
+    rgba(15, 76, 129, 0.04) 25%,
+    rgba(15, 76, 129, 0.12) 37%,
+    rgba(15, 76, 129, 0.04) 63%
+  ) !important;
+  background-size: 200% 100% !important;
 }
 
 .skeleton-line-tiny.short { width: 60px; }
@@ -867,8 +899,24 @@
   height: 24px;
   border-radius: 9999px;
   width: 110px;
-  background: rgba(0, 0, 0, 0.06);
-  animation: pulseBg 1.5s infinite ease-in-out;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.08) 25%,
+    rgba(255, 255, 255, 0.20) 37%,
+    rgba(255, 255, 255, 0.08) 63%
+  ) !important;
+  background-size: 200% 100% !important;
+  animation: premium-shimmer 1.4s infinite linear !important;
+}
+
+:root:not([data-theme="dark"]) .skeleton-line-pill {
+  background: linear-gradient(
+    90deg,
+    rgba(15, 76, 129, 0.04) 25%,
+    rgba(15, 76, 129, 0.12) 37%,
+    rgba(15, 76, 129, 0.04) 63%
+  ) !important;
+  background-size: 200% 100% !important;
 }
 
 .skeleton-stack {
@@ -881,8 +929,24 @@
   height: 18px;
   border-radius: 6px;
   width: 130px;
-  background: rgba(0, 0, 0, 0.06);
-  animation: pulseBg 1.5s infinite ease-in-out;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.08) 25%,
+    rgba(255, 255, 255, 0.20) 37%,
+    rgba(255, 255, 255, 0.08) 63%
+  ) !important;
+  background-size: 200% 100% !important;
+  animation: premium-shimmer 1.4s infinite linear !important;
+}
+
+:root:not([data-theme="dark"]) .skeleton-line-code {
+  background: linear-gradient(
+    90deg,
+    rgba(15, 76, 129, 0.04) 25%,
+    rgba(15, 76, 129, 0.12) 37%,
+    rgba(15, 76, 129, 0.04) 63%
+  ) !important;
+  background-size: 200% 100% !important;
 }
 
 .skeleton-actions-row {
@@ -894,14 +958,24 @@
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background: rgba(0, 0, 0, 0.06);
-  animation: pulseBg 1.5s infinite ease-in-out;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.08) 25%,
+    rgba(255, 255, 255, 0.20) 37%,
+    rgba(255, 255, 255, 0.08) 63%
+  ) !important;
+  background-size: 200% 100% !important;
+  animation: premium-shimmer 1.4s infinite linear !important;
 }
 
-@keyframes pulseBg {
-  0% { opacity: 0.6; }
-  50% { opacity: 1; }
-  100% { opacity: 0.6; }
+:root:not([data-theme="dark"]) .skeleton-square-btn {
+  background: linear-gradient(
+    90deg,
+    rgba(15, 76, 129, 0.04) 25%,
+    rgba(15, 76, 129, 0.12) 37%,
+    rgba(15, 76, 129, 0.04) 63%
+  ) !important;
+  background-size: 200% 100% !important;
 }
 
 /* ==========================================================================

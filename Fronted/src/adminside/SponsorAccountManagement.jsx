@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../static/SponsorAccountManagement.css";
+import SkeletonTable from "../components/loading/SkeletonTable";
 
 export default function SponsorAccountManagement() {
   const token = localStorage.getItem("token");
@@ -63,7 +64,7 @@ export default function SponsorAccountManagement() {
   if (loading) {
     return (
       <div className="sponsor-mgmt-container">
-        <div className="loading-spinner">Loading Sponsor Accounts...</div>
+        <SkeletonTable rows={8} cols={6} />
       </div>
     );
   }

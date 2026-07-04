@@ -3,6 +3,7 @@ import api from "../utils/axiosConfig";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import "../static/Notifications.css";
+import SkeletonList from "../components/loading/SkeletonList";
 
 export default function Notifications() {
   const { user } = useAuth();
@@ -59,7 +60,15 @@ export default function Notifications() {
   };
 
   if (loading) {
-    return <div className="loading-spinner">Loading notifications...</div>;
+    return (
+      <div className="notifications-page">
+        <div className="notifications-header">
+          <h1>🔔 Notifications</h1>
+          <p>Stay updated with the latest tournament alerts.</p>
+        </div>
+        <SkeletonList items={6} />
+      </div>
+    );
   }
 
   return (

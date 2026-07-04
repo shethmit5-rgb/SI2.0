@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./AdminDashboard.css";
+import SkeletonTable from "../components/loading/SkeletonTable";
 
 export default function ApprovePlayers() {
   const [registrations, setRegistrations] = useState([]);
@@ -75,7 +76,7 @@ export default function ApprovePlayers() {
     return (
       <div className="admin-layout">
         <main className="content">
-          <h2>Loading registrations...</h2>
+          <SkeletonTable rows={8} cols={6} />
         </main>
       </div>
     );

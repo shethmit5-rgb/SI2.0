@@ -50,7 +50,7 @@
       "source_location": "L95",
       "_origin": "ast",
       "id": "src_app_app",
-      "community": 11,
+      "community": 1,
       "norm_label": "app()"
     },
     {
@@ -87,7 +87,7 @@
       "label": "AnimatedCounter()",
       "file_type": "code",
       "source_file": "Fronted/src/adminside/AdminDashboard.jsx",
-      "source_location": "L8",
+      "source_location": "L9",
       "_origin": "ast",
       "id": "adminside_admindashboard_animatedcounter",
       "community": 13,
@@ -97,7 +97,7 @@
       "label": "AdminDashboard()",
       "file_type": "code",
       "source_file": "Fronted/src/adminside/AdminDashboard.jsx",
-      "source_location": "L31",
+      "source_location": "L32",
       "_origin": "ast",
       "id": "adminside_admindashboard_admindashboard",
       "community": 13,
@@ -130,7 +130,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "adminside_adminprofile",
-      "community": 1,
+      "community": 4,
       "norm_label": "adminprofile.jsx"
     },
     {
@@ -140,7 +140,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "adminside_adminprofile_adminprofile",
-      "community": 1,
+      "community": 4,
       "norm_label": "adminprofile()"
     },
     {
@@ -177,7 +177,7 @@
       "label": "AdminSponsor()",
       "file_type": "code",
       "source_file": "Fronted/src/adminside/Adminsponser.jsx",
-      "source_location": "L6",
+      "source_location": "L7",
       "_origin": "ast",
       "id": "adminside_adminsponser_adminsponsor",
       "community": 23,
@@ -190,7 +190,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "adminside_analyticsdashboard",
-      "community": 13,
+      "community": 6,
       "norm_label": "analyticsdashboard.jsx"
     },
     {
@@ -200,7 +200,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "adminside_analyticsdashboard_animatedcounter",
-      "community": 13,
+      "community": 6,
       "norm_label": "animatedcounter()"
     },
     {
@@ -210,7 +210,7 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "adminside_analyticsdashboard_analyticsdashboard",
-      "community": 13,
+      "community": 6,
       "norm_label": "analyticsdashboard()"
     },
     {
@@ -220,17 +220,17 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "adminside_approveplayers",
-      "community": 1,
+      "community": 23,
       "norm_label": "approveplayers.jsx"
     },
     {
       "label": "ApprovePlayers()",
       "file_type": "code",
       "source_file": "Fronted/src/adminside/ApprovePlayers.jsx",
-      "source_location": "L5",
+      "source_location": "L6",
       "_origin": "ast",
       "id": "adminside_approveplayers_approveplayers",
-      "community": 1,
+      "community": 23,
       "norm_label": "approveplayers()"
     },
     {
@@ -280,17 +280,17 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "adminside_matchlist",
-      "community": 1,
+      "community": 23,
       "norm_label": "matchlist.jsx"
     },
     {
       "label": "MatchList()",
       "file_type": "code",
       "source_file": "Fronted/src/adminside/MatchList.jsx",
-      "source_location": "L5",
+      "source_location": "L6",
       "_origin": "ast",
       "id": "adminside_matchlist_matchlist",
-      "community": 1,
+      "community": 23,
       "norm_label": "matchlist()"
     },
     {
@@ -320,17 +320,17 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "adminside_registrations",
-      "community": 1,
+      "community": 23,
       "norm_label": "registrations.jsx"
     },
     {
       "label": "Registrations()",
       "file_type": "code",
       "source_file": "Fronted/src/adminside/Registrations.jsx",
-      "source_location": "L5",
+      "source_location": "L6",
       "_origin": "ast",
       "id": "adminside_registrations_registrations",
-      "community": 1,
+      "community": 23,
       "norm_label": "registrations()"
     },
     {
@@ -340,17 +340,17 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "adminside_reports",
-      "community": 1,
+      "community": 23,
       "norm_label": "reports.jsx"
     },
     {
       "label": "Reports()",
       "file_type": "code",
       "source_file": "Fronted/src/adminside/Reports.jsx",
-      "source_location": "L5",
+      "source_location": "L6",
       "_origin": "ast",
       "id": "adminside_reports_reports",
-      "community": 1,
+      "community": 23,
       "norm_label": "reports()"
     },
     {
@@ -360,17 +360,17 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "adminside_sponsoraccountmanagement",
-      "community": 1,
+      "community": 23,
       "norm_label": "sponsoraccountmanagement.jsx"
     },
     {
       "label": "SponsorAccountManagement()",
       "file_type": "code",
       "source_file": "Fronted/src/adminside/SponsorAccountManagement.jsx",
-      "source_location": "L5",
+      "source_location": "L6",
       "_origin": "ast",
       "id": "adminside_sponsoraccountmanagement_sponsoraccountmanagement",
-      "community": 1,
+      "community": 23,
       "norm_label": "sponsoraccountmanagement()"
     },
     {
@@ -387,7 +387,7 @@
       "label": "SponsorshipChart()",
       "file_type": "code",
       "source_file": "Fronted/src/adminside/SponsorshipChart.jsx",
-      "source_location": "L5",
+      "source_location": "L6",
       "_origin": "ast",
       "id": "adminside_sponsorshipchart_sponsorshipchart",
       "community": 23,
@@ -400,17 +400,17 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "adminside_sportmanagement",
-      "community": 1,
+      "community": 23,
       "norm_label": "sportmanagement.jsx"
     },
     {
       "label": "SportManagement()",
       "file_type": "code",
       "source_file": "Fronted/src/adminside/SportManagement.jsx",
-      "source_location": "L5",
+      "source_location": "L6",
       "_origin": "ast",
       "id": "adminside_sportmanagement_sportmanagement",
-      "community": 1,
+      "community": 23,
       "norm_label": "sportmanagement()"
     },
     {
@@ -420,17 +420,17 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "adminside_teamlist",
-      "community": 1,
+      "community": 23,
       "norm_label": "teamlist.jsx"
     },
     {
       "label": "TeamList()",
       "file_type": "code",
       "source_file": "Fronted/src/adminside/TeamList.jsx",
-      "source_location": "L5",
+      "source_location": "L6",
       "_origin": "ast",
       "id": "adminside_teamlist_teamlist",
-      "community": 1,
+      "community": 23,
       "norm_label": "teamlist()"
     },
     {
@@ -440,17 +440,17 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "adminside_tournamentdetails",
-      "community": 1,
+      "community": 23,
       "norm_label": "tournamentdetails.jsx"
     },
     {
       "label": "TournamentDetails()",
       "file_type": "code",
       "source_file": "Fronted/src/adminside/TournamentDetails.jsx",
-      "source_location": "L6",
+      "source_location": "L7",
       "_origin": "ast",
       "id": "adminside_tournamentdetails_tournamentdetails",
-      "community": 1,
+      "community": 23,
       "norm_label": "tournamentdetails()"
     },
     {
@@ -460,17 +460,17 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "adminside_tournamentlist",
-      "community": 1,
+      "community": 23,
       "norm_label": "tournamentlist.jsx"
     },
     {
       "label": "TournamentList()",
       "file_type": "code",
       "source_file": "Fronted/src/adminside/TournamentList.jsx",
-      "source_location": "L6",
+      "source_location": "L7",
       "_origin": "ast",
       "id": "adminside_tournamentlist_tournamentlist",
-      "community": 1,
+      "community": 23,
       "norm_label": "tournamentlist()"
     },
     {
@@ -480,17 +480,17 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "adminside_venuemanagement",
-      "community": 1,
+      "community": 23,
       "norm_label": "venuemanagement.jsx"
     },
     {
       "label": "VenueManagement()",
       "file_type": "code",
       "source_file": "Fronted/src/adminside/VenueManagement.jsx",
-      "source_location": "L5",
+      "source_location": "L6",
       "_origin": "ast",
       "id": "adminside_venuemanagement_venuemanagement",
-      "community": 1,
+      "community": 23,
       "norm_label": "venuemanagement()"
     },
     {
@@ -610,7 +610,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "headers_adminheader_adminheader",
-      "community": 6,
+      "community": 4,
       "norm_label": "adminheader()"
     },
     {
@@ -630,7 +630,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "headers_coachheader_coachheader",
-      "community": 6,
+      "community": 4,
       "norm_label": "coachheader()"
     },
     {
@@ -670,7 +670,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "headers_organizerheader_organizerheader",
-      "community": 6,
+      "community": 4,
       "norm_label": "organizerheader()"
     },
     {
@@ -690,7 +690,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "headers_playerheader_playerheader",
-      "community": 6,
+      "community": 4,
       "norm_label": "playerheader()"
     },
     {
@@ -700,7 +700,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "headers_sponsorheader",
-      "community": 6,
+      "community": 4,
       "norm_label": "sponsorheader.jsx"
     },
     {
@@ -710,7 +710,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "headers_sponsorheader_sponsorheader",
-      "community": 6,
+      "community": 4,
       "norm_label": "sponsorheader()"
     },
     {
@@ -720,7 +720,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_threebgcanvas",
-      "community": 13,
+      "community": 6,
       "norm_label": "threebgcanvas.jsx"
     },
     {
@@ -730,7 +730,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "components_threebgcanvas_theme_configs",
-      "community": 13,
+      "community": 6,
       "norm_label": "theme_configs"
     },
     {
@@ -740,7 +740,7 @@
       "source_location": "L90",
       "_origin": "ast",
       "id": "components_threebgcanvas_getthemefrompathname",
-      "community": 13,
+      "community": 6,
       "norm_label": "getthemefrompathname()"
     },
     {
@@ -750,7 +750,7 @@
       "source_location": "L127",
       "_origin": "ast",
       "id": "components_threebgcanvas_drawtrophyshape",
-      "community": 13,
+      "community": 6,
       "norm_label": "drawtrophyshape()"
     },
     {
@@ -760,7 +760,7 @@
       "source_location": "L183",
       "_origin": "ast",
       "id": "components_threebgcanvas_drawmedalshape",
-      "community": 13,
+      "community": 6,
       "norm_label": "drawmedalshape()"
     },
     {
@@ -770,7 +770,7 @@
       "source_location": "L222",
       "_origin": "ast",
       "id": "components_threebgcanvas_threebgcanvas",
-      "community": 13,
+      "community": 6,
       "norm_label": "threebgcanvas()"
     },
     {
@@ -792,6 +792,266 @@
       "id": "components_tiltcard_tiltcard",
       "community": 13,
       "norm_label": "tiltcard()"
+    },
+    {
+      "label": "Skeleton.jsx",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/loading/Skeleton.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "loading_skeleton",
+      "community": 23,
+      "norm_label": "skeleton.jsx"
+    },
+    {
+      "label": "Skeleton()",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/loading/Skeleton.jsx",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "loading_skeleton_skeleton",
+      "community": 23,
+      "norm_label": "skeleton()"
+    },
+    {
+      "label": "SkeletonAvatar.jsx",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/loading/SkeletonAvatar.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "loading_skeletonavatar",
+      "community": 23,
+      "norm_label": "skeletonavatar.jsx"
+    },
+    {
+      "label": "SkeletonAvatar()",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/loading/SkeletonAvatar.jsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "loading_skeletonavatar_skeletonavatar",
+      "community": 23,
+      "norm_label": "skeletonavatar()"
+    },
+    {
+      "label": "SkeletonCard.jsx",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/loading/SkeletonCard.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "loading_skeletoncard",
+      "community": 23,
+      "norm_label": "skeletoncard.jsx"
+    },
+    {
+      "label": "SkeletonCard()",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/loading/SkeletonCard.jsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "loading_skeletoncard_skeletoncard",
+      "community": 23,
+      "norm_label": "skeletoncard()"
+    },
+    {
+      "label": "SkeletonChart.jsx",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/loading/SkeletonChart.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "loading_skeletonchart",
+      "community": 23,
+      "norm_label": "skeletonchart.jsx"
+    },
+    {
+      "label": "SkeletonChart()",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/loading/SkeletonChart.jsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "loading_skeletonchart_skeletonchart",
+      "community": 23,
+      "norm_label": "skeletonchart()"
+    },
+    {
+      "label": "SkeletonDashboard.jsx",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/loading/SkeletonDashboard.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "loading_skeletondashboard",
+      "community": 23,
+      "norm_label": "skeletondashboard.jsx"
+    },
+    {
+      "label": "SkeletonDashboard()",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/loading/SkeletonDashboard.jsx",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "loading_skeletondashboard_skeletondashboard",
+      "community": 13,
+      "norm_label": "skeletondashboard()"
+    },
+    {
+      "label": "SkeletonForm.jsx",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/loading/SkeletonForm.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "loading_skeletonform",
+      "community": 23,
+      "norm_label": "skeletonform.jsx"
+    },
+    {
+      "label": "SkeletonForm()",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/loading/SkeletonForm.jsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "loading_skeletonform_skeletonform",
+      "community": 23,
+      "norm_label": "skeletonform()"
+    },
+    {
+      "label": "SkeletonList.jsx",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/loading/SkeletonList.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "loading_skeletonlist",
+      "community": 23,
+      "norm_label": "skeletonlist.jsx"
+    },
+    {
+      "label": "SkeletonList()",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/loading/SkeletonList.jsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "loading_skeletonlist_skeletonlist",
+      "community": 23,
+      "norm_label": "skeletonlist()"
+    },
+    {
+      "label": "SkeletonMatch.jsx",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/loading/SkeletonMatch.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "loading_skeletonmatch",
+      "community": 23,
+      "norm_label": "skeletonmatch.jsx"
+    },
+    {
+      "label": "SkeletonMatch()",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/loading/SkeletonMatch.jsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "loading_skeletonmatch_skeletonmatch",
+      "community": 23,
+      "norm_label": "skeletonmatch()"
+    },
+    {
+      "label": "SkeletonProfile.jsx",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/loading/SkeletonProfile.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "loading_skeletonprofile",
+      "community": 23,
+      "norm_label": "skeletonprofile.jsx"
+    },
+    {
+      "label": "SkeletonProfile()",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/loading/SkeletonProfile.jsx",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "loading_skeletonprofile_skeletonprofile",
+      "community": 39,
+      "norm_label": "skeletonprofile()"
+    },
+    {
+      "label": "SkeletonStats.jsx",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/loading/SkeletonStats.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "loading_skeletonstats",
+      "community": 23,
+      "norm_label": "skeletonstats.jsx"
+    },
+    {
+      "label": "SkeletonStats()",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/loading/SkeletonStats.jsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "loading_skeletonstats_skeletonstats",
+      "community": 23,
+      "norm_label": "skeletonstats()"
+    },
+    {
+      "label": "SkeletonTable.jsx",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/loading/SkeletonTable.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "loading_skeletontable",
+      "community": 23,
+      "norm_label": "skeletontable.jsx"
+    },
+    {
+      "label": "SkeletonTable()",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/loading/SkeletonTable.jsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "loading_skeletontable_skeletontable",
+      "community": 23,
+      "norm_label": "skeletontable()"
+    },
+    {
+      "label": "SkeletonTeam.jsx",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/loading/SkeletonTeam.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "loading_skeletonteam",
+      "community": 23,
+      "norm_label": "skeletonteam.jsx"
+    },
+    {
+      "label": "SkeletonTeam()",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/loading/SkeletonTeam.jsx",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "loading_skeletonteam_skeletonteam",
+      "community": 23,
+      "norm_label": "skeletonteam()"
+    },
+    {
+      "label": "SkeletonTournament.jsx",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/loading/SkeletonTournament.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "loading_skeletontournament",
+      "community": 23,
+      "norm_label": "skeletontournament.jsx"
+    },
+    {
+      "label": "SkeletonTournament()",
+      "file_type": "code",
+      "source_file": "Fronted/src/components/loading/SkeletonTournament.jsx",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "loading_skeletontournament_skeletontournament",
+      "community": 23,
+      "norm_label": "skeletontournament()"
     },
     {
       "label": "CoachProfileContent.jsx",
@@ -1040,7 +1300,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "context_authcontext_authprovider",
-      "community": 11,
+      "community": 1,
       "norm_label": "authprovider()"
     },
     {
@@ -1050,7 +1310,7 @@
       "source_location": "L93",
       "_origin": "ast",
       "id": "context_authcontext_useauth",
-      "community": 1,
+      "community": 4,
       "norm_label": "useauth()"
     },
     {
@@ -1167,7 +1427,7 @@
       "label": "RoleLayout()",
       "file_type": "code",
       "source_file": "Fronted/src/layouts/RoleLayout.jsx",
-      "source_location": "L11",
+      "source_location": "L12",
       "_origin": "ast",
       "id": "layouts_rolelayout_rolelayout",
       "community": 1,
@@ -1200,7 +1460,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_main",
-      "community": 11,
+      "community": 1,
       "norm_label": "main.jsx"
     },
     {
@@ -1210,7 +1470,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_adminroute",
-      "community": 1,
+      "community": 4,
       "norm_label": "adminroute.jsx"
     },
     {
@@ -1220,7 +1480,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "routes_adminroute_adminroute",
-      "community": 1,
+      "community": 4,
       "norm_label": "adminroute()"
     },
     {
@@ -1230,17 +1490,17 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_nonorganizerroute",
-      "community": 1,
+      "community": 13,
       "norm_label": "nonorganizerroute.jsx"
     },
     {
       "label": "NonOrganizerRoute()",
       "file_type": "code",
       "source_file": "Fronted/src/routes/NonOrganizerRoute.jsx",
-      "source_location": "L4",
+      "source_location": "L5",
       "_origin": "ast",
       "id": "routes_nonorganizerroute_nonorganizerroute",
-      "community": 1,
+      "community": 13,
       "norm_label": "nonorganizerroute()"
     },
     {
@@ -1270,17 +1530,17 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_approveplayers",
-      "community": 4,
+      "community": 27,
       "norm_label": "approveplayers.jsx"
     },
     {
       "label": "ApprovePlayers()",
       "file_type": "code",
       "source_file": "Fronted/src/screen/ApprovePlayers.jsx",
-      "source_location": "L6",
+      "source_location": "L7",
       "_origin": "ast",
       "id": "screen_approveplayers_approveplayers",
-      "community": 1,
+      "community": 27,
       "norm_label": "approveplayers()"
     },
     {
@@ -1290,7 +1550,7 @@
       "source_location": "L217",
       "_origin": "ast",
       "id": "screen_approveplayers_styles",
-      "community": 4,
+      "community": 27,
       "norm_label": "styles"
     },
     {
@@ -1330,7 +1590,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "screen_createteam_createteam",
-      "community": 1,
+      "community": 4,
       "norm_label": "createteam()"
     },
     {
@@ -1350,7 +1610,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "screen_createtournamentuser_createtournamentuser",
-      "community": 1,
+      "community": 12,
       "norm_label": "createtournamentuser()"
     },
     {
@@ -1360,7 +1620,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_editteam",
-      "community": 4,
+      "community": 27,
       "norm_label": "editteam.jsx"
     },
     {
@@ -1370,7 +1630,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "screen_editteam_editteam",
-      "community": 4,
+      "community": 27,
       "norm_label": "editteam()"
     },
     {
@@ -1390,7 +1650,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "screen_edittournamentpage_edittournamentpage",
-      "community": 1,
+      "community": 4,
       "norm_label": "edittournamentpage()"
     },
     {
@@ -1400,7 +1660,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_events",
-      "community": 4,
+      "community": 1,
       "norm_label": "events.jsx"
     },
     {
@@ -1410,7 +1670,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "screen_events_events",
-      "community": 4,
+      "community": 1,
       "norm_label": "events()"
     },
     {
@@ -1460,7 +1720,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_gallery",
-      "community": 26,
+      "community": 1,
       "norm_label": "gallery.jsx"
     },
     {
@@ -1470,7 +1730,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "screen_gallery_images",
-      "community": 26,
+      "community": 1,
       "norm_label": "images"
     },
     {
@@ -1480,7 +1740,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "screen_gallery_gallery",
-      "community": 26,
+      "community": 1,
       "norm_label": "gallery()"
     },
     {
@@ -1497,7 +1757,7 @@
       "label": "AnimatedCounter()",
       "file_type": "code",
       "source_file": "Fronted/src/screen/Home.jsx",
-      "source_location": "L10",
+      "source_location": "L12",
       "_origin": "ast",
       "id": "screen_home_animatedcounter",
       "community": 13,
@@ -1507,10 +1767,10 @@
       "label": "Home()",
       "file_type": "code",
       "source_file": "Fronted/src/screen/Home.jsx",
-      "source_location": "L33",
+      "source_location": "L35",
       "_origin": "ast",
       "id": "screen_home_home",
-      "community": 1,
+      "community": 13,
       "norm_label": "home()"
     },
     {
@@ -1520,17 +1780,17 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_leaderboard",
-      "community": 4,
+      "community": 27,
       "norm_label": "leaderboard.jsx"
     },
     {
       "label": "Leaderboard()",
       "file_type": "code",
       "source_file": "Fronted/src/screen/Leaderboard.jsx",
-      "source_location": "L5",
+      "source_location": "L6",
       "_origin": "ast",
       "id": "screen_leaderboard_leaderboard",
-      "community": 4,
+      "community": 27,
       "norm_label": "leaderboard()"
     },
     {
@@ -1540,7 +1800,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_login",
-      "community": 1,
+      "community": 4,
       "norm_label": "login.jsx"
     },
     {
@@ -1550,7 +1810,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "screen_login_login",
-      "community": 1,
+      "community": 4,
       "norm_label": "login()"
     },
     {
@@ -1560,17 +1820,17 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_matchlist",
-      "community": 1,
+      "community": 23,
       "norm_label": "matchlist.jsx"
     },
     {
       "label": "MatchList()",
       "file_type": "code",
       "source_file": "Fronted/src/screen/MatchList.jsx",
-      "source_location": "L5",
+      "source_location": "L6",
       "_origin": "ast",
       "id": "screen_matchlist_matchlist",
-      "community": 1,
+      "community": 23,
       "norm_label": "matchlist()"
     },
     {
@@ -1590,7 +1850,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "screen_matchresults_matchresults",
-      "community": 1,
+      "community": 4,
       "norm_label": "matchresults()"
     },
     {
@@ -1607,10 +1867,10 @@
       "label": "MyRegistrations()",
       "file_type": "code",
       "source_file": "Fronted/src/screen/MyRegistrations.jsx",
-      "source_location": "L8",
+      "source_location": "L9",
       "_origin": "ast",
       "id": "screen_myregistrations_myregistrations",
-      "community": 1,
+      "community": 12,
       "norm_label": "myregistrations()"
     },
     {
@@ -1627,10 +1887,10 @@
       "label": "MyTeamDashboard()",
       "file_type": "code",
       "source_file": "Fronted/src/screen/MyTeamDashboard.jsx",
-      "source_location": "L11",
+      "source_location": "L13",
       "_origin": "ast",
       "id": "screen_myteamdashboard_myteamdashboard",
-      "community": 1,
+      "community": 12,
       "norm_label": "myteamdashboard()"
     },
     {
@@ -1660,14 +1920,14 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_notifications",
-      "community": 4,
+      "community": 1,
       "norm_label": "notifications.jsx"
     },
     {
       "label": "Notifications()",
       "file_type": "code",
       "source_file": "Fronted/src/screen/Notifications.jsx",
-      "source_location": "L7",
+      "source_location": "L8",
       "_origin": "ast",
       "id": "screen_notifications_notifications",
       "community": 1,
@@ -1680,27 +1940,27 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_organizerdashboard",
-      "community": 4,
+      "community": 13,
       "norm_label": "organizerdashboard.jsx"
     },
     {
       "label": "AnimatedCounter()",
       "file_type": "code",
       "source_file": "Fronted/src/screen/OrganizerDashboard.jsx",
-      "source_location": "L11",
+      "source_location": "L12",
       "_origin": "ast",
       "id": "screen_organizerdashboard_animatedcounter",
-      "community": 4,
+      "community": 13,
       "norm_label": "animatedcounter()"
     },
     {
       "label": "OrganizerDashboard()",
       "file_type": "code",
       "source_file": "Fronted/src/screen/OrganizerDashboard.jsx",
-      "source_location": "L34",
+      "source_location": "L35",
       "_origin": "ast",
       "id": "screen_organizerdashboard_organizerdashboard",
-      "community": 1,
+      "community": 13,
       "norm_label": "organizerdashboard()"
     },
     {
@@ -1720,7 +1980,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "screen_organizermatches_organizermatches",
-      "community": 1,
+      "community": 9,
       "norm_label": "organizermatches()"
     },
     {
@@ -1777,7 +2037,7 @@
       "label": "OrganizerProfileContent",
       "file_type": "code",
       "source_file": "Fronted/src/screen/Profile.jsx",
-      "source_location": "L14",
+      "source_location": "L15",
       "_origin": "ast",
       "id": "screen_profile_organizerprofilecontent",
       "community": 39,
@@ -1787,7 +2047,7 @@
       "label": "CoachProfileContent",
       "file_type": "code",
       "source_file": "Fronted/src/screen/Profile.jsx",
-      "source_location": "L15",
+      "source_location": "L16",
       "_origin": "ast",
       "id": "screen_profile_coachprofilecontent",
       "community": 39,
@@ -1797,7 +2057,7 @@
       "label": "PlayerProfileContent",
       "file_type": "code",
       "source_file": "Fronted/src/screen/Profile.jsx",
-      "source_location": "L16",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "screen_profile_playerprofilecontent",
       "community": 39,
@@ -1807,7 +2067,7 @@
       "label": "SponsorProfileContent",
       "file_type": "code",
       "source_file": "Fronted/src/screen/Profile.jsx",
-      "source_location": "L17",
+      "source_location": "L18",
       "_origin": "ast",
       "id": "screen_profile_sponsorprofilecontent",
       "community": 39,
@@ -1817,7 +2077,7 @@
       "label": "Profile()",
       "file_type": "code",
       "source_file": "Fronted/src/screen/Profile.jsx",
-      "source_location": "L19",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "screen_profile_profile",
       "community": 1,
@@ -1827,7 +2087,7 @@
       "label": "ProfileSkeletonLoader()",
       "file_type": "code",
       "source_file": "Fronted/src/screen/Profile.jsx",
-      "source_location": "L414",
+      "source_location": "L415",
       "_origin": "ast",
       "id": "screen_profile_profileskeletonloader",
       "community": 39,
@@ -1840,14 +2100,14 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_registerteam",
-      "community": 4,
+      "community": 1,
       "norm_label": "registerteam.jsx"
     },
     {
       "label": "RegisterTeam()",
       "file_type": "code",
       "source_file": "Fronted/src/screen/RegisterTeam.jsx",
-      "source_location": "L8",
+      "source_location": "L9",
       "_origin": "ast",
       "id": "screen_registerteam_registerteam",
       "community": 1,
@@ -1880,17 +2140,17 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_schedule",
-      "community": 4,
+      "community": 23,
       "norm_label": "schedule.jsx"
     },
     {
       "label": "Schedule()",
       "file_type": "code",
       "source_file": "Fronted/src/screen/Schedule.jsx",
-      "source_location": "L6",
+      "source_location": "L7",
       "_origin": "ast",
       "id": "screen_schedule_schedule",
-      "community": 4,
+      "community": 23,
       "norm_label": "schedule()"
     },
     {
@@ -1900,7 +2160,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "screen_speakers",
-      "community": 28,
+      "community": 1,
       "norm_label": "speakers.jsx"
     },
     {
@@ -1910,7 +2170,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "screen_speakers_speakers",
-      "community": 28,
+      "community": 1,
       "norm_label": "speakers"
     },
     {
@@ -1927,10 +2187,10 @@
       "label": "SponsorDashboard()",
       "file_type": "code",
       "source_file": "Fronted/src/screen/SponsorDashboard.jsx",
-      "source_location": "L7",
+      "source_location": "L8",
       "_origin": "ast",
       "id": "screen_sponsordashboard_sponsordashboard",
-      "community": 1,
+      "community": 4,
       "norm_label": "sponsordashboard()"
     },
     {
@@ -1947,10 +2207,10 @@
       "label": "SponsorManagement()",
       "file_type": "code",
       "source_file": "Fronted/src/screen/SponsorManagement.jsx",
-      "source_location": "L7",
+      "source_location": "L9",
       "_origin": "ast",
       "id": "screen_sponsormanagement_sponsormanagement",
-      "community": 1,
+      "community": 4,
       "norm_label": "sponsormanagement()"
     },
     {
@@ -1997,10 +2257,10 @@
       "label": "TeamDetails()",
       "file_type": "code",
       "source_file": "Fronted/src/screen/TeamDetails.jsx",
-      "source_location": "L7",
+      "source_location": "L8",
       "_origin": "ast",
       "id": "screen_teamdetails_teamdetails",
-      "community": 1,
+      "community": 4,
       "norm_label": "teamdetails()"
     },
     {
@@ -2017,10 +2277,10 @@
       "label": "TeamsList()",
       "file_type": "code",
       "source_file": "Fronted/src/screen/TeamsList.jsx",
-      "source_location": "L7",
+      "source_location": "L8",
       "_origin": "ast",
       "id": "screen_teamslist_teamslist",
-      "community": 1,
+      "community": 4,
       "norm_label": "teamslist()"
     },
     {
@@ -2057,10 +2317,10 @@
       "label": "TournamentDetails()",
       "file_type": "code",
       "source_file": "Fronted/src/screen/TournamentDetails.jsx",
-      "source_location": "L8",
+      "source_location": "L9",
       "_origin": "ast",
       "id": "screen_tournamentdetails_tournamentdetails",
-      "community": 1,
+      "community": 12,
       "norm_label": "tournamentdetails()"
     },
     {
@@ -2210,7 +2470,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "utils_axiosconfig",
-      "community": 4,
+      "community": 27,
       "norm_label": "axiosconfig.js"
     },
     {
@@ -2230,7 +2490,7 @@
       "source_location": "L90",
       "_origin": "ast",
       "id": "utils_axiosconfig_uploadfile",
-      "community": 4,
+      "community": 27,
       "norm_label": "uploadfile()"
     },
     {
@@ -2240,7 +2500,7 @@
       "source_location": "L110",
       "_origin": "ast",
       "id": "utils_axiosconfig_getwithcache",
-      "community": 4,
+      "community": 27,
       "norm_label": "getwithcache()"
     },
     {
@@ -2250,7 +2510,7 @@
       "source_location": "L135",
       "_origin": "ast",
       "id": "utils_axiosconfig_clearcache",
-      "community": 4,
+      "community": 27,
       "norm_label": "clearcache()"
     },
     {
@@ -2980,7 +3240,7 @@
       "source_location": "L198",
       "_origin": "ast",
       "id": "controllers_matchcontroller_updatematchresult",
-      "community": 2,
+      "community": 0,
       "norm_label": "updatematchresult()"
     },
     {
@@ -3020,7 +3280,7 @@
       "source_location": "L346",
       "_origin": "ast",
       "id": "controllers_matchcontroller_getschedule",
-      "community": 0,
+      "community": 22,
       "norm_label": "getschedule()"
     },
     {
@@ -3030,7 +3290,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "controllers_notificationcontroller",
-      "community": 30,
+      "community": 14,
       "norm_label": "notificationcontroller.js"
     },
     {
@@ -3040,7 +3300,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "controllers_notificationcontroller_notification",
-      "community": 30,
+      "community": 14,
       "norm_label": "notification"
     },
     {
@@ -3050,7 +3310,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "controllers_notificationcontroller_getnotifications",
-      "community": 30,
+      "community": 14,
       "norm_label": "getnotifications()"
     },
     {
@@ -3060,7 +3320,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "controllers_notificationcontroller_markasread",
-      "community": 30,
+      "community": 14,
       "norm_label": "markasread()"
     },
     {
@@ -3070,7 +3330,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "controllers_notificationcontroller_deletenotification",
-      "community": 30,
+      "community": 14,
       "norm_label": "deletenotification()"
     },
     {
@@ -3180,7 +3440,7 @@
       "source_location": "L83",
       "_origin": "ast",
       "id": "controllers_paymentcontroller_verifypayment",
-      "community": 22,
+      "community": 21,
       "norm_label": "verifypayment()"
     },
     {
@@ -3210,7 +3470,7 @@
       "source_location": "L175",
       "_origin": "ast",
       "id": "controllers_paymentcontroller_adminoverridepayment",
-      "community": 22,
+      "community": 21,
       "norm_label": "adminoverridepayment()"
     },
     {
@@ -4070,7 +4330,7 @@
       "source_location": "L259",
       "_origin": "ast",
       "id": "controllers_teamcontroller_approveplayer",
-      "community": 22,
+      "community": 3,
       "norm_label": "approveplayer()"
     },
     {
@@ -4120,7 +4380,7 @@
       "source_location": "L415",
       "_origin": "ast",
       "id": "controllers_teamcontroller_updateteam",
-      "community": 22,
+      "community": 3,
       "norm_label": "updateteam()"
     },
     {
@@ -4190,7 +4450,7 @@
       "source_location": "L711",
       "_origin": "ast",
       "id": "controllers_teamcontroller_verifyplayerjoinpayment",
-      "community": 22,
+      "community": 3,
       "norm_label": "verifyplayerjoinpayment()"
     },
     {
@@ -4200,7 +4460,7 @@
       "source_location": "L872",
       "_origin": "ast",
       "id": "controllers_teamcontroller_blockorganizerjoin",
-      "community": 0,
+      "community": 22,
       "norm_label": "blockorganizerjoin()"
     },
     {
@@ -4450,7 +4710,7 @@
       "source_location": "L675",
       "_origin": "ast",
       "id": "controllers_tournamentcontroller_deletetournament",
-      "community": 37,
+      "community": 8,
       "norm_label": "deletetournament()"
     },
     {
@@ -4620,7 +4880,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "middleware_authmiddleware",
-      "community": 30,
+      "community": 14,
       "norm_label": "authmiddleware.js"
     },
     {
@@ -4630,7 +4890,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "middleware_authmiddleware_jwt",
-      "community": 30,
+      "community": 14,
       "norm_label": "jwt"
     },
     {
@@ -4840,7 +5100,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_match",
-      "community": 0,
+      "community": 16,
       "norm_label": "match.js"
     },
     {
@@ -4850,7 +5110,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_match_mongoose",
-      "community": 0,
+      "community": 16,
       "norm_label": "mongoose"
     },
     {
@@ -4860,7 +5120,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "models_match_matchschema",
-      "community": 0,
+      "community": 16,
       "norm_label": "matchschema"
     },
     {
@@ -4900,7 +5160,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_prizedistribution",
-      "community": 2,
+      "community": 11,
       "norm_label": "prizedistribution.js"
     },
     {
@@ -4910,7 +5170,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_prizedistribution_mongoose",
-      "community": 2,
+      "community": 11,
       "norm_label": "mongoose"
     },
     {
@@ -4920,7 +5180,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "models_prizedistribution_prizedistributionschema",
-      "community": 2,
+      "community": 11,
       "norm_label": "prizedistributionschema"
     },
     {
@@ -4930,7 +5190,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_registration",
-      "community": 24,
+      "community": 21,
       "norm_label": "registration.js"
     },
     {
@@ -4940,7 +5200,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_registration_mongoose",
-      "community": 24,
+      "community": 21,
       "norm_label": "mongoose"
     },
     {
@@ -4950,7 +5210,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "models_registration_registrationschema",
-      "community": 24,
+      "community": 21,
       "norm_label": "registrationschema"
     },
     {
@@ -4960,7 +5220,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_sponsor",
-      "community": 2,
+      "community": 11,
       "norm_label": "sponsor.js"
     },
     {
@@ -4970,7 +5230,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_sponsor_mongoose",
-      "community": 2,
+      "community": 11,
       "norm_label": "mongoose"
     },
     {
@@ -4980,7 +5240,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "models_sponsor_sponsorschema",
-      "community": 2,
+      "community": 11,
       "norm_label": "sponsorschema"
     },
     {
@@ -5020,7 +5280,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_team",
-      "community": 2,
+      "community": 24,
       "norm_label": "team.js"
     },
     {
@@ -5030,7 +5290,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_team_mongoose",
-      "community": 2,
+      "community": 24,
       "norm_label": "mongoose"
     },
     {
@@ -5040,7 +5300,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "models_team_teamschema",
-      "community": 2,
+      "community": 24,
       "norm_label": "teamschema"
     },
     {
@@ -5080,7 +5340,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_transaction",
-      "community": 25,
+      "community": 21,
       "norm_label": "transaction.js"
     },
     {
@@ -5090,7 +5350,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_transaction_mongoose",
-      "community": 25,
+      "community": 21,
       "norm_label": "mongoose"
     },
     {
@@ -5100,7 +5360,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "models_transaction_transactionschema",
-      "community": 25,
+      "community": 21,
       "norm_label": "transactionschema"
     },
     {
@@ -5170,7 +5430,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_notification",
-      "community": 30,
+      "community": 14,
       "norm_label": "notification.js"
     },
     {
@@ -5180,7 +5440,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "models_notification_mongoose",
-      "community": 30,
+      "community": 14,
       "norm_label": "mongoose"
     },
     {
@@ -5190,7 +5450,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "models_notification_notificationschema",
-      "community": 30,
+      "community": 14,
       "norm_label": "notificationschema"
     },
     {
@@ -5370,7 +5630,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_notificationrouter",
-      "community": 30,
+      "community": 14,
       "norm_label": "notificationrouter.js"
     },
     {
@@ -5380,7 +5640,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_notificationrouter_express",
-      "community": 30,
+      "community": 14,
       "norm_label": "express"
     },
     {
@@ -5390,7 +5650,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "routes_notificationrouter_auth",
-      "community": 30,
+      "community": 14,
       "norm_label": "auth"
     },
     {
@@ -5400,7 +5660,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "routes_notificationrouter_getnotifications_markasread_deletenotification",
-      "community": 30,
+      "community": 14,
       "norm_label": "{\r\n  getnotifications,\r\n  markasread,\r\n  deletenotification,\r\n}"
     },
     {
@@ -5410,7 +5670,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "routes_notificationrouter_router",
-      "community": 30,
+      "community": 14,
       "norm_label": "router"
     },
     {
@@ -6020,7 +6280,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_server",
-      "community": 0,
+      "community": 22,
       "norm_label": "server.js"
     },
     {
@@ -6030,7 +6290,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_server_express",
-      "community": 0,
+      "community": 22,
       "norm_label": "express"
     },
     {
@@ -6040,7 +6300,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "backend_server_mongoose",
-      "community": 0,
+      "community": 22,
       "norm_label": "mongoose"
     },
     {
@@ -6050,7 +6310,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "backend_server_cors",
-      "community": 0,
+      "community": 22,
       "norm_label": "cors"
     },
     {
@@ -6060,7 +6320,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "backend_server_http",
-      "community": 0,
+      "community": 22,
       "norm_label": "http"
     },
     {
@@ -6070,7 +6330,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "backend_server_server",
-      "community": 0,
+      "community": 22,
       "norm_label": "{ server }"
     },
     {
@@ -6080,7 +6340,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "backend_server_app",
-      "community": 0,
+      "community": 22,
       "norm_label": "app"
     },
     {
@@ -6090,7 +6350,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "backend_server_io",
-      "community": 0,
+      "community": 22,
       "norm_label": "io"
     },
     {
@@ -6100,7 +6360,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_server_users",
-      "community": 0,
+      "community": 22,
       "norm_label": "users"
     },
     {
@@ -6110,7 +6370,7 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "backend_server_getschedule",
-      "community": 0,
+      "community": 22,
       "norm_label": "{ getschedule }"
     },
     {
@@ -6120,7 +6380,7 @@
       "source_location": "L89",
       "_origin": "ast",
       "id": "backend_server_blockorganizerjoin",
-      "community": 0,
+      "community": 22,
       "norm_label": "{ blockorganizerjoin }"
     },
     {
@@ -6130,7 +6390,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "utils_prizedistributionhelper",
-      "community": 2,
+      "community": 11,
       "norm_label": "prizedistributionhelper.js"
     },
     {
@@ -6140,7 +6400,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "utils_prizedistributionhelper_mongoose",
-      "community": 2,
+      "community": 11,
       "norm_label": "mongoose"
     },
     {
@@ -6150,7 +6410,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "utils_prizedistributionhelper_prizedistribution",
-      "community": 2,
+      "community": 11,
       "norm_label": "prizedistribution"
     },
     {
@@ -6160,7 +6420,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "utils_prizedistributionhelper_tournament",
-      "community": 2,
+      "community": 11,
       "norm_label": "tournament"
     },
     {
@@ -6170,7 +6430,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "utils_prizedistributionhelper_sponsor",
-      "community": 2,
+      "community": 11,
       "norm_label": "sponsor"
     },
     {
@@ -6180,7 +6440,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "utils_prizedistributionhelper_team",
-      "community": 2,
+      "community": 11,
       "norm_label": "team"
     },
     {
@@ -6190,7 +6450,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "utils_prizedistributionhelper_user",
-      "community": 2,
+      "community": 11,
       "norm_label": "user"
     },
     {
@@ -6200,7 +6460,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "utils_prizedistributionhelper_notification",
-      "community": 2,
+      "community": 11,
       "norm_label": "notification"
     },
     {
@@ -6290,7 +6550,7 @@
       "source_location": "L166",
       "_origin": "ast",
       "id": "utils_tournamenthelper_triggerdashboardupdate",
-      "community": 22,
+      "community": 8,
       "norm_label": "triggerdashboardupdate()"
     },
     {
@@ -7881,6 +8141,28 @@
       "target": "components_tiltcard_tiltcard"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/adminside/AdminDashboard.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "adminside_admindashboard",
+      "target": "loading_skeletondashboard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/adminside/AdminDashboard.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "adminside_admindashboard",
+      "target": "loading_skeletondashboard_skeletondashboard",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Fronted/src/adminside/AdminPayments.jsx",
@@ -8013,6 +8295,28 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "Fronted/src/adminside/Adminsponser.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "adminside_adminsponser",
+      "target": "loading_skeletontable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/adminside/Adminsponser.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "adminside_adminsponser",
+      "target": "loading_skeletontable_skeletontable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/adminside/Adminsponser.jsx",
       "source_location": "L3",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -8105,6 +8409,28 @@
       "target": "adminside_approveplayers_approveplayers"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/adminside/ApprovePlayers.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "adminside_approveplayers",
+      "target": "loading_skeletontable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/adminside/ApprovePlayers.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "adminside_approveplayers",
+      "target": "loading_skeletontable_skeletontable",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Fronted/src/adminside/CreateTournament.jsx",
@@ -8135,6 +8461,28 @@
       "target": "adminside_matchlist_matchlist"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/adminside/MatchList.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "adminside_matchlist",
+      "target": "loading_skeletontable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/adminside/MatchList.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "adminside_matchlist",
+      "target": "loading_skeletontable_skeletontable",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Fronted/src/adminside/Matches.jsx",
@@ -8155,6 +8503,28 @@
       "target": "adminside_registrations_registrations"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/adminside/Registrations.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "adminside_registrations",
+      "target": "loading_skeletontable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/adminside/Registrations.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "adminside_registrations",
+      "target": "loading_skeletontable_skeletontable",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Fronted/src/adminside/Reports.jsx",
@@ -8163,6 +8533,28 @@
       "confidence_score": 1.0,
       "source": "adminside_reports",
       "target": "adminside_reports_reports"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/adminside/Reports.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "adminside_reports",
+      "target": "loading_skeletontable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/adminside/Reports.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "adminside_reports",
+      "target": "loading_skeletontable_skeletontable",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -8175,6 +8567,28 @@
       "target": "adminside_sponsoraccountmanagement_sponsoraccountmanagement"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/adminside/SponsorAccountManagement.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "adminside_sponsoraccountmanagement",
+      "target": "loading_skeletontable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/adminside/SponsorAccountManagement.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "adminside_sponsoraccountmanagement",
+      "target": "loading_skeletontable_skeletontable",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Fronted/src/adminside/SponsorshipChart.jsx",
@@ -8183,6 +8597,28 @@
       "confidence_score": 1.0,
       "source": "adminside_sponsorshipchart",
       "target": "adminside_sponsorshipchart_sponsorshipchart"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/adminside/SponsorshipChart.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "adminside_sponsorshipchart",
+      "target": "loading_skeletonchart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/adminside/SponsorshipChart.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "adminside_sponsorshipchart",
+      "target": "loading_skeletonchart_skeletonchart",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -8217,6 +8653,28 @@
       "target": "adminside_sportmanagement_sportmanagement"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/adminside/SportManagement.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "adminside_sportmanagement",
+      "target": "loading_skeletontable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/adminside/SportManagement.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "adminside_sportmanagement",
+      "target": "loading_skeletontable_skeletontable",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Fronted/src/adminside/TeamList.jsx",
@@ -8225,6 +8683,28 @@
       "confidence_score": 1.0,
       "source": "adminside_teamlist",
       "target": "adminside_teamlist_teamlist"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/adminside/TeamList.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "adminside_teamlist",
+      "target": "loading_skeletontable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/adminside/TeamList.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "adminside_teamlist",
+      "target": "loading_skeletontable_skeletontable",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -8237,6 +8717,28 @@
       "target": "adminside_tournamentdetails_tournamentdetails"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/adminside/TournamentDetails.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "adminside_tournamentdetails",
+      "target": "loading_skeletontournament",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/adminside/TournamentDetails.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "adminside_tournamentdetails",
+      "target": "loading_skeletontournament_skeletontournament",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Fronted/src/adminside/TournamentList.jsx",
@@ -8247,6 +8749,28 @@
       "target": "adminside_tournamentlist_tournamentlist"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/adminside/TournamentList.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "adminside_tournamentlist",
+      "target": "loading_skeletontable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/adminside/TournamentList.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "adminside_tournamentlist",
+      "target": "loading_skeletontable_skeletontable",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Fronted/src/adminside/VenueManagement.jsx",
@@ -8255,6 +8779,28 @@
       "confidence_score": 1.0,
       "source": "adminside_venuemanagement",
       "target": "adminside_venuemanagement_venuemanagement"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/adminside/VenueManagement.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "adminside_venuemanagement",
+      "target": "loading_skeletontable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/adminside/VenueManagement.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "adminside_venuemanagement",
+      "target": "loading_skeletontable_skeletontable",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -9155,12 +9701,1088 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/Skeleton.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "loading_skeleton",
+      "target": "loading_skeleton_skeleton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonAvatar.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "loading_skeletonavatar",
+      "target": "loading_skeleton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonCard.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "loading_skeletoncard",
+      "target": "loading_skeleton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonChart.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "loading_skeletonchart",
+      "target": "loading_skeleton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonDashboard.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "loading_skeletondashboard",
+      "target": "loading_skeleton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonForm.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "loading_skeletonform",
+      "target": "loading_skeleton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonList.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "loading_skeletonlist",
+      "target": "loading_skeleton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonMatch.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "loading_skeletonmatch",
+      "target": "loading_skeleton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonProfile.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "loading_skeletonprofile",
+      "target": "loading_skeleton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonStats.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "loading_skeletonstats",
+      "target": "loading_skeleton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonTable.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "loading_skeletontable",
+      "target": "loading_skeleton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonTeam.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "loading_skeletonteam",
+      "target": "loading_skeleton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonTournament.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "loading_skeletontournament",
+      "target": "loading_skeleton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonAvatar.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "loading_skeletonavatar",
+      "target": "loading_skeleton_skeleton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonCard.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "loading_skeletoncard",
+      "target": "loading_skeleton_skeleton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonChart.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "loading_skeletonchart",
+      "target": "loading_skeleton_skeleton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonDashboard.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "loading_skeletondashboard",
+      "target": "loading_skeleton_skeleton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonForm.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "loading_skeletonform",
+      "target": "loading_skeleton_skeleton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonList.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "loading_skeletonlist",
+      "target": "loading_skeleton_skeleton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonMatch.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "loading_skeletonmatch",
+      "target": "loading_skeleton_skeleton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonProfile.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "loading_skeletonprofile",
+      "target": "loading_skeleton_skeleton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonStats.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "loading_skeletonstats",
+      "target": "loading_skeleton_skeleton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonTable.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "loading_skeletontable",
+      "target": "loading_skeleton_skeleton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonTeam.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "loading_skeletonteam",
+      "target": "loading_skeleton_skeleton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonTournament.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "loading_skeletontournament",
+      "target": "loading_skeleton_skeleton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonAvatar.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "loading_skeletonavatar",
+      "target": "loading_skeletonavatar_skeletonavatar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonList.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "loading_skeletonlist",
+      "target": "loading_skeletonavatar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonTable.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "loading_skeletontable",
+      "target": "loading_skeletonavatar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonList.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "loading_skeletonlist",
+      "target": "loading_skeletonavatar_skeletonavatar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonTable.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "loading_skeletontable",
+      "target": "loading_skeletonavatar_skeletonavatar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonCard.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "loading_skeletoncard",
+      "target": "loading_skeletoncard_skeletoncard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonProfile.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "loading_skeletonprofile",
+      "target": "loading_skeletoncard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonTeam.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "loading_skeletonteam",
+      "target": "loading_skeletoncard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/Home.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "screen_home",
+      "target": "loading_skeletoncard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/TeamsList.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "screen_teamslist",
+      "target": "loading_skeletoncard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonProfile.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "loading_skeletonprofile",
+      "target": "loading_skeletoncard_skeletoncard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonTeam.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "loading_skeletonteam",
+      "target": "loading_skeletoncard_skeletoncard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/Home.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "screen_home",
+      "target": "loading_skeletoncard_skeletoncard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/TeamsList.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "screen_teamslist",
+      "target": "loading_skeletoncard_skeletoncard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonChart.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "loading_skeletonchart",
+      "target": "loading_skeletonchart_skeletonchart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/MyTeamDashboard.jsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "screen_myteamdashboard",
+      "target": "loading_skeletonchart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/MyTeamDashboard.jsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "screen_myteamdashboard",
+      "target": "loading_skeletonchart_skeletonchart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/layouts/RoleLayout.jsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "layouts_rolelayout",
+      "target": "loading_skeletondashboard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonDashboard.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "loading_skeletondashboard",
+      "target": "loading_skeletondashboard_skeletondashboard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonDashboard.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "loading_skeletondashboard",
+      "target": "loading_skeletonstats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonDashboard.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "loading_skeletondashboard",
+      "target": "loading_skeletonstats_skeletonstats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonDashboard.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "loading_skeletondashboard",
+      "target": "loading_skeletontable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonDashboard.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "loading_skeletondashboard",
+      "target": "loading_skeletontable_skeletontable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/routes/NonOrganizerRoute.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "routes_nonorganizerroute",
+      "target": "loading_skeletondashboard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/MyTeamDashboard.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "screen_myteamdashboard",
+      "target": "loading_skeletondashboard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/OrganizerDashboard.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "screen_organizerdashboard",
+      "target": "loading_skeletondashboard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/SponsorDashboard.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "screen_sponsordashboard",
+      "target": "loading_skeletondashboard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/layouts/RoleLayout.jsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "layouts_rolelayout",
+      "target": "loading_skeletondashboard_skeletondashboard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/routes/NonOrganizerRoute.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "routes_nonorganizerroute",
+      "target": "loading_skeletondashboard_skeletondashboard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/MyTeamDashboard.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "screen_myteamdashboard",
+      "target": "loading_skeletondashboard_skeletondashboard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/OrganizerDashboard.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "screen_organizerdashboard",
+      "target": "loading_skeletondashboard_skeletondashboard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/SponsorDashboard.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "screen_sponsordashboard",
+      "target": "loading_skeletondashboard_skeletondashboard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonForm.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "loading_skeletonform",
+      "target": "loading_skeletonform_skeletonform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/RegisterTeam.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "screen_registerteam",
+      "target": "loading_skeletonform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/RegisterTeam.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "screen_registerteam",
+      "target": "loading_skeletonform_skeletonform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonList.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "loading_skeletonlist",
+      "target": "loading_skeletonlist_skeletonlist",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/Notifications.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "screen_notifications",
+      "target": "loading_skeletonlist",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/Notifications.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "screen_notifications",
+      "target": "loading_skeletonlist_skeletonlist",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonMatch.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "loading_skeletonmatch",
+      "target": "loading_skeletonmatch_skeletonmatch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/MatchList.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "screen_matchlist",
+      "target": "loading_skeletonmatch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/Schedule.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "screen_schedule",
+      "target": "loading_skeletonmatch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/MatchList.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "screen_matchlist",
+      "target": "loading_skeletonmatch_skeletonmatch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/Schedule.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "screen_schedule",
+      "target": "loading_skeletonmatch_skeletonmatch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonProfile.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "loading_skeletonprofile",
+      "target": "loading_skeletonprofile_skeletonprofile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonProfile.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "loading_skeletonprofile",
+      "target": "loading_skeletonstats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonProfile.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "loading_skeletonprofile",
+      "target": "loading_skeletonstats_skeletonstats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/Profile.jsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "screen_profile",
+      "target": "loading_skeletonprofile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/Profile.jsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "screen_profile",
+      "target": "loading_skeletonprofile_skeletonprofile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonStats.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "loading_skeletonstats",
+      "target": "loading_skeletonstats_skeletonstats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonTeam.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "loading_skeletonteam",
+      "target": "loading_skeletonstats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonTournament.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "loading_skeletontournament",
+      "target": "loading_skeletonstats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/Home.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "screen_home",
+      "target": "loading_skeletonstats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/SponsorManagement.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "screen_sponsormanagement",
+      "target": "loading_skeletonstats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonTeam.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "loading_skeletonteam",
+      "target": "loading_skeletonstats_skeletonstats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonTournament.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "loading_skeletontournament",
+      "target": "loading_skeletonstats_skeletonstats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/Home.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "screen_home",
+      "target": "loading_skeletonstats_skeletonstats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/SponsorManagement.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "screen_sponsormanagement",
+      "target": "loading_skeletonstats_skeletonstats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonTable.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "loading_skeletontable",
+      "target": "loading_skeletontable_skeletontable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonTournament.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "loading_skeletontournament",
+      "target": "loading_skeletontable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/ApprovePlayers.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "screen_approveplayers",
+      "target": "loading_skeletontable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/Leaderboard.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "screen_leaderboard",
+      "target": "loading_skeletontable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/MyRegistrations.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "screen_myregistrations",
+      "target": "loading_skeletontable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/SponsorManagement.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "screen_sponsormanagement",
+      "target": "loading_skeletontable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonTournament.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "loading_skeletontournament",
+      "target": "loading_skeletontable_skeletontable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/ApprovePlayers.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "screen_approveplayers",
+      "target": "loading_skeletontable_skeletontable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/Leaderboard.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "screen_leaderboard",
+      "target": "loading_skeletontable_skeletontable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/MyRegistrations.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "screen_myregistrations",
+      "target": "loading_skeletontable_skeletontable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/SponsorManagement.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "screen_sponsormanagement",
+      "target": "loading_skeletontable_skeletontable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonTeam.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "loading_skeletonteam",
+      "target": "loading_skeletonteam_skeletonteam",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/TeamDetails.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "screen_teamdetails",
+      "target": "loading_skeletonteam",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/TeamDetails.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "screen_teamdetails",
+      "target": "loading_skeletonteam_skeletonteam",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/components/loading/SkeletonTournament.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "loading_skeletontournament",
+      "target": "loading_skeletontournament_skeletontournament",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/TournamentDetails.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "screen_tournamentdetails",
+      "target": "loading_skeletontournament",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Fronted/src/screen/TournamentDetails.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "screen_tournamentdetails",
+      "target": "loading_skeletontournament_skeletontournament",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "Fronted/src/components/profile/CoachProfileContent.jsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_coachprofilecontent",
-      "target": "profile_coachprofilecontent_coachprofilecontent",
-      "confidence_score": 1.0
+      "target": "profile_coachprofilecontent_coachprofilecontent"
     },
     {
       "relation": "imports_from",
@@ -9169,9 +10791,9 @@
       "source_file": "Fronted/src/components/profile/CoachProfileContent.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_coachprofilecontent",
-      "target": "profile_profileactivitytimeline",
-      "confidence_score": 1.0
+      "target": "profile_profileactivitytimeline"
     },
     {
       "relation": "imports",
@@ -9180,9 +10802,9 @@
       "source_file": "Fronted/src/components/profile/CoachProfileContent.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_coachprofilecontent",
-      "target": "profile_profileactivitytimeline_profileactivitytimeline",
-      "confidence_score": 1.0
+      "target": "profile_profileactivitytimeline_profileactivitytimeline"
     },
     {
       "relation": "imports_from",
@@ -9191,9 +10813,9 @@
       "source_file": "Fronted/src/components/profile/CoachProfileContent.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_coachprofilecontent",
-      "target": "profile_profileinfocard",
-      "confidence_score": 1.0
+      "target": "profile_profileinfocard"
     },
     {
       "relation": "imports",
@@ -9202,9 +10824,9 @@
       "source_file": "Fronted/src/components/profile/CoachProfileContent.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_coachprofilecontent",
-      "target": "profile_profileinfocard_profileinfocard",
-      "confidence_score": 1.0
+      "target": "profile_profileinfocard_profileinfocard"
     },
     {
       "relation": "imports_from",
@@ -9213,9 +10835,9 @@
       "source_file": "Fronted/src/components/profile/CoachProfileContent.jsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_coachprofilecontent",
-      "target": "profile_profilestatscard",
-      "confidence_score": 1.0
+      "target": "profile_profilestatscard"
     },
     {
       "relation": "imports",
@@ -9224,9 +10846,9 @@
       "source_file": "Fronted/src/components/profile/CoachProfileContent.jsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_coachprofilecontent",
-      "target": "profile_profilestatscard_profilestatscard",
-      "confidence_score": 1.0
+      "target": "profile_profilestatscard_profilestatscard"
     },
     {
       "relation": "contains",
@@ -9234,9 +10856,9 @@
       "source_file": "Fronted/src/components/profile/OrganizerProfileContent.jsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_organizerprofilecontent",
-      "target": "profile_organizerprofilecontent_organizerprofilecontent",
-      "confidence_score": 1.0
+      "target": "profile_organizerprofilecontent_organizerprofilecontent"
     },
     {
       "relation": "imports_from",
@@ -9245,9 +10867,9 @@
       "source_file": "Fronted/src/components/profile/OrganizerProfileContent.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_organizerprofilecontent",
-      "target": "profile_profileactivitytimeline",
-      "confidence_score": 1.0
+      "target": "profile_profileactivitytimeline"
     },
     {
       "relation": "imports",
@@ -9256,9 +10878,9 @@
       "source_file": "Fronted/src/components/profile/OrganizerProfileContent.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_organizerprofilecontent",
-      "target": "profile_profileactivitytimeline_profileactivitytimeline",
-      "confidence_score": 1.0
+      "target": "profile_profileactivitytimeline_profileactivitytimeline"
     },
     {
       "relation": "imports_from",
@@ -9267,9 +10889,9 @@
       "source_file": "Fronted/src/components/profile/OrganizerProfileContent.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_organizerprofilecontent",
-      "target": "profile_profileinfocard",
-      "confidence_score": 1.0
+      "target": "profile_profileinfocard"
     },
     {
       "relation": "imports",
@@ -9278,9 +10900,9 @@
       "source_file": "Fronted/src/components/profile/OrganizerProfileContent.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_organizerprofilecontent",
-      "target": "profile_profileinfocard_profileinfocard",
-      "confidence_score": 1.0
+      "target": "profile_profileinfocard_profileinfocard"
     },
     {
       "relation": "imports_from",
@@ -9289,9 +10911,9 @@
       "source_file": "Fronted/src/components/profile/OrganizerProfileContent.jsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_organizerprofilecontent",
-      "target": "profile_profilestatscard",
-      "confidence_score": 1.0
+      "target": "profile_profilestatscard"
     },
     {
       "relation": "imports",
@@ -9300,9 +10922,9 @@
       "source_file": "Fronted/src/components/profile/OrganizerProfileContent.jsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_organizerprofilecontent",
-      "target": "profile_profilestatscard_profilestatscard",
-      "confidence_score": 1.0
+      "target": "profile_profilestatscard_profilestatscard"
     },
     {
       "relation": "contains",
@@ -9310,9 +10932,9 @@
       "source_file": "Fronted/src/components/profile/PlayerProfileContent.jsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_playerprofilecontent",
-      "target": "profile_playerprofilecontent_playerprofilecontent",
-      "confidence_score": 1.0
+      "target": "profile_playerprofilecontent_playerprofilecontent"
     },
     {
       "relation": "imports_from",
@@ -9321,9 +10943,9 @@
       "source_file": "Fronted/src/components/profile/PlayerProfileContent.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_playerprofilecontent",
-      "target": "profile_profileactivitytimeline",
-      "confidence_score": 1.0
+      "target": "profile_profileactivitytimeline"
     },
     {
       "relation": "imports",
@@ -9332,9 +10954,9 @@
       "source_file": "Fronted/src/components/profile/PlayerProfileContent.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_playerprofilecontent",
-      "target": "profile_profileactivitytimeline_profileactivitytimeline",
-      "confidence_score": 1.0
+      "target": "profile_profileactivitytimeline_profileactivitytimeline"
     },
     {
       "relation": "imports_from",
@@ -9343,9 +10965,9 @@
       "source_file": "Fronted/src/components/profile/PlayerProfileContent.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_playerprofilecontent",
-      "target": "profile_profileinfocard",
-      "confidence_score": 1.0
+      "target": "profile_profileinfocard"
     },
     {
       "relation": "imports",
@@ -9354,9 +10976,9 @@
       "source_file": "Fronted/src/components/profile/PlayerProfileContent.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_playerprofilecontent",
-      "target": "profile_profileinfocard_profileinfocard",
-      "confidence_score": 1.0
+      "target": "profile_profileinfocard_profileinfocard"
     },
     {
       "relation": "imports_from",
@@ -9365,9 +10987,9 @@
       "source_file": "Fronted/src/components/profile/PlayerProfileContent.jsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_playerprofilecontent",
-      "target": "profile_profilestatscard",
-      "confidence_score": 1.0
+      "target": "profile_profilestatscard"
     },
     {
       "relation": "imports",
@@ -9376,9 +10998,9 @@
       "source_file": "Fronted/src/components/profile/PlayerProfileContent.jsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_playerprofilecontent",
-      "target": "profile_profilestatscard_profilestatscard",
-      "confidence_score": 1.0
+      "target": "profile_profilestatscard_profilestatscard"
     },
     {
       "relation": "contains",
@@ -9386,9 +11008,9 @@
       "source_file": "Fronted/src/components/profile/ProfileActivityTimeline.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_profileactivitytimeline",
-      "target": "profile_profileactivitytimeline_profileactivitytimeline",
-      "confidence_score": 1.0
+      "target": "profile_profileactivitytimeline_profileactivitytimeline"
     },
     {
       "relation": "imports_from",
@@ -9397,9 +11019,9 @@
       "source_file": "Fronted/src/components/profile/SponsorProfileContent.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_sponsorprofilecontent",
-      "target": "profile_profileactivitytimeline",
-      "confidence_score": 1.0
+      "target": "profile_profileactivitytimeline"
     },
     {
       "relation": "imports_from",
@@ -9408,9 +11030,9 @@
       "source_file": "Fronted/src/screen/Profile.jsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "screen_profile",
-      "target": "profile_profileactivitytimeline",
-      "confidence_score": 1.0
+      "target": "profile_profileactivitytimeline"
     },
     {
       "relation": "imports",
@@ -9419,9 +11041,9 @@
       "source_file": "Fronted/src/components/profile/SponsorProfileContent.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_sponsorprofilecontent",
-      "target": "profile_profileactivitytimeline_profileactivitytimeline",
-      "confidence_score": 1.0
+      "target": "profile_profileactivitytimeline_profileactivitytimeline"
     },
     {
       "relation": "imports",
@@ -9430,9 +11052,9 @@
       "source_file": "Fronted/src/screen/Profile.jsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "screen_profile",
-      "target": "profile_profileactivitytimeline_profileactivitytimeline",
-      "confidence_score": 1.0
+      "target": "profile_profileactivitytimeline_profileactivitytimeline"
     },
     {
       "relation": "contains",
@@ -9440,9 +11062,9 @@
       "source_file": "Fronted/src/components/profile/ProfileHero.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_profilehero",
-      "target": "profile_profilehero_profilehero",
-      "confidence_score": 1.0
+      "target": "profile_profilehero_profilehero"
     },
     {
       "relation": "imports_from",
@@ -9451,9 +11073,9 @@
       "source_file": "Fronted/src/screen/Profile.jsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "screen_profile",
-      "target": "profile_profilehero",
-      "confidence_score": 1.0
+      "target": "profile_profilehero"
     },
     {
       "relation": "imports",
@@ -9462,9 +11084,9 @@
       "source_file": "Fronted/src/screen/Profile.jsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "screen_profile",
-      "target": "profile_profilehero_profilehero",
-      "confidence_score": 1.0
+      "target": "profile_profilehero_profilehero"
     },
     {
       "relation": "contains",
@@ -9472,9 +11094,9 @@
       "source_file": "Fronted/src/components/profile/ProfileInfoCard.jsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_profileinfocard",
-      "target": "profile_profileinfocard_profileinfocard",
-      "confidence_score": 1.0
+      "target": "profile_profileinfocard_profileinfocard"
     },
     {
       "relation": "imports_from",
@@ -9483,9 +11105,9 @@
       "source_file": "Fronted/src/components/profile/ProfileInfoCard.jsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_profileinfocard",
-      "target": "utils_axiosconfig",
-      "confidence_score": 1.0
+      "target": "utils_axiosconfig"
     },
     {
       "relation": "imports",
@@ -9494,9 +11116,9 @@
       "source_file": "Fronted/src/components/profile/ProfileInfoCard.jsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_profileinfocard",
-      "target": "utils_axiosconfig_api",
-      "confidence_score": 1.0
+      "target": "utils_axiosconfig_api"
     },
     {
       "relation": "imports_from",
@@ -9505,9 +11127,9 @@
       "source_file": "Fronted/src/components/profile/SponsorProfileContent.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_sponsorprofilecontent",
-      "target": "profile_profileinfocard",
-      "confidence_score": 1.0
+      "target": "profile_profileinfocard"
     },
     {
       "relation": "imports",
@@ -9516,9 +11138,9 @@
       "source_file": "Fronted/src/components/profile/SponsorProfileContent.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_sponsorprofilecontent",
-      "target": "profile_profileinfocard_profileinfocard",
-      "confidence_score": 1.0
+      "target": "profile_profileinfocard_profileinfocard"
     },
     {
       "relation": "contains",
@@ -9526,9 +11148,9 @@
       "source_file": "Fronted/src/components/profile/ProfileLayout.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_profilelayout",
-      "target": "profile_profilelayout_profilelayout",
-      "confidence_score": 1.0
+      "target": "profile_profilelayout_profilelayout"
     },
     {
       "relation": "imports_from",
@@ -9537,9 +11159,9 @@
       "source_file": "Fronted/src/screen/Profile.jsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "screen_profile",
-      "target": "profile_profilelayout",
-      "confidence_score": 1.0
+      "target": "profile_profilelayout"
     },
     {
       "relation": "imports",
@@ -9548,9 +11170,9 @@
       "source_file": "Fronted/src/screen/Profile.jsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "screen_profile",
-      "target": "profile_profilelayout_profilelayout",
-      "confidence_score": 1.0
+      "target": "profile_profilelayout_profilelayout"
     },
     {
       "relation": "contains",
@@ -9558,9 +11180,9 @@
       "source_file": "Fronted/src/components/profile/ProfileQuickActions.jsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_profilequickactions",
-      "target": "profile_profilequickactions_profilequickactions",
-      "confidence_score": 1.0
+      "target": "profile_profilequickactions_profilequickactions"
     },
     {
       "relation": "imports_from",
@@ -9569,9 +11191,9 @@
       "source_file": "Fronted/src/screen/Profile.jsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "screen_profile",
-      "target": "profile_profilequickactions",
-      "confidence_score": 1.0
+      "target": "profile_profilequickactions"
     },
     {
       "relation": "imports",
@@ -9580,9 +11202,9 @@
       "source_file": "Fronted/src/screen/Profile.jsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "screen_profile",
-      "target": "profile_profilequickactions_profilequickactions",
-      "confidence_score": 1.0
+      "target": "profile_profilequickactions_profilequickactions"
     },
     {
       "relation": "contains",
@@ -9590,9 +11212,9 @@
       "source_file": "Fronted/src/components/profile/ProfileStatsCard.jsx",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_profilestatscard",
-      "target": "profile_profilestatscard_profilestatscard",
-      "confidence_score": 1.0
+      "target": "profile_profilestatscard_profilestatscard"
     },
     {
       "relation": "imports_from",
@@ -9601,9 +11223,9 @@
       "source_file": "Fronted/src/components/profile/SponsorProfileContent.jsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_sponsorprofilecontent",
-      "target": "profile_profilestatscard",
-      "confidence_score": 1.0
+      "target": "profile_profilestatscard"
     },
     {
       "relation": "imports_from",
@@ -9612,9 +11234,9 @@
       "source_file": "Fronted/src/screen/Profile.jsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "screen_profile",
-      "target": "profile_profilestatscard",
-      "confidence_score": 1.0
+      "target": "profile_profilestatscard"
     },
     {
       "relation": "imports",
@@ -9623,9 +11245,9 @@
       "source_file": "Fronted/src/components/profile/SponsorProfileContent.jsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_sponsorprofilecontent",
-      "target": "profile_profilestatscard_profilestatscard",
-      "confidence_score": 1.0
+      "target": "profile_profilestatscard_profilestatscard"
     },
     {
       "relation": "imports",
@@ -9634,9 +11256,9 @@
       "source_file": "Fronted/src/screen/Profile.jsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "screen_profile",
-      "target": "profile_profilestatscard_profilestatscard",
-      "confidence_score": 1.0
+      "target": "profile_profilestatscard_profilestatscard"
     },
     {
       "relation": "contains",
@@ -9644,9 +11266,9 @@
       "source_file": "Fronted/src/components/profile/ProfileTabs.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_profiletabs",
-      "target": "profile_profiletabs_profiletabs",
-      "confidence_score": 1.0
+      "target": "profile_profiletabs_profiletabs"
     },
     {
       "relation": "imports_from",
@@ -9655,9 +11277,9 @@
       "source_file": "Fronted/src/screen/Profile.jsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "screen_profile",
-      "target": "profile_profiletabs",
-      "confidence_score": 1.0
+      "target": "profile_profiletabs"
     },
     {
       "relation": "imports",
@@ -9666,9 +11288,9 @@
       "source_file": "Fronted/src/screen/Profile.jsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "screen_profile",
-      "target": "profile_profiletabs_profiletabs",
-      "confidence_score": 1.0
+      "target": "profile_profiletabs_profiletabs"
     },
     {
       "relation": "contains",
@@ -9676,9 +11298,9 @@
       "source_file": "Fronted/src/components/profile/SponsorProfileContent.jsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "profile_sponsorprofilecontent",
-      "target": "profile_sponsorprofilecontent_sponsorprofilecontent",
-      "confidence_score": 1.0
+      "target": "profile_sponsorprofilecontent_sponsorprofilecontent"
     },
     {
       "relation": "contains",
@@ -11603,9 +13225,9 @@
       "source_file": "Fronted/src/screen/Profile.jsx",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "screen_profile",
-      "target": "screen_profile_coachprofilecontent",
-      "confidence_score": 1.0
+      "target": "screen_profile_coachprofilecontent"
     },
     {
       "relation": "contains",
@@ -11613,9 +13235,9 @@
       "source_file": "Fronted/src/screen/Profile.jsx",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "screen_profile",
-      "target": "screen_profile_organizerprofilecontent",
-      "confidence_score": 1.0
+      "target": "screen_profile_organizerprofilecontent"
     },
     {
       "relation": "contains",
@@ -11623,9 +13245,9 @@
       "source_file": "Fronted/src/screen/Profile.jsx",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "screen_profile",
-      "target": "screen_profile_playerprofilecontent",
-      "confidence_score": 1.0
+      "target": "screen_profile_playerprofilecontent"
     },
     {
       "relation": "contains",
@@ -11643,9 +13265,9 @@
       "source_file": "Fronted/src/screen/Profile.jsx",
       "source_location": "L414",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "screen_profile",
-      "target": "screen_profile_profileskeletonloader",
-      "confidence_score": 1.0
+      "target": "screen_profile_profileskeletonloader"
     },
     {
       "relation": "contains",
@@ -11653,9 +13275,9 @@
       "source_file": "Fronted/src/screen/Profile.jsx",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "screen_profile",
-      "target": "screen_profile_sponsorprofilecontent",
-      "confidence_score": 1.0
+      "target": "screen_profile_sponsorprofilecontent"
     },
     {
       "relation": "imports_from",
@@ -17778,9 +19400,9 @@
       "source_file": "backend/migrate.js",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_migrate",
-      "target": "backend_migrate_dns",
-      "confidence_score": 1.0
+      "target": "backend_migrate_dns"
     },
     {
       "relation": "contains",
@@ -17788,9 +19410,9 @@
       "source_file": "backend/migrate.js",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_migrate",
-      "target": "backend_migrate_getdbnamefromuri",
-      "confidence_score": 1.0
+      "target": "backend_migrate_getdbnamefromuri"
     },
     {
       "relation": "contains",
@@ -17798,9 +19420,9 @@
       "source_file": "backend/migrate.js",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_migrate",
-      "target": "backend_migrate_maskuri",
-      "confidence_score": 1.0
+      "target": "backend_migrate_maskuri"
     },
     {
       "relation": "contains",
@@ -17808,9 +19430,9 @@
       "source_file": "backend/migrate.js",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_migrate",
-      "target": "backend_migrate_mongoose",
-      "confidence_score": 1.0
+      "target": "backend_migrate_mongoose"
     },
     {
       "relation": "contains",
@@ -17818,9 +19440,9 @@
       "source_file": "backend/migrate.js",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_migrate",
-      "target": "backend_migrate_runmigration",
-      "confidence_score": 1.0
+      "target": "backend_migrate_runmigration"
     },
     {
       "relation": "calls",
@@ -17829,9 +19451,9 @@
       "source_file": "backend/migrate.js",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_migrate_runmigration",
-      "target": "backend_migrate_maskuri",
-      "confidence_score": 1.0
+      "target": "backend_migrate_maskuri"
     },
     {
       "relation": "calls",
@@ -17840,9 +19462,9 @@
       "source_file": "backend/migrate.js",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_migrate_runmigration",
-      "target": "backend_migrate_getdbnamefromuri",
-      "confidence_score": 1.0
+      "target": "backend_migrate_getdbnamefromuri"
     },
     {
       "relation": "contains",
@@ -18999,9 +20621,9 @@
       "source_file": "backend/utils/prizeDistributionHelper.js",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_prizedistributionhelper",
-      "target": "utils_prizedistributionhelper_distributewithretry",
-      "confidence_score": 1.0
+      "target": "utils_prizedistributionhelper_distributewithretry"
     },
     {
       "relation": "contains",
@@ -19080,9 +20702,9 @@
       "source_file": "backend/utils/prizeDistributionHelper.js",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_prizedistributionhelper_distributetournamentprizes",
-      "target": "utils_prizedistributionhelper_distributewithretry",
-      "confidence_score": 1.0
+      "target": "utils_prizedistributionhelper_distributewithretry"
     },
     {
       "relation": "calls",
@@ -19342,5 +20964,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "88eeea8b47177dd6a71b7c17c4dd7c65f5e1e5d7"
+  "built_at_commit": "a49b7e32a50113ae43095934ced29e0749abd4cb"
 }

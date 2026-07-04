@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./AdminDashboard.css";
+import SkeletonTable from "../components/loading/SkeletonTable";
 
 export default function TeamList() {
   const token = localStorage.getItem("token");
@@ -86,7 +87,7 @@ export default function TeamList() {
 
         <section className="panel">
           {loading ? (
-            <p>Loading teams...</p>
+            <SkeletonTable rows={6} cols={4} noCard={true} />
           ) : (
             <table>
               <thead>

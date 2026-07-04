@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./AdminDashboard.css";
 import { motion } from "framer-motion";
 import TiltCard from "../components/TiltCard";
+import SkeletonDashboard from "../components/loading/SkeletonDashboard";
 
 function AnimatedCounter({ value, duration = 1000 }) {
   const [count, setCount] = useState(0);
@@ -125,11 +126,8 @@ export default function AdminDashboard() {
 
   if (loading) {
     return (
-      <div className="admin-layout" style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "60vh" }}>
-        <div style={{ textAlign: "center" }}>
-          <div className="loading-spinner" style={{ margin: "0 auto 20px" }}></div>
-          <h2 style={{ color: "var(--text-secondary)" }}>Loading admin analytics...</h2>
-        </div>
+      <div className="admin-layout">
+        <SkeletonDashboard />
       </div>
     );
   }

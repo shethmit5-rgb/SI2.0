@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import api from "../utils/axiosConfig";
 import "../static/home.css";
 import { useAuth } from "../context/AuthContext";
+import SkeletonCard from "../components/loading/SkeletonCard";
+import SkeletonStats from "../components/loading/SkeletonStats";
 import { motion } from "framer-motion";
 import ThreeBgCanvas from "../components/ThreeBgCanvas";
 import TiltCard from "../components/TiltCard";
@@ -109,7 +111,22 @@ export default function Home() {
   }, []);
 
   if (loading) {
-    return <div className="loading-spinner">Loading ArenaSync...</div>;
+    return (
+      <div className="home-container" style={{ padding: "40px 20px" }}>
+        {/* Mock Hero */}
+        <div className="skeleton-glass-card" style={{ height: "350px", marginBottom: "40px" }} />
+        
+        {/* Mock Stats */}
+        <SkeletonStats count={4} style={{ marginBottom: "40px" }} />
+        
+        {/* Mock Tournaments */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "20px" }}>
+          <SkeletonCard height="240px" />
+          <SkeletonCard height="240px" />
+          <SkeletonCard height="240px" />
+        </div>
+      </div>
+    );
   }
 
   // Animation Variants for orchestrated entrance

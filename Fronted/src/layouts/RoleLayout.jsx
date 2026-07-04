@@ -7,12 +7,17 @@ import SponsorLayout from "./SponsorLayout";
 import { useAuth } from "../context/AuthContext";
 import { motion } from "framer-motion";
 import ThreeBgCanvas from "../components/ThreeBgCanvas";
+import SkeletonDashboard from "../components/loading/SkeletonDashboard";
 
 const RoleLayout = ({ children }) => {
   const { user, loading } = useAuth();
 
   if (loading) {
-    return <div className="loading-spinner">Loading...</div>;
+    return (
+      <div style={{ padding: "40px" }}>
+        <SkeletonDashboard />
+      </div>
+    );
   }
 
   const renderLayoutContent = () => {

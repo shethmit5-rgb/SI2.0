@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import api from "../utils/axiosConfig";
 import { useAuth } from "../context/AuthContext";
 import "../static/SponsorManagement.css";
+import SkeletonTable from "../components/loading/SkeletonTable";
+import SkeletonStats from "../components/loading/SkeletonStats";
 
 export default function SponsorManagement() {
   const { user } = useAuth();
@@ -134,7 +136,16 @@ export default function SponsorManagement() {
   };
 
   if (loading) {
-    return <div className="loading">Loading...</div>;
+    return (
+      <div className="sponsor-management-page">
+        <div className="page-header">
+          <h1>🤝 Sponsor Management</h1>
+          <p>Add and manage sponsors for your tournaments</p>
+        </div>
+        <SkeletonStats count={3} style={{ marginBottom: "30px" }} />
+        <SkeletonTable rows={6} cols={5} />
+      </div>
+    );
   }
 
   if (!selectedTournament) {
