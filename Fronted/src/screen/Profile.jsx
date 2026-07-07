@@ -28,6 +28,8 @@ export default function Profile() {
     description: "",
     gender: "",
     age: "",
+    organizationName: "",
+    brandName: "",
   });
 
   const [image, setImage] = useState(null);
@@ -55,6 +57,8 @@ export default function Profile() {
           description: res.data.description || "",
           gender: res.data.gender || "",
           age: res.data.age || "",
+          organizationName: res.data.organizationName || "",
+          brandName: res.data.brandName || "",
         });
         setPreview(res.data.profileImage || "");
       } catch (err) {
@@ -127,7 +131,14 @@ export default function Profile() {
       }
     } catch (error) {
       console.error(error);
-      alert(error.response?.data?.message || "Profile update failed ❌");
+      const errors = error.response?.data?.errors;
+      const message = error.response?.data?.message;
+      if (Array.isArray(errors) && errors.length > 0) {
+        const fieldErrors = errors.map(err => `• ${err.field}: ${err.message}`).join("\n");
+        alert(`Validation failed:\n${fieldErrors}`);
+      } else {
+        alert(message || "Profile update failed ❌");
+      }
     } finally {
       setSaving(false);
     }
@@ -320,6 +331,8 @@ export default function Profile() {
           handleSubmit={handleSubmit}
           saving={saving}
           handleDelete={handleDelete}
+          preview={preview}
+          handleImageChange={handleImageChange}
         />
       )}
       {role === "sponsor" && (
@@ -334,6 +347,8 @@ export default function Profile() {
           handleSubmit={handleSubmit}
           saving={saving}
           handleDelete={handleDelete}
+          preview={preview}
+          handleImageChange={handleImageChange}
         />
       )}
     </Suspense>
@@ -368,6 +383,8 @@ export default function Profile() {
                 handleSubmit={handleSubmit}
                 saving={saving}
                 handleDelete={handleDelete}
+                preview={preview}
+                handleImageChange={handleImageChange}
               />
             )}
             {role === "coach" && (
@@ -382,6 +399,8 @@ export default function Profile() {
                 handleSubmit={handleSubmit}
                 saving={saving}
                 handleDelete={handleDelete}
+                preview={preview}
+                handleImageChange={handleImageChange}
               />
             )}
           </Suspense>

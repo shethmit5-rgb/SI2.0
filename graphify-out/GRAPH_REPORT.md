@@ -1,7 +1,7 @@
 # Graph Report - react-clg-tournament-main  (2026-07-07)
 
 ## Corpus Check
-- 180 files · ~93,207 words
+- 180 files · ~93,629 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `23480d3a`
+- Built from commit: `06eebb1d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -170,17 +170,13 @@ Cohesion: 0.47
 Nodes (5): dns, getDbNameFromUri(), maskUri(), mongoose, runMigration()
 
 ### Community 18 - "Community 18"
-Cohesion: 0.13
-Nodes (17): createSport(), deleteSport(), getSports(), Sport, updateSport(), { validationResult }, {
+Cohesion: 0.12
+Nodes (18): createSport(), deleteSport(), getSports(), Sport, updateSport(), mongoose, SportSchema, {
   createSport,
   getSports,
   updateSport,
   deleteSport,
-}, {
-  createSportValidator,
-  updateSportValidator,
-  deleteSportValidator
-} (+9 more)
+} (+10 more)
 
 ### Community 19 - "Community 19"
 Cohesion: 0.13

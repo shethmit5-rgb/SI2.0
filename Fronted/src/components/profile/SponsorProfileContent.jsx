@@ -15,6 +15,8 @@ export default function SponsorProfileContent({
   handleSubmit,
   saving,
   handleDelete,
+  preview,
+  handleImageChange,
 }) {
   const s = dashboardData.stats || {};
   const f = dashboardData.financials || {};
@@ -198,6 +200,8 @@ export default function SponsorProfileContent({
             handleSubmit={handleSubmit}
             saving={saving}
             handleDelete={handleDelete}
+            preview={preview}
+            handleImageChange={handleImageChange}
           />
         </div>
       );

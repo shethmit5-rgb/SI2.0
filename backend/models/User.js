@@ -35,7 +35,7 @@ const UserSchema = new mongoose.Schema(
 
     gender: {
       type: String,
-      enum: ["male", "female", "other"],
+      enum: ["male", "female", "other", "prefer-not-to-say"],
     },
 
     phoneNumber: {
@@ -76,6 +76,16 @@ const UserSchema = new mongoose.Schema(
     description: {
       type: String,
       maxlength: [500, "Description cannot exceed 500 characters"],
+    },
+
+    organizationName: {
+      type: String,
+      default: "",
+    },
+
+    brandName: {
+      type: String,
+      default: "",
     },
 
     profileImage: {

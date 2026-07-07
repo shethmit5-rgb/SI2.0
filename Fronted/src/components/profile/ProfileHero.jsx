@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../static/Profile.css";
 
 export default function ProfileHero({
@@ -14,6 +14,8 @@ export default function ProfileHero({
   organizationName,
   brandName,
 }) {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   // 1. Calculate Profile Completeness Percentage
   const completenessItems = [
     { name: "Profile Photo", present: !!preview },
@@ -61,15 +63,13 @@ export default function ProfileHero({
               `https://ui-avatars.com/api/?name=${name || "User"}&background=4f46e5&color=fff`
             }
             alt="profile"
-            className="profile-avatar"
+            className={`profile-avatar ${imageLoaded ? "loaded" : "loading"}`}
+            onLoad={() => setImageLoaded(true)}
+            style={{
+              opacity: imageLoaded ? 1 : 0.6,
+              transition: "opacity 0.4s ease-in-out"
+            }}
           />
-
-          {isEditing && (
-            <label className="avatar-upload">
-              <input type="file" hidden accept="image/*" onChange={handleImageChange} />
-              <span>📷</span>
-            </label>
-          )}
         </div>
 
         {/* User Details */}
@@ -83,6 +83,18 @@ export default function ProfileHero({
               {role.toUpperCase()}
             </span>
           </div>
+
+          {/* Subtitle for role-specific organization/brand names */}
+          {role === "organizer" && (
+            <div className="profile-hero-subtitle">
+              🏛️ {form.organizationName || "No Organization Name Added"}
+            </div>
+          )}
+          {role === "sponsor" && (
+            <div className="profile-hero-subtitle">
+              💎 {form.brandName || "No Brand Name Added"}
+            </div>
+          )}
 
           <p className="profile-email-joined">
             <span>✉ {email}</span>

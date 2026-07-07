@@ -89,6 +89,8 @@ exports.updateProfile = async (req, res) => {
       "gender",
       "location",
       "description",
+      "organizationName",
+      "brandName",
     ];
 
     allowedFields.forEach((field) => {

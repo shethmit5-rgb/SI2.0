@@ -1468,3 +1468,172 @@
     grid-column: span 1;
   }
 }
+
+/* ==========================================================================
+   ROLE-SPECIFIC DETAILS & AVATAR IMPROVEMENTS
+   ========================================================================== */
+
+.profile-avatar {
+  object-fit: cover !important;
+  aspect-ratio: 1 / 1 !important;
+}
+
+@media (max-width: 768px) {
+  .profile-avatar-wrapper {
+    width: 100px !important;
+    height: 100px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-avatar-wrapper {
+    width: 80px !important;
+    height: 80px !important;
+  }
+}
+
+.personal-details-avatar-preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+/* Editable Avatar Wrapper inside details card */
+.personal-details-avatar-editable-wrapper {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.25s ease-in-out;
+}
+
+/* Ensure focus ring for accessibility */
+.personal-details-avatar-editable-wrapper:focus-visible {
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.6), 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+.personal-details-avatar-editable-wrapper:hover {
+  transform: scale(1.05);
+}
+
+/* Force details avatar image to be exactly 90px */
+.personal-details-avatar-preview .small-avatar-preview {
+  width: 90px !important;
+  height: 90px !important;
+  border-radius: 50% !important;
+  border: 3px solid #D4AF37 !important;
+  object-fit: cover !important;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25) !important;
+  transition: filter 0.25s ease-in-out, border-color 0.25s ease-in-out;
+}
+
+/* Hover Blur effect on the image */
+.personal-details-avatar-editable-wrapper:hover .small-avatar-preview.editable {
+  filter: blur(2.5px) brightness(0.65);
+  border-color: #3b82f6 !important; /* Premium blue accent highlight */
+}
+
+/* Fading Change Photo text overlay */
+.details-avatar-hover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+  pointer-events: none;
+}
+
+.details-avatar-hover-overlay span {
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 4px 8px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: 0.3px;
+  line-height: 1.1;
+}
+
+.personal-details-avatar-editable-wrapper:hover .details-avatar-hover-overlay {
+  opacity: 1;
+}
+
+/* Small camera icon overlay at bottom right */
+.details-avatar-camera-btn {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1e40af, #3b82f6) !important; /* Premium blue background */
+  border: 2px solid rgba(255, 255, 255, 0.8) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.25s ease-in-out, background 0.25s ease-in-out;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.details-avatar-camera-btn span {
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.personal-details-avatar-editable-wrapper:hover .details-avatar-camera-btn {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, #2563eb, #60a5fa) !important;
+}
+
+.profile-hero-subtitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.gender-select-premium {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 12px !important;
+  color: var(--text, #ffffff) !important;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+:root[data-theme="dark"] .gender-select-premium {
+  background: rgba(17, 24, 39, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.gender-select-premium:focus {
+  border-color: #D4AF37 !important;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.25) !important;
+}
+
+.gender-select-premium option {
+  background: #0f172a !important;
+  color: #ffffff !important;
+}

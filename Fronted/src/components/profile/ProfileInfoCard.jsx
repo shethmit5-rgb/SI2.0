@@ -11,6 +11,8 @@ export default function ProfileInfoCard({
   handleSubmit,
   saving,
   handleDelete,
+  preview,
+  handleImageChange,
 }) {
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [passwordForm, setPasswordForm] = useState({
@@ -63,6 +65,8 @@ export default function ProfileInfoCard({
     }
   };
 
+  const avatarSrc = preview || user?.profileImage || `https://ui-avatars.com/api/?name=${form.name || user?.name || "User"}&background=4f46e5&color=fff`;
+
   return (
     <div className="profile-info-section glass-panel">
       <div className="info-section-header">
@@ -71,6 +75,44 @@ export default function ProfileInfoCard({
           <button className="edit-profile-btn" onClick={() => setIsEditing(true)}>
             ✎ Edit Profile
           </button>
+        )}
+      </div>
+
+      {/* Small avatar preview above personal details */}
+      <div className="personal-details-avatar-preview">
+        {isEditing ? (
+          <div
+            className="personal-details-avatar-editable-wrapper"
+            onClick={() => document.getElementById("details-avatar-upload").click()}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                document.getElementById("details-avatar-upload").click();
+              }
+            }}
+            tabIndex={0}
+            role="button"
+            aria-label="Change profile photo"
+          >
+            <img src={avatarSrc} className="small-avatar-preview editable" alt="Avatar Preview" />
+            <div className="details-avatar-hover-overlay">
+              <span>Change Photo</span>
+            </div>
+            <div className="details-avatar-camera-btn">
+              <span>📷</span>
+            </div>
+            <input
+              id="details-avatar-upload"
+              type="file"
+              hidden
+              accept="image/*"
+              onChange={handleImageChange}
+            />
+          </div>
+        ) : (
+          <div className="personal-details-avatar-preview-wrapper">
+            <img src={avatarSrc} className="small-avatar-preview" alt="Avatar Preview" />
+          </div>
         )}
       </div>
 
@@ -121,6 +163,96 @@ export default function ProfileInfoCard({
             />
           </div>
         </div>
+
+        {/* Organizer fields */}
+        {user?.role === "organizer" && (
+          <div className="form-row">
+            <div className="form-group">
+              <label>Organization Name</label>
+              <input
+                name="organizationName"
+                value={isEditing ? (form.organizationName || "") : (form.organizationName || "No Organization Name Added")}
+                onChange={handleChange}
+                disabled={!isEditing}
+                placeholder="Organization Name"
+              />
+            </div>
+
+            <div className="form-group">
+              <label>Gender</label>
+              <select
+                name="gender"
+                value={form.gender || ""}
+                onChange={handleChange}
+                disabled={!isEditing}
+                className="gender-select-premium"
+              >
+                <option value="" disabled>Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+                <option value="prefer-not-to-say">Prefer not to say</option>
+              </select>
+            </div>
+          </div>
+        )}
+
+        {/* Sponsor fields */}
+        {user?.role === "sponsor" && (
+          <div className="form-row">
+            <div className="form-group">
+              <label>Brand Name</label>
+              <input
+                name="brandName"
+                value={isEditing ? (form.brandName || "") : (form.brandName || "No Brand Name Added")}
+                onChange={handleChange}
+                disabled={!isEditing}
+                placeholder="Brand Name"
+              />
+            </div>
+
+            <div className="form-group">
+              <label>Gender</label>
+              <select
+                name="gender"
+                value={form.gender || ""}
+                onChange={handleChange}
+                disabled={!isEditing}
+                className="gender-select-premium"
+              >
+                <option value="" disabled>Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+                <option value="prefer-not-to-say">Prefer not to say</option>
+              </select>
+            </div>
+          </div>
+        )}
+
+        {/* Coach / Player fields */}
+        {user?.role !== "organizer" && user?.role !== "sponsor" && (
+          <div className="form-row">
+            <div className="form-group">
+              <label>Gender</label>
+              <select
+                name="gender"
+                value={form.gender || ""}
+                onChange={handleChange}
+                disabled={!isEditing}
+                className="gender-select-premium"
+              >
+                <option value="" disabled>Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+                <option value="prefer-not-to-say">Prefer not to say</option>
+              </select>
+            </div>
+
+            <div className="form-group empty-placeholder"></div>
+          </div>
+        )}
 
         {/* Bio / Description */}
         <div className="form-group full-width">

@@ -15,6 +15,8 @@ export default function OrganizerProfileContent({
   handleSubmit,
   saving,
   handleDelete,
+  preview,
+  handleImageChange,
 }) {
   const s = dashboardData.stats || {};
   const reg = dashboardData.registrations || {};
@@ -174,6 +176,8 @@ export default function OrganizerProfileContent({
             handleSubmit={handleSubmit}
             saving={saving}
             handleDelete={handleDelete}
+            preview={preview}
+            handleImageChange={handleImageChange}
           />
         </div>
       );

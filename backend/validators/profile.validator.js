@@ -9,7 +9,7 @@ const {
 const updateProfileValidator = [
   nameChain("name", false),
   phoneChain("phoneNumber", false),
-  enumChain("gender", ["male", "female", "other"], false),
+  enumChain("gender", ["male", "female", "other", "prefer-not-to-say"], false),
   body("location")
     .optional()
     .isString()
@@ -21,6 +21,14 @@ const updateProfileValidator = [
     .withMessage("Description must be a string")
     .isLength({ max: 500 })
     .withMessage("Description cannot exceed 500 characters")
+    .trim(),
+  body("organizationName")
+    .optional()
+    .isString()
+    .trim(),
+  body("brandName")
+    .optional()
+    .isString()
     .trim()
 ];
 

@@ -15,6 +15,8 @@ export default function PlayerProfileContent({
   handleSubmit,
   saving,
   handleDelete,
+  preview,
+  handleImageChange,
 }) {
   const s = dashboardData.stats || {};
   const f = dashboardData.financials || {};
@@ -63,32 +65,42 @@ export default function PlayerProfileContent({
           {rewards.length === 0 ? (
             <div className="timeline-empty-state glass-card">
               <span className="empty-state-icon">💰</span>
-              <p>No tournament rewards yet.</p>
+              <p>No rewards record found. Win tournament brackets to earn payouts.</p>
             </div>
           ) : (
             <div className="table-responsive">
               <table className="profile-table">
                 <thead>
                   <tr>
-                    <th>Tournament</th>
-                    <th>Team</th>
-                    <th>Position</th>
-                    <th>Amount</th>
-                    <th>Date</th>
+                    <th>Tournament Name</th>
+                    <th>My Team</th>
+                    <th>My Rank</th>
+                    <th>My Reward</th>
+                    <th>Date Received</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {rewards.map((r, idx) => (
+                  {rewards.map((reward, idx) => (
                     <tr key={idx}>
-                      <td>{r.tournamentName}</td>
-                      <td>{r.teamName}</td>
+                      <td style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        {reward.brandLogo && (
+                          <img
+                            src={reward.brandLogo}
+                            alt="logo"
+                            className="table-avatar-round"
+                            style={{ width: '24px', height: '24px', borderRadius: '50%' }}
+                          />
+                        )}
+                        <span>{reward.tournamentName}</span>
+                      </td>
+                      <td>{reward.teamName}</td>
                       <td>
-                        <span className={`status-pill ${r.position === "Winner" ? "active" : "pending"}`}>
-                          {r.position}
+                        <span className={`status-pill ${reward.position === "Winner" ? "active" : "pending"}`}>
+                          {reward.position}
                         </span>
                       </td>
-                      <td>₹{r.individualPrize}</td>
-                      <td>{new Date(r.distributedAt).toLocaleDateString()}</td>
+                      <td><strong>₹{reward.individualPrize}</strong></td>
+                      <td>{new Date(reward.distributedAt).toLocaleDateString()}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -101,36 +113,27 @@ export default function PlayerProfileContent({
     case "achievements":
       return (
         <div className="tab-pane-content glass-panel">
-          <h3>🏆 Player Achievements</h3>
+          <h3>🏆 Achievements Showcase</h3>
           <div className="achievements-showcase-grid">
-            {s.tournamentsWon > 0 && (
+            {s.totalMatchesPlayed >= 10 && (
               <div className="badge-card-premium glass-card">
-                <span className="badge-icon">🥇</span>
-                <strong>Tournament Champion</strong>
-                <p>Won a collegiate tournament bracket</p>
+                <span className="badge-icon">👟</span>
+                <strong>Active Contender</strong>
+                <p>Played 10+ competitive matches</p>
               </div>
             )}
-            {f.totalPrizeMoneyEarned > 0 && (
+            {f.totalPrizeMoneyEarned >= 5000 && (
               <div className="badge-card-premium glass-card">
                 <span className="badge-icon">💰</span>
-                <strong>Prize Winner</strong>
-                <p>Earned direct sponsor payouts</p>
+                <strong>Prize earner</strong>
+                <p>Earned over ₹5,000</p>
               </div>
             )}
-            {s.totalMatchesPlayed >= 1 && (
-              <div className="badge-card-premium glass-card">
-                <span className="badge-icon">⚔️</span>
-                <strong>Competitive Athlete</strong>
-                <p>Played an official matches bracket</p>
-              </div>
-            )}
-            {s.winRate >= 60 && (
-              <div className="badge-card-premium glass-card">
-                <span className="badge-icon">🔥</span>
-                <strong>Consistent MVP</strong>
-                <p>Win rate above 60%</p>
-              </div>
-            )}
+            <div className="badge-card-premium glass-card">
+              <span className="badge-icon">🏅</span>
+              <strong>Active Athlete</strong>
+              <p>Registered and active in college leagues</p>
+            </div>
           </div>
         </div>
       );
@@ -149,9 +152,6 @@ export default function PlayerProfileContent({
                   <div key={idx} className="match-card-mini glass-card">
                     <strong>vs {match.opponent}</strong>
                     <span className="match-meta">{match.tournamentName}</span>
-                    <span className={`result-indicator ${match.result === "Win" ? "win" : "loss"}`}>
-                      {match.result}
-                    </span>
                   </div>
                 ))
               )}
@@ -186,6 +186,8 @@ export default function PlayerProfileContent({
             handleSubmit={handleSubmit}
             saving={saving}
             handleDelete={handleDelete}
+            preview={preview}
+            handleImageChange={handleImageChange}
           />
         </div>
       );

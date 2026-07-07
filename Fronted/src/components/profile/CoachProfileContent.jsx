@@ -15,6 +15,8 @@ export default function CoachProfileContent({
   handleSubmit,
   saving,
   handleDelete,
+  preview,
+  handleImageChange,
 }) {
   const s = dashboardData.stats || {};
   const activity = dashboardData.activity || {};
@@ -180,6 +182,8 @@ export default function CoachProfileContent({
             handleSubmit={handleSubmit}
             saving={saving}
             handleDelete={handleDelete}
+            preview={preview}
+            handleImageChange={handleImageChange}
           />
         </div>
       );
