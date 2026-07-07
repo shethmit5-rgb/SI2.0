@@ -25,9 +25,9 @@
     "semantic_hash": ""
   },
   "Fronted/src/adminside/AdminProfile.jsx": {
-    "mtime": 1780670698.299977,
-    "ast_hash": "fa737cfd494a30d2ccb2d3f94f434d2a",
-    "semantic_hash": "fa737cfd494a30d2ccb2d3f94f434d2a"
+    "mtime": 1783414419.3394756,
+    "ast_hash": "9d4b0356878e319e284d66bad38ed745",
+    "semantic_hash": ""
   },
   "Fronted/src/adminside/AdminUsers.jsx": {
     "mtime": 1780670705.6727345,
@@ -730,8 +730,8 @@
     "semantic_hash": ""
   },
   "Fronted/src/components/profile/ProfileLayout.jsx": {
-    "mtime": 1783105151.2046814,
-    "ast_hash": "33b469ef84ff0ba79da16a95530e6193",
+    "mtime": 1783414372.1353853,
+    "ast_hash": "ee47f4d22a74f0b4f84a84ee9e41bcd4",
     "semantic_hash": ""
   },
   "Fronted/src/components/profile/ProfileQuickActions.jsx": {
