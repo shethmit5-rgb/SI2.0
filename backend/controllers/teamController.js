@@ -87,9 +87,7 @@ exports.createTeam = async (req, res, next) => {
       return res.status(403).json({ message: "Only coaches can create teams." });
     }
 
-    if (!teamName || !tournamentId || !sportId) {
-      return res.status(400).json({ message: "Missing required fields" });
-    }
+    // Validations handled by express-validator
 
     const tournament = await Tournament.findById(tournamentId);
     if (!tournament) {
@@ -513,9 +511,7 @@ exports.deleteTeamByCaptain = async (req, res, next) => {
 exports.initiatePlayerJoinPayment = async (req, res) => {
   try {
     const { teamId } = req.body;
-    if (!teamId) {
-      return res.status(400).json({ message: "Missing teamId field" });
-    }
+    // Validated in teamId body check
 
     // Check expiry before initiating
     await checkAndReleaseExpiredPlayerApprovals(teamId, req);
@@ -716,9 +712,7 @@ exports.verifyPlayerJoinPayment = async (req, res) => {
     transactionId,
   } = req.body;
 
-  if (!razorpay_order_id || !razorpay_payment_id || !razorpay_signature || !transactionId) {
-    return res.status(400).json({ success: false, message: "Missing verification payload" });
-  }
+  // Verification payload validated in validator schema
 
   // Verify signature
   const body = razorpay_order_id + "|" + razorpay_payment_id;

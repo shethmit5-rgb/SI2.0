@@ -10,19 +10,8 @@ exports.register = async (req, res, next) => {
   try {
     const { name, email, phoneNumber, password, role } = req.body;
     
-    // Validations
-    const nameError = validateName(name);
-    if (nameError) return res.status(400).json({ message: nameError });
-    
-    const emailError = validateEmail(email);
-    if (emailError) return res.status(400).json({ message: emailError });
-    
-    if (!phoneNumber || !/^\+[1-9]\d{1,14}$/.test(phoneNumber)) {
-      return res.status(400).json({ message: "Valid phone number with country code is required (e.g. +919876543210)" });
-    }
+    // Validations (handled by express-validator)
 
-    const passwordError = validatePassword(password);
-    if (passwordError) return res.status(400).json({ message: passwordError });
 
     // Check existing user by email or phone
     const existingEmailUser = await User.findOne({ email });
@@ -79,9 +68,6 @@ exports.register = async (req, res, next) => {
 exports.checkEmail = async (req, res, next) => {
   try {
     const { email } = req.body;
-    if (!email) {
-      return res.status(400).json({ message: "Email is required" });
-    }
     
     const user = await User.findOne({ email });
     res.json({ available: !user });
@@ -94,9 +80,6 @@ exports.checkEmail = async (req, res, next) => {
 exports.sendEmailOtp = async (req, res, next) => {
   try {
     const { email } = req.body;
-    
-    const emailError = validateEmail(email);
-    if (emailError) return res.status(400).json({ message: emailError });
 
     // Check if user already exists
     const existingUser = await User.findOne({ email });
@@ -152,10 +135,6 @@ exports.verifyEmailOtp = async (req, res, next) => {
   try {
     const { email, otp } = req.body;
 
-    if (!email || !otp) {
-      return res.status(400).json({ message: "Email and OTP code are required" });
-    }
-
     const otpDoc = await EmailOtp.findOne({ email: email.toLowerCase() });
     if (!otpDoc) {
       return res.status(400).json({ message: "OTP expired or not found. Please request a new one." });
@@ -201,9 +180,6 @@ exports.verifyEmailOtp = async (req, res, next) => {
 exports.login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
-    
-    if (!email) return res.status(400).json({ message: "Email is required" });
-    if (!password) return res.status(400).json({ message: "Password is required" });
 
     const user = await User.findOne({ email });
 
@@ -260,10 +236,6 @@ exports.login = async (req, res, next) => {
 exports.forgotPassword = async (req, res, next) => {
   try {
     const { email } = req.body;
-    
-    if (!email) {
-      return res.status(400).json({ message: "Email is required" });
-    }
 
     const user = await User.findOne({ email });
 
@@ -308,10 +280,6 @@ exports.forgotPassword = async (req, res, next) => {
 exports.resendResetOtp = async (req, res, next) => {
   try {
     const { email } = req.body;
-    
-    if (!email) {
-      return res.status(400).json({ message: "Email is required" });
-    }
 
     const user = await User.findOne({ email });
 
@@ -353,16 +321,6 @@ exports.resendResetOtp = async (req, res, next) => {
 exports.resetPassword = async (req, res, next) => {
   try {
     const { email, code, newPassword } = req.body;
-
-    if (!email || !code || !newPassword) {
-      return res.status(400).json({ message: "All fields are required" });
-    }
-
-    // Validate password strength
-    const passwordError = validatePassword(newPassword);
-    if (passwordError) {
-      return res.status(400).json({ message: passwordError });
-    }
 
     // Find user with valid reset code
     const user = await User.findOne({

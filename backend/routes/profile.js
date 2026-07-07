@@ -7,6 +7,11 @@ const {
   changePassword,
   deactivateAccount,
 } = require("../controllers/profileController");
+const {
+  updateProfileValidator,
+  changePasswordValidator
+} = require("../validators/profile.validator");
+const validateRequest = require("../middleware/validateRequest");
 
 const router = express.Router();
 
@@ -14,10 +19,23 @@ const router = express.Router();
 router.get("/me", authMiddleware, getProfile);
 
 /* ================= UPDATE OWN PROFILE ================= */
-router.put("/update", authMiddleware, upload.single("profileImage"), updateProfile);
+router.put(
+  "/update",
+  authMiddleware,
+  upload.single("profileImage"),
+  updateProfileValidator,
+  validateRequest,
+  updateProfile
+);
 
 /* ================= CHANGE PASSWORD ================= */
-router.put("/change-password", authMiddleware, changePassword);
+router.put(
+  "/change-password",
+  authMiddleware,
+  changePasswordValidator,
+  validateRequest,
+  changePassword
+);
 
 /* ================= SOFT DELETE ACCOUNT ================= */
 router.delete("/delete", authMiddleware, deactivateAccount);

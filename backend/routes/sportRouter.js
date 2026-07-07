@@ -5,12 +5,19 @@ const {
   updateSport,
   deleteSport,
 } = require("../controllers/sportController");
+const {
+  createSportValidator,
+  updateSportValidator,
+  deleteSportValidator
+} = require("../validators/sport.validator");
+const validateRequest = require("../middleware/validateRequest");
 
 const router = express.Router();
 
-router.post("/", createSport);
+router.post("/", createSportValidator, validateRequest, createSport);
 router.get("/", getSports);
-router.put("/:id", updateSport);
-router.delete("/:id", deleteSport);
+router.put("/:id", updateSportValidator, validateRequest, updateSport);
+router.delete("/:id", deleteSportValidator, validateRequest, deleteSport);
 
 module.exports = router;
+

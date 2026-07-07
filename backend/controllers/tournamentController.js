@@ -83,10 +83,7 @@ exports.createTournament = async (req, res, next) => {
       teamRegistrationFee,
     } = req.body;
 
-    if (!eventName || !sportId || !startDate || !endDate) {
-      return res.status(400).json({ message: "Missing required fields" });
-    }
-
+    // Validated in validator schema
     if (new Date(endDate) < new Date(startDate)) {
       return res.status(400).json({ message: "End date cannot be before start date" });
     }

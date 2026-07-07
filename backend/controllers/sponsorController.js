@@ -22,9 +22,7 @@ exports.createSponsor = async (req, res, next) => {
   try {
     const { name, amount, tournamentId } = req.body;
 
-    if (!name || !amount || !tournamentId) {
-      return res.status(400).json({ message: "All fields required" });
-    }
+    // Validated in validator schema
 
     // ✅ Check if user is admin OR tournament organizer
     const tournament = await Tournament.findById(tournamentId);
@@ -255,9 +253,7 @@ exports.selfSponsor = async (req, res, next) => {
   try {
     const { brandName, tournamentId, type, winnerPrize, runnerUpPrize, equipment, amount } = req.body;
 
-    if (!brandName || !tournamentId || !type) {
-      return res.status(400).json({ message: "Brand Name, Tournament, and Type are required." });
-    }
+    // Validated in validator schema
 
     const tournament = await Tournament.findById(tournamentId);
     if (!tournament) {
@@ -394,9 +390,7 @@ exports.verifySelfPayment = async (req, res, next) => {
   try {
     const { razorpay_order_id, razorpay_payment_id, razorpay_signature, sponsorId } = req.body;
 
-    if (!razorpay_order_id || !razorpay_payment_id || !razorpay_signature || !sponsorId) {
-      return res.status(400).json({ message: "Missing required payment fields." });
-    }
+    // Validated in validator schema
 
     const sponsor = await Sponsor.findById(sponsorId);
     if (!sponsor) {

@@ -19,6 +19,22 @@ const {
 } = require("../controllers/teamController");
 const auth = require("../middleware/authMiddleware");
 const role = require("../middleware/roleMiddleware");
+const {
+  createTeamValidator,
+  payJoinValidator,
+  verifyJoinValidator,
+  getTeamsByTournamentValidator,
+  applyToTeamValidator,
+  approvePlayerValidator,
+  approvePlayerShortcutValidator,
+  getTeamByIdValidator,
+  updateTeamValidator,
+  blockMembersValidator,
+  deleteTeamValidator,
+  leaveTeamValidator,
+  deleteTeamByCaptainValidator
+} = require("../validators/team.validator");
+const validateRequest = require("../middleware/validateRequest");
 
 const router = express.Router();
 
@@ -33,13 +49,13 @@ const blockOrganizerForTeamManagement = (req, res, next) => {
 };
 
 /* ================= PLAYER JOINING PAYMENTS ================= */
-router.post("/pay-join", auth, blockOrganizerForTeamManagement, initiatePlayerJoinPayment);
-router.post("/verify-join", auth, blockOrganizerForTeamManagement, verifyPlayerJoinPayment);
+router.post("/pay-join", auth, blockOrganizerForTeamManagement, payJoinValidator, validateRequest, initiatePlayerJoinPayment);
+router.post("/verify-join", auth, blockOrganizerForTeamManagement, verifyJoinValidator, validateRequest, verifyPlayerJoinPayment);
 
 /* =========================================================
    CREATE TEAM
 ========================================================= */
-router.post("/", auth, blockOrganizerForTeamManagement, createTeam);
+router.post("/", auth, blockOrganizerForTeamManagement, createTeamValidator, validateRequest, createTeam);
 
 /* =========================================================
    ADMIN: GET ALL TEAMS
@@ -49,23 +65,22 @@ router.get("/", auth, role("admin", "organizer"), getTeams);
 /* =========================================================
    GET TEAMS BY TOURNAMENT
 ========================================================= */
-router.get("/tournament/:tournamentId", auth, getTeamsByTournament);
+router.get("/tournament/:tournamentId", auth, getTeamsByTournamentValidator, validateRequest, getTeamsByTournament);
 
 /* =========================================================
    PLAYER APPLY TO TEAM
 ========================================================= */
-router.post("/:teamId/apply", auth, blockOrganizerForTeamManagement, applyToTeam);
+router.post("/:teamId/apply", auth, blockOrganizerForTeamManagement, applyToTeamValidator, validateRequest, applyToTeam);
 
 /* =========================================================
    CAPTAIN APPROVE / REJECT PLAYER
 ========================================================= */
-router.put("/:teamId/approve", auth, blockOrganizerForTeamManagement, approvePlayer);
-router.put("/:teamId/player/:playerId", auth, blockOrganizerForTeamManagement, (req, res, next) => {
+router.put("/:teamId/approve", auth, blockOrganizerForTeamManagement, approvePlayerValidator, validateRequest, approvePlayer);
+router.put("/:teamId/player/:playerId", auth, blockOrganizerForTeamManagement, approvePlayerShortcutValidator, validateRequest, (req, res, next) => {
   req.body.userId = req.params.playerId;
   req.body.action = req.body.status;
   approvePlayer(req, res, next);
 });
-
 
 /* =========================================================
    GET MY TEAMS
@@ -85,23 +100,23 @@ router.get("/public", getPublicTeams);
 /* =========================================================
    GET SINGLE TEAM
 ========================================================= */
-router.get("/:id", getTeamById);
+router.get("/:id", getTeamByIdValidator, validateRequest, getTeamById);
 
 /* =========================================================
    ADMIN UPDATE / DELETE
 ========================================================= */
 // ================= EDIT TEAM (CAPTAIN ONLY) =================
-router.put("/:id", auth, blockOrganizerForTeamManagement, updateTeam);
+router.put("/:id", auth, blockOrganizerForTeamManagement, updateTeamValidator, validateRequest, updateTeam);
 
 // ================= PUT /teams/:id/members =================
-router.put("/:id/members", auth, blockOrganizerForTeamManagement, blockMembers);
+router.put("/:id/members", auth, blockOrganizerForTeamManagement, blockMembersValidator, validateRequest, blockMembers);
 
-router.delete("/:id", auth, blockOrganizerForTeamManagement, role("admin"), deleteTeamByAdmin);
+router.delete("/:id", auth, blockOrganizerForTeamManagement, role("admin"), deleteTeamValidator, validateRequest, deleteTeamByAdmin);
 
 // ================= LEAVE TEAM (PLAYER) =================
-router.delete("/:teamId/leave", auth, blockOrganizerForTeamManagement, leaveTeam);
+router.delete("/:teamId/leave", auth, blockOrganizerForTeamManagement, leaveTeamValidator, validateRequest, leaveTeam);
 
 // ================= DELETE TEAM (CAPTAIN ONLY) =================
-router.delete("/:id/delete", auth, blockOrganizerForTeamManagement, deleteTeamByCaptain);
+router.delete("/:id/delete", auth, blockOrganizerForTeamManagement, deleteTeamByCaptainValidator, validateRequest, deleteTeamByCaptain);
 
 module.exports = router;

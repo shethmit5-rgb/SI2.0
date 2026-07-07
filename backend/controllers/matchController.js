@@ -8,11 +8,7 @@ exports.createMatch = async (req, res, next) => {
   try {
     const { tournamentId, teams, matchDate, venueId } = req.body;
 
-    /* BASIC VALIDATION */
-    if (!tournamentId || !teams || teams.length !== 2 || !matchDate || !venueId) {
-      return res.status(400).json({ message: "Invalid match data" });
-    }
-
+    // Validated in validator schema
     if (teams[0] === teams[1]) {
       return res.status(400).json({ message: "Team A and Team B must be different" });
     }

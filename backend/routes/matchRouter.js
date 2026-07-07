@@ -13,20 +13,28 @@ const {
 } = require("../controllers/matchController");
 const auth = require("../middleware/authMiddleware");
 const role = require("../middleware/roleMiddleware");
-const validateObjectId = require("../middleware/validateObjectId");
+const {
+  createMatchValidator,
+  getMatchesByTournamentValidator,
+  updateMatchResultValidator,
+  getMatchByIdValidator,
+  updateMatchValidator,
+  deleteMatchValidator
+} = require("../validators/match.validator");
+const validateRequest = require("../middleware/validateRequest");
 
 const router = express.Router();
 
 /* ================= CREATE MATCH (ADMIN & ORGANIZER) ================= */
-router.post("/", auth, role("admin", "organizer"), createMatch);
+router.post("/", auth, role("admin", "organizer"), createMatchValidator, validateRequest, createMatch);
 
 /* ================= GET ALL MATCHES (ADMIN & ORGANIZER) ================= */
 router.get("/", auth, getMatches);
 
 /* ================= GET MATCHES BY TOURNAMENT (PUBLIC - NO AUTH) ================= */
-router.get("/tournament/:id", validateObjectId, getMatchesByTournament);
+router.get("/tournament/:id", getMatchesByTournamentValidator, validateRequest, getMatchesByTournament);
 
-router.get("/public/tournament/:id", validateObjectId, getPublicMatchesByTournament);
+router.get("/public/tournament/:id", getMatchesByTournamentValidator, validateRequest, getPublicMatchesByTournament);
 
 /* ================= GET UPCOMING MATCHES (PUBLIC - NO AUTH) ================= */
 router.get("/public/upcoming", getUpcomingMatches);
@@ -35,15 +43,15 @@ router.get("/public/upcoming", getUpcomingMatches);
 router.get("/public/completed", getCompletedMatches);
 
 /* ================= UPDATE MATCH RESULT (ADMIN & ORGANIZER) ================= */
-router.put("/:id/result", auth, role("admin", "organizer"), validateObjectId, updateMatchResult);
+router.put("/:id/result", auth, role("admin", "organizer"), updateMatchResultValidator, validateRequest, updateMatchResult);
 
 /* ================= GET SINGLE MATCH (PUBLIC) ================= */
-router.get("/:id", validateObjectId, getMatchById);
+router.get("/:id", getMatchByIdValidator, validateRequest, getMatchById);
 
 /* ================= UPDATE MATCH DETAILS (ADMIN & ORGANIZER) ================= */
-router.put("/:id", auth, role("admin", "organizer"), validateObjectId, updateMatch);
+router.put("/:id", auth, role("admin", "organizer"), updateMatchValidator, validateRequest, updateMatch);
 
 /* ================= DELETE MATCH (ADMIN & ORGANIZER) ================= */
-router.delete("/:id", auth, role("admin", "organizer"), validateObjectId, deleteMatch);
+router.delete("/:id", auth, role("admin", "organizer"), deleteMatchValidator, validateRequest, deleteMatch);
 
 module.exports = router;

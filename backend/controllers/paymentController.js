@@ -179,9 +179,7 @@ exports.adminOverridePayment = async (req, res) => {
     }
 
     const { transactionId, status } = req.body;
-    if (!transactionId || !status) {
-      return res.status(400).json({ message: "Missing required fields" });
-    }
+    // Validated in validator schema
 
     const transaction = await Transaction.findById(transactionId);
     if (!transaction) {
