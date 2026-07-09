@@ -43,13 +43,13 @@ const applyToTeamValidator = [
 const approvePlayerValidator = [
   requiredMongoIdChain("param", "teamId", "Invalid team ID"),
   requiredMongoIdChain("body", "userId", "Invalid player ID"),
-  enumChain("action", ["approve", "reject"])
+  enumChain("action", ["approved", "rejected"])
 ];
 
 const approvePlayerShortcutValidator = [
   requiredMongoIdChain("param", "teamId", "Invalid team ID"),
   requiredMongoIdChain("param", "playerId", "Invalid player ID"),
-  enumChain("status", ["approve", "reject"])
+  enumChain("status", ["approved", "rejected"])
 ];
 
 const getTeamByIdValidator = [

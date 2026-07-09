@@ -2,6 +2,7 @@ const express = require("express");
 const {
   createMatch,
   getMatches,
+  getMySchedule,
   getMatchesByTournament,
   getPublicMatchesByTournament,
   getUpcomingMatches,
@@ -30,6 +31,9 @@ router.post("/", auth, role("admin", "organizer"), createMatchValidator, validat
 
 /* ================= GET ALL MATCHES (ADMIN & ORGANIZER) ================= */
 router.get("/", auth, getMatches);
+
+/* ================= GET MY MATCHES SCHEDULE (COACH & PLAYER) ================= */
+router.get("/my-schedule", auth, getMySchedule);
 
 /* ================= GET MATCHES BY TOURNAMENT (PUBLIC - NO AUTH) ================= */
 router.get("/tournament/:id", getMatchesByTournamentValidator, validateRequest, getMatchesByTournament);

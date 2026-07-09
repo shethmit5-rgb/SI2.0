@@ -151,7 +151,7 @@ export default function AdminDashboard() {
   };
 
   return (
-    <motion.div 
+    <motion.div
       className="admin-layout perspective-viewport"
       variants={dashboardContainer}
       initial="hidden"
@@ -171,42 +171,48 @@ export default function AdminDashboard() {
         {/* ================= STATS WITH 3D TILTS ================= */}
         <motion.div className="stats" variants={dashboardItem} style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "20px", marginBottom: "30px" }}>
           <TiltCard className="card" style={{ padding: "20px", display: "flex", flexDirection: "column", gap: "10px" }}>
-            <span style={{ fontSize: "14px", color: "var(--text-secondary)" }}>Total Users</span>
+            <span style={{ fontSize: "12px", color: "var(--text-secondary)" }}>Total Users</span>
+            <br />
             <span style={{ fontSize: "32px", fontWeight: "800", color: "var(--primary)" }}>
               <AnimatedCounter value={stats.users} />
             </span>
           </TiltCard>
 
           <TiltCard className="card" style={{ padding: "20px", display: "flex", flexDirection: "column", gap: "10px" }}>
-            <span style={{ fontSize: "14px", color: "var(--text-secondary)" }}>Tournaments</span>
+            <span style={{ fontSize: "12px", color: "var(--text-secondary)" }}>Tournaments</span>
+            <br />
             <span style={{ fontSize: "32px", fontWeight: "800", color: "var(--teal)" }}>
               <AnimatedCounter value={stats.tournaments} />
             </span>
           </TiltCard>
 
           <TiltCard className="card" style={{ padding: "20px", display: "flex", flexDirection: "column", gap: "10px" }}>
-            <span style={{ fontSize: "14px", color: "var(--text-secondary)" }}>Teams</span>
+            <span style={{ fontSize: "12px", color: "var(--text-secondary)" }}>Teams</span>
+            <br />
             <span style={{ fontSize: "32px", fontWeight: "800", color: "var(--highlight)" }}>
               <AnimatedCounter value={stats.teams} />
             </span>
           </TiltCard>
 
           <TiltCard className="card" style={{ padding: "20px", display: "flex", flexDirection: "column", gap: "10px" }}>
-            <span style={{ fontSize: "14px", color: "var(--text-secondary)" }}>Prize Pool</span>
+            <span style={{ fontSize: "12px", color: "var(--text-secondary)" }}>Prize Pool</span>
+            <br />
             <span style={{ fontSize: "32px", fontWeight: "800", color: "var(--premium)" }}>
               ₹<AnimatedCounter value={stats.prizePool} />
             </span>
           </TiltCard>
 
           <TiltCard className="card" style={{ padding: "20px", display: "flex", flexDirection: "column", gap: "10px" }}>
-            <span style={{ fontSize: "14px", color: "var(--text-secondary)" }}>Total Distributed</span>
+            <span style={{ fontSize: "12px", color: "var(--text-secondary)" }}>Total Distributed</span>
+            <br />
             <span style={{ fontSize: "32px", fontWeight: "800", color: "var(--success)" }}>
               ₹<AnimatedCounter value={stats.totalPrizeDistributed} />
             </span>
           </TiltCard>
 
           <TiltCard className="card" style={{ padding: "20px", display: "flex", flexDirection: "column", gap: "10px" }}>
-            <span style={{ fontSize: "14px", color: "var(--text-secondary)" }}>Distributions Count</span>
+            <span style={{ fontSize: "12px", color: "var(--text-secondary)" }}>Distributions Count</span>
+            <br />
             <span style={{ fontSize: "32px", fontWeight: "800", color: "var(--primary)" }}>
               <AnimatedCounter value={stats.totalDistributionsCompleted} />
             </span>
@@ -341,7 +347,7 @@ export default function AdminDashboard() {
                       maximumFractionDigits: 0
                     }).format(val || 0);
                   };
-                  
+
                   return (
                     <tr key={t._id}>
                       <td style={{ fontFamily: "monospace", fontWeight: "600" }}>{dist ? dist.distributionId : "-"}</td>

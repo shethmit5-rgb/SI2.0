@@ -13,8 +13,7 @@ const verifyRegistrationPaymentValidator = [
   body("razorpay_order_id").notEmpty().withMessage("Missing verification payload"),
   body("razorpay_payment_id").notEmpty().withMessage("Missing verification payload"),
   body("razorpay_signature").notEmpty().withMessage("Missing verification payload"),
-  requiredMongoIdChain("body", "tournamentId", "Invalid tournament ID"),
-  requiredMongoIdChain("body", "teamId", "Invalid team ID")
+  requiredMongoIdChain("body", "transactionId", "Invalid transaction ID")
 ];
 
 const registerTeamValidator = [

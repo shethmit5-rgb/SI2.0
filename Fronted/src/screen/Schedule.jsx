@@ -3,19 +3,22 @@ import api from "../utils/axiosConfig";
 import { Link } from "react-router-dom";
 import "../static/schedule.css";
 import SkeletonMatch from "../components/loading/SkeletonMatch";
+import { useAuth } from "../context/AuthContext";
 
 export default function Schedule() {
   const [matches, setMatches] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("all");
+  const { user } = useAuth();
 
   useEffect(() => {
     fetchMatches();
-  }, []);
+  }, [user]);
 
   const fetchMatches = async () => {
     try {
-      const res = await api.get("/matches/public/upcoming");
+      const endpoint = user ? "/matches/my-schedule" : "/matches/public/upcoming";
+      const res = await api.get(endpoint);
       setMatches(res.data);
     } catch (err) {
       console.error("Failed to load matches", err);

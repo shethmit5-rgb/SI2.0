@@ -191,6 +191,70 @@ exports.getCompletedMatches = async (req, res, next) => {
   }
 };
 
+exports.getMySchedule = async (req, res, next) => {
+  try {
+    const Registration = require("../models/Registration");
+    const Team = require("../models/Team");
+    const Match = require("../models/Match");
+
+    let tournamentIds = [];
+
+    if (req.user.role === "coach") {
+      const teams = await Team.find({ captainId: req.user.userId }).select("_id");
+      const teamIds = teams.map(t => t._id);
+      const registrations = await Registration.find({ teamId: { $in: teamIds } }).select("tournamentId");
+      tournamentIds = registrations.map(r => r.tournamentId);
+    } else if (req.user.role === "player") {
+      const teams = await Team.find({
+        "players": {
+          $elemMatch: {
+            userId: req.user.userId,
+            status: { $in: ["approved", "approved_pending_payment"] }
+          }
+        }
+      }).select("_id");
+      const teamIds = teams.map(t => t._id);
+      const registrations = await Registration.find({ teamId: { $in: teamIds } }).select("tournamentId");
+      tournamentIds = registrations.map(r => r.tournamentId);
+    } else if (req.user.role === "organizer") {
+      const Tournament = require("../models/Tournament");
+      const tournaments = await Tournament.find({
+        $or: [
+          { organizerId: req.user.userId },
+          { createdBy: req.user.userId }
+        ]
+      });
+      const tournamentIdsOrganizer = tournaments.map(t => t._id);
+      const matches = await Match.find({ tournamentId: { $in: tournamentIdsOrganizer } })
+        .populate("teams", "teamName")
+        .populate("venueId", "name")
+        .populate("tournamentId", "eventName")
+        .sort({ matchDate: 1 });
+      return res.json(matches);
+    } else if (req.user.role === "admin") {
+      const matches = await Match.find()
+        .populate("teams", "teamName")
+        .populate("venueId", "name")
+        .populate("tournamentId", "eventName")
+        .sort({ matchDate: 1 });
+      return res.json(matches);
+    } else {
+      return res.status(403).json({ message: "Access denied." });
+    }
+
+    const matches = await Match.find({ tournamentId: { $in: tournamentIds } })
+      .populate("teams", "teamName")
+      .populate("venueId", "name")
+      .populate("tournamentId", "eventName")
+      .sort({ matchDate: 1 });
+
+    res.json(matches);
+  } catch (err) {
+    console.error("GET MY SCHEDULE ERROR:", err);
+    res.status(500).json({ message: "Failed to load matches schedule" });
+  }
+};
+
 exports.updateMatchResult = async (req, res, next) => {
   try {
     const { winnerTeamId, score, status } = req.body;
