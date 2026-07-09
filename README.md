@@ -350,4 +350,5 @@ A standalone script (`migrate.js`) built to securely migrate database records fr
 
 ## License
 
-This project is licensed under the MIT License.
+Code. Create. Compete.
+Built by Meet Sheth 🚀
